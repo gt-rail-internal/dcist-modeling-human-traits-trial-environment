@@ -1,0 +1,47 @@
+[0.675s] Invoking command in '/home/mayank/Documents/dcist-modeling-human-traits-trial-environment/src/webots_ros2_turtlebot': PYTHONPATH=/home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/webots_ros2_turtlebot build --build-base /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build install --prefix /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot --record /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/install.log --single-version-externally-managed
+[1.277s] running egg_info
+[1.277s] creating ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info
+[1.277s] writing ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/PKG-INFO
+[1.278s] writing dependency_links to ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/dependency_links.txt
+[1.278s] writing entry points to ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/entry_points.txt
+[1.278s] writing requirements to ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/requires.txt
+[1.278s] writing top-level names to ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/top_level.txt
+[1.281s] writing manifest file '../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/SOURCES.txt'
+[1.311s] reading manifest file '../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/SOURCES.txt'
+[1.312s] writing manifest file '../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info/SOURCES.txt'
+[1.312s] running build
+[1.312s] running build_py
+[1.312s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build
+[1.313s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build/lib
+[1.313s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build/lib/webots_ros2_turtlebot
+[1.313s] copying webots_ros2_turtlebot/__init__.py -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build/lib/webots_ros2_turtlebot
+[1.313s] copying webots_ros2_turtlebot/turtlebot_driver.py -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build/lib/webots_ros2_turtlebot
+[1.313s] running install
+[1.315s] running install_lib
+[1.316s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages/webots_ros2_turtlebot
+[1.316s] copying /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build/lib/webots_ros2_turtlebot/__init__.py -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages/webots_ros2_turtlebot
+[1.316s] copying /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build/lib/webots_ros2_turtlebot/turtlebot_driver.py -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages/webots_ros2_turtlebot
+[1.318s] byte-compiling /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages/webots_ros2_turtlebot/__init__.py to __init__.cpython-38.pyc
+[1.319s] byte-compiling /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages/webots_ros2_turtlebot/turtlebot_driver.py to turtlebot_driver.cpython-38.pyc
+[1.320s] running install_data
+[1.320s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/ament_index
+[1.320s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/ament_index/resource_index
+[1.321s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/ament_index/resource_index/packages
+[1.321s] copying resource/webots_ros2_turtlebot -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/ament_index/resource_index/packages
+[1.321s] copying launch/robot_launch.py -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot
+[1.321s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/resource
+[1.321s] copying resource/turtlebot3_burger_example_map.pgm -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/resource
+[1.321s] copying resource/turtlebot3_burger_example_map.yaml -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/resource
+[1.321s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/protos
+[1.321s] copying protos/TurtleBot3Burger_enu.proto -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/protos
+[1.323s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/protos/textures
+[1.323s] creating /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/worlds
+[1.323s] copying worlds/turtlebot3_burger_example.wbt -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/worlds
+[1.323s] copying worlds/.turtlebot3_burger_example.wbproj -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot/worlds
+[1.324s] copying package.xml -> /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/share/webots_ros2_turtlebot
+[1.324s] running install_egg_info
+[1.326s] Copying ../../build/webots_ros2_turtlebot/webots_ros2_turtlebot.egg-info to /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages/webots_ros2_turtlebot-1.0.5-py3.8.egg-info
+[1.327s] running install_scripts
+[1.350s] Installing turtlebot_driver script to /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/webots_ros2_turtlebot
+[1.350s] writing list of installed files to '/home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/install.log'
+[1.367s] Invoked command in '/home/mayank/Documents/dcist-modeling-human-traits-trial-environment/src/webots_ros2_turtlebot' returned '0': PYTHONPATH=/home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/webots_ros2_turtlebot build --build-base /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/build install --prefix /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/install/webots_ros2_turtlebot --record /home/mayank/Documents/dcist-modeling-human-traits-trial-environment/build/webots_ros2_turtlebot/install.log --single-version-externally-managed
