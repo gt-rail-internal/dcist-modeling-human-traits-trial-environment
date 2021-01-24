@@ -6,8 +6,8 @@ WorldInfo {
   title "ROS2 simulation of the TurtleBot3 Burger robot"
 }
 Viewpoint {
-  orientation 0.3381642872136813 -0.488196956283945 -0.8045549370480272 2.124732884815776
-  position -33.94683153465544 10.11509339826123 21.47248957700988
+  orientation -0.26135103410676774 -0.5253471447185147 -0.8097567625573912 3.680701162754587
+  position 31.93893781694134 31.4360213487351 15.927469295093456
   follow "TurtleBot3Burger:LDS-01"
 }
 TexturedBackground {
@@ -25,7 +25,7 @@ TurtleBot3Burger_enu {
 TurtleBot3Burger_enu {
   translation 6.44648 1.27999 0.106239
   rotation 0.0019998820104419734 0.9669429520486941 0.2549849563313516 0.018
-  name "TurtleBot3Burger(1)"
+  name "TurtleBot3Burger_dup"
   controller "<extern>"
   controllerArgs [
     ""
@@ -36,6 +36,7 @@ UnevenTerrain {
   rotation 1 0 0 1.5708
 }
 Solid {
+  translation 0 11.5148 0.346738
   rotation 1 0 0 1.6008996938995748
   children [
     Shape {
@@ -203,7 +204,7 @@ Solid {
   ]
 }
 Solid {
-  translation 0 4.75785 0.143272
+  translation 9.84 4.75785 0.143272
   rotation 1 0 0 1.6008996938995748
   children [
     Shape {
@@ -285,4 +286,32 @@ Solid {
     0 0.16470588235294117 0
     0.30196078431372547 0.2196078431372549 0.12156862745098039
   ]
+}
+Rock17cm {
+  translation 0 3.27 -0.12
+  physics Physics {
+    mass 1
+  }
+}
+Rock17cm {
+  translation 12.57 3.27 0.16
+  name "rock 17 cm(1)"
+  physics Physics {
+    mass 1
+  }
+}
+OilBarrel {
+  translation 3.18 4.63999 0.40002
+  rotation 1 0 0 1.5708
+  physics Physics {
+    mass 3
+  }
+}
+OilBarrel {
+  translation 5.75 7.87999 0.36003
+  rotation 1 0 0 1.5708
+  name "oil barrel(1)"
+  physics Physics {
+    mass 3
+  }
 }
