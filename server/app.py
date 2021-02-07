@@ -22,8 +22,6 @@ def rosnode():
     rospy.init_node('dcistserver', anonymous=True)
     rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, cam1_callback)
  
-    rospy.spin()
-
 
 @app.route("/")
 def index():
@@ -53,3 +51,4 @@ def cam():
 
 rosnode()
 app.run(host="0.0.0.0", port=5000)
+rospy.spin()
