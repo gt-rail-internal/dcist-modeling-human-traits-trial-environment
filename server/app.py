@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 import rospy
 
 import base64
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Server is online"
+    return render_template("index.html")
 
 @app.route("/cam", methods=["GET"])
 def cam():
@@ -24,10 +24,11 @@ def cam():
     
     # return the image
     # adapted from https://stackoverflow.com/questions/3715493/
-    filename = "img/cam" + str(cam) + ".png"
+    filename = "static/img/cams/cam" + str(cam) + ".png"
     with open(filename, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
-
+    
     return encoded_string
+
 
 app.run(host="0.0.0.0", port=5000)
