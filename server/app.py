@@ -1,9 +1,29 @@
 from flask import Flask, render_template, request, make_response
-import rospy
 
+import rospy
+from sensor_msgs.msg import CompressedImage
 import base64
 
 app = Flask(__name__)
+
+cam1_image = ""
+cam2_image = ""
+cam3_image = ""
+cam4_image = ""
+
+
+def cam1_callback(data):
+    print("got image!")
+    return
+        
+
+# create a ros node and the subscribers
+def rosnode():
+    rospy.init_node('dcistserver', anonymous=True)
+    rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, cam1_callback)
+ 
+    rospy.spin()
+
 
 @app.route("/")
 def index():
@@ -31,4 +51,5 @@ def cam():
     return encoded_string
 
 
+rosnode()
 app.run(host="0.0.0.0", port=5000)
