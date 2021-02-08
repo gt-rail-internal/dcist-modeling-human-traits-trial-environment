@@ -15,6 +15,7 @@ cam_images = {
 }
 
 def cam1_callback(data):
+    print("updated image cam1")
     cam_images[1] = data.data
     return
 
@@ -41,6 +42,7 @@ def cam():
     # return the image
     # adapted from https://stackoverflow.com/questions/3715493/
     encoded_string = base64.b64encode(cam_images[cam])
+    print("got cam image", cam, len(encoded_string))
     
     return encoded_string
 
