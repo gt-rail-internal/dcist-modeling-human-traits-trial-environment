@@ -10,6 +10,7 @@ function canvasMouseHandler(event) {
     var canvasClick = [canvasX, canvasY];
 
     clickedVehicle = false;
+    clickedVehicleIndex = -1
 
     // check if any vehicles were clicked
     for (i in uiMap.uiObjects) {
@@ -17,13 +18,17 @@ function canvasMouseHandler(event) {
             console.log("Selected vehicle");
             uiMap.selectedObject = uiMap.uiObjects[i];
             clickedVehicle = true;
+            clickedVehicleIndex = i;
             break;
         }
     }
 
     // if no vehicles were clicked, add a waypoint if applicable
     if (!clickedVehicle && uiMap.selectedObject != null && event.button == 0) {
-        uiMap.selectedObject.waypoints.push([canvasX / uiMap.mapCanvas.width, canvasY / uiMap.mapCanvas.height]);
+        posX = canvasX / uiMap.mapCanvas.width;
+        posY = canvasY / uiMap.mapCanvas.height;
+        uiMap.selectedObject.waypoints.push([posX, posY]);
+        fetch("add-waypoint?id=" + clickedVehicleIndex + "&x=" + posX + "&y=" + posY)
         console.log(" added waypoint, ", uiMap.selectedObject.waypoints);
     }
 }
@@ -31,7 +36,7 @@ function canvasMouseHandler(event) {
 function canvasKeypressHandler(event) {
     console.log(event)
     // if an space key and an object is selected, remove the last waypoint
-    if (event.key == "Delete" && uiMap.selectedObject != null) {
+    if (event.key == "Backspace" && uiMap.selectedObject != null) {
         console.log("Removed waypoint");
         uiMap.selectedObject.waypoints.pop();
     }
