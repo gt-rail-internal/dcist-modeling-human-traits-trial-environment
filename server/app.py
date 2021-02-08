@@ -31,6 +31,7 @@ def cam1_callback(data):
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
     cam_images[cam] = b64
+    print("updated cam 1")
     return
 
 def cam2_callback(data):
