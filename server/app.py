@@ -26,28 +26,32 @@ robot_positions = {
 }
 
 
-def process_image(cam, data):
+def cam1_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
     cam_images[cam] = b64
     return
 
-
-def cam1_callback(data):
-    process_image(1, data)
-    return
-
 def cam2_callback(data):
-    process_image(2, data)
+    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
+    retval, buffer = cv2.imencode('.png', cv_image)
+    b64 = base64.b64encode(buffer)
+    cam_images[cam] = b64
     return
 
 def cam3_callback(data):
-    process_image(3, data)
+    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
+    retval, buffer = cv2.imencode('.png', cv_image)
+    b64 = base64.b64encode(buffer)
+    cam_images[cam] = b64
     return
 
 def cam4_callback(data):
-    process_image(4, data)
+    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
+    retval, buffer = cv2.imencode('.png', cv_image)
+    b64 = base64.b64encode(buffer)
+    cam_images[cam] = b64
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
