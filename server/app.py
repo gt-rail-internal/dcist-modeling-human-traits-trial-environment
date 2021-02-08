@@ -77,7 +77,7 @@ def cam():
         cam = request.args.get("id")
         res = cam_images[cam]
     except Exception as e:
-        print("EXCEPT", e.text())
+        print("EXCEPT", e.text)
     return res
 
 @app.route("/position", methods=["GET"])
