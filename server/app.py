@@ -76,6 +76,7 @@ def appy():
 def cam():
     cam = int(request.args.get("id"))
     res = cam_images[cam]
+    print(">>>", len(res))
     return res
 
 @app.route("/positions", methods=["GET"])
