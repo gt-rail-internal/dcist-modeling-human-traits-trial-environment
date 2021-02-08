@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, make_response
 
 import rospy
-from sensor_msgs.msg import CompressedImage
+from sensor_msgs.msg import Image
 import base64
 import threading
 
@@ -17,7 +17,7 @@ def cam1_callback(data):
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
-rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, cam1_callback)
+rospy.Subscriber("/raspicam_node/image/compressed", Image, cam1_callback)
 
 @app.route("/")
 def index():
