@@ -74,7 +74,7 @@ def appy():
 @app.route("/cam", methods=["GET"])
 def cam():
     try:
-        cam = request.args.get("id")
+        cam = int(request.args.get("id"))
         res = cam_images[cam]
     except Exception as e:
         print("EXCEPT", e.text)
@@ -82,7 +82,7 @@ def cam():
 
 @app.route("/position", methods=["GET"])
 def position():
-    robot = request.args.get("id")
+    robot = int(request.args.get("id"))
     return robot_positions[robot]
 
 
