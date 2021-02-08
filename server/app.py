@@ -7,13 +7,15 @@ import threading
 
 app = Flask(__name__)
 
-cam1_image = ""
-cam2_image = ""
-cam3_image = ""
-cam4_image = ""
+cam_images = {
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+}
 
 def cam1_callback(data):
-    print("got image!")
+    print("IMAGE DATA", data)
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
@@ -38,9 +40,7 @@ def cam():
     
     # return the image
     # adapted from https://stackoverflow.com/questions/3715493/
-    filename = "static/img/cams/cam" + str(cam) + ".png"
-    with open(filename, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read())
+    encoded_string = base64.b64encode(cam_images[cam])
     
     return encoded_string
 
