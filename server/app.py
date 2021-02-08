@@ -24,8 +24,8 @@ def cam1_callback(data):
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
     cam_images[1] = b64
-    cv_image = cv2.imdecode(np.array(b64), cv2.IMREAD_COLOR)
-    cv2.imwrite("imageee.png", cv_image)
+    #cv_image = cv2.imdecode(np.array(b64), cv2.IMREAD_COLOR)
+    #cv2.imwrite("imageee.png", cv_image)
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
@@ -52,16 +52,9 @@ def cam():
     if cam > 4 or cam < 1:
         return "ID must be between 1 and 4 (inclusive)"
     
-    # return the image
-    # adapted from https://stackoverflow.com/questions/3715493/
-    try:
-        encoded_string = base64.b64encode(cam_images[cam])
-    except Exception as e:
-        encoded_string = "fail"
-        print("FAIL", e.text())
-    print("got cam image", cam, len(encoded_string))
+    print("got cam image", cam)
     
-    return encoded_string
+    return cam_images[cam]
 
 
 if __name__ == "__main__":
