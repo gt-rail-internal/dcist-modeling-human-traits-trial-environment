@@ -25,6 +25,13 @@ robot_positions = {
     4: [.4,.4],
 }
 
+robot_waypoints = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+}
+
 
 def cam1_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
@@ -96,6 +103,24 @@ def position():
     pos = [robot_positions[1], robot_positions[2], robot_positions[3], robot_positions[4]]
     return jsonify(pos)
 
+@app.route("/add-waypoint", methods=["GET"])
+def addWaypoint():
+    robot = request.args.get("id")
+    x = request.args.get("x")
+    y = request.args.get("y")
+    robot_waypoints[int(robot)].push([float(x), float(y)])
+    return "success"
+
+@app.route("/remove-waypoint", methods=["GET"])
+def removeWaypoint():
+    robot = request.args.get("id")
+    robot_waypoints[int(robot)].pop()
+    return "success"
+
+@app.route("/get-waypoints", methods=["GET"])
+def getWaypoints():
+    response = [robot_waypoints[1], robot_waypoints[2], robot_waypoints[3], robot_waypoints[4]]
+    return jsonify(response)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

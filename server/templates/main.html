@@ -133,13 +133,22 @@
                 uiMap.uiObjects[3].x = data[3][0] * uiMap.mapCanvas.width;
                 uiMap.uiObjects[3].y = data[3][1] * uiMap.mapCanvas.height;
             });
+
+            fetch("get-waypoints").then(data => data.text()).then(data => {
+                data = JSON.parse(data);
+
+                uiMap.uiObjects[0].waypoints = data[0];
+                uiMap.uiObjects[1].waypoints = data[1];
+                uiMap.uiObjects[2].waypoints = data[2];
+                uiMap.uiObjects[3].waypoints = data[3];
+            })
         }, 250);
 
         // add a mount event handler for the canvas
         window.addEventListener("mousedown", canvasMouseHandler);
 
         // add a keypress listener
-        window.addEventListener("keypress", canvasKeypressHandler);
+        window.addEventListener("keydown", canvasKeypressHandler);
     }
 
     initUIMap();
