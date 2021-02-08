@@ -73,21 +73,25 @@
         uav1.initPositionListener("uav1");
         uav1.x = 10;
         uav1.y = 30;
+        uav1.index = 1;
 
         uav2 = new Vehicle("uav");
         uav2.initPositionListener("uav2");
         uav2.x = 150;
         uav2.y = 90;
+        uav2.index = 2;
 
         ugv1 = new Vehicle("ugv");
         ugv1.initPositionListener("ugv1");
         ugv1.x = 20;
         ugv1.y = 160;
+        ugv1.index = 3;
 
         ugv2 = new Vehicle("ugv");
         ugv2.initPositionListener("ugv2");
         ugv2.x = 80;
         ugv2.y = 40;
+        ugv2.index = 4;
 
         // add them to the UI Map
         uiMap.uiObjects.push(uav1);

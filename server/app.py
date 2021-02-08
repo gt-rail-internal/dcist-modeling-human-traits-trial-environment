@@ -105,10 +105,13 @@ def position():
 
 @app.route("/add-waypoint", methods=["GET"])
 def addWaypoint():
-    robot = request.args.get("id")
-    x = request.args.get("x")
-    y = request.args.get("y")
-    robot_waypoints[int(robot)].push([float(x), float(y)])
+    try:
+        robot = request.args.get("id")
+        x = request.args.get("x")
+        y = request.args.get("y")
+        robot_waypoints[int(robot)].push([float(x), float(y)])
+    except Exception as e:
+        print(e.text)
     return "success"
 
 @app.route("/remove-waypoint", methods=["GET"])
