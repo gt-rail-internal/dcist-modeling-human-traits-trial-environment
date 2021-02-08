@@ -82,7 +82,11 @@ def cam():
 
 @app.route("/position", methods=["GET"])
 def position():
-    robot = int(request.args.get("id"))
+    try:
+        robot = int(request.args.get("id"))
+        pos = robot_positions[robot]
+    except Exception as e:
+        print("EXCEPT", e.text)
     return robot_positions[robot]
 
 
