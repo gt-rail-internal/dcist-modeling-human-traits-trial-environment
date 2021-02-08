@@ -34,10 +34,13 @@ def cam1_callback(data):
     return
 
 def cam2_callback(data):
-    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
-    retval, buffer = cv2.imencode('.png', cv_image)
-    b64 = base64.b64encode(buffer)
-    cam_images[cam] = b64
+    try:
+        cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
+        retval, buffer = cv2.imencode('.png', cv_image)
+        b64 = base64.b64encode(buffer)
+        cam_images[cam] = b64
+    except Exception as e:
+        print("EXCEPT", e.text())
     return
 
 def cam3_callback(data):
