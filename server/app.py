@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request, make_response, jsonify
 
 import rospy
 from cv_bridge import CvBridge
@@ -87,7 +87,7 @@ def position():
         pos = robot_positions[robot]
     except Exception as e:
         print("EXCEPT", e.text)
-    return [.1,.1]
+    return jsonify(pos)
 
 
 if __name__ == "__main__":
