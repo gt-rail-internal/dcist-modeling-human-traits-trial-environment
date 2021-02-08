@@ -1,4 +1,4 @@
-<html>
+<! doctype html>
 
 <head>
     <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='img/favicon.ico')}}" />
@@ -55,17 +55,8 @@
             </div>
         </div>
     </div>
-</body>
 
 <script>
-
-    // NOTE!! You should install rosbridge (https://wiki.ros.org/rosbridge_suite) and run:
-    //     roslaunch rosbridge_server rosbridge_websocket.launch
-    // to start the websocket server so the webpage can communicate with ROS
-
-    // initialize ROS
-    // adapted from the roslibjs docs
-
     // create the UI Map object
     uiMap = Object;
 
@@ -140,5 +131,7 @@
     }
     
 </script>
+
+</body>
 
 </html>
