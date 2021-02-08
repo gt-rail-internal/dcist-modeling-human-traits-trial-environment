@@ -15,7 +15,7 @@ cam_images = {
 }
 
 def cam1_callback(data):
-    print("IMAGE DATA", data)
+    cam_images[1] = data.data
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
