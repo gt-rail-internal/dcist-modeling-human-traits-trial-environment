@@ -54,11 +54,29 @@ def cam4_callback(data):
     cam_images[4] = b64
     return
 
+def robot1_callback(data):
+    robot_positions[1] = data
+
+def robot2_callback(data):
+    robot_positions[2] = data
+
+def robot3_callback(data):
+    robot_positions[3] = data
+
+def robot4_callback(data):
+    robot_positions[4] = data
+
+
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam1_callback)
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam2_callback)
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam3_callback)
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam4_callback)
+
+rospy.Subscriber("/robot1/pos", Image, cam1_callback)
+rospy.Subscriber("/robot1/pos", Image, cam2_callback)
+rospy.Subscriber("/robot1/pos", Image, cam3_callback)
+rospy.Subscriber("/robot1/pos", Image, cam4_callback)
 
 @app.route("/")
 def index():
@@ -68,11 +86,10 @@ def index():
 def appy():
     return render_template("main.html")
 
-@app.route("/cam", methods=["GET"])
+@app.route("/cams")
 def cam():
-    cam = int(request.args.get("id"))
-    res = cam_images[cam]
-    return res
+    res = [cam_images[1], cam_images[2], cam_images[3], cam_images[4]]
+    return jsonify(res)
 
 @app.route("/positions", methods=["GET"])
 def position():
