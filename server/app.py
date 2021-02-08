@@ -6,6 +6,7 @@ import base64
 import threading
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 cam_images = {
     1: "",
