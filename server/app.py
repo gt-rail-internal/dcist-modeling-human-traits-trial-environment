@@ -87,7 +87,7 @@ def position():
         pos = robot_positions[robot]
     except Exception as e:
         print("EXCEPT", e.text)
-    return robot_positions[robot]
+    return [.1,.1]
 
 
 if __name__ == "__main__":
