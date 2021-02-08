@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='img/favicon.ico')}}" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    <!-- Roboto font import -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style> 
+
+    <!-- JS imports for the local JavaScript files -->
+    <script src="{{url_for('static', filename='js/drawing.js')}}"></script>
+    <script src="{{url_for('static', filename='js/inputUtils.js')}}"></script>
+    <script src="{{url_for('static', filename='js/uiMap.js')}}"></script>
+    <script src="{{url_for('static', filename='js/uiObjects.js')}}"></script>
+
+</head>
+
+<body>    
+    <div class="titlebar" style="display: flex; justify-content: center;">
+        <div class="title">
+            Human-Robot Teaming - Simulation Environment
+        </div>
+    </div>
+    <br>
+
+    <div style="display: flex; justify-content: center;">
+        <div class="side-panel">
+            <div class="cam-container">
+                <div id="cam1" class="cam red"><img id="cam1_image" height="100%" width="100%"/></div>
+                <div id="cam1_button" class="cam-button red">Mark Cache</div>
+            </div>
+            <div class="cam-container">
+                <div id="cam3" class="cam blue"><img id="cam3_image" height="100%" width="100%"/></div>
+                <div id="cam3_button" class="cam-button blue">Mark Cache</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="instructions">
+                Stage 1: Search for the packages
+            </div>
+            <canvas class="uimap" id="uimap-canvas"></canvas>
+        </div>
+
+
+        <div class="side-panel" style="display: flex">
+            <div class="cam-container">
+                <div id="cam2" class="cam purple"><img id="cam2_image" height="100%" width="100%"/></div>
+                <div id="cam2_button" class="cam-button purple">Mark Cache</div>
+            </div>
+            <div class="cam-container">
+                <div id="cam4" class="cam gold"><img id="cam4_image" height="100%" width="100%"/></div>
+                <div id="cam4_button" class="cam-button gold">Mark Cache</div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // create the UI Map object
+    uiMap = Object;
+
+    // initialized the UI Map and UAV UI Map Objects
+    function initUIMap() { 
+        uiMap = new UIMap("uimap-canvas")
+
+        // start the UI Map
+        document.getElementById("uimap-canvas").height = "700";
+        document.getElementById("uimap-canvas").width = "700";
+        
+        // initialize two UAVs and UGVs
+        uav1 = new Vehicle("uav");
+        uav1.initPositionListener("uav1");
+        uav1.x = 10;
+        uav1.y = 30;
+        uav1.index = 1;
+
+        uav2 = new Vehicle("uav");
+        uav2.initPositionListener("uav2");
+        uav2.x = 150;
+        uav2.y = 90;
+        uav2.index = 2;
+
+        ugv1 = new Vehicle("ugv");
+        ugv1.initPositionListener("ugv1");
+        ugv1.x = 20;
+        ugv1.y = 160;
+        ugv1.index = 3;
+
+        ugv2 = new Vehicle("ugv");
+        ugv2.initPositionListener("ugv2");
+        ugv2.x = 80;
+        ugv2.y = 40;
+        ugv2.index = 4;
+
+        // add them to the UI Map
+        uiMap.uiObjects.push(uav1);
+        uiMap.uiObjects.push(uav2);
+        uiMap.uiObjects.push(ugv1);
+        uiMap.uiObjects.push(ugv2);
+
+        // have the map update almost constantly
+        window.setInterval(function() {
+            uiMap.draw();
+        }, 100);
+
+        // have the map update camera images almost constantly
+        image_counter = 0;
+        cam1 = document.getElementById("cam1_image");
+        cam2 = document.getElementById("cam2_image");
+        cam3 = document.getElementById("cam3_image");
+        cam4 = document.getElementById("cam4_image");
+
+        window.setInterval(function() {
+            // update the cameras
+            fetch("cams").then(data => data.text()).then(data => {
+                data = JSON.parse(data);
+
+                cam1.src = "data:image/png;base64, " + data[0];
+                cam2.src = "data:image/png;base64, " + data[1];
+                cam3.src = "data:image/png;base64, " + data[2];
+                cam4.src = "data:image/png;base64, " + data[3];
+            });
+        }, 250);
+
+        window.setInterval(function() {
+            // update the robot positions
+            fetch("positions").then(data => data.text()).then(data => {
+                data = JSON.parse(data);
+
+                uiMap.uiObjects[0].x = data[0][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[0].y = data[0][1] * uiMap.mapCanvas.height;
+                uiMap.uiObjects[1].x = data[1][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[1].y = data[1][1] * uiMap.mapCanvas.height;
+                uiMap.uiObjects[2].x = data[2][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[2].y = data[2][1] * uiMap.mapCanvas.height;
+                uiMap.uiObjects[3].x = data[3][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[3].y = data[3][1] * uiMap.mapCanvas.height;
+            });
+
+            fetch("get-waypoints").then(data => data.text()).then(data => {
+                data = JSON.parse(data);
+
+                uiMap.uiObjects[0].waypoints = data[0];
+                uiMap.uiObjects[1].waypoints = data[1];
+                uiMap.uiObjects[2].waypoints = data[2];
+                uiMap.uiObjects[3].waypoints = data[3];
+            })
+        }, 250);
+
+        // add a mount event handler for the canvas
+        window.addEventListener("mousedown", canvasMouseHandler);
+
+        // add a keypress listener
+        window.addEventListener("keydown", canvasKeypressHandler);
+    }
+
+    initUIMap();
+    
+</script>
+
+</body>
+
+</html>
