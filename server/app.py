@@ -73,20 +73,14 @@ def appy():
 
 @app.route("/cam", methods=["GET"])
 def cam():
-    try:
-        cam = int(request.args.get("id"))
-        res = cam_images[cam]
-    except Exception as e:
-        print("EXCEPT", e.text)
+    cam = int(request.args.get("id"))
+    res = cam_images[cam]
     return res
 
 @app.route("/position", methods=["GET"])
 def position():
-    try:
-        robot = int(request.args.get("id"))
-        pos = robot_positions[robot]
-    except Exception as e:
-        print("EXCEPT", e.text)
+    robot = int(request.args.get("id"))
+    pos = robot_positions[robot]
     return jsonify(pos)
 
 
