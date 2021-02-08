@@ -6,7 +6,6 @@ import base64
 import threading
 
 app = Flask(__name__)
-app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 cam_images = {
     1: "",
@@ -48,6 +47,5 @@ def cam():
     return encoded_string
 
 
-
-
-app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
