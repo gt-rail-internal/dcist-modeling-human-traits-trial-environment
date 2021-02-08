@@ -6,6 +6,7 @@ from sensor_msgs.msg import Image
 import base64
 import threading
 import cv2
+import numpy as np
 
 app = Flask(__name__)
 bridge = CvBridge()
