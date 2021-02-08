@@ -123,11 +123,16 @@
             });
 
             // update the robot positions
-            fetch("position?id=1").then(data => data.text()).then(data => {
-                console.log(data)
+            fetch("positions").then(data => data.text()).then(data => {
                 data = JSON.parse(data);
-                uiMap.uiObjects[0].x = data[0];
-                uiMap.uiObjects[0].y = data[1];
+                uiMap.uiObjects[0].x = data[0][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[0].y = data[0][1] * uiMap.mapCanvas.height;
+                uiMap.uiObjects[1].x = data[1][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[1].y = data[1][1] * uiMap.mapCanvas.height;
+                uiMap.uiObjects[2].x = data[2][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[2].y = data[2][1] * uiMap.mapCanvas.height;
+                uiMap.uiObjects[3].x = data[3][0] * uiMap.mapCanvas.width;
+                uiMap.uiObjects[3].y = data[3][1] * uiMap.mapCanvas.height;
             });
 
         }, 250)
