@@ -10,7 +10,6 @@ function canvasMouseHandler(event) {
     var canvasClick = [canvasX, canvasY];
 
     clickedVehicle = false;
-    clickedVehicleIndex = -1
 
     // check if any vehicles were clicked
     for (i in uiMap.uiObjects) {
@@ -28,7 +27,7 @@ function canvasMouseHandler(event) {
         posX = canvasX / uiMap.mapCanvas.width;
         posY = canvasY / uiMap.mapCanvas.height;
         uiMap.selectedObject.waypoints.push([posX, posY]);
-        fetch("add-waypoint?id=" + clickedVehicleIndex + "&x=" + posX + "&y=" + posY)
+        fetch("add-waypoint?id=" + uiMap.selectedObject.index + "&x=" + posX + "&y=" + posY)
         console.log(" added waypoint, ", uiMap.selectedObject.waypoints);
     }
 }
