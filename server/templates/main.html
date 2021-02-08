@@ -123,7 +123,7 @@
             });
 
             // update the robot positions
-            fetch("position?id=1").then(data => data.text()).then(data => {
+            fetch("position?id=1").then(data => data.json()).then(data => {
                 console.log(data[0], data[1]);
                 uiMap.uiObjects[0].x = data[0];
                 uiMap.uiObjects[0].y = data[1];
