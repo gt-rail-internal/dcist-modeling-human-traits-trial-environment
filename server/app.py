@@ -30,32 +30,28 @@ def cam1_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
-    cam_images[cam] = b64
-    print("updated cam 1")
+    cam_images[1] = b64
     return
 
 def cam2_callback(data):
-    try:
-        cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
-        retval, buffer = cv2.imencode('.png', cv_image)
-        b64 = base64.b64encode(buffer)
-        cam_images[cam] = b64
-    except Exception as e:
-        print("EXCEPT", e.text())
+    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
+    retval, buffer = cv2.imencode('.png', cv_image)
+    b64 = base64.b64encode(buffer)
+    cam_images[2] = b64
     return
 
 def cam3_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
-    cam_images[cam] = b64
+    cam_images[3] = b64
     return
 
 def cam4_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
-    cam_images[cam] = b64
+    cam_images[4] = b64
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
@@ -76,7 +72,6 @@ def appy():
 def cam():
     cam = int(request.args.get("id"))
     res = cam_images[cam]
-    print(">>>", len(res))
     return res
 
 @app.route("/positions", methods=["GET"])
