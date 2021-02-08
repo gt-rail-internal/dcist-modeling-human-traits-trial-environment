@@ -5,6 +5,7 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 import base64
 import threading
+import cv2
 
 app = Flask(__name__)
 bridge = CvBridge()
