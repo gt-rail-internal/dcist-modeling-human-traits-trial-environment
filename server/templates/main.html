@@ -121,7 +121,7 @@
             fetch("cam?id=4").then(data => data.text()).then(data => {
                 cam4.src = "data:image/png;base64, " + data;
             });
-        }, 1000)
+        }, 10000)
 
         // add a mount event handler for the canvas
         window.addEventListener("mousedown", canvasMouseHandler);
