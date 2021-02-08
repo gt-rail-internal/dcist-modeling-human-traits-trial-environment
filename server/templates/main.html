@@ -109,17 +109,13 @@
 
         window.setInterval(function() {
             // update the cameras
-            fetch("cam?id=1").then(data => data.text()).then(data => {
-                cam1.src = "data:image/png;base64, " + data;
-            });
-            fetch("cam?id=2").then(data => data.text()).then(data => {
-                cam2.src = "data:image/png;base64, " + data;
-            });
-            fetch("cam?id=3").then(data => data.text()).then(data => {
-                cam3.src = "data:image/png;base64, " + data;
-            });
-            fetch("cam?id=4").then(data => data.text()).then(data => {
-                cam4.src = "data:image/png;base64, " + data;
+            fetch("cams").then(data => data.text()).then(data => {
+                data = JSON.parse(data);
+
+                cam1.src = "data:image/png;base64, " + data[0];
+                cam2.src = "data:image/png;base64, " + data[1];
+                cam3.src = "data:image/png;base64, " + data[2];
+                cam4.src = "data:image/png;base64, " + data[3];
             });
 
             // update the robot positions
