@@ -39,6 +39,7 @@ function canvasKeypressHandler(event) {
     if (event.key == "Backspace" && uiMap.selectedObject != null) {
         console.log("Removed waypoint");
         uiMap.selectedObject.waypoints.pop();
+        fetch("remove-waypoint?id=" + uiMap.selectedObject.index);
     }
 
     // if a enter key and an object is selected, remove the last waypoint
