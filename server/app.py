@@ -26,6 +26,10 @@ rospy.Subscriber("/raspicam_node/image/compressed", Image, cam1_callback)
 def index():
     return render_template("main.html")
 
+@app.route("/appy")
+def appy():
+    return render_template("main.html")
+
 @app.route("/cam", methods=["GET"])
 def cam():
     cam = request.args.get("id")
