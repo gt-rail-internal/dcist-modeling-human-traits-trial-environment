@@ -109,6 +109,7 @@ def addWaypoint():
         robot = request.args.get("id")
         x = request.args.get("x")
         y = request.args.get("y")
+        print(">>>>", robot, x, y)
         robot_waypoints[int(robot)].push([float(x), float(y)])
     except Exception as e:
         print(e.text)
