@@ -45,7 +45,11 @@ def cam():
     
     # return the image
     # adapted from https://stackoverflow.com/questions/3715493/
-    encoded_string = base64.b64encode(cam_images[cam])
+    try:
+        encoded_string = base64.b64encode(cam_images[cam])
+    except Exception as e:
+        encoded_string = "fail"
+        print("FAIL", e.text())
     print("got cam image", cam, len(encoded_string))
     
     return encoded_string
