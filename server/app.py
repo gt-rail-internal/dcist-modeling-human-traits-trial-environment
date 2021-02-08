@@ -18,6 +18,13 @@ cam_images = {
     4: "",
 }
 
+robot_positions = {
+    1: [.1,.1],
+    2: [.2,.2],
+    3: [.3,.3],
+    4: [.4,.4],
+}
+
 
 def process_image(cam, data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
@@ -49,7 +56,6 @@ rospy.Subscriber("/raspicam_node/image/compressed", Image, cam2_callback)
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam3_callback)
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam4_callback)
 
-
 @app.route("/")
 def index():
     return render_template("main.html")
@@ -61,19 +67,12 @@ def appy():
 @app.route("/cam", methods=["GET"])
 def cam():
     cam = request.args.get("id")
-    # check if the cam id is a number
-    if cam.isnumeric():
-        cam = int(cam)
-    else:
-        return "ID must be an integer"
-    
-    # check if the cam id is valid
-    if cam > 4 or cam < 1:
-        return "ID must be between 1 and 4 (inclusive)"
-    
-    print("got cam image", cam)
-    
     return cam_images[cam]
+
+@app.route("/position", methods=["GET"])
+def position():
+    robot = request.args.get("id")
+    return robot_positions[robot]
 
 
 if __name__ == "__main__":
