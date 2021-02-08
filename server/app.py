@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, make_response
 
 import rospy
+from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 import base64
 import threading
 
 app = Flask(__name__)
+bridge = CvBridge()
 
 cam_images = {
     1: "",
@@ -16,7 +18,9 @@ cam_images = {
 
 def cam1_callback(data):
     print("updated image cam1")
-    cam_images[1] = data.data
+    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
+    retval, buffer = cv2.imencode('.png', cv_image)
+    cam_images[1] = base64.b64encode(buffer)
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
