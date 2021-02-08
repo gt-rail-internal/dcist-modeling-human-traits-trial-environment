@@ -31,13 +31,13 @@ function canvasMouseHandler(event) {
 function canvasKeypressHandler(event) {
     console.log(event)
     // if an space key and an object is selected, remove the last waypoint
-    if (event.key == " " && uiMap.selectedObject != null) {
+    if (event.key == "Delete" && uiMap.selectedObject != null) {
         console.log("Removed waypoint");
         uiMap.selectedObject.waypoints.pop();
     }
 
     // if a enter key and an object is selected, remove the last waypoint
-    if (event.key == "Enter" && uiMap.selectedObject != null) {
+    if (event.key == " " && uiMap.selectedObject != null) {
         console.log("Deselected vehicle");
         uiMap.selectedObject = null;
     }
