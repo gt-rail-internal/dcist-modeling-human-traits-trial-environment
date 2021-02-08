@@ -18,18 +18,37 @@ cam_images = {
     4: "",
 }
 
-def cam1_callback(data):
-    print("updated image cam1")
+
+def process_image(cam, data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
     retval, buffer = cv2.imencode('.png', cv_image)
     b64 = base64.b64encode(buffer)
-    cam_images[1] = b64
-    #cv_image = cv2.imdecode(np.array(b64), cv2.IMREAD_COLOR)
-    #cv2.imwrite("imageee.png", cv_image)
+    cam_images[cam] = b64
+    return
+
+
+def cam1_callback(data):
+    process_image(1, data)
+    return
+
+def cam2_callback(data):
+    process_image(2, data)
+    return
+
+def cam3_callback(data):
+    process_image(3, data)
+    return
+
+def cam4_callback(data):
+    process_image(4, data)
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
 rospy.Subscriber("/raspicam_node/image/compressed", Image, cam1_callback)
+rospy.Subscriber("/raspicam_node/image/compressed", Image, cam2_callback)
+rospy.Subscriber("/raspicam_node/image/compressed", Image, cam3_callback)
+rospy.Subscriber("/raspicam_node/image/compressed", Image, cam4_callback)
+
 
 @app.route("/")
 def index():
