@@ -8,10 +8,6 @@
     <!-- Roboto font import -->
     <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style> 
 
-    <!-- JS imports for the ROS JavaScript Library-->
-    <script type="text/javascript" src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
-    <script src="https://static.robotwebtools.org/roslibjs/current/roslib.js"></script>
-
     <!-- JS imports for the local JavaScript files -->
     <script src="{{url_for('static', filename='js/drawing.js')}}"></script>
     <script src="{{url_for('static', filename='js/inputUtils.js')}}"></script>
@@ -72,25 +68,7 @@
 
     // create the UI Map object
     uiMap = Object;
-
-    // set up the connection to the rosbridge server
-    var ros = new ROSLIB.Ros({
-        url: 'ws://localhost:9090',
-    })
-
-    ros.on('connection', () => {
-        console.log("Connected to the websocket server.");
-        initUIMap();
-    })
-
-    ros.on('error', (error) => {
-        console.log('Error connecting to websocket server: ', error);
-    })
-
-    ros.on('close', function() {
-        console.log('Connection to websocket server closed.');
-    })
-
+    
     // initialized the UI Map and UAV UI Map Objects
     function initUIMap() { 
         uiMap = new UIMap("uimap-canvas")

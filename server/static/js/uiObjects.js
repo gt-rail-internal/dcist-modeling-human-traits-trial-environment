@@ -50,17 +50,6 @@ class Vehicle extends MapUIObject {
 
     // set up a subscriber to a Point ROS message for the vehicle position
     initPositionListener(topic) {
-        var positionTopic = new ROSLIB.Topic({
-            ros: ros,
-            name: '/' + topic,
-            messageType: 'geometry_msgs/Point', 
-        });
-
-        positionTopic.subscribe((message) => {
-            console.log("ROS position update for " + positionTopic.name + ": (" + message.x + ", " + message.y + ")");
-            this.x = this.canvas.width * message.x;
-            this.y = this.canvas.height * message.y;
-        })
     }
 
 }

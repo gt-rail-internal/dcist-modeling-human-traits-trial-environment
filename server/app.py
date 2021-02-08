@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, make_response
 import rospy
 from sensor_msgs.msg import CompressedImage
 import base64
+import threading
 
 app = Flask(__name__)
 
@@ -11,17 +12,12 @@ cam2_image = ""
 cam3_image = ""
 cam4_image = ""
 
-
 def cam1_callback(data):
     print("got image!")
     return
-        
 
-# create a ros node and the subscribers
-def rosnode():
-    rospy.init_node('dcistserver', anonymous=True)
-    rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, cam1_callback)
- 
+threading.Thread(target=lambda: rospy.init_node('dcistserver')).start()
+rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, cam1_callback)
 
 @app.route("/")
 def index():
@@ -49,6 +45,6 @@ def cam():
     return encoded_string
 
 
-rosnode()
+
+
 app.run(host="0.0.0.0", port=5000)
-rospy.spin()
