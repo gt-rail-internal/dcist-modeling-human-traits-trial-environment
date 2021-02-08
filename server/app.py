@@ -16,7 +16,7 @@ def cam1_callback(data):
     print("got image!")
     return
 
-threading.Thread(target=lambda: rospy.init_node('dcistserver')).start()
+threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
 rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, cam1_callback)
 
 @app.route("/")
