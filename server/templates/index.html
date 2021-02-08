@@ -68,7 +68,7 @@
 
     // create the UI Map object
     uiMap = Object;
-    
+
     // initialized the UI Map and UAV UI Map Objects
     function initUIMap() { 
         uiMap = new UIMap("uimap-canvas")
@@ -117,6 +117,7 @@
         cam4 = document.getElementById("cam4_image");
 
         window.setInterval(function() {
+            console.log("update cams")
             fetch("cam?id=1").then(data => data.text()).then(data => {
                 cam1.src = "data:image/png;base64, " + data;
             });
@@ -129,7 +130,7 @@
             fetch("cam?id=4").then(data => data.text()).then(data => {
                 cam4.src = "data:image/png;base64, " + data;
             });
-        }, 500)
+        }, 1000)
 
         // add a mount event handler for the canvas
         window.addEventListener("mousedown", canvasMouseHandler);
