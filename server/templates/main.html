@@ -123,9 +123,9 @@
             });
 
             // update the robot positions
-            fetch("position?id=1").then(data => {
-                console.log(data.text())
-                data = JSON.parse(data.text());
+            fetch("position?id=1").then(data => data.text()).then(data => {
+                console.log(data)
+                data = JSON.parse(data);
                 uiMap.uiObjects[0].x = data[0];
                 uiMap.uiObjects[0].y = data[1];
             });
