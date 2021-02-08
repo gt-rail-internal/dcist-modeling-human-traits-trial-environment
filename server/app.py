@@ -91,7 +91,7 @@ def index():
 
 @app.route("/appy")
 def appy():
-    return render_template("main.html")
+    return render_template("main2.html")
 
 @app.route("/cams")
 def cam():
