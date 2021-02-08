@@ -22,6 +22,7 @@ def cam1_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
     retval, buffer = cv2.imencode('.png', cv_image)
     cam_images[1] = base64.b64encode(buffer)
+    cv2.imwrite("imageee.png", cv_image)
     return
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
