@@ -124,7 +124,6 @@
 
             // update the robot positions
             fetch("positions").then(data => data.text()).then(data => {
-                console.log("data", data)
                 data = JSON.parse(data);
 
                 uiMap.uiObjects[0].x = data[0][0] * uiMap.mapCanvas.width;
