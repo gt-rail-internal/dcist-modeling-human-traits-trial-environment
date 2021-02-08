@@ -73,7 +73,10 @@ def appy():
 
 @app.route("/cam", methods=["GET"])
 def cam():
-    cam = request.args.get("id")
+    try:
+        cam = request.args.get("id")
+    except Exception as e:
+        print("EXCEPT", e.text())
     return cam_images[cam]
 
 @app.route("/position", methods=["GET"])
