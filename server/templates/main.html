@@ -108,7 +108,7 @@
         cam4 = document.getElementById("cam4_image");
 
         window.setInterval(function() {
-            console.log("update cams")
+            // update the cameras
             fetch("cam?id=1").then(data => data.text()).then(data => {
                 cam1.src = "data:image/png;base64, " + data;
             });
@@ -121,7 +121,15 @@
             fetch("cam?id=4").then(data => data.text()).then(data => {
                 cam4.src = "data:image/png;base64, " + data;
             });
-        }, 10000)
+
+            // update the robot positions
+            fetch("position?id=1").then(data => data.json()).then(data => {
+                console.log(data);
+                uiMap.uiObjects[0].x = data[0];
+                uiMap.uiObjects[0].y = data[1];
+            });
+
+        }, 250)
 
         // add a mount event handler for the canvas
         window.addEventListener("mousedown", canvasMouseHandler);
