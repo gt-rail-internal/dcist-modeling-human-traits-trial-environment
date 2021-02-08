@@ -79,8 +79,7 @@ def cam():
 
 @app.route("/position", methods=["GET"])
 def position():
-    robot = int(request.args.get("id"))
-    pos = robot_positions[robot]
+    pos = [robot_positions[0], robot_positions[1], robot_positions[2], robot_positions[3]]
     return jsonify(pos)
 
 
