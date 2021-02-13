@@ -112,3 +112,16 @@ class Vehicle extends MapUIObject {
     }
 
 }
+
+
+// Cache objects are the packages
+class Cache extends MapUIObject {
+    constructor() {
+        super();
+
+        this.type = "cache";
+
+        this.image.src = "/static/img/cache.png";
+        this.scale = 75;
+    }
+}
