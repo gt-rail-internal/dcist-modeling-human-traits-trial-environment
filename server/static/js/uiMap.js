@@ -19,6 +19,16 @@ class UIMap {
 
         this.mapScale = 1;  // the map's scale, so the image fits the canvas
 
+        // variables for drawn items
+        this.adHocRange = 100;
+        this.displayAdHocRanges = true;
+
+        this.goalLocations = [];
+        this.displayGoalLocations = true;
+
+        this.goalHelpers = [];
+        this.displayGoalHelpers = true;
+
         // when the image loads, scale it
         var obj = this;
         this.mapImage.onload = function() {
@@ -37,34 +47,22 @@ class UIMap {
         // draw the UI objects
         for (var i in this.uiObjects) {
             this.uiObjects[i].draw();
+            // draw the vehicle-specific attributes
+            if (this.uiObjects[i].constructor.name == "Vehicle") {
+                // draw grey for non-selected object, black for selected object
+                var color = this.selectedObject == this.uiObjects[i] ? "black" : "grey"
+                this.uiObjects[i].drawWaypoints(color);
+
+                // draw the adhoc range (will only draw if applicable)
+                this.uiObjects[i].drawAdHoc();
+                
+            }
         }
 
         // if a vehicle is selected...
         if (this.selectedObject) {
             // draw the selection circle
             this.mapContext.drawImage(this.selectorImage, this.selectedObject.x - this.selectedObject.scale, this.selectedObject.y - this.selectedObject.scale, this.selectedObject.scale * 2, this.selectedObject.scale * 2);
-        
-            let fromX = 0;
-            let fromY = 0;
-            let toX = 0;
-            let toY = 0;
-
-            // draw the waypoint arrows
-            this.mapContext.beginPath();
-            if (this.selectedObject.waypoints.length > 0) {
-                fromX = this.selectedObject.x;
-                fromY = this.selectedObject.y;
-            }
-            for (var i in this.selectedObject.waypoints) {
-                toX = this.selectedObject.waypoints[i][0] * this.mapCanvas.width;
-                toY = this.selectedObject.waypoints[i][1] * this.mapCanvas.height;
-
-                canvas_arrow(this.mapContext, fromX, fromY, toX, toY);
-
-                fromX = toX;
-                fromY = toY;
-            }
-            this.mapContext.stroke();
         }
 
     }
@@ -73,3 +71,5 @@ class UIMap {
         return Math.sqrt(Math.pow((a[0] - b[0]), 2) + Math.pow((a[1] - b[1]), 2));
     }
 }
+
+

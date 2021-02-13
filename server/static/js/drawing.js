@@ -11,3 +11,16 @@ function canvas_arrow(context, fromx, fromy, tox, toy) {
     context.moveTo(tox, toy);
     context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
 }
+
+// Adapted from StackOverflow (couldn't find link again :-( )
+function drawDashedCircle(context, x, y, r) {
+    context.strokeStyle = "darkgrey";
+    context.beginPath();
+    context.setLineDash([5, 5]);  // set the line stroke to dashed
+    context.beginPath();
+    context.arc(x, y, r, 0, Math.PI * 2);
+    context.closePath();
+    context.stroke();
+    context.setLineDash([]);  // set the line stroke back to normal
+    context.strokeStyle = "black";
+}
