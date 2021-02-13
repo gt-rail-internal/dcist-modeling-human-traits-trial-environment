@@ -9,6 +9,7 @@ import cv2
 import numpy as np
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 bridge = CvBridge()
 
 cam_images = {
@@ -105,11 +106,12 @@ def position():
 
 @app.route("/add-waypoint", methods=["GET"])
 def addWaypoint():
+    #print("adding wayyyypoints")
     robot = int(request.args.get("id"))
     x = float(request.args.get("x"))
     y = float(request.args.get("y"))
-    print(">>>>", robot, x, y, robot_waypoints[robot])
-    robot_waypoints[robot].push([x, y])
+    #print(">>>>", robot, x, y, robot_waypoints[robot])
+    robot_waypoints[robot].append([x, y])
     return "success"
 
 @app.route("/remove-waypoint", methods=["GET"])
@@ -121,6 +123,7 @@ def removeWaypoint():
 @app.route("/get-waypoints", methods=["GET"])
 def getWaypoints():
     response = [robot_waypoints[1], robot_waypoints[2], robot_waypoints[3], robot_waypoints[4]]
+    #print("waypoints", response)
     return jsonify(response)
 
 if __name__ == "__main__":
