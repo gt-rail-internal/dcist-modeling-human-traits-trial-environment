@@ -37,6 +37,9 @@ function initStage2() {
     ugv2.color = "goldenrod"
     ugv2.x = 80;
     ugv2.y = 40;
+
+    // initialize five caches
+    cache1 = new 
     
 
     // add them to the UI Map
