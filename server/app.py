@@ -20,10 +20,14 @@ cam_images = {
 }
 
 robot_positions = {
-    1: [.1,.1],
-    2: [.2,.2],
-    3: [.3,.3],
-    4: [.4,.4],
+    "UAV 1": [.40,.1],
+    "UGV 1": [.40,.15],
+    "UAV 2": [.5,.1],
+    "UGV 2": [.5,.15],
+    "UAV 3": [.65,.1],
+    "UGV 3": [.65,.15],
+    "UAV 4": [.75,.1],
+    "UGV 4": [.75,.15],
 }
 
 robot_waypoints = {
@@ -101,8 +105,7 @@ def cam():
 
 @app.route("/positions", methods=["GET"])
 def position():
-    pos = [robot_positions[1], robot_positions[2], robot_positions[3], robot_positions[4]]
-    return jsonify(pos)
+    return jsonify(robot_positions)
 
 @app.route("/add-waypoint", methods=["GET"])
 def addWaypoint():
