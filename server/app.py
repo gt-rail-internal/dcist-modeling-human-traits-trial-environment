@@ -7,6 +7,8 @@ import base64
 import threading
 import cv2
 import numpy as np
+import json
+import datetime
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -94,9 +96,19 @@ rospy.Subscriber("/robot1/pos", Image, cam4_callback)
 def index():
     return render_template("main.html")
 
-@app.route("/appy")
+@app.route("/appy", methods=["GET"])
 def appy():
-    return render_template("main2.html")
+    worker_id = request.args.get("workerId")
+    return render_template("main2.html", worker_id=worker_id)
+
+@app.route("/logging", methods=["POST"])
+def log():
+    data = json.loads(request.data.decode())
+    log_string = "\n" + str(datetime.datetime.now().timestamp()) + "," + data["worker-id"] + "," + str(data)
+    with open("./logs/" + data["worker-id"] + ".txt", 'a+') as f:
+        f.write(log_string)
+        
+    return ""
 
 @app.route("/cams")
 def cam():

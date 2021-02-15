@@ -22,11 +22,17 @@ class UIMap {
 
         // variable for the current stage
         this.stage = 0;
+        this.stageComplete = false;
+        this.stageVictory = false;
+
+        // variable for the worker ID
+        this.workerID = "invalid"
 
         // variables for drawn items
         this.adHocRange = 100;
         this.displayAdHocRanges = true;
         this.adHocLock = true;
+
 
         this.goalLocations = [];
         this.displayGoalLocations = true;
