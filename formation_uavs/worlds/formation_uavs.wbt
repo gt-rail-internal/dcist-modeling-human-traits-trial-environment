@@ -1,0 +1,715 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  info [
+    "This demonstration shows a DJI Mavic 2 PRO flying over a rural area."
+    "After the drone has taken off, you can control it with the keyboard of your computer."
+  ]
+  title "DJI Mavic 2 PRO demo"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.3877867476365633 0.8319077373400332 0.3969268886221273 1.6043901590271015
+  position 24.60875225608582 24.097349423717407 3.431199193181865
+  near 0.2
+  follow "leader"
+  followSmoothness 0.2
+}
+TexturedBackground {
+  luminosity 3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 400 400
+  tileSize 6 6
+  appearance SandyGround {
+  }
+}
+Warehouse {
+  translation -61.81 0 63.6
+  rotation 0 1 0 0.523599
+  name "warehouse(1)"
+}
+OilBarrel {
+  translation -118.13 0.44 69.45
+}
+OilBarrel {
+  translation -116.75 0.44 69.45
+  name "oil barrel(1)"
+}
+OilBarrel {
+  translation -117.13 0.44 68.57
+  name "oil barrel(2)"
+}
+OilBarrel {
+  translation -115.76 0.44 67.56
+  name "oil barrel(3)"
+}
+OilBarrel {
+  translation -115.62 0.44 68.71
+  name "oil barrel(4)"
+}
+OilBarrel {
+  translation -119.23 0.44 69.19
+  name "oil barrel(5)"
+}
+OilBarrel {
+  translation -117.14 0.44 67.41
+  name "oil barrel(6)"
+}
+WoodenBox {
+  translation -141.27 0.3 73.68
+}
+WoodenBox {
+  translation -140.66 0.3 73.68
+  name "wooden box(1)"
+}
+WoodenBox {
+  translation -140.85 0.3 73.08
+  name "wooden box(2)"
+}
+OilBarrel {
+  translation -118.44 0.44 68.11
+  name "oil barrel(7)"
+}
+OldResidentialBuilding {
+  translation -174.21 0 -41.7369
+  rotation 0 1 0 2.35619
+}
+OldResidentialBuilding {
+  translation -17.3393 0 37.6512
+  rotation 0 1 0 -1.8325953071795862
+  name "residential building(1)"
+}
+Warehouse {
+  translation -137.15 0 12.4882
+  rotation 0 1 0 2.0944
+}
+Road {
+  translation -44.3 0.01 -9.2
+  rotation 0 1 0 1.1781
+  width 3
+  numberOfLanes 1
+  rightBorder FALSE
+  leftBorder FALSE
+  wayPoints [
+    0 0 0
+    0 0 100
+    200 0 200
+  ]
+  splineSubdivision 8
+  appearance Pavement {
+    type "black stone"
+  }
+}
+Windmill {
+  translation -43.8656 0 19.8433
+  rotation 0 1 0 -1.0472
+}
+Koala {
+  translation 1 0 0
+  rotation 0 1 0 1.57079
+  controller ""
+  extensionSlot [
+    GPS {
+    }
+    Receiver {
+    }
+  ]
+}
+Windmill {
+  translation -44.258 0 27.3356
+  rotation 0 1 0 -1.0472
+  name "windmill(1)"
+}
+Windmill {
+  translation -46.2448 0 -30.573
+  rotation 0 1 0 -1.0472
+  name "windmill(2)"
+}
+Windmill {
+  translation -38.75 0 -23.4
+  rotation 0 1 0 -1.5708
+  name "windmill(3)"
+}
+SmallManor {
+  translation -50.35 0 -11.25
+  rotation 0 1 0 4.32
+}
+SmallManor {
+  translation -90.5324 0 38.7982
+  rotation 0 1 0 -0.9159853071795858
+  name "small manor(1)"
+}
+SmallManor {
+  translation -96.4848 0 -42.6794
+  rotation 0 1 0 -2.486785307179586
+  name "small manor(2)"
+}
+SmallManor {
+  translation -58.2425 0 7.56314
+  rotation 0 -1 0 1.70139
+  name "small manor(3)"
+}
+CardboardBox {
+  translation 5.23799 0.3 0.322538
+  rotation 0 1 0 -0.261795307179586
+}
+Pine {
+  translation -14.0083 0 14.4828
+  rotation 0 1 0 3.14159
+}
+Pine {
+  translation -19.6195 0 24.3783
+  rotation 0 1 0 2.87979
+  name "pine tree(1)"
+}
+Pine {
+  translation -34.2629 0 -86.982
+  name "pine tree(3)"
+}
+Pine {
+  translation -21.6426 0 55.8439
+  name "pine tree(4)"
+}
+Pine {
+  translation -159.453 0 55.8439
+  name "pine tree(7)"
+}
+Pine {
+  translation -185.683 0 23.4539
+  name "pine tree(8)"
+}
+Pine {
+  translation -178.933 0 42.8839
+  name "pine tree(9)"
+}
+Pine {
+  translation -176.653 0 11.5439
+  name "pine tree(10)"
+}
+Pine {
+  translation -171.063 0 78.0039
+  name "pine tree(11)"
+}
+Pine {
+  translation -177.353 0 116.214
+  name "pine tree(12)"
+}
+Pine {
+  translation -116.813 0 101.694
+  name "pine tree(13)"
+}
+Pine {
+  translation -106.893 0 109.054
+  name "pine tree(14)"
+}
+Pine {
+  translation -125.983 0 112.514
+  name "pine tree(15)"
+}
+Pine {
+  translation -136.753 0 121.714
+  name "pine tree(16)"
+}
+Pine {
+  translation -121.833 0 58.5639
+  name "pine tree(21)"
+}
+Pine {
+  translation -121.833 0 78.4639
+  name "pine tree(22)"
+}
+Pine {
+  translation -146.883 0 78.4639
+  name "pine tree(23)"
+}
+Pine {
+  translation -146.883 0 59.8639
+  name "pine tree(24)"
+}
+Pine {
+  translation -137.183 0 59.8639
+  name "pine tree(25)"
+}
+Pine {
+  translation -156.293 0 68.4239
+  name "pine tree(26)"
+}
+Pine {
+  translation -135.133 0 88.1039
+  name "pine tree(27)"
+}
+Pine {
+  translation -113.293 0 88.1039
+  name "pine tree(28)"
+}
+Pine {
+  translation -100.733 0 96.6739
+  name "pine tree(29)"
+}
+Pine {
+  translation -89.163 0 96.6739
+  name "pine tree(30)"
+}
+Pine {
+  translation -89.163 0 82.5739
+  name "pine tree(31)"
+}
+Pine {
+  translation -139.843 0 104.314
+  name "pine tree(32)"
+}
+Pine {
+  translation -74.053 0 106.084
+  name "pine tree(33)"
+}
+Pine {
+  translation -68.543 0 95.234
+  name "pine tree(34)"
+}
+Pine {
+  translation -55.563 0 95.234
+  name "pine tree(35)"
+}
+Pine {
+  translation -55.563 0 110.694
+  name "pine tree(36)"
+}
+Pine {
+  translation -187.043 0 106.944
+  name "pine tree(37)"
+}
+Pine {
+  translation -46.223 0 119.134
+  name "pine tree(38)"
+}
+Pine {
+  translation -33.803 0 119.134
+  name "pine tree(39)"
+}
+Pine {
+  translation -24.543 0 96.524
+  name "pine tree(40)"
+}
+Pine {
+  translation -162.973 0 102.704
+  name "pine tree(41)"
+}
+Pine {
+  translation -32.173 0 103.114
+  name "pine tree(42)"
+}
+Pine {
+  translation -32.173 0 76.424
+  name "pine tree(43)"
+}
+Pine {
+  translation -178.633 0 56.424
+  name "pine tree(44)"
+}
+Pine {
+  translation -163.183 0 123.964
+  name "pine tree(45)"
+}
+Pine {
+  translation -148.853 0 119.134
+  name "pine tree(46)"
+}
+Pine {
+  translation -18.293 0 83.894
+  name "pine tree(47)"
+}
+Pine {
+  translation -179.623 0 -74.276
+  name "pine tree(48)"
+}
+Pine {
+  translation -188.053 0 66.914
+  name "pine tree(49)"
+}
+Pine {
+  translation -177.323 0 -4.576
+  name "pine tree(51)"
+}
+Pine {
+  translation -172.283 0 -65.196
+  name "pine tree(52)"
+}
+Pine {
+  translation -4.803 0 61.564
+  name "pine tree(53)"
+}
+Pine {
+  translation -180.713 0 -18.406
+  name "pine tree(54)"
+}
+Pine {
+  translation -16.273 0 -20.536
+  name "pine tree(55)"
+}
+Pine {
+  translation 7.047 0 -49.836
+  name "pine tree(56)"
+}
+Pine {
+  translation 14.337 0 -33.466
+  name "pine tree(57)"
+}
+Pine {
+  translation -21.763 0 -92.976
+  name "pine tree(59)"
+}
+Pine {
+  translation -151.393 0 -41.316
+  name "pine tree(60)"
+}
+Pine {
+  translation -33.943 0 -43.836
+  name "pine tree(61)"
+}
+Pine {
+  translation -8.803 0 -86.146
+  name "pine tree(62)"
+}
+Pine {
+  translation 0.717 0 -75.806
+  name "pine tree(63)"
+}
+Pine {
+  translation 15.437 0 -59.906
+  name "pine tree(64)"
+}
+Pine {
+  translation -32.133 0 -59.906
+  name "pine tree(65)"
+}
+Pine {
+  translation -32.133 0 -74.846
+  name "pine tree(66)"
+}
+Pine {
+  translation -44.573 0 -74.846
+  name "pine tree(67)"
+}
+Pine {
+  translation -137.273 0 -49.786
+  name "pine tree(68)"
+}
+Pine {
+  translation -140.893 0 -100.476
+  name "pine tree(69)"
+}
+Pine {
+  translation -151.633 0 -91.006
+  name "pine tree(70)"
+}
+Pine {
+  translation -68.313 0 -59.646
+  name "pine tree(71)"
+}
+Pine {
+  translation -63.793 0 -41.626
+  name "pine tree(72)"
+}
+Pine {
+  translation -50.483 0 -41.626
+  name "pine tree(73)"
+}
+Pine {
+  translation -78.653 0 -41.626
+  name "pine tree(74)"
+}
+Pine {
+  translation -78.653 0 -99.496
+  name "pine tree(75)"
+}
+Pine {
+  translation -60.743 0 -69.416
+  name "pine tree(76)"
+}
+Pine {
+  translation -60.743 0 -80.716
+  name "pine tree(77)"
+}
+Pine {
+  translation -76.703 0 -80.716
+  name "pine tree(78)"
+}
+Pine {
+  translation -91.743 0 -76.796
+  name "pine tree(79)"
+}
+Pine {
+  translation -91.743 0 -63.876
+  name "pine tree(80)"
+}
+Pine {
+  translation -108.963 0 -63.876
+  name "pine tree(81)"
+}
+Pine {
+  translation -134.613 0 -66.936
+  name "pine tree(82)"
+}
+Pine {
+  translation -131.513 0 -101.846
+  name "pine tree(83)"
+}
+Pine {
+  translation -124.163 0 -86.226
+  name "pine tree(84)"
+}
+Pine {
+  translation -190.073 0 -77.906
+  name "pine tree(85)"
+}
+Pine {
+  translation -113.753 0 -77.906
+  name "pine tree(86)"
+}
+Pine {
+  translation -106.813 0 -90.116
+  name "pine tree(87)"
+}
+Pine {
+  translation -101.623 0 -106.016
+  name "pine tree(88)"
+}
+Pine {
+  translation -145.203 0 -77.406
+  name "pine tree(89)"
+}
+Pine {
+  translation -145.203 0 -60.786
+  name "pine tree(90)"
+}
+Pine {
+  translation -157.083 0 -60.786
+  name "pine tree(91)"
+}
+Pine {
+  translation -186.723 0 -92.776
+  name "pine tree(92)"
+}
+Pine {
+  translation -166.183 0 -29.706
+  name "pine tree(93)"
+}
+Pine {
+  translation -190.033 0 -53.866
+  name "pine tree(94)"
+}
+Pine {
+  translation -191.923 0 -8.486
+  name "pine tree(95)"
+}
+Pine {
+  translation -158.333 0 85.784
+  name "pine tree(96)"
+}
+Pine {
+  translation -164.163 0 1.464
+  name "pine tree(97)"
+}
+Pine {
+  translation -164.663 0 -80.526
+  name "pine tree(98)"
+}
+Pine {
+  translation -166.253 0 32.984
+  name "pine tree(99)"
+}
+Pine {
+  translation -191.923 0 36.034
+  name "pine tree(100)"
+}
+Pine {
+  translation -189.483 0 91.884
+  name "pine tree(101)"
+}
+Pine {
+  translation -139.373 0 44.714
+  name "pine tree(102)"
+}
+Pine {
+  translation -112.973 0 -5.436
+  name "pine tree(103)"
+}
+Pine {
+  translation -112.973 0 16.894
+  name "pine tree(104)"
+}
+Pine {
+  translation -97.773 0 4.224
+  name "pine tree(105)"
+}
+Pine {
+  translation -89.283 0 16.894
+  name "pine tree(106)"
+}
+Pine {
+  translation -95.823 0 -16.006
+  name "pine tree(107)"
+}
+Pine {
+  translation -125.543 0 -23.656
+  name "pine tree(108)"
+}
+Pine {
+  translation -74.343 0 -8.306
+  name "pine tree(109)"
+}
+Pine {
+  translation -158.263 0 16.894
+  name "pine tree(110)"
+}
+Pine {
+  translation -176.853 0 95.044
+  name "pine tree(111)"
+}
+Pine {
+  translation -47.773 0 -97.076
+  name "pine tree(58)"
+}
+Pine {
+  translation 3.327 0 73.124
+  name "pine tree(50)"
+}
+Pine {
+  translation -190.274 0 7.0279
+  name "pine tree(5)"
+}
+Pine {
+  translation -26.6328 0 7.1707
+  name "pine tree(6)"
+}
+Pine {
+  translation -59.4703 0 -100.8
+  rotation 0 1 0 -2.618
+  name "pine tree(2)"
+}
+DEF leader Mavic2Pro {
+  translation 0 0.1 0
+  rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
+  name "leader"
+  controller ""
+  bodySlot [
+    Emitter {
+    }
+  ]
+  cameraSlot [
+    Camera {
+      width 400
+      height 240
+      near 0.2
+    }
+  ]
+}
+DEF follower1 Mavic2Pro {
+  translation 1 0.1 1
+  rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
+  name "follower1"
+  controller ""
+  controllerArgs [
+    ""
+  ]
+  bodySlot [
+    Receiver {
+    }
+  ]
+  cameraSlot [
+    Camera {
+      width 400
+      height 240
+      near 0.2
+    }
+  ]
+}
+DEF follower2 Mavic2Pro {
+  translation 1 0.1 -1
+  rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
+  name "follower2"
+  controller ""
+  bodySlot [
+    Receiver {
+    }
+  ]
+  cameraSlot [
+    Camera {
+      width 400
+      height 240
+      near 0.2
+    }
+  ]
+}
+Mavic2Pro {
+  translation 1.66 0.14 1.42746e-07
+  rotation 1 0 0 -1.5707953071795862
+  cameraSlot [
+    Camera {
+      translation 0 -0.03 1.10196e-07
+      rotation 1 0 0 -1.5708
+      name "cam"
+      width 2000
+      height 2000
+    }
+    Camera {
+      width 400
+      height 240
+    }
+  ]
+}
+WoodenBox {
+  translation -124.26 0.3 -68.86
+  name "wooden box(3)"
+}
+WoodenBox {
+  translation -123.68 0.3 -68.86
+  name "wooden box(4)"
+}
+WoodenBox {
+  translation -132.41 0.3 0.47
+  name "wooden box(6)"
+}
+WoodenBox {
+  translation -133.04 0.3 0.83
+  name "wooden box(7)"
+}
+WoodenBox {
+  translation -132.99 0.3 0.21
+  name "wooden box(8)"
+}
+WoodenBox {
+  translation -47.97 0.3 101.94
+  name "wooden box(9)"
+}
+WoodenBox {
+  translation -47.38 0.3 101.94
+  name "wooden box(10)"
+}
+WoodenBox {
+  translation -47.56 0.3 101.34
+  name "wooden box(11)"
+}
+WoodenBox {
+  translation -123.89 0.3 -68.25
+  name "wooden box(5)"
+}
+WoodenBox {
+  translation -18.03 0.3 -69.11
+  name "wooden box(12)"
+}
+WoodenBox {
+  translation -17.39 0.3 -69.11
+  name "wooden box(13)"
+}
+WoodenBox {
+  translation -17.73 0.3 -69.75
+  name "wooden box(14)"
+}
