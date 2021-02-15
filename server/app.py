@@ -94,9 +94,9 @@ rospy.Subscriber("/robot1/pos", Image, cam4_callback)
 
 @app.route("/")
 def index():
-    return render_template("main.html")
+    return "Use the /app route!"
 
-@app.route("/appy", methods=["GET"])
+@app.route("/app", methods=["GET"])
 def appy():
     worker_id = request.args.get("workerId")
     return render_template("main2.html", worker_id=worker_id)
@@ -142,4 +142,4 @@ def getWaypoints():
     return jsonify(response)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=5000)
