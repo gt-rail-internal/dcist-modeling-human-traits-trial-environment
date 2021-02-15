@@ -99,7 +99,7 @@ def index():
 @app.route("/app", methods=["GET"])
 def appy():
     worker_id = request.args.get("workerId")
-    return render_template("main2.html", worker_id=worker_id)
+    return render_template("main.html", worker_id=worker_id)
 
 @app.route("/logging", methods=["POST"])
 def log():

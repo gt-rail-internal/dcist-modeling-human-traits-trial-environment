@@ -156,8 +156,8 @@ function simMotion() {
 
         // if all caches are connected, end
         if (!cacheDisconnected) {
-            stageComplete();
             uiMap.stageVictory = true;
+            stageComplete();
         }
 
     }, 100);
