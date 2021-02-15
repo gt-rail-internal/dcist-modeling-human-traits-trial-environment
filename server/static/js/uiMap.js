@@ -6,6 +6,7 @@ class UIMap {
 
         // make arrays of the UI Objects
         this.uiObjects = [];
+        this.uiObstacles = [];
 
         // variable for the selected game object
         this.selectedObject = null;
@@ -19,15 +20,26 @@ class UIMap {
 
         this.mapScale = 1;  // the map's scale, so the image fits the canvas
 
+        // variable for the current stage
+        this.stage = 0;
+
         // variables for drawn items
         this.adHocRange = 100;
         this.displayAdHocRanges = true;
+        this.adHocLock = true;
 
         this.goalLocations = [];
         this.displayGoalLocations = true;
 
         this.goalHelpers = [];
         this.displayGoalHelpers = true;
+
+        // variables for a red canvas arrow, if one exists
+        this.redWaypointTime = 0;
+        this.redWaypointLocation = [];
+
+        // flag for whether to use networks (false only on Stage 2)
+        this.networked = true;
 
         // when the image loads, scale it
         var obj = this;
@@ -49,11 +61,17 @@ class UIMap {
             this.uiObjects[i].draw();
             // draw the vehicle-specific attributes
             if (this.uiObjects[i].constructor.name == "Vehicle") {
-                // draw grey for non-selected object, black for selected object
+                // draw grey waypoints for non-selected object, black for selected object
                 var color = this.selectedObject == this.uiObjects[i] ? "black" : "grey"
                 this.uiObjects[i].drawWaypoints(color);
 
                 // draw the adhoc range (will only draw if applicable)
+                this.uiObjects[i].drawAdHoc();   
+            }
+
+            // draw the base-specific attributes
+            if (this.uiObjects[i].constructor.name == "Base") {
+                // draw the adhoc range (will only draw if applicable stage)
                 this.uiObjects[i].drawAdHoc();
                 
             }
@@ -65,10 +83,6 @@ class UIMap {
             this.mapContext.drawImage(this.selectorImage, this.selectedObject.x - this.selectedObject.scale, this.selectedObject.y - this.selectedObject.scale, this.selectedObject.scale * 2, this.selectedObject.scale * 2);
         }
 
-    }
-
-    distance(a, b) {
-        return Math.sqrt(Math.pow((a[0] - b[0]), 2) + Math.pow((a[1] - b[1]), 2));
     }
 }
 

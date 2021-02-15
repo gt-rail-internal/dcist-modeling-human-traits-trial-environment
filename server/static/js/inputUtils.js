@@ -13,7 +13,7 @@ function canvasMouseHandler(event) {
 
     // check if any vehicles were clicked
     for (i in uiMap.uiObjects) {
-        if (uiMap.distance(canvasClick, [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < uiMap.uiObjects[i].scale * .86) {
+        if (uiMap.uiObjects[i].selectable && distance(canvasClick, [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < uiMap.uiObjects[i].scale * .86) {
             console.log("Selected vehicle");
             uiMap.selectedObject = uiMap.uiObjects[i];
             clickedVehicle = true;
@@ -26,7 +26,22 @@ function canvasMouseHandler(event) {
     if (!clickedVehicle && uiMap.selectedObject != null && event.button == 0) {
         posX = canvasX / uiMap.mapCanvas.width;
         posY = canvasY / uiMap.mapCanvas.height;
+
+        // check if waypoint is valid, if on stage 2
+        if (uiMap.stage == 2 && uiMap.selectedObject.type == "ugv") {
+            priorWaypoint = uiMap.selectedObject.getLastWaypoint();
+
+            // if the waypoint is not valid, turn it red and delete it after half a second
+            if (!checkValidWaypoint(priorWaypoint, [posX, posY])) {
+                uiMap.selectedObject.redWaypointTime = new Date().getTime() / 1000;
+                uiMap.selectedObject.redWaypointLocation = [canvasX, canvasY];
+                console.log("collision found")
+                return;
+            }
+        }
+
         uiMap.selectedObject.waypoints.push([posX, posY]);
+
         fetch("add-waypoint?id=" + uiMap.selectedObject.index + "&x=" + posX + "&y=" + posY)
         console.log("Added waypoint");
     }

@@ -21,13 +21,12 @@
 
 <body>    
     <div class="titlebar" style="display: flex; justify-content: center;">
-        <div class="title">
-            Human-Robot Teaming - Simulation Environment
+        <div class="title" id="titlebar">
+            Simulation Environment
         </div>
     </div>
-    <br>
 
-    <div style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: space-between;">
         <div class="side-panel" id="left-panel">
             <div class="cam-container">
                 <div id="cam1" class="cam red"><img id="cam1_image" height="100%" width="100%"/></div>
@@ -39,11 +38,10 @@
             </div>
         </div>
 
-        <div>
-            <div class="instructions">
-                Stage 1: Search for the packages
-            </div>
+        <div class="map-panel" id="map-panel">
+            <div class="instructions" id="instructions-top"></div>
             <canvas class="uimap" id="uimap-canvas"></canvas>
+            <div class="instructions" id="instructions-bottom">Click a robot to select it, and click on the map to add waypoints for the robot to travel to. Press [BACKSPACE] to remove the last waypoint, and press [SPACE] to deselect the robot.</div>
         </div>
 
 
@@ -57,6 +55,8 @@
                 <div id="cam4_button" class="cam-button gold">Mark Cache</div>
             </div>
         </div>
+
+        
     </div>
 
 <script>
@@ -72,15 +72,15 @@
     window.setInterval(function() {
         uiMap.draw();
     }, 100);
-
-    // initialize the engine
-    initEngine();
     
     // initialize Stage 1
     //initStage1();
 
     // initialize Stage 2
     initStage2();
+
+    // initialize the engine
+    initEngine();
     
 </script>
 
