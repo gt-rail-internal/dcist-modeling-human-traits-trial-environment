@@ -32,6 +32,18 @@ canvas.uimap {
     font-size: 14pt;
 }
 
+.grey-instructions {
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 5pt 5pt 5pt 5pt;
+}
+
+.green-success {
+    background-color: palegreen;
+    border-radius: 5px;
+    padding: 5pt 5pt 5pt 5pt;
+}
+
 .side-panel {
     display: flex;
     flex-direction: column;

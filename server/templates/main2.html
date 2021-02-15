@@ -39,7 +39,7 @@
         </div>
 
         <div class="map-panel" id="map-panel">
-            <div class="instructions" id="instructions-top"></div>
+            <div class="instructions grey-instructions" id="instructions-top"></div>
             <canvas class="uimap" id="uimap-canvas"></canvas>
             <div class="instructions" id="instructions-bottom">Click a robot to select it, and click on the map to add waypoints for the robot to travel to. Press [BACKSPACE] to remove the last waypoint, and press [SPACE] to deselect the robot.</div>
         </div>
@@ -60,6 +60,8 @@
     </div>
 
 <script>
+    startTime = new Date().getTime() / 1000
+
     // create the UI Map object
     uiMap = Object;
 
@@ -67,6 +69,9 @@
     uiMap = new UIMap("uimap-canvas")
     document.getElementById("uimap-canvas").height = "700";
     document.getElementById("uimap-canvas").width = "700";
+
+    // record the worker ID
+    uiMap.workerID = "{{ worker_id }}";
 
     // have the map update almost constantly
     window.setInterval(function() {

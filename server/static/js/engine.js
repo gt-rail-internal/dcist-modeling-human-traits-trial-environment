@@ -44,7 +44,7 @@ function getPositions() {
 
         // update the ui objects
         for (let i in uiMap.uiObjects) {
-            console.log(uiMap.uiObjects[i].name, data)
+            //console.log(uiMap.uiObjects[i].name, data)
             // if the position was given for an object
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
                 // set it
@@ -86,11 +86,22 @@ function checkValidWaypoint(prior_waypoint, waypoint) {
 function simMotion() {
     let date = new Date();
 
-    let cacheDisconnected = false;
-
     let lastUpdate = date.getTime();  // record the last update time 
     window.setInterval(() => {
+        // if the stage is complete, don't move
+        if (uiMap.stageComplete) {
+            return;
+        }
+
+        // if the time limit has completed, time out
+        if (checkTimeout()) {
+            stageComplete();
+            return;
+        }
+
         let now = new Date().getTime();
+
+        let cacheDisconnected = false;
 
         // move vehicles closer to their goals
         for (let i in uiMap.uiObjects) {
@@ -145,7 +156,8 @@ function simMotion() {
 
         // if all caches are connected, end
         if (!cacheDisconnected) {
-            console.log("VICTORY!!!")
+            stageComplete();
+            uiMap.stageVictory = true;
         }
 
     }, 100);
@@ -223,3 +235,45 @@ function BFS(rootNode, searchValue) {
 
     return [];
 };
+
+
+function stageComplete() {
+    // log it
+    log({stage: uiMap.stage, action: "stage-complete"})
+
+    // set the instructions
+    topBar = document.getElementById("instructions-top");
+    topBar.classList = "instructions green-success"
+    topBar.innerHTML = uiMap.stageVictory ? "🎉 Congratulations! You have completed this stage. <b>Click here to continue</b>." : "This stage has ended. <b>Click here to continue</b>.";
+    topBar.onclick = () => {
+        topBar.innerHTML = "Redirecting you to the experiment portal (not made yet)"
+    }
+
+    // set the ui map to complete
+    uiMap.stageComplete = true;
+
+    // set all vehicle names to "Complete"
+    for (i in uiMap.uiObjects) {
+        uiMap.uiObjects[i].name = "Complete";
+    }
+
+}
+
+
+function log(data) {
+    data["worker-id"] = uiMap.workerID;  // include the worker ID
+    data["stage"] = uiMap.stage;
+    //console.log("log", data, uiMap.workerID);
+    return fetch("/logging", {method: "POST", body: JSON.stringify(data)});
+}
+
+function checkTimeout() {
+    now = new Date().getTime() / 1000;
+    timeout = 60 * 5;
+
+    if (now - startTime > timeout) {
+        return true;
+    }
+
+    return false;
+}

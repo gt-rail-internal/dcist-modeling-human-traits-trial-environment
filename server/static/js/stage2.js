@@ -3,6 +3,7 @@ function initStage2() {
     // no cameras in this stage, so hide the camera feeds
     // document.getElementById("left-panel").style.display = "none";
     document.getElementById("right-panel").innerHTML = "";
+    document.getElementById("left-panel").innerHTML = "";
 
     // set the uiMap to not use networks
     uiMap.networked = false;
@@ -53,8 +54,30 @@ function initStage2() {
 
     // initialize five caches
     cache1 = new Cache();
+    cache1.name = "Cache 1";
     cache1.x = 200;
     cache1.y = 500;    
+
+    cache2 = new Cache();
+    cache2.name = "Cache 2";
+    cache2.x = 100;
+    cache2.y = 100;
+
+    cache3 = new Cache();
+    cache3.name = "Cache 3";
+    cache3.x = 500;
+    cache3.y = 650;
+
+    cache4 = new Cache();
+    cache4.name = "Cache 4";
+    cache4.x = 600;
+    cache4.y = 500;
+
+    cache5 = new Cache();
+    cache5.name = "Cache 5";
+    cache5.x = 650;
+    cache5.y = 200;
+
 
     // initialize the base
     base1 = new Base();
@@ -75,6 +98,10 @@ function initStage2() {
     uiMap.uiObjects.push(ugv4);
 
     uiMap.uiObjects.push(cache1);
+    uiMap.uiObjects.push(cache2);
+    uiMap.uiObjects.push(cache3);
+    uiMap.uiObjects.push(cache4);
+    uiMap.uiObjects.push(cache5);
 
     // add the map collisions
     lake = new MapUIObstacle();
@@ -120,11 +147,13 @@ function initStage2() {
     var title = document.getElementById("titlebar");
     title.innerHTML = "Simulation Environment - Stage 2";
 
-    // set up the instructions
-    var instructionsLeft = document.getElementById("left-panel");
+    var instructionsTop = document.getElementById("instructions-top");
+    instructionsTop.innerHTML = "Position the robots so the network reaches from the \"Base\" to all five caches";
 
-    instructionsLeft.innerHTML = "Your task is to create a communications network from \"Base\" to all five caches. Each robot has a signal range, shown by a dashed circle around it. When signals overlap the robots are connected. Many robots can be connected in a chain to form a widespread network, but a robot can only move if it is part of a network that includes \"Base\". When all caches are connected to \"Base\" this stage will be complete.";
-    
-    
+    // set up the instructions
+    //var instructionsLeft = document.getElementById("left-panel");
+
+    //instructionsLeft.innerHTML = "Your task is to create a communications network from \"Base\" to all five caches. Each robot has a signal range, shown by a dashed circle around it. When signals overlap the robots are connected. Many robots can be connected in a chain to form a widespread network, but a robot can only move if it is part of a network that includes \"Base\". When all caches are connected to \"Base\" this stage will be complete.";
     
 }
+

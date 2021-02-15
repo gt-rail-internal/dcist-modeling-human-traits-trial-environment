@@ -12,6 +12,8 @@ class MapUIObject {
 
         this.image = new Image();
 
+        this.type = "";
+
         this.name = "";
         this.nameAttention = false;  // give the name attention if needed (! name !)
 
@@ -31,9 +33,11 @@ class MapUIObject {
         this.context.fillStyle = this.color;
 
         // draw the name
+        // figure out what the name should be for vehicles
+        let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? "Cache" : this.name; 
         this.context.font = "20px Arial";
         this.context.textAlign = "center";
-        let name = this.nameAttention ? "! " + this.name + " !" : this.name;
+        let name = this.nameAttention ? "! " + objectName + " !" : objectName;
         this.context.fillText(name, this.x, this.y - this.scale * .75);
 
         // draw the color dot
