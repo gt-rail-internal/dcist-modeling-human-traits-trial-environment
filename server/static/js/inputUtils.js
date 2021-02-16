@@ -14,6 +14,8 @@ function canvasMouseHandler(event) {
     var canvasY = event.clientY - (event.originalTarget ? event.originalTarget.offsetTop : event.target.offsetTop);
     var canvasClick = [canvasX, canvasY];
 
+    console.log("click", canvasX / uiMap.mapCanvas.width, canvasY / uiMap.mapCanvas.height)
+
     clickedVehicle = false;
 
     // check if any vehicles were clicked

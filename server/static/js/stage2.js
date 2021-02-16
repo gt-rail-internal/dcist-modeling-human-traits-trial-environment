@@ -55,34 +55,34 @@ function initStage2() {
     // initialize five caches
     cache1 = new Cache();
     cache1.name = "Cache 1";
-    cache1.x = 200;
-    cache1.y = 500;    
+    cache1.x = .200 * uiMap.mapCanvas.width;
+    cache1.y = .298 * uiMap.mapCanvas.height;    
 
     cache2 = new Cache();
     cache2.name = "Cache 2";
-    cache2.x = 100;
-    cache2.y = 100;
+    cache2.x = .564 * uiMap.mapCanvas.width;
+    cache2.y = .327 * uiMap.mapCanvas.height;
 
     cache3 = new Cache();
     cache3.name = "Cache 3";
-    cache3.x = 500;
-    cache3.y = 650;
+    cache3.x = .900 * uiMap.mapCanvas.width;
+    cache3.y = .374 * uiMap.mapCanvas.height;
 
     cache4 = new Cache();
     cache4.name = "Cache 4";
-    cache4.x = 600;
-    cache4.y = 500;
+    cache4.x = .895 * uiMap.mapCanvas.width;
+    cache4.y = .877 * uiMap.mapCanvas.height;
 
     cache5 = new Cache();
     cache5.name = "Cache 5";
-    cache5.x = 650;
-    cache5.y = 200;
+    cache5.x = .078 * uiMap.mapCanvas.width;
+    cache5.y = .758 * uiMap.mapCanvas.height;
 
 
     // initialize the base
     base1 = new Base();
-    base1.x = 400;
-    base1.y = 60;
+    base1.x = .580 * uiMap.mapCanvas.width;
+    base1.y = .987 * uiMap.mapCanvas.height;
 
     // add them to the UI Map
     uiMap.uiObjects.push(base1);  // PUSH THE BASE FIRST!! So the linking algorithm starts at the base
@@ -104,42 +104,110 @@ function initStage2() {
     uiMap.uiObjects.push(cache5);
 
     // add the map collisions
-    lake = new MapUIObstacle();
-    lake.shape = [[.694, .206],
-                  [.784, .205],
-                  [.815, .240],
-                  [.850, .344],
-                  [.851, .395],
-                  [.829, .450],
-                  [.802, .474],
-                  [.755, .497],
-                  [.725, .547],
-                  [.675, .590],
-                  [.637, .591],
-                  [.604, .570],
-                  [.575, .528],
-                  [.580, .480],
-                  [.588, .460],
-                  [.648, .410],
-                  [.671, .383],
-                  [.677, .352],
-                  [.666, .319],
-                  [.647, .284],
-                  [.651, .261],
-                  [.674, .221]];
+    northWarehouse = new MapUIObstacle();
+    northWarehouse.shape = [[.600, .297],
+                            [.457, .383],
+                            [.424, .333],
+                            [.570, .245]];
 
-    mountains = new MapUIObstacle();
-    mountains.shape = [[.165, .364],
-                       [.245, .357],
-                       [.387, .330],
-                       [.322, .237],
-                       [.288, .291],
-                       [.257, .230],
-                       [.220, .285],
-                       [.197, .225]];
+    northResidential = new MapUIObstacle();
+    northResidential.shape = [[.764, .041],
+                              [.864, .150],
+                              [.806, .199],
+                              [.711, .094]];
 
-    uiMap.uiObstacles.push(lake);
-    uiMap.uiObstacles.push(mountains);
+    westWarehouse = new MapUIObstacle();
+    westWarehouse.shape = [[.250, .608],
+                           [.334, .740],
+                           [.330, .749],
+                           [.281, .780],
+                           [.193, .664]];
+
+    southResidential = new MapUIObstacle();
+    southResidential.shape = [[.443, .834],
+                              [.445, .850],
+                              [.410, .981],
+                              [.354, .970],
+                              [.390, .823]];
+
+    westHouse = new MapUIObstacle();
+    westHouse.shape = [[.420, .568],
+                       [.402, .582],
+                       [.388, .570],
+                       [.372, .584],
+                       [.350, .554],
+                       [.357, .552],
+                       [.350, .542],
+                       [.382, .515],
+                       [.388, .524],
+                       [.394, .518],
+                       [.415, .548],
+                       [.408, .555]];
+
+    eastHouse = new MapUIObstacle();
+    eastHouse.shape = [[.768, .550],
+                       [.784, .535],
+                       [.792, .547],
+                       [.818, .525],
+                       [.814, .521],
+                       [.825, .510],
+                       [.802, .484],
+                       [.791, .481],
+                       [.782, .484],
+                       [.775, .481],
+                       [.754, .500],
+                       [.764, .514],
+                       [.750, .527]];
+
+    southeastHouse = new MapUIObstacle();
+    southeastHouse.shape = [[.662, .721],
+                           [.660, .734],
+                           [.664, .738],
+                           [.652, .765],
+                           [.641, .762],
+                           [.635, .774],
+                           [.612, .767],
+                           [.617, .757],
+                           [.600, .750],
+                           [.612, .711],
+                           [.618, .711],
+                           [.625, .702],
+                           [.637, .707],
+                           [.640, .701],
+                           [.650, .704],
+                           [.648, .710],
+                           [.655, .712]];
+
+    southwestHouse = new MapUIObstacle();
+    southwestHouse.shape = [[.552, .738],
+                            [.528, .735],
+                            [.530, .725],
+                            [.512, .720],
+                            [.517, .682],
+                            [.522, .682],
+                            [.525, .671],
+                            [.537, .671],
+                            [.540, .665],
+                            [.551, .668],
+                            [.551, .672],
+                            [.562, .674],
+                            [.568, .684],
+                            [.571, .694],
+                            [.568, .725],
+                            [.554, .725]];
+                   
+
+    uiMap.uiObstacles.push(northWarehouse);
+    uiMap.uiObstacles.push(northResidential);
+    uiMap.uiObstacles.push(westWarehouse);
+    uiMap.uiObstacles.push(southResidential);
+    uiMap.uiObstacles.push(westHouse);
+    uiMap.uiObstacles.push(eastHouse);
+    uiMap.uiObstacles.push(southwestHouse);
+    uiMap.uiObstacles.push(southeastHouse);
+    
+
+
 
     // initialize the simulated motion
     simMotion();
