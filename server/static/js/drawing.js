@@ -14,7 +14,7 @@ function canvas_arrow(context, fromx, fromy, tox, toy) {
 
 // Adapted from StackOverflow (couldn't find link again :-( )
 function drawDashedCircle(context, x, y, r) {
-    context.strokeStyle = "darkgrey";
+    context.strokeStyle = "black";
     context.beginPath();
     context.setLineDash([5, 5]);  // set the line stroke to dashed
     context.beginPath();
