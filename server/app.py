@@ -22,14 +22,6 @@ cam_images = {
 }
 
 robot_positions = {
-#    "UAV 1": [.40,.1],
-#    "UGV 1": [.40,.15],
-#    "UAV 2": [.5,.1],
-#    "UGV 2": [.5,.15],
-#    "UAV 3": [.65,.1],
-#    "UGV 3": [.65,.15],
-#    "UAV 4": [.75,.1],
-#    "UGV 4": [.75,.15],
     "UAV 1": [.522,.970],
     "UGV 1": [.641,.970],
     "UAV 2": [.522,.970],
@@ -41,10 +33,14 @@ robot_positions = {
 }
 
 robot_waypoints = {
-    1: [],
-    2: [],
-    3: [],
-    4: [],
+    "UAV 1": [],
+    "UGV 1": [],
+    "UAV 2": [],
+    "UGV 2": [],
+    "UAV 3": [],
+    "UGV 3": [],
+    "UAV 4": [],
+    "UGV 4": [],
 }
 
 
@@ -130,7 +126,7 @@ def position():
 @app.route("/add-waypoint", methods=["GET"])
 def addWaypoint():
     #print("adding wayyyypoints")
-    robot = int(request.args.get("id"))
+    robot = request.args.get("id")
     x = float(request.args.get("x"))
     y = float(request.args.get("y"))
     #print(">>>>", robot, x, y, robot_waypoints[robot])
@@ -140,14 +136,13 @@ def addWaypoint():
 @app.route("/remove-waypoint", methods=["GET"])
 def removeWaypoint():
     robot = request.args.get("id")
-    robot_waypoints[int(robot)].pop()
+    robot_waypoints[robot].pop()
     return "success"
 
 @app.route("/get-waypoints", methods=["GET"])
 def getWaypoints():
-    response = [robot_waypoints[1], robot_waypoints[2], robot_waypoints[3], robot_waypoints[4]]
     #print("waypoints", response)
-    return jsonify(response)
+    return jsonify(robot_waypoints)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

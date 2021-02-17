@@ -52,7 +52,7 @@ function canvasMouseHandler(event) {
         uiMap.selectedObject.waypoints.push([posX, posY]);
 
         if (uiMap.stage != 2) {
-            fetch("add-waypoint?id=" + uiMap.selectedObject.index + "&x=" + posX + "&y=" + posY);
+            fetch("add-waypoint?id=" + uiMap.selectedObject.name + "&x=" + posX + "&y=" + posY);
         }
 
         log({action: "add-valid-waypoint", target: uiMap.selectedObject.name, location: "[" + posX + "," + posY + "]"});
@@ -66,7 +66,7 @@ function canvasKeypressHandler(event) {
     if (event.key == "Backspace" && uiMap.selectedObject != null) {
         uiMap.selectedObject.waypoints.pop();
         if (uiMap.stage != 2) {
-            fetch("remove-waypoint?id=" + uiMap.selectedObject.index);
+            fetch("remove-waypoint?id=" + uiMap.selectedObject.name);
         }
         log({action: "remove-waypoint", target: uiMap.selectedObject.name});
         console.log("Removed waypoint");

@@ -18,38 +18,38 @@ function initStage2() {
     uav2 = new Vehicle("uav");
     uav2.index = 2;
     uav2.name = "UAV 2";
-    uav2.color = "purple";
+    uav2.color = "red";
 
     uav3 = new Vehicle("uav");
     uav3.index = 3;
     uav3.name = "UAV 3";
-    uav3.color = "blue";
+    uav3.color = "red";
 
     uav4 = new Vehicle("uav");
     uav4.index = 4;
     uav4.name = "UAV 4";
-    uav4.color = "goldenrod";
+    uav4.color = "red";
 
 
     ugv1 = new Vehicle("ugv");
     ugv1.index = 5;
     ugv1.name = "UGV 1";
-    ugv1.color = "black";
+    ugv1.color = "blue";
 
     ugv2 = new Vehicle("ugv");
     ugv2.index = 6;
     ugv2.name = "UGV 2";
-    ugv2.color = "grey";
+    ugv2.color = "blue";
 
     ugv3 = new Vehicle("ugv");
     ugv3.index = 7;
     ugv3.name = "UGV 3";
-    ugv3.color = "brown";
+    ugv3.color = "blue";
 
     ugv4 = new Vehicle("ugv");
     ugv4.index = 8;
     ugv4.name = "UGV 4";
-    ugv4.color = "darkgreen";
+    ugv4.color = "blue";
 
 
     // initialize five caches
