@@ -32,13 +32,17 @@ class MapUIObject {
         // set the fill color
         this.context.fillStyle = this.color;
 
+        // if a cache, set color depending on whether it is connected
+        if (this.type == "cache" && this.connected) {
+            this.context.fillStyle = "yellow"
+        }
+
         // draw the name
         // figure out what the name should be for vehicles
-        let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? "Cache" : this.name; 
-        this.context.font = "20px Arial";
+        let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? this.connected ? "Connected" : "Cache" : this.name; 
+        this.context.font = this.nameAttention ? "bold 20px Arial" : "20px Arial";
         this.context.textAlign = "center";
-        let name = this.nameAttention ? "! " + objectName + " !" : objectName;
-        this.context.fillText(name, this.x, this.y - this.scale * .75);
+        this.context.fillText(objectName, this.x, this.y - this.scale * .75);
 
         // draw the color dot
         if (this.displayDot) {
@@ -159,7 +163,7 @@ class Vehicle extends MapUIObject {
     }
 
     drawAdHoc() {
-        drawDashedCircle(this.context, this.x, this.y, this.adHocRadius);
+        drawDashedCircle(this.context, this.x, this.y, this.adHocRadius, this.nameAttention ? "red" : "black");
     }
 
 }
@@ -205,7 +209,7 @@ class Base extends MapUIObject {
     }
 
     drawAdHoc() {
-        drawDashedCircle(this.context, this.x, this.y, this.adHocRadius);
+        drawDashedCircle(this.context, this.x, this.y, this.adHocRadius, "black");
     }
 }
 

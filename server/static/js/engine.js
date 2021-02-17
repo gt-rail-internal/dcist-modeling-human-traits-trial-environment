@@ -105,7 +105,7 @@ function simMotion() {
 
         // move vehicles closer to their goals
         for (let i in uiMap.uiObjects) {
-            if (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].waypoints.length > 0) {
+            if (uiMap.uiObjects[i].constructor.name == "Vehicle") {
                 // check if robot is connected via adhoc, if applicable
                 if (uiMap.adHocLock) {
                     // if connected, great, the robot is not locked
@@ -114,9 +114,20 @@ function simMotion() {
                     }
                     // if not connected
                     else{
+                        // flag as needing attention
                         uiMap.uiObjects[i].nameAttention = true;
+
+                        // remove waypoints
+                        uiMap.uiObjects[i].waypoints = [];
+                        fetch("/remove-all-waypoints?id=" + uiMap.uiObjects[i].name)
+
                         continue;
                     }
+                }
+
+                // if not moving the robot, continue to the next robot
+                if (uiMap.uiObjects[i].waypoints.length == 0) {
+                    continue;
                 }
 
                 // calculate how to move the object in x/y
