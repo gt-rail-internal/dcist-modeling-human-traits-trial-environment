@@ -1,0 +1,15 @@
+
+1613850455.21287,9871293871923,{'action': 'select-vehicle', 'target': 'UGV 1', 'worker-id': '9871293871923', 'stage': 0}
+1613850456.540814,9871293871923,{'action': 'add-valid-waypoint', 'target': 'UGV 1', 'location': '[0.5257142857142857,0.79]', 'worker-id': '9871293871923', 'stage': 0}
+1613850457.752034,9871293871923,{'action': 'add-valid-waypoint', 'target': 'UGV 1', 'location': '[0.48714285714285716,0.7414285714285714]', 'worker-id': '9871293871923', 'stage': 0}
+1613850458.164064,9871293871923,{'action': 'add-valid-waypoint', 'target': 'UGV 1', 'location': '[0.47714285714285715,0.7185714285714285]', 'worker-id': '9871293871923', 'stage': 0}
+1613850460.582539,9871293871923,{'action': 'remove-waypoint', 'target': 'UGV 1', 'worker-id': '9871293871923', 'stage': 0}
+1613850460.757534,9871293871923,{'action': 'remove-waypoint', 'target': 'UGV 1', 'worker-id': '9871293871923', 'stage': 0}
+1613850460.920932,9871293871923,{'action': 'remove-waypoint', 'target': 'UGV 1', 'worker-id': '9871293871923', 'stage': 0}
+1613850462.752453,9871293871923,{'action': 'add-valid-waypoint', 'target': 'UGV 1', 'location': '[0.4757142857142857,0.7285714285714285]', 'worker-id': '9871293871923', 'stage': 0}
+1613850465.019015,9871293871923,{'action': 'deselect-vehicle', 'target': 'UGV 1', 'worker-id': '9871293871923', 'stage': 0}
+1613850466.064085,9871293871923,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '9871293871923', 'stage': 0}
+1613850467.271842,9871293871923,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.4342857142857143,0.61]', 'worker-id': '9871293871923', 'stage': 0}
+1613850471.957292,9871293871923,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.41285714285714287,0.41285714285714287]', 'worker-id': '9871293871923', 'stage': 0}
+1613850501.99839,9871293871923,{'stage': 0, 'action': 'stage-complete', 'worker-id': '9871293871923'}
+1613850609.686388,9871293871923,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing tutorial panel 1', 'worker-id': '9871293871923'}

@@ -18,6 +18,9 @@ function initEngine() {
         }, 5000);
     }
 
+    // set up the completion check
+    checkConditions();
+
     // add a mount event handler for the canvas
     window.addEventListener("mousedown", canvasMouseHandler);
 
@@ -61,10 +64,11 @@ function getWaypoints() {
     fetch("get-waypoints").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
-        uiMap.uiObjects[0].waypoints = data[0];
-        uiMap.uiObjects[1].waypoints = data[1];
-        uiMap.uiObjects[2].waypoints = data[2];
-        uiMap.uiObjects[3].waypoints = data[3];
+        for (var i in uiMap.uiObjects) {
+            console.log(">>>", uiMap.uiObjects[i].name)
+            uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
+        }
+
     });
 }
 
@@ -82,6 +86,30 @@ function checkValidWaypoint(prior_waypoint, waypoint) {
     return true;
 }
 
+function checkConditions() {
+    window.setInterval(() => {
+        // if the stage is complete, return
+        if (uiMap.stageComplete) {
+            return;
+        }
+
+        // if the time limit has completed, time out
+        if (checkTimeout()) {
+            console.log("Timeout!");
+            stageComplete();
+            return;
+        }
+
+        // if the end condition is met, victory
+        if (uiMap.endCheck()) {
+            console.log("VICTORY!!");
+            uiMap.stageVictory = true;
+            stageComplete();
+            return;
+        }
+    }, 250);
+}
+
 // runs vehicle motion
 function simMotion() {
     let date = new Date();
@@ -93,15 +121,9 @@ function simMotion() {
             return;
         }
 
-        // if the time limit has completed, time out
-        if (checkTimeout()) {
-            stageComplete();
-            return;
-        }
-
         let now = new Date().getTime();
 
-        let cacheDisconnected = false;
+        uiMap.cacheDisconnected = false;
 
         // move vehicles closer to their goals
         for (let i in uiMap.uiObjects) {
@@ -114,12 +136,23 @@ function simMotion() {
                     }
                     // if not connected
                     else{
+                        // remove waypoints
+                        uiMap.uiObjects[i].waypoints = [];
+
+                        // if the object was not disconnected before, send a waypoint clearing message
+                        if (!uiMap.uiObjects[i].nameAttention) {
+                            fetch("/remove-all-waypoints?id=" + uiMap.uiObjects[i].name)
+                        }
+
                         // flag as needing attention
                         uiMap.uiObjects[i].nameAttention = true;
 
-                        // remove waypoints
-                        uiMap.uiObjects[i].waypoints = [];
-                        fetch("/remove-all-waypoints?id=" + uiMap.uiObjects[i].name)
+                        // update the training counter
+                        if (uiMap.stage == 0) {
+                            trainingDisconnectRobot += 1;
+                            console.log("disconnect")
+                            checkTraining();
+                        }
 
                         continue;
                     }
@@ -155,21 +188,21 @@ function simMotion() {
                     // if connected, great, set a flag
                     if (robotConnectedToBase(uiMap.uiObjects[i].name)) {
                         uiMap.uiObjects[i].connected = true;
+
+                        // update the training counter
+                        if (uiMap.stage == 0) {
+                            trainingReachCache += 1;
+                            checkTraining();
+                        }
                     }
                     else {
                         uiMap.uiObjects[i].connected = false;
-                        cacheDisconnected = true;
+                        uiMap.cacheDisconnected = true;
                     }
                 }
             }
         }
         lastUpdate = now;
-
-        // if all caches are connected, end
-        if (!cacheDisconnected) {
-            uiMap.stageVictory = true;
-            stageComplete();
-        }
 
     }, 100);
 }
@@ -183,10 +216,11 @@ function distance(a, b) {
 
 // determines whether a robot is ad hoc connected to the base (true) or not (false)
 function robotConnectedToBase(robot) {
+
     // if Stage 1, don't worry about it
     
-    // if Stage 2, do BFS to check if connects to a base
-    if (uiMap.stage == 2) {
+    // if Test Stage or Stage 2, do BFS to check if connects to a base
+    if (uiMap.stage == 0 || uiMap.stage == 2) {
         result = BFS("Base", robot);
         //console.log(">>>", generateBFSTree(), result)
         return result.length > 0 ? true : false;
@@ -257,7 +291,8 @@ function stageComplete() {
     topBar.classList = "instructions green-success"
     topBar.innerHTML = uiMap.stageVictory ? "🎉 Congratulations! You have completed this stage. <b>Click here to continue</b>." : "This stage has ended. <b>Click here to continue</b>.";
     topBar.onclick = () => {
-        topBar.innerHTML = "Redirecting you to the experiment portal (not made yet)"
+        topBar.innerHTML = "Redirecting you to the experiment portal"
+        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + uiMap.stage + "&success=1";
     }
 
     // set the ui map to complete

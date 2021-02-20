@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='simenv/img/favicon.ico')}}" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='simenv/css/style.css')}}">
+
+    <!-- Roboto font import -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style> 
+
+
+    <title>Experiment Login</title>
+</head>
+
+<body>    
+    <br><br>
+
+    <div class="titlebar" style="display: flex; justify-content: center;">
+        <div class="title big-title" id="titlebar" style="background-color: lightskyblue">
+            Experiment Login
+        </div>
+    </div>
+
+    <br><br>
+
+    <div style="display: flex; justify-content: center;">
+        <div class="center-panel" id="center-panel">
+            <div class="instructions grey-instructions" id="instructions-header">Welcome to the Human Robot Teaming study! This experiment is being conducted by the Robot Autonomy and Interactive Learning Lab at the Georgia Institute of Technology. <br><br> To participate, please enter your Amazon Worker ID below:</div>
+            <input type="text" class="instructions grey-instructions login-text" id="instructions-id" />
+            
+            <div class="instructions grey-instructions portal-spaced button" id="login-button"><b>Begin</b></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("login-button").onclick = () => {
+            workerId = document.getElementById("instructions-id").value;
+            window.location.href = "/portal?workerId=" + workerId
+        }
+    </script>
+
+</body>
+
+</html>

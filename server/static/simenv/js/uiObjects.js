@@ -80,13 +80,13 @@ class Vehicle extends MapUIObject {
 
         // set some vehicle attributes by the type
         if (this.type == "uav") {
-            this.image.src = "/static/img/uav.png";   
+            this.image.src = "/static/simenv/img/uav.png";   
             this.adHocRadius = 75;
             this.speed = 10;
         }
 
         if (this.type == "ugv") {
-            this.image.src = "/static/img/ugv.png";
+            this.image.src = "/static/simenv/img/ugv.png";
             this.adHocRadius = 100;
             this.speed = 5;
         }
@@ -179,7 +179,7 @@ class Cache extends MapUIObject {
         this.name = "Cache";
         this.color = "black";
 
-        this.image.src = "/static/img/cache.png";
+        this.image.src = "/static/simenv/img/cache.png";
         this.scale = 25;
 
         this.displayDot = false;
@@ -200,7 +200,7 @@ class Base extends MapUIObject {
 
         this.adHocRadius = 100;
 
-        this.image.src = "/static/img/base.png";
+        this.image.src = "/static/simenv/img/base.png";
         this.scale = 40;
 
         this.name = "Base";
