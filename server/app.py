@@ -9,9 +9,11 @@ import cv2
 import numpy as np
 import json
 import datetime
+import random
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['PROPAGATE_EXCEPTIONS'] = True
 bridge = CvBridge()
 
 cam_images = {
@@ -42,6 +44,8 @@ robot_waypoints = {
     "UAV 4": [],
     "UGV 4": [],
 }
+
+completions = {}
 
 
 def cam1_callback(data):
@@ -98,12 +102,58 @@ rospy.Subscriber("/robot1/pos", Image, cam4_callback)
 
 @app.route("/")
 def index():
-    return "Use the /app route!"
+    return render_template("simenv/index.html")
 
-@app.route("/app", methods=["GET"])
-def appy():
+@app.route("/stage", methods=["GET"])
+def stage():
     worker_id = request.args.get("workerId")
-    return render_template("main.html", worker_id=worker_id)
+    stage = request.args.get("stage")
+    return render_template("simenv/stage.html", worker_id=worker_id, stage=stage)
+
+@app.route("/portal", methods=["GET"])
+def portal():
+    worker_id = str(request.args.get("workerId"))
+    page_from = str(request.args.get("pageFrom"))
+    success = str(request.args.get("success"))
+
+    # if coming successfully from a page, mark it
+    if page_from in ["0", "1", "2", "3"] and success == "1" and worker_id in completions:
+        current_completions = completions[worker_id]
+        current_completions = current_completions[:int(page_from)] + '1' + current_completions[int(page_from)+1:]
+        completions[worker_id] = current_completions
+        print("updated completions for", worker_id, "to", current_completions)
+
+    # get the completions set
+    completion_string = "0000"
+    if worker_id in completions:
+        completion_string = completions[worker_id]
+        print("existing worker id, pulling completions", completion_string)
+    elif worker_id != "":
+        completions[worker_id] = "0000"
+    else:
+        worker_id = "none"
+
+    # generate the selected stage if the training is complete
+    next_stage = "0"
+    if completion_string[0] == "1" and completion_string != "1111":
+        potentials = []
+        for i in range(len(completion_string)):
+            if completion_string[i] == "0":
+                potentials.append(str(i))
+        next_stage = potentials[random.randint(0, len(potentials) - 1)]
+    
+    completion_code = "complete the missions first!"
+    if completion_string == "1111":
+        next_stage = -1
+        completion_code = "IF1nishedTh3Rob0tStudy"
+
+    return render_template("simenv/portal.html", worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
+
+
+@app.route("/test", methods=["GET"])
+def testStage():
+    worker_id = request.args.get("workerId")
+    return render_template("simenv/stage.html", stage=0, worker_id=worker_id)
 
 @app.route("/logging", methods=["POST"])
 def log():
@@ -111,7 +161,8 @@ def log():
     log_string = "\n" + str(datetime.datetime.now().timestamp()) + "," + data["worker-id"] + "," + str(data)
     with open("./logs/" + data["worker-id"] + ".txt", 'a+') as f:
         f.write(log_string)
-        
+    print("[LOG]", log_string[1:])
+
     return ""
 
 @app.route("/cams")
@@ -139,10 +190,23 @@ def removeWaypoint():
     robot_waypoints[robot].pop()
     return "success"
 
+@app.route("/remove-all-waypoints", methods=["GET"])
+def removeAllWaypoints():
+    robot = request.args.get("id")
+    robot_waypoints[robot] = []
+    return "success"
+
 @app.route("/get-waypoints", methods=["GET"])
 def getWaypoints():
     #print("waypoints", response)
     return jsonify(robot_waypoints)
+
+
+# ROUTES FOR THE SITUATIONAL AWARENESS TEST
+@app.route("/sa-test", methods=["GET"])
+def saTest():
+    worker_id = request.args.get("workerId")
+    return render_template("sa-test/index.html", worker_id=worker_id)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -11,12 +11,12 @@ class UIMap {
         // variable for the selected game object
         this.selectedObject = null;
         this.selectorImage = new Image();
-        this.selectorImage.src = "/static/img/selector.png"
+        this.selectorImage.src = "/static/simenv/img/selector.png"
 
         // set the image 
         // adapted from https://riptutorial.com/html5-canvas/example/19169
         this.mapImage = new Image();
-        this.mapImage.src = "/static/img/map.png"
+        this.mapImage.src = "/static/simenv/img/map.png"
 
         this.mapScale = 1;  // the map's scale, so the image fits the canvas
 
@@ -24,6 +24,15 @@ class UIMap {
         this.stage = 0;
         this.stageComplete = false;
         this.stageVictory = false;
+
+        // variable for the end function
+        this.endCheck = null;
+
+        // variable for connected cache
+        this.cacheDisconnected = true;
+
+        // variable for the training round
+        this.training = false;
 
         // variable for the worker ID
         this.workerID = "invalid"

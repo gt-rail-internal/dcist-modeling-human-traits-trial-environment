@@ -1,0 +1,19 @@
+
+1613786259.413039,0934809638456,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786262.112157,0934809638456,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786263.244442,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.4542857142857143,0.7328571428571429]', 'worker-id': '0934809638456', 'stage': 0}
+1613786265.63327,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.4657142857142857,0.6042857142857143]', 'worker-id': '0934809638456', 'stage': 0}
+1613786266.858089,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.3657142857142857,0.6342857142857142]', 'worker-id': '0934809638456', 'stage': 0}
+1613786272.267545,0934809638456,{'action': 'remove-waypoint', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786273.811556,0934809638456,{'action': 'remove-waypoint', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786276.514107,0934809638456,{'action': 'remove-waypoint', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786278.02883,0934809638456,{'action': 'deselect-vehicle', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786279.944664,0934809638456,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786280.37185,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.39571428571428574,0.6442857142857142]', 'worker-id': '0934809638456', 'stage': 0}
+1613786285.790935,0934809638456,{'action': 'select-vehicle', 'target': 'UGV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786286.683785,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UGV 1', 'location': '[0.4342857142857143,0.7071428571428572]', 'worker-id': '0934809638456', 'stage': 0}
+1613786290.396179,0934809638456,{'action': 'remove-waypoint', 'target': 'UGV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786290.945992,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UGV 1', 'location': '[0.5442857142857143,0.7685714285714286]', 'worker-id': '0934809638456', 'stage': 0}
+1613786294.226994,0934809638456,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '0934809638456', 'stage': 0}
+1613786297.585872,0934809638456,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.5085714285714286,0.5071428571428571]', 'worker-id': '0934809638456', 'stage': 0}
+1613786309.312259,0934809638456,{'stage': 0, 'action': 'stage-complete', 'worker-id': '0934809638456'}

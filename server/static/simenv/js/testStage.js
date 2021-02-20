@@ -1,5 +1,13 @@
-// Create the game objects for Stage 1
-function initStage2() { 
+var trainingSelectRobot = 0;
+var trainingAddWaypoints = 0;
+var trainingRemoveWaypoints = 0;
+var trainingDeselectRobot = 0;
+var trainingStopRobot = 0;
+var trainingDisconnectRobot = 0;
+var trainingReachCache = 0;
+
+// Create the game objects for the Test Stage
+function initTestStage() { 
     // no cameras in this stage, so hide the camera feeds
     // document.getElementById("left-panel").style.display = "none";
     document.getElementById("right-panel").innerHTML = "";
@@ -7,76 +15,26 @@ function initStage2() {
 
     // set the uiMap to not use networks
     uiMap.networked = false;
-    uiMap.stage = 2;
+    uiMap.stage = 0;
 
-    // initialize two UAVs and two UGVs
+
+    // initialize one UAVs and one UGVs
     uav1 = new Vehicle("uav");
     uav1.index = 1;
     uav1.name = "UAV 1";
     uav1.color = "red";
 
-    uav2 = new Vehicle("uav");
-    uav2.index = 2;
-    uav2.name = "UAV 2";
-    uav2.color = "red";
-
-    uav3 = new Vehicle("uav");
-    uav3.index = 3;
-    uav3.name = "UAV 3";
-    uav3.color = "red";
-
-    uav4 = new Vehicle("uav");
-    uav4.index = 4;
-    uav4.name = "UAV 4";
-    uav4.color = "red";
-
-
     ugv1 = new Vehicle("ugv");
-    ugv1.index = 5;
+    ugv1.index = 2;
     ugv1.name = "UGV 1";
     ugv1.color = "blue";
 
-    ugv2 = new Vehicle("ugv");
-    ugv2.index = 6;
-    ugv2.name = "UGV 2";
-    ugv2.color = "blue";
 
-    ugv3 = new Vehicle("ugv");
-    ugv3.index = 7;
-    ugv3.name = "UGV 3";
-    ugv3.color = "blue";
-
-    ugv4 = new Vehicle("ugv");
-    ugv4.index = 8;
-    ugv4.name = "UGV 4";
-    ugv4.color = "blue";
-
-
-    // initialize five caches
+    // initialize one caches
     cache1 = new Cache();
     cache1.name = "Cache 1";
-    cache1.x = .200 * uiMap.mapCanvas.width;
-    cache1.y = .298 * uiMap.mapCanvas.height;    
-
-    cache2 = new Cache();
-    cache2.name = "Cache 2";
-    cache2.x = .564 * uiMap.mapCanvas.width;
-    cache2.y = .327 * uiMap.mapCanvas.height;
-
-    cache3 = new Cache();
-    cache3.name = "Cache 3";
-    cache3.x = .900 * uiMap.mapCanvas.width;
-    cache3.y = .374 * uiMap.mapCanvas.height;
-
-    cache4 = new Cache();
-    cache4.name = "Cache 4";
-    cache4.x = .895 * uiMap.mapCanvas.width;
-    cache4.y = .877 * uiMap.mapCanvas.height;
-
-    cache5 = new Cache();
-    cache5.name = "Cache 5";
-    cache5.x = .078 * uiMap.mapCanvas.width;
-    cache5.y = .758 * uiMap.mapCanvas.height;
+    cache1.x = .5 * uiMap.mapCanvas.width;
+    cache1.y = .5 * uiMap.mapCanvas.height;    
 
 
     // initialize the base
@@ -86,22 +44,9 @@ function initStage2() {
 
     // add them to the UI Map
     uiMap.uiObjects.push(base1);  // PUSH THE BASE FIRST!! So the linking algorithm starts at the base
-
     uiMap.uiObjects.push(uav1);
-    uiMap.uiObjects.push(uav2);
-    uiMap.uiObjects.push(uav3);
-    uiMap.uiObjects.push(uav4);
-
     uiMap.uiObjects.push(ugv1);
-    uiMap.uiObjects.push(ugv2);
-    uiMap.uiObjects.push(ugv3);
-    uiMap.uiObjects.push(ugv4);
-
     uiMap.uiObjects.push(cache1);
-    uiMap.uiObjects.push(cache2);
-    uiMap.uiObjects.push(cache3);
-    uiMap.uiObjects.push(cache4);
-    uiMap.uiObjects.push(cache5);
 
     // add the map collisions
     northWarehouse = new MapUIObstacle();
@@ -205,23 +150,115 @@ function initStage2() {
     uiMap.uiObstacles.push(eastHouse);
     uiMap.uiObstacles.push(southwestHouse);
     uiMap.uiObstacles.push(southeastHouse);
-    
-
-
 
     // initialize the simulated motion
     simMotion();
 
     var title = document.getElementById("titlebar");
-    title.innerHTML = "Simulation Environment - Stage 2";
+    title.innerHTML = "Simulation Environment - Trial Stage";
+    title.style.backgroundColor = "lightblue";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Position the robots so the network reaches from the \"Base\" to all five caches";
+    instructionsTop.innerHTML = "Position the robots so the signal network reaches from the \"Base\" to the cache. If you get stuck or want to reset the map, <b>click here</b>.";
+    instructionsTop.style.width = uiMap.mapCanvas.width + "px";
+    instructionsTop.onclick = () => {
+        location.reload();
+    }
 
     // set up the instructions
-    //var instructionsLeft = document.getElementById("left-panel");
+    var instructionsLeft = document.getElementById("left-panel");
+    instructionsLeft.style.justifyContent = "flex-start";
 
-    //instructionsLeft.innerHTML = "Your task is to create a communications network from \"Base\" to all five caches. Each robot has a signal range, shown by a dashed circle around it. When signals overlap the robots are connected. Many robots can be connected in a chain to form a widespread network, but a robot can only move if it is part of a network that includes \"Base\". When all caches are connected to \"Base\" this stage will be complete.";
+    let taskGoals = document.createElement("div");
+    taskGoals.classList = "";
+    taskGoals.innerHTML = "Goals:";
+    taskGoals.style.marginTop = "30%";
+    taskGoals.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskGoals);
+
+    let taskSelectRobot = document.createElement("div");
+    taskSelectRobot.classList = "grey-instructions";
+    taskSelectRobot.innerHTML = "Select a robot";
+    taskSelectRobot.id = "select-robot-div";
+    taskSelectRobot.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskSelectRobot);
+
+    let taskSetWaypoints = document.createElement("div");
+    taskSetWaypoints.classList = "grey-instructions";
+    taskSetWaypoints.innerHTML = "Set three waypoints";
+    taskSetWaypoints.id = "set-waypoints-div";
+    taskSetWaypoints.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskSetWaypoints);
+
+    let taskRemoveWaypoints = document.createElement("div");
+    taskRemoveWaypoints.classList = "grey-instructions";
+    taskRemoveWaypoints.innerHTML = "Remove a waypoint";
+    taskRemoveWaypoints.id = "remove-waypoints-div";
+    taskRemoveWaypoints.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskRemoveWaypoints);
+
+    let taskDeselectRobot = document.createElement("div");
+    taskDeselectRobot.classList = "grey-instructions";
+    taskDeselectRobot.innerHTML = "Deselect a robot";
+    taskDeselectRobot.id = "deselect-robot-div";
+    taskDeselectRobot.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskDeselectRobot);
+
+    let taskStopRobot = document.createElement("div");
+    taskStopRobot.classList = "grey-instructions";
+    taskStopRobot.innerHTML = "Stop a robot (remove all waypoints while it is moving)";
+    taskStopRobot.id = "stop-robot-div";
+    taskStopRobot.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskStopRobot);
+
+    let taskDisconnect = document.createElement("div");
+    taskDisconnect.classList = "grey-instructions";
+    taskDisconnect.innerHTML = "Disconnect a robot (move it out of range)";
+    taskDisconnect.id = "disconnect-robot-div";
+    taskDisconnect.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskDisconnect);
+
+    let taskCache = document.createElement("div");
+    taskCache.classList = "grey-instructions";
+    taskCache.innerHTML = "Extend the signal network to the Cache";
+    taskCache.id = "reach-cache-div";
+    taskCache.style.marginBottom = "10%";
+    instructionsLeft.appendChild(taskCache);
     
+    uiMap.training = true;
+    uiMap.endCheck = testStageEndCheck;
 }
 
+// updates the training goals backgrounds
+function checkTraining() {
+    if (trainingSelectRobot > 0) {
+        document.getElementById("select-robot-div").style.backgroundColor = "palegreen";
+    }
+    if (trainingAddWaypoints >= 3) {
+        document.getElementById("set-waypoints-div").style.backgroundColor = "palegreen";
+    }
+    if (trainingRemoveWaypoints > 0) {
+        document.getElementById("remove-waypoints-div").style.backgroundColor = "palegreen";
+    }
+    if (trainingDeselectRobot > 0) {
+        document.getElementById("deselect-robot-div").style.backgroundColor = "palegreen";
+    }
+    if (trainingStopRobot > 0) {
+        document.getElementById("stop-robot-div").style.backgroundColor = "palegreen";
+    }
+    if (trainingDisconnectRobot > 2) {
+        document.getElementById("disconnect-robot-div").style.backgroundColor = "palegreen";
+    }
+    if (trainingReachCache > 0) {
+        document.getElementById("reach-cache-div").style.backgroundColor = "palegreen";
+    }
+}
+
+
+// check whether the end conditions are met
+function testStageEndCheck() {
+    if (trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && trainingDisconnectRobot > 2 && trainingReachCache > 0) {
+        return true;
+    }
+    return false;
+}

@@ -10,8 +10,8 @@ function canvasMouseHandler(event) {
         return;
     }
 
-    var canvasX = event.clientX - (event.originalTarget ? event.originalTarget.offsetLeft : event.target.offsetLeft);
-    var canvasY = event.clientY - (event.originalTarget ? event.originalTarget.offsetTop : event.target.offsetTop);
+    var canvasX = event.clientX - (event.originalTarget ? event.originalTarget.offsetLeft : event.target.offsetLeft) + window.scrollX;
+    var canvasY = event.clientY - (event.originalTarget ? event.originalTarget.offsetTop : event.target.offsetTop) + window.scrollY;
     var canvasClick = [canvasX, canvasY];
 
     console.log("click", canvasX / uiMap.mapCanvas.width, canvasY / uiMap.mapCanvas.height)
@@ -26,6 +26,12 @@ function canvasMouseHandler(event) {
             clickedVehicle = true;
             clickedVehicleIndex = i;
             log({action: "select-vehicle", target: uiMap.selectedObject.name});
+
+            // if on the training stage, increment that count
+            if (uiMap.stage == 0) {
+                trainingSelectRobot += 1;
+                checkTraining();
+            }
             break;
         }        
     }
@@ -36,7 +42,7 @@ function canvasMouseHandler(event) {
         posY = canvasY / uiMap.mapCanvas.height;
 
         // check if waypoint is valid, if on stage 2
-        if (uiMap.stage == 2 && uiMap.selectedObject.type == "ugv") {
+        if ((uiMap.stage == 2 || uiMap.stage == 0 )&& uiMap.selectedObject.type == "ugv") {
             priorWaypoint = uiMap.selectedObject.getLastWaypoint();
 
             // if the waypoint is not valid, turn it red and delete it after half a second
@@ -57,6 +63,12 @@ function canvasMouseHandler(event) {
 
         log({action: "add-valid-waypoint", target: uiMap.selectedObject.name, location: "[" + posX + "," + posY + "]"});
         console.log("Added waypoint");
+
+        // update the training counter
+        if (uiMap.stage == 0) {
+            trainingAddWaypoints += 1;
+            checkTraining();
+        }
     }
 }
 
@@ -64,12 +76,27 @@ function canvasKeypressHandler(event) {
     //console.log(event)
     // if an space key and an object is selected, remove the last waypoint
     if (event.key == "Backspace" && uiMap.selectedObject != null) {
+        // if training and the waypoints are now zero, update that training counter
+        if (uiMap.stage == 0 && uiMap.selectedObject.waypoints.length == 1) {
+            trainingStopRobot += 1;
+            trainingRemoveWaypoints += 1;
+            checkTraining();
+        }
+
+        // if training and not stopping a robot, just increase the "remove waypoints" training counter
+        else if (uiMap.stage == 0 && uiMap.selectedObject.waypoints.length > 1) {
+            trainingRemoveWaypoints += 1;
+            checkTraining();
+        }
+
+
         uiMap.selectedObject.waypoints.pop();
         if (uiMap.stage != 2) {
             fetch("remove-waypoint?id=" + uiMap.selectedObject.name);
         }
         log({action: "remove-waypoint", target: uiMap.selectedObject.name});
         console.log("Removed waypoint");
+        
     }
 
     // if a enter key and an object is selected, remove the last waypoint
@@ -77,5 +104,11 @@ function canvasKeypressHandler(event) {
         log({action: "deselect-vehicle", target: uiMap.selectedObject.name});
         console.log("Deselected vehicle");
         uiMap.selectedObject = null;
+
+        // if training stage, record the deselect
+        if (uiMap.stage == 0) {
+            trainingDeselectRobot += 1;
+            checkTraining();
+        }
     }
 }
