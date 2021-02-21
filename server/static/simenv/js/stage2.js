@@ -1,5 +1,8 @@
 // Create the game objects for Stage 1
 function initStage2() { 
+    // log that the page has opened
+    log({"stage": "2", "action": "opened-page"});
+
     // no cameras in this stage, so hide the camera feeds
     // document.getElementById("left-panel").style.display = "none";
     document.getElementById("right-panel").innerHTML = "";

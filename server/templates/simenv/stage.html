@@ -18,13 +18,13 @@
     <script src="{{url_for('static', filename='simenv/js/uiMap.js')}}"></script>
     <script src="{{url_for('static', filename='simenv/js/uiObjects.js')}}"></script>
 
-    <title>Simulation Environment</title>
+    <title>Experiment Task</title>
 </head>
 
 <body>    
     <div class="titlebar" style="display: flex; justify-content: center;">
         <div class="title" id="titlebar">
-            Simulation Environment
+            Experiment Task
         </div>
     </div>
 
@@ -62,6 +62,8 @@
     </div>
 
 <script>
+
+
     startTime = new Date().getTime() / 1000
 
     // create the UI Map object
@@ -74,6 +76,8 @@
 
     // record the worker ID
     uiMap.workerID = "{{ worker_id }}";
+
+    
 
     // have the map update almost constantly
     window.setInterval(function() {

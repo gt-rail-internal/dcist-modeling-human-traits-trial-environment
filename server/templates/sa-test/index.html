@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>RAIL Lab: Situational Awareness Test (by Jack Kolb)</title>
+    <title>Experiment Task</title>
     <style>
       canvas{
         border: 2px solid black;
@@ -28,7 +28,7 @@
   
   <body>
     <div class="center-div">
-      <h1>RAIL Lab Situational Awareness Test</h1>
+      <h1></h1>
       <div style="display: flex;">
         <canvas id="Canvas" class="stage" width="1200" height="800"></canvas>
         <div id="SidePanel" class="side-panel">
@@ -43,6 +43,9 @@
     </div>
 
     <script>
+      // log that this page is active
+      log({"stage": "SAGAT", "action": "opened-page"});
+
       var seed = xmur3("RAIL Lab");  // use xmur3 to create a seed hash
       var rand = mulberry32(seed());  // use the mulberry32 algorithm for the random number generator
       
