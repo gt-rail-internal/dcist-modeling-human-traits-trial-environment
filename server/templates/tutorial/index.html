@@ -94,6 +94,12 @@
             }
         };
 
+        log({"stage": "tutorial", "action": "opened-tutorial"});
+        function log(data) {
+            data["worker-id"] = "{{ worker_id }}";  // include the worker ID
+            return fetch("/logging", {method: "POST", body: JSON.stringify(data)});
+        }
+
     </script>
 
 </body>
