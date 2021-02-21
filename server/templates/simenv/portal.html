@@ -26,12 +26,12 @@
     <div style="display: flex; justify-content: center;">
         <div class="center-panel" id="center-panel">
             <div class="instructions grey-instructions" id="instructions-header">Click on the blue section below to launch it. When you complete a section, another one will unlock. When all sections are complete you will see a code to enter into MTurk, to complete the study.</div>
-            <div class="instructions grey-instructions button" id="instructions-id">Your Amazon Worker ID is: <b>{{ worker_id }}</b>. If this is incorrect, click here to go to the home page.</div>
+            <div class="instructions grey-instructions button" id="instructions-id">Your Amazon Worker ID is: <b>{{ worker_id }}</b>. If this is incorrect, click here to change it.</div>
             
-            <div class="instructions grey-instructions portal-spaced" id="instructions-intro"><b>Introduction and Training</b></div>
-            <div class="instructions grey-instructions portal-spaced" id="instructions-sa"><b>Mental Test #1: Situational Awareness</b></div>
-            <div class="instructions grey-instructions portal-spaced" id="instructions-con"><b>Mental Test #2: Block Networks</b></div>
-            <div class="instructions grey-instructions portal-spaced" id="instructions-exp"><b>Mission: Communication Networks</b></div>
+            <div class="instructions grey-instructions portal-spaced" id="instructions-intro"><b>Introduction</b></div>
+            <div class="instructions grey-instructions portal-spaced" id="instructions-sa"><b>Task</b></div>
+            <div class="instructions grey-instructions portal-spaced" id="instructions-con"><b>Task</b></div>
+            <div class="instructions grey-instructions portal-spaced" id="instructions-exp"><b>Task</b></div>
         </div>
     </div>
 
@@ -86,7 +86,7 @@
         
         // if all stages complete, say so
         if ("{{ completions }}" == "1111") {
-            document.getElementById("instructions-id").innerHTML = "Congratulations on completing this study! We thank you greatly for your participation. Please enter this code into MTurk: <b>{{ completion_code }}</b> <br><br> If your results indicate that you sprinted through the study, such as by leaving all warehouses grey (Situational Awareness test) or idling throughout the robot mission, you may not be compensated.";
+            document.getElementById("instructions-id").innerHTML = "Congratulations on completing this study! We thank you greatly for your participation. Please enter this code into MTurk: <b>{{ completion_code }}</b> <br><br> If your results indicate that you sprinted through the study, you may not be compensated and your results will not be used in our research..";
             document.getElementById("instructions-id").classList = "instructions grey-instructions";
             document.getElementById("instructions-id").style.backgroundColor = "lightgreen";
             document.getElementById("instructions-id").style.userSelect = "text";

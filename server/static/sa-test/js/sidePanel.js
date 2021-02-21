@@ -97,7 +97,7 @@ function sidePanelShowIntro() {
     document.getElementById("SidePanel").style.backgroundColor = "#E8E8E8";
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Now for the actual game! Welcome!";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>If you wish to redo the demo simulation, just refresh this page.";
+    var text2 = document.createElement("div"); text2.innerHTML = "";
     var text3 = document.createElement("div"); text3.innerHTML = "<br>You will watch the warehouse simulation on the left for 30 seconds, and then you be asked to mark warehouses as full, nearing capacity, or not nearing capacity.";
     var text4 = document.createElement("div"); text4.innerHTML = "<br>Trying to memorize the state of every warehouse will be difficult, so instead focus on understanding the network overall.";
     var text5 = document.createElement("div"); text5.innerHTML = "<br>When you are ready, click \"Continue\" to review the instructions.";
@@ -218,9 +218,9 @@ function sidePanelEndGame(scores) {
 
     document.getElementById("SidePanel").style.backgroundColor = "lightyellow";
 
-    var text1 = document.createElement("div"); text1.innerHTML = "<br>Congratulations! You completed the Situational Awareness test!";
+    var text1 = document.createElement("div"); text1.innerHTML = "<br>Congratulations! You completed this minigame!";
     var text2 = document.createElement("div"); text2.innerHTML = "<br>";
-    var text3 = document.createElement("div"); text3.innerHTML = "<br>This mental test is now complete, click below to return to the experiment portal";
+    var text3 = document.createElement("div"); text3.innerHTML = "<br>Click below to return to the experiment portal";
     var text4 = document.createElement("div"); text4.innerHTML = "<br><br>";
     var text5 = document.createElement("div"); text5.innerHTML = "<button class='resume'>Return to Portal</button>";
     text5.style.display = "flex";

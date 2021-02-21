@@ -8,6 +8,9 @@ var trainingReachCache = 0;
 
 // Create the game objects for the Test Stage
 function initTestStage() { 
+    // log that the page has opened
+    log({"stage": "0", "action": "opened-page"});
+
     // no cameras in this stage, so hide the camera feeds
     // document.getElementById("left-panel").style.display = "none";
     document.getElementById("right-panel").innerHTML = "";
