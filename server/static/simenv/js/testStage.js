@@ -165,6 +165,7 @@ function initTestStage() {
     instructionsTop.innerHTML = "Complete all the goals listed on the left panel. If you get stuck or want to reset the map, <b>click here</b>.";
     instructionsTop.style.width = uiMap.mapCanvas.width + "px";
     instructionsTop.onclick = () => {
+        log({"stage": "0", "action": "reset map"});
         location.reload();
     }
 
@@ -260,7 +261,7 @@ function checkTraining() {
 
 // check whether the end conditions are met
 function testStageEndCheck() {
-    if (trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && trainingDisconnectRobot > 2 && trainingReachCache > 0) {
+    if (trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && trainingDisconnectRobot > 0 && uiMap.interacted && trainingReachCache > 0) {
         return true;
     }
     return false;
