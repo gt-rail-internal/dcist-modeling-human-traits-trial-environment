@@ -36,6 +36,7 @@ class UIMap {
 
         // variable for the worker ID
         this.workerID = "invalid"
+        this.interacted = false;  // turns true once the user interacts with the map
 
         // variables for drawn items
         this.adHocRange = 100;

@@ -246,7 +246,7 @@ function checkTraining() {
     if (trainingStopRobot > 0) {
         document.getElementById("stop-robot-div").style.backgroundColor = "palegreen";
     }
-    if (trainingDisconnectRobot > 2) {
+    if (trainingDisconnectRobot > 0 && uiMap.interacted) {
         document.getElementById("disconnect-robot-div").style.backgroundColor = "palegreen";
     }
     if (trainingReachCache > 0) {
