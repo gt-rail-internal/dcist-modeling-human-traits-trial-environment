@@ -10,6 +10,8 @@ function canvasMouseHandler(event) {
         return;
     }
 
+    uiMap.interacted = true;
+
     var canvasX = event.clientX - (event.originalTarget ? event.originalTarget.offsetLeft : event.target.offsetLeft) + window.scrollX;
     var canvasY = event.clientY - (event.originalTarget ? event.originalTarget.offsetTop : event.target.offsetTop) + window.scrollY;
     var canvasClick = [canvasX, canvasY];
