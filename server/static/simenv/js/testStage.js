@@ -159,7 +159,7 @@ function initTestStage() {
     title.style.backgroundColor = "lightblue";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Position the robots so the signal network reaches from the \"Base\" to the cache. If you get stuck or want to reset the map, <b>click here</b>.";
+    instructionsTop.innerHTML = "Complete all the goals listed on the left panel. If you get stuck or want to reset the map, <b>click here</b>.";
     instructionsTop.style.width = uiMap.mapCanvas.width + "px";
     instructionsTop.onclick = () => {
         location.reload();

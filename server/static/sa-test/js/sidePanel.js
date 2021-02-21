@@ -222,7 +222,9 @@ function sidePanelEndGame(scores) {
     var text2 = document.createElement("div"); text2.innerHTML = "<br>";
     var text3 = document.createElement("div"); text3.innerHTML = "<br>This mental test is now complete, click below to return to the experiment portal";
     var text4 = document.createElement("div"); text4.innerHTML = "<br><br>";
-    var text5 = document.createElement("button"); text5.classList = "resume"; text5.innerHTML = "Return to Portal";
+    var text5 = document.createElement("div"); text5.innerHTML = "<button class='resume'>Return to Portal</button>";
+    text5.style.display = "flex";
+    text5.style.justifyContent = "center";
 
     text5.onclick = () => {
         window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId;
