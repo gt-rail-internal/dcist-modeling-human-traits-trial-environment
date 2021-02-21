@@ -166,7 +166,9 @@ function initTestStage() {
     instructionsTop.style.width = uiMap.mapCanvas.width + "px";
     instructionsTop.onclick = () => {
         log({"stage": "0", "action": "reset map"});
-        location.reload();
+        window.setTimeout(() => {
+            location.reload();
+        }, 500);
     }
 
     // set up the instructions

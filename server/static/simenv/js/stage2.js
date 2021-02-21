@@ -223,7 +223,9 @@ function initStage2() {
     instructionsTop.innerHTML = "Position the robots so the network reaches from the \"Base\" to all five caches. If you get stuck, such as all robots being disconnected, click here to reset the map.";
     instructionsTop.onclick = () => {
         log({"stage": "2", "action": "reset map"});
-        location.reload();
+        window.setTimeout(() => {
+            location.reload();
+        }, 500);
     }
 
     // set up the instructions
