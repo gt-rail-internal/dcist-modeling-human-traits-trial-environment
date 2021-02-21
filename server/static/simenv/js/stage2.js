@@ -220,7 +220,11 @@ function initStage2() {
     title.innerHTML = "Simulation Environment - Stage 2";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Position the robots so the network reaches from the \"Base\" to all five caches";
+    instructionsTop.innerHTML = "Position the robots so the network reaches from the \"Base\" to all five caches. If you get stuck, such as all robots being disconnected, click here to reset the map.";
+    instructionsTop.onclick = () => {
+        log({"stage": "2", "action": "reset map"});
+        location.reload();
+    }
 
     // set up the instructions
     //var instructionsLeft = document.getElementById("left-panel");
