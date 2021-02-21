@@ -36,4 +36,5 @@ button.resume {
 body {
     background-color: whitesmoke;
     font-family: 'Roboto', sans-serif;
+    user-select: none;
 }

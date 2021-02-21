@@ -30,7 +30,7 @@
             
             <div class="instructions grey-instructions portal-spaced" id="instructions-intro"><b>Introduction and Training</b></div>
             <div class="instructions grey-instructions portal-spaced" id="instructions-sa"><b>Mental Test #1: Situational Awareness</b></div>
-            <div class="instructions grey-instructions portal-spaced" id="instructions-con"><b>Mental Test #2: Colored Blocks</b></div>
+            <div class="instructions grey-instructions portal-spaced" id="instructions-con"><b>Mental Test #2: Block Networks</b></div>
             <div class="instructions grey-instructions portal-spaced" id="instructions-exp"><b>Mission: Communication Networks</b></div>
         </div>
     </div>
@@ -60,7 +60,7 @@
 
         if ({{ next_stage }} == 0) {
             selectDiv = document.getElementById("instructions-intro");
-            selectDiv.onclick = () => { window.location.href = "/test?workerId=" + "{{ worker_id }}"; };
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=0"; };
         }
 
         if ({{ next_stage }} == 1) {
@@ -70,12 +70,12 @@
 
         if ({{ next_stage }} == 2) {
             selectDiv = document.getElementById("instructions-con");
-            selectDiv.onclick = () => { window.location.href = "/connect?workerId=" + "{{ worker_id }}"; };
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=2"; };
         }
 
         if ({{ next_stage }} == 3) {
             selectDiv = document.getElementById("instructions-exp");
-            selectDiv.onclick = () => { window.location.href = "/stage?workerId=" + "{{ worker_id }}" + "&stage=" + 2; };
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=3"; };
         }
 
         // if select div is defined (i.e. there is another stage to complete), make it a button

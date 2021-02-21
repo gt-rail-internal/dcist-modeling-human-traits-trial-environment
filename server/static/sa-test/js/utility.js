@@ -18,16 +18,14 @@ function mouseHandler(event) {
         var canvasY = event.clientY - (event.originalTarget ? event.originalTarget.offsetTop : event.target.offsetTop) + window.scrollY;
         var canvasClick = [canvasX, canvasY];
 
-        selectedObject = -1;
         for (i in gameboard.warehouses) {
             if (distance(canvasClick, gameboard.warehouses[i].location) < gameboard.warehouses[i].height * .75) {
                 gameboard.warehouses[i].selected = gameboard.warehouses[i].selected == 3 ? 0 : gameboard.warehouses[i].selected + 1;
                 selectedObject = i;
+                log({"stage": "SAGAT", "action": "canvas-click", "object": i});
                 break;
             }
         }
-
-        log({"stage": "SAGAT", "action": "canvas-click", "object": selectedObject});
     }
 }
 

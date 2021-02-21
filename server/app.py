@@ -135,9 +135,11 @@ def portal():
 
     # generate the selected stage if the training is complete
     next_stage = "0"
-    if completion_string[0] == "1" and completion_string != "1111":
+    if completion_string == "1110":
+        next_stage = "3"
+    elif completion_string[0] == "1" and completion_string != "1111":
         potentials = []
-        for i in range(len(completion_string)):
+        for i in range(len(completion_string) - 1):  # randomize the pretests
             if completion_string[i] == "0":
                 potentials.append(str(i))
         next_stage = potentials[random.randint(0, len(potentials) - 1)]
@@ -145,9 +147,16 @@ def portal():
     completion_code = "complete the missions first!"
     if completion_string == "1111":
         next_stage = -1
-        completion_code = "IF1nishedTh3Rob0tStudy"
+        completion_code = "415626404"
 
     return render_template("simenv/portal.html", worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
+
+@app.route("/tutorial", methods=["GET"])
+def tutorial():
+    worker_id = request.args.get("workerId")
+    next_stage = request.args.get("nextStage")
+    return render_template("tutorial/index.html", worker_id=worker_id, next_stage=next_stage)
+
 
 
 @app.route("/test", methods=["GET"])
@@ -207,6 +216,24 @@ def getWaypoints():
 def saTest():
     worker_id = request.args.get("workerId")
     return render_template("sa-test/index.html", worker_id=worker_id)
+
+
+# ROUTES FOR THE NETWORK CONNECTIVITY TEST
+@app.route("/connect-data", methods=["POST"])
+def networkConnectivityData():
+    data = request.data.decode()
+    log_string = "\n" + str(datetime.datetime.now().timestamp()) + "," + data.split(",")[0] + "," + str(data)
+    with open("./logs/" + data.split(",")[0] + ".txt", 'a+') as f:
+        f.write(log_string)
+
+    print("[LOG]", log_string[1:])
+    return "success"
+
+
+@app.route("/connect", methods=["GET"])
+def networkConnectivity():
+    worker_id = request.args.get("workerId")
+    return render_template("networks/connectivity.html", worker_id=worker_id)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -292,7 +292,13 @@ function stageComplete() {
     topBar.innerHTML = uiMap.stageVictory ? "🎉 Congratulations! You have completed this stage. <b>Click here to continue</b>." : "This stage has ended. <b>Click here to continue</b>.";
     topBar.onclick = () => {
         topBar.innerHTML = "Redirecting you to the experiment portal"
-        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + uiMap.stage + "&success=1";
+        // if on the training stage, move to Stage 2
+        if (uiMap.stage == 0) {
+            window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=2";
+        }
+        else {
+            window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1";
+        }
     }
 
     // set the ui map to complete
