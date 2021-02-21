@@ -10,7 +10,10 @@ function canvasMouseHandler(event) {
         return;
     }
 
-    uiMap.interacted = true;
+    if (!uiMap.interacted) {
+        uiMap.interacted = true;
+        trainingDisconnectRobot = 0;
+    }
 
     var canvasX = event.clientX - (event.originalTarget ? event.originalTarget.offsetLeft : event.target.offsetLeft) + window.scrollX;
     var canvasY = event.clientY - (event.originalTarget ? event.originalTarget.offsetTop : event.target.offsetTop) + window.scrollY;
