@@ -1,0 +1,40 @@
+canvas.stage {
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 2px 2px darkgrey;
+}
+
+.side-panel {
+    background-color: #E8E8E8;
+    margin-left: 50px;
+    padding: 30px;
+    width: 400px;
+    text-align: left;
+    box-shadow: 2px 2px 2px 2px darkgrey;
+    font-size: 17pt;
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 95vh;      
+}
+
+button.resume {
+    background-color: inherit;
+    color: darkslategrey;
+    border: 2px solid darkslategrey;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 12pt;
+    font-size: 18pt;
+}
+
+body {
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}

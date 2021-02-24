@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Experiment Task</title>
+    <style>
+      canvas{
+        border: 2px solid black;
+        background-color: white;
+      }
+    </style>
+    <meta charset="UTF-8">
+  </head>
+  <!-- PULLED ON NOVEMBER 18 -->
+  <!-- COPYRIGHTED (C) 2020, RAIL Lab @ Georgia Tech -->
+
+  <link rel="stylesheet" href="{{url_for('static', filename='sa-test/css/styles.css')}}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+  
+  <script src="{{url_for('static', filename='sa-test/js/sagat.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/motion.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/shapes.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/utility.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/sidePanel.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/gameObjects/gameboard.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/gameObjects/package.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/gameObjects/spawner.js')}}"></script>
+  <script src="{{url_for('static', filename='sa-test/js/gameObjects/warehouse.js')}}"></script>
+  
+  <body>
+    <div class="center-div">
+      <h1></h1>
+      <div style="display: flex;">
+        <canvas id="Canvas" class="stage" width="1200" height="800"></canvas>
+        <div id="SidePanel" class="side-panel">
+          <div id="SidePanelTitle" style="text-decoration: underline; text-align: center;"></div>
+          <div id="SidePanelContent"></div>
+          <br>
+          <div style="display:flex; flex-direction: column; justify-content: center">
+            <button id="sagat-resume" class="resume" onclick="sagat.unfreeze();">Resume</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // log that this page is active
+      log({"stage": "SAGAT", "action": "opened-page"});
+
+      var seed = xmur3("RAIL Lab");  // use xmur3 to create a seed hash
+      var rand = mulberry32(seed());  // use the mulberry32 algorithm for the random number generator
+      
+      var stage = document.getElementById("Canvas");  // the gameboard stage (for drawing)
+      var context = stage.getContext("2d");  // the gameboard context (for drawing)
+
+      var tutorialActive = true;
+      var gameActive = false;
+      
+      var workerId = "{{ worker_id }}";
+
+      // initialize lists used to keep track of things
+      var packages = [];  // active packages
+      var warehouses = [];  // active warehouses
+      var spawners = [];  // active spawners
+
+      // initialize the gameboard
+      var gameboard = new Gameboard(context);
+      gameboard.generateTutorialGameboard();
+
+      // initialize the SAGAT test
+      var sagat = new SAGAT(30);  // the argument is the freeze period
+
+      // set the side panel to the introduction
+      sidePanelTutorial1();
+
+      window.addEventListener("mousedown", mouseHandler);
+
+      // main game loop
+      function updateBoard() {
+        context.clearRect(0, 0, stage.width, stage.height);  // clear the gameboard
+        gameboard.draw(sagat.active);  // draw the gameboard
+        if (gameActive) {  // only run if the game is active
+          sagat.timestep();
+          
+          if (!sagat.active) {  // if the board isn't frozen, update the packages
+            movePackages(packages);  // move and draw the packages 
+            updateWarehouses(warehouses);  // update the warehouses
+            updateSpawners(spawners, packages);  // update the spawners
+          }
+        }
+        window.requestAnimationFrame(updateBoard);
+      }
+      window.requestAnimationFrame(updateBoard);
+                           
+    </script>
+  </body>
+</html>
