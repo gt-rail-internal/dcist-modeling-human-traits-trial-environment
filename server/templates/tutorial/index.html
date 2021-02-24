@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='simenv/img/favicon.ico')}}" />
+</head>
+
+<body>    
+    <br><br>
+
+    <div style="display: flex; justify-content: center; user-select: none;">
+        <div id="left-panel" style="display: flex; justify-content: center; align-items: center; font-size: 30pt;"><div id="left-arrow"></div></div>
+        <div class="center-panel" id="center-panel">
+            <img src="" id="tutorialImg" style="width: 80vw;"/>
+        </div>
+        <div id="right-panel" style="display: flex; justify-content: center; align-items: center; font-size: 30pt;"><div id="right-arrow"></div></div>
+    </div>
+
+    <script>
+        var nextStage = {{ next_stage }};
+
+        var images = [];
+        var nextLocation = "";
+        var index = 0;
+
+        // intro/training tab
+        if (nextStage == 0) {
+            images = ["{{url_for('static', filename='tutorial/img/instr-intro-1.png')}}", "{{url_for('static', filename='tutorial/img/instr-intro-2.png')}}"];
+            nextLocation = "/portal?workerId={{ worker_id }}&pageFrom=0&success=1";
+        }
+
+        // ignoring the sa-test tab, as those instructions are within
+
+        // networks tab
+        if (nextStage == 2) {
+            images = ["{{url_for('static', filename='tutorial/img/instr-connect-1.png')}}", "{{url_for('static', filename='tutorial/img/instr-connect-2.png')}}", "{{url_for('static', filename='tutorial/img/instr-connect-3.png')}}"];
+            nextLocation = "/connect?workerId={{ worker_id }}";
+        }
+
+        // Stage 2 tab
+        if (nextStage == 3) {
+            images = ["{{url_for('static', filename='tutorial/img/instr-sim-1.png')}}", "{{url_for('static', filename='tutorial/img/instr-sim-2.png')}}", "{{url_for('static', filename='tutorial/img/instr-sim-3.png')}}", "{{url_for('static', filename='tutorial/img/instr-sim-4.png')}}", "{{url_for('static', filename='tutorial/img/instr-sim-5.png')}}"];
+            nextLocation = "/test?workerId={{ worker_id }}";
+        }
+
+        document.getElementById("tutorialImg").src = images[0];
+        setupArrows();
+
+        
+        function setupArrows() {
+            if (index == 0) {
+                document.getElementById("left-arrow").innerHTML = "";
+
+                document.getElementById("right-arrow").innerHTML = "→";
+                document.getElementById("right-arrow").onclick = rightClick;
+            }
+            else if (index > 0 && index <= images.length) {
+                document.getElementById("left-arrow").innerHTML = "←";
+                document.getElementById("left-arrow").onclick = leftClick;
+
+                document.getElementById("right-arrow").innerHTML = "→";
+                document.getElementById("right-arrow").onclick = rightClick;
+            }
+            else {
+                document.getElementById("left-arrow").innerHTML = "←";
+                document.getElementById("left-arrow").onclick = leftClick;
+
+                document.getElementById("right-arrow").innerHTML = "";
+            }
+        }
+
+
+        function leftClick() {
+            if (index > 0) {
+                index -= 1;
+                document.getElementById("tutorialImg").src = images[index];
+                setupArrows();
+            }
+        };
+
+
+        function rightClick() {
+            if (index < images.length-1) {
+                index += 1;
+                document.getElementById("tutorialImg").src = images[index];
+                setupArrows();
+            }
+
+            // if pressing right on the last instruction, go to the next stage
+            else if (index + 1 == images.length) {
+                var makeSure = confirm("Are you ready to proceed?");
+                if (makeSure == true) {
+                    window.location.href = nextLocation;
+                }
+            }
+        };
+
+        log({"stage": "tutorial", "action": "opened-tutorial"});
+        function log(data) {
+            data["worker-id"] = "{{ worker_id }}";  // include the worker ID
+            return fetch("/logging", {method: "POST", body: JSON.stringify(data)});
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -9,9 +9,11 @@ import cv2
 import numpy as np
 import json
 import datetime
+import random
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['PROPAGATE_EXCEPTIONS'] = True
 bridge = CvBridge()
 
 cam_images = {
@@ -22,22 +24,28 @@ cam_images = {
 }
 
 robot_positions = {
-    "UAV 1": [.40,.1],
-    "UGV 1": [.40,.15],
-    "UAV 2": [.5,.1],
-    "UGV 2": [.5,.15],
-    "UAV 3": [.65,.1],
-    "UGV 3": [.65,.15],
-    "UAV 4": [.75,.1],
-    "UGV 4": [.75,.15],
+    "UAV 1": [.522,.970],
+    "UGV 1": [.641,.970],
+    "UAV 2": [.522,.970],
+    "UGV 2": [.641,.970],
+    "UAV 3": [.522,.970],
+    "UGV 3": [.641,.970],
+    "UAV 4": [.522,.970],
+    "UGV 4": [.641,.970],
 }
 
 robot_waypoints = {
-    1: [],
-    2: [],
-    3: [],
-    4: [],
+    "UAV 1": [],
+    "UGV 1": [],
+    "UAV 2": [],
+    "UGV 2": [],
+    "UAV 3": [],
+    "UGV 3": [],
+    "UAV 4": [],
+    "UGV 4": [],
 }
+
+completions = {}
 
 
 def cam1_callback(data):
@@ -94,12 +102,67 @@ rospy.Subscriber("/robot1/pos", Image, cam4_callback)
 
 @app.route("/")
 def index():
-    return "Use the /app route!"
+    return render_template("simenv/index.html")
 
-@app.route("/app", methods=["GET"])
-def appy():
+@app.route("/stage", methods=["GET"])
+def stage():
     worker_id = request.args.get("workerId")
-    return render_template("main.html", worker_id=worker_id)
+    stage = request.args.get("stage")
+    return render_template("simenv/stage.html", worker_id=worker_id, stage=stage)
+
+@app.route("/portal", methods=["GET"])
+def portal():
+    worker_id = str(request.args.get("workerId"))
+    page_from = str(request.args.get("pageFrom"))
+    success = str(request.args.get("success"))
+
+    # if coming successfully from a page, mark it
+    if page_from in ["0", "1", "2", "3"] and success == "1" and worker_id in completions:
+        current_completions = completions[worker_id]
+        current_completions = current_completions[:int(page_from)] + '1' + current_completions[int(page_from)+1:]
+        completions[worker_id] = current_completions
+        print("updated completions for", worker_id, "to", current_completions)
+
+    # get the completions set
+    completion_string = "0000"
+    if worker_id in completions:
+        completion_string = completions[worker_id]
+        print("existing worker id, pulling completions", completion_string)
+    elif worker_id != "":
+        completions[worker_id] = "0000"
+    else:
+        worker_id = "none"
+
+    # generate the selected stage if the training is complete
+    next_stage = "0"
+    if completion_string == "1110":
+        next_stage = "3"
+    elif completion_string[0] == "1" and completion_string != "1111":
+        potentials = []
+        for i in range(len(completion_string) - 1):  # randomize the pretests
+            if completion_string[i] == "0":
+                potentials.append(str(i))
+        next_stage = potentials[random.randint(0, len(potentials) - 1)]
+    
+    completion_code = "complete the missions first!"
+    if completion_string == "1111":
+        next_stage = -1
+        completion_code = "415626404"
+
+    return render_template("simenv/portal.html", worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
+
+@app.route("/tutorial", methods=["GET"])
+def tutorial():
+    worker_id = request.args.get("workerId")
+    next_stage = request.args.get("nextStage")
+    return render_template("tutorial/index.html", worker_id=worker_id, next_stage=next_stage)
+
+
+
+@app.route("/test", methods=["GET"])
+def testStage():
+    worker_id = request.args.get("workerId")
+    return render_template("simenv/stage.html", stage=0, worker_id=worker_id)
 
 @app.route("/logging", methods=["POST"])
 def log():
@@ -107,7 +170,8 @@ def log():
     log_string = "\n" + str(datetime.datetime.now().timestamp()) + "," + data["worker-id"] + "," + str(data)
     with open("./logs/" + data["worker-id"] + ".txt", 'a+') as f:
         f.write(log_string)
-        
+    print("[LOG]", log_string[1:])
+
     return ""
 
 @app.route("/cams")
@@ -122,7 +186,7 @@ def position():
 @app.route("/add-waypoint", methods=["GET"])
 def addWaypoint():
     #print("adding wayyyypoints")
-    robot = int(request.args.get("id"))
+    robot = request.args.get("id")
     x = float(request.args.get("x"))
     y = float(request.args.get("y"))
     #print(">>>>", robot, x, y, robot_waypoints[robot])
@@ -132,14 +196,44 @@ def addWaypoint():
 @app.route("/remove-waypoint", methods=["GET"])
 def removeWaypoint():
     robot = request.args.get("id")
-    robot_waypoints[int(robot)].pop()
+    robot_waypoints[robot].pop()
+    return "success"
+
+@app.route("/remove-all-waypoints", methods=["GET"])
+def removeAllWaypoints():
+    robot = request.args.get("id")
+    robot_waypoints[robot] = []
     return "success"
 
 @app.route("/get-waypoints", methods=["GET"])
 def getWaypoints():
-    response = [robot_waypoints[1], robot_waypoints[2], robot_waypoints[3], robot_waypoints[4]]
     #print("waypoints", response)
-    return jsonify(response)
+    return jsonify(robot_waypoints)
+
+
+# ROUTES FOR THE SITUATIONAL AWARENESS TEST
+@app.route("/sa-test", methods=["GET"])
+def saTest():
+    worker_id = request.args.get("workerId")
+    return render_template("sa-test/index.html", worker_id=worker_id)
+
+
+# ROUTES FOR THE NETWORK CONNECTIVITY TEST
+@app.route("/connect-data", methods=["POST"])
+def networkConnectivityData():
+    data = request.data.decode()
+    log_string = "\n" + str(datetime.datetime.now().timestamp()) + "," + data.split(",")[0] + "," + str(data)
+    with open("./logs/" + data.split(",")[0] + ".txt", 'a+') as f:
+        f.write(log_string)
+
+    print("[LOG]", log_string[1:])
+    return "success"
+
+
+@app.route("/connect", methods=["GET"])
+def networkConnectivity():
+    worker_id = request.args.get("workerId")
+    return render_template("networks/connectivity.html", worker_id=worker_id)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
