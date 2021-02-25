@@ -143,7 +143,7 @@ def portal():
     print("Next stage:", next_stage)
 
     completion_code = "complete the missions first!"
-    if completion_string in ["1101", "1011"]:
+    if completion_string in ["1101", "1011", "1111"]:
         next_stage = -1
         completion_code = "415626404"
 
