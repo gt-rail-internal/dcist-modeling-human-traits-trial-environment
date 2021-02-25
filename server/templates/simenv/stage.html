@@ -43,7 +43,6 @@
         <div class="center-panel" id="map-panel">
             <div style="display: flex; flex-direction: row;">
                 <div class="instructions grey-instructions giveup" id="instructions-top"></div>
-                <div class="instructions grey-instructions giveup" id="instructions-giveup" style="margin-left: 1%;">If you wish to give up, click here.</div>
             </div>
             <canvas class="uimap" id="uimap-canvas"></canvas>
             <div class="instructions" id="instructions-bottom">Click a robot to select it, and click on the map to add waypoints for the robot to travel to. Press <b>r</b> to remove the last waypoint, and press <b>q</b> to deselect the robot.</div>
@@ -51,11 +50,12 @@
 
 
         <div class="side-panel" id="right-panel">
-            <div class="cam-container">
+            <div class="instructions grey-instructions" id="instructions-giveup" style="margin-left: 1%;">If you are unable to complete this stage it will timeout in 10 minutes.</div>
+            <div class="cam-container" id="cam2">
                 <div id="cam2" class="cam purple"><img id="cam2_image" height="100%" width="100%"/></div>
                 <div id="cam2_button" class="cam-button purple">Mark Cache</div>
             </div>
-            <div class="cam-container">
+            <div class="cam-container" id="cam4">
                 <div id="cam4" class="cam gold"><img id="cam4_image" height="100%" width="100%"/></div>
                 <div id="cam4_button" class="cam-button gold">Mark Cache</div>
             </div>

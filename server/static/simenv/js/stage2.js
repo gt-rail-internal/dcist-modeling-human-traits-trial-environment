@@ -5,7 +5,8 @@ function initStage2() {
 
     // no cameras in this stage, so hide the camera feeds
     // document.getElementById("left-panel").style.display = "none";
-    document.getElementById("right-panel").innerHTML = "";
+    document.getElementById("cam2").style.display = "none";
+    document.getElementById("cam4").style.display = "none";
     document.getElementById("left-panel").innerHTML = "";
 
     // set the uiMap to not use networks
@@ -220,7 +221,7 @@ function initStage2() {
     title.innerHTML = "Simulation Environment - Stage 2";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Position the robots so the network reaches from the \"Base\" to all five caches. If you get stuck, such as all robots being disconnected, click here to reset the map.";
+    instructionsTop.innerHTML = "Extend the communication network from the \"Base\" to all five caches. If you get stuck, such as all robots being disconnected, click here to reset the map.";
     instructionsTop.onclick = () => {
         log({"stage": "2", "action": "reset map"});
         window.setTimeout(() => {
