@@ -41,9 +41,12 @@
         </div>
 
         <div class="center-panel" id="map-panel">
-            <div class="instructions grey-instructions" id="instructions-top"></div>
+            <div style="display: flex; flex-direction: row;">
+                <div class="instructions grey-instructions giveup" id="instructions-top"></div>
+                <div class="instructions grey-instructions giveup" id="instructions-giveup" style="margin-left: 1%;">If you wish to give up, click here.</div>
+            </div>
             <canvas class="uimap" id="uimap-canvas"></canvas>
-            <div class="instructions" id="instructions-bottom">Click a robot to select it, and click on the map to add waypoints for the robot to travel to. Press [BACKSPACE] to remove the last waypoint, and press [SPACE] to deselect the robot.</div>
+            <div class="instructions" id="instructions-bottom">Click a robot to select it, and click on the map to add waypoints for the robot to travel to. Press <b>r</b> to remove the last waypoint, and press <b>q</b> to deselect the robot.</div>
         </div>
 
 

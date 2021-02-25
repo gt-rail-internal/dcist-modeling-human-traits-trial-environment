@@ -54,6 +54,11 @@ canvas.uimap {
     box-shadow: 0px 1pt 1pt 1pt grey;
 }
 
+.giveup:hover {
+    background-color: darkgrey;
+}
+
+
 .green-success {
     background-color: palegreen;
     border-radius: 5px;
