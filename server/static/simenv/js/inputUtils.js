@@ -80,7 +80,7 @@ function canvasMouseHandler(event) {
 function canvasKeypressHandler(event) {
     //console.log(event)
     // if an space key and an object is selected, remove the last waypoint
-    if (event.key == "Backspace" && uiMap.selectedObject != null) {
+    if (event.key == "r" && uiMap.selectedObject != null) {
         // if training and the waypoints are now zero, update that training counter
         if (uiMap.stage == 0 && uiMap.selectedObject.waypoints.length == 1) {
             trainingStopRobot += 1;
@@ -105,7 +105,7 @@ function canvasKeypressHandler(event) {
     }
 
     // if a enter key and an object is selected, remove the last waypoint
-    if (event.key == " " && uiMap.selectedObject != null) {
+    if (event.key == "q" && uiMap.selectedObject != null) {
         log({action: "deselect-vehicle", target: uiMap.selectedObject.name});
         console.log("Deselected vehicle");
         uiMap.selectedObject = null;
