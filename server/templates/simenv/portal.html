@@ -30,7 +30,7 @@
             
             <div class="instructions grey-instructions portal-spaced" id="instructions-intro"><b>Introduction</b></div>
             <div class="instructions grey-instructions portal-spaced" id="instructions-sa"><b>Experiment Task</b></div>
-            <div class="instructions grey-instructions portal-spaced" id="instructions-con"><b>Experiment Task</b></div>
+            <!-- <div class="instructions grey-instructions portal-spaced" id="instructions-con"><b>Experiment Task</b></div> -->
             <div class="instructions grey-instructions portal-spaced" id="instructions-exp"><b>Experiment Task</b></div>
         </div>
     </div>
@@ -46,12 +46,12 @@
         if (completions[0] == "1") {
             setStageComplete("instructions-intro")
         }
-        if (completions[1] == "1") {
+        if (completions[1] == "1" || completions[2] == "1") {
             setStageComplete("instructions-sa")
         }
-        if (completions[2] == "1") {
-            setStageComplete("instructions-con")
-        }
+        //if (completions[2] == "1") {
+        //    setStageComplete("instructions-con")
+        //}
         if (completions[3] == "1") {
             setStageComplete("instructions-exp")
         }
@@ -69,7 +69,7 @@
         }
 
         if ({{ next_stage }} == 2) {
-            selectDiv = document.getElementById("instructions-con");
+            selectDiv = document.getElementById("instructions-sa");  // used to be instructions-con
             selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=2"; };
         }
 
@@ -85,7 +85,7 @@
         }
         
         // if all stages complete, say so
-        if ("{{ completions }}" == "1111") {
+        if ("{{ completions }}" == "1011" || "{{ completions }}" == "1101") {
             document.getElementById("instructions-id").innerHTML = "Congratulations on completing this study! We thank you greatly for your participation. Please enter this code into MTurk: <b>{{ completion_code }}</b> <br><br> If your results indicate that you sprinted through the study, you may not be compensated and your results will not be used in our research..";
             document.getElementById("instructions-id").classList = "instructions grey-instructions";
             document.getElementById("instructions-id").style.backgroundColor = "lightgreen";

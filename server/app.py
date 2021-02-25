@@ -135,17 +135,15 @@ def portal():
 
     # generate the selected stage if the training is complete
     next_stage = "0"
-    if completion_string == "1110":
+    if completion_string in ["1110", "1100", "1010"]:
         next_stage = "3"
-    elif completion_string[0] == "1" and completion_string != "1111":
-        potentials = []
-        for i in range(len(completion_string) - 1):  # randomize the pretests
-            if completion_string[i] == "0":
-                potentials.append(str(i))
-        next_stage = potentials[random.randint(0, len(potentials) - 1)]
+    elif completion_string[0] == "1" and completion_string != "1111" and completion_string != "1011" and completion_string != "1101":
+        next_stage = str(random.randint(1, 2))
     
+    print("Next stage:", next_stage)
+
     completion_code = "complete the missions first!"
-    if completion_string == "1111":
+    if completion_string in ["1101", "1011"]:
         next_stage = -1
         completion_code = "415626404"
 
