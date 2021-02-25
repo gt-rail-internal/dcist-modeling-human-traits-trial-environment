@@ -13,7 +13,8 @@ function initTestStage() {
 
     // no cameras in this stage, so hide the camera feeds
     // document.getElementById("left-panel").style.display = "none";
-    document.getElementById("right-panel").innerHTML = "";
+    document.getElementById("cam2").style.display = "none";
+    document.getElementById("cam4").style.display = "none";
     document.getElementById("left-panel").innerHTML = "";
 
     // set the uiMap to not use networks
@@ -226,7 +227,7 @@ function initTestStage() {
 
     let taskCache = document.createElement("div");
     taskCache.classList = "grey-instructions";
-    taskCache.innerHTML = "Extend the signal network to the Cache";
+    taskCache.innerHTML = "Extend the signal network to the Cache<img src='/static/simenv/img/extended.png' style='width: 100%'>";
     taskCache.id = "reach-cache-div";
     taskCache.style.marginBottom = "10%";
     instructionsLeft.appendChild(taskCache);

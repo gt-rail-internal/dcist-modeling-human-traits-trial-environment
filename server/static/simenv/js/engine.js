@@ -26,24 +26,6 @@ function initEngine() {
 
     // add a keypress listener
     window.addEventListener("keydown", canvasKeypressHandler);
-
-    // set the give up button onclick event
-    document.getElementById("instructions-giveup").style.display = "none";
-    window.setTimeout(() => {
-        document.getElementById("instructions-giveup").style.display = "block";
-        document.getElementById("instructions-giveup").onclick = () => {
-            giveup = window.prompt("Why are you giving up?");
-            if (giveup != null) {
-                log({stage: uiMap.stage, action: "user gave up: " + giveup});
-                window.setTimeout(() => {
-                    window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1";
-                }, 500);
-            }
-            else {
-                log({stage: uiMap.stage, action: "user clicked to give up, but then canceled"});
-            }
-        };
-    }, 3 * 60 * 1000);
 }
 
 function getCams() {
