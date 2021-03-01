@@ -594,11 +594,11 @@ Pine {
   rotation 0 1 0 -2.618
   name "pine tree(2)"
 }
-DEF leader Mavic2Pro {
+dji_mavic_pro {
   translation 0 0.1 0
   rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
-  name "leader"
-  controller ""
+  name "UAV1"
+  controller "dji_rail_ros"
   bodySlot [
     Emitter {
     }
@@ -611,11 +611,11 @@ DEF leader Mavic2Pro {
     }
   ]
 }
-DEF follower1 Mavic2Pro {
+dji_mavic_pro {
   translation 1 0.1 1
   rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
-  name "follower1"
-  controller ""
+  name "UAV2"
+  controller "dji_rail_ros"
   controllerArgs [
     ""
   ]
@@ -631,11 +631,11 @@ DEF follower1 Mavic2Pro {
     }
   ]
 }
-DEF follower2 Mavic2Pro {
+dji_mavic_pro {
   translation 1 0.1 -1
   rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
-  name "follower2"
-  controller ""
+  name "UAV3"
+  controller "dji_rail_ros"
   bodySlot [
     Receiver {
     }
@@ -648,9 +648,11 @@ DEF follower2 Mavic2Pro {
     }
   ]
 }
-Mavic2Pro {
-  translation 1.66 0.14 1.42746e-07
+dji_mavic_pro {
+  translation 1.66 .1 1.42746e-07
   rotation 1 0 0 -1.5707953071795862
+  name "UAV4"
+  controller "dji_rail_ros"
   cameraSlot [
     Camera {
       translation 0 -0.03 1.10196e-07
