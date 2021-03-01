@@ -48,7 +48,7 @@ def robotPositionCallback(data):
     global robot_positions
     data = str(data.data).split(",")
     robot_positions[data[0]] = [float(data[1]), float(data[2])]
-    print("Updated robot position", data[0], robot_positions[data[0]])
+    #print("Updated robot position", data[0], robot_positions[data[0]])
     return
 
 
@@ -59,7 +59,7 @@ def robotCameraCallback(data):
     data = str(data.data)
     image = data
     cam_images["UAV1"] = image
-    print("Updated Camera")
+    #print("Updated Camera")
 
 
 # ROS callback function for the next waypoint
