@@ -169,7 +169,6 @@ def log():
 
 @app.route("/cams")
 def cam():
-    robots = request.args.get("robots").split(",")
     return jsonify(cam_images)
 
 @app.route("/positions", methods=["GET"])
