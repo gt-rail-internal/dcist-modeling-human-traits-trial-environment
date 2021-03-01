@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, make_response, jsonify
 
 import rospy
 from cv_bridge import CvBridge
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, String
 import base64
 import threading
 import cv2
@@ -16,89 +16,77 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['PROPAGATE_EXCEPTIONS'] = True
 bridge = CvBridge()
 
-cam_images = {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
+cam_images = {}
+
+# where the robots reset to
+robot_reset_positions = {
+    "1": {
+        "UAV1": [.522,.970],
+        "UAV2": [.641,.970],
+        "UAV3": [.522,.980],
+        "UAV4": [.641,.980],
+    },
+    "2": {
+        "UAV1": [.522,.970],
+        "UGV1": [.641,.970],
+        "UAV2": [.522,.970],
+        "UGV2": [.641,.970],
+        "UAV3": [.522,.970],
+        "UGV3": [.641,.970],
+        "UAV4": [.522,.970],
+        "UGV4": [.641,.970],
+    }
 }
 
-robot_positions = {
-    "UAV 1": [.522,.970],
-    "UGV 1": [.641,.970],
-    "UAV 2": [.522,.970],
-    "UGV 2": [.641,.970],
-    "UAV 3": [.522,.970],
-    "UGV 3": [.641,.970],
-    "UAV 4": [.522,.970],
-    "UGV 4": [.641,.970],
-}
-
-robot_waypoints = {
-    "UAV 1": [],
-    "UGV 1": [],
-    "UAV 2": [],
-    "UGV 2": [],
-    "UAV 3": [],
-    "UGV 3": [],
-    "UAV 4": [],
-    "UGV 4": [],
-}
+robot_positions = {}
+robot_waypoints = {}
+robot_publishers = {}
 
 completions = {}
 
-
-def cam1_callback(data):
-    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
-    retval, buffer = cv2.imencode('.png', cv_image)
-    b64 = base64.b64encode(buffer)
-    cam_images[1] = b64
+def robotPositionCallback(data):
+    global robot_positions
+    data = str(data.data).split(",")
+    robot_positions[data[0]] = [float(data[1]), float(data[2])]
     return
-
-def cam2_callback(data):
-    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
-    retval, buffer = cv2.imencode('.png', cv_image)
-    b64 = base64.b64encode(buffer)
-    cam_images[2] = b64
-    return
-
-def cam3_callback(data):
-    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
-    retval, buffer = cv2.imencode('.png', cv_image)
-    b64 = base64.b64encode(buffer)
-    cam_images[3] = b64
-    return
-
-def cam4_callback(data):
-    cv_image = bridge.imgmsg_to_cv2(data, desired_encoding='passthrough')
-    retval, buffer = cv2.imencode('.png', cv_image)
-    b64 = base64.b64encode(buffer)
-    cam_images[4] = b64
-    return
-
-def robot1_callback(data):
-    robot_positions[1] = data
-
-def robot2_callback(data):
-    robot_positions[2] = data
-
-def robot3_callback(data):
-    robot_positions[3] = data
-
-def robot4_callback(data):
-    robot_positions[4] = data
 
 
 threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=True)).start()
-rospy.Subscriber("/raspicam_node/image/compressed", Image, cam1_callback)
-rospy.Subscriber("/raspicam_node/image/compressed", Image, cam2_callback)
-rospy.Subscriber("/raspicam_node/image/compressed", Image, cam3_callback)
-rospy.Subscriber("/raspicam_node/image/compressed", Image, cam4_callback)
 
-rospy.Subscriber("/robot1/pos", Image, cam1_callback)
-rospy.Subscriber("/robot1/pos", Image, cam2_callback)
-rospy.Subscriber("/robot1/pos", Image, cam3_callback)
-rospy.Subscriber("/robot1/pos", Image, cam4_callback)
+# ROS callback function for the camera feeds, gets the image component and adds it to the right spot
+def robotCameraCallback(data):
+    data = str(data.data)
+    vehicle = data[:4]
+    image = data[5:]
+    cam_images[vehicle] = image
+
+
+# ROS callback function for the next waypoint
+def robotAtWaypointCallback(data):
+    data = str(data.data).split(",")
+    robot = data[0]
+    waypoint = str(data[1]) + "," + str(data[2])
+
+    if robot_waypoints[robot][0] == waypoint:        
+        robot_waypoints[robot].pop(0)
+        if len(robot_waypoints[robot]) > 0:  # if there are waypoints left, go to the next one
+            robot_publishers[robot].publish(str(robot_waypoints[robot][0][0]) + "," + str(robot_waypoints[robot][0][1]))
+        elif len(robot_waypoints[robot]) == 0:  # if there are no waypoint left, stop
+            robot_publishers[robot].publish("stop")
+    
+
+def initROSSubscribers(stage):
+    global robot_publishers
+    global cam_images
+    if stage == "1" or stage == "3":
+        for name in robot_reset_positions[stage]:
+            rospy.Subscriber("/" + name + "/current_position", String, robotPositionCallback)
+            rospy.Subscriber("/" + name + "/current_image", String, robotCameraCallback)
+            rospy.Subscriber("/" + name + "/at_waypoint", String, robotAtWaypointCallback)
+            pub = rospy.Publisher("/" + name + "/set_position", String)
+            robot_publishers[name] = pub
+            cam_images[name] = ""
+
 
 @app.route("/")
 def index():
@@ -106,8 +94,15 @@ def index():
 
 @app.route("/stage", methods=["GET"])
 def stage():
+    global robot_positions
+
     worker_id = request.args.get("workerId")
-    stage = request.args.get("stage")
+    stage = str(request.args.get("stage"))
+    robot_positions = robot_reset_positions[stage]
+
+    # init the ROS subscribers and some other variables
+    initROSSubscribers(stage)
+    
     return render_template("simenv/stage.html", worker_id=worker_id, stage=stage)
 
 @app.route("/portal", methods=["GET"])
@@ -155,8 +150,6 @@ def tutorial():
     next_stage = request.args.get("nextStage")
     return render_template("tutorial/index.html", worker_id=worker_id, next_stage=next_stage)
 
-
-
 @app.route("/test", methods=["GET"])
 def testStage():
     worker_id = request.args.get("workerId")
@@ -174,8 +167,8 @@ def log():
 
 @app.route("/cams")
 def cam():
-    res = [cam_images[1], cam_images[2], cam_images[3], cam_images[4]]
-    return jsonify(res)
+    robots = request.args.get("robots").split(",")
+    return jsonify(cam_images)
 
 @app.route("/positions", methods=["GET"])
 def position():
@@ -187,25 +180,50 @@ def addWaypoint():
     robot = request.args.get("id")
     x = float(request.args.get("x"))
     y = float(request.args.get("y"))
-    #print(">>>>", robot, x, y, robot_waypoints[robot])
+    # if robot not in the waypoint system, make it
+    if robot not in robot_waypoints:
+        robot_waypoints[robot] = []
+    # add the waypoint to the robot
     robot_waypoints[robot].append([x, y])
+    # if this new waypoint was the only one in the system, start going to it
+    if len(robot_waypoints[robot]) == 1:
+        robot_publishers[robot].publish(str(x) + "," + str(y))
+        print("published ", robot, str(x) + "," + str(y))
+
     return "success"
 
 @app.route("/remove-waypoint", methods=["GET"])
 def removeWaypoint():
     robot = request.args.get("id")
+    if robot not in robot_waypoints:
+        robot_waypoints = []
     robot_waypoints[robot].pop()
+
+    if len(robot_waypoints[robot]) == 0:
+        robot_publishers[robot].publish("stop")
     return "success"
 
 @app.route("/remove-all-waypoints", methods=["GET"])
 def removeAllWaypoints():
     robot = request.args.get("id")
     robot_waypoints[robot] = []
+    robot_publishers[robot].publish("stop")
     return "success"
+
+# for when a robot reaches a waypoint, remove it from the list and let WeBots know
+@app.route("/at-waypoint", methods=["GET"])
+def atWaypoint():
+    robot = request.args.get("id")
+    robot_waypoints[robot].pop(0)
+    if len(robot_waypoints[robot]) > 0:  # if there are waypoints left, go to the next one
+        robot_publishers[robot].publish(str(robot_waypoints[robot][0][0]) + "," + str(robot_waypoints[robot][0][1]))
+    elif len(robot_waypoints[robot]) == 0:  # if there are no waypoint left, stop
+        robot_publishers[robot].publish("stop")
+    return "success"
+
 
 @app.route("/get-waypoints", methods=["GET"])
 def getWaypoints():
-    #print("waypoints", response)
     return jsonify(robot_waypoints)
 
 
@@ -232,6 +250,7 @@ def networkConnectivityData():
 def networkConnectivity():
     worker_id = request.args.get("workerId")
     return render_template("networks/connectivity.html", worker_id=worker_id)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -222,12 +222,6 @@ function initStage2() {
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.innerHTML = "Extend the communication network from the \"Base\" to all five caches. If you get stuck, such as all robots being disconnected, click here to reset the map.";
-    instructionsTop.onclick = () => {
-        log({"stage": "2", "action": "reset map"});
-        window.setTimeout(() => {
-            location.reload();
-        }, 500);
-    }
 
     // set up the instructions
     //var instructionsLeft = document.getElementById("left-panel");

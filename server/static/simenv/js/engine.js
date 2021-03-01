@@ -18,6 +18,14 @@ function initEngine() {
         }, 5000);
     }
 
+    // set up the instructions bar to allow resetting the map
+    document.getElementById("instructions-top").onclick = () => {
+        log({"stage": uiMap.stage, "action": "reset map"});
+        window.setTimeout(() => {
+            location.reload();
+        }, 500);
+    }
+
     // set up the completion check
     checkConditions();
 
@@ -33,10 +41,10 @@ function getCams() {
     fetch("cams").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
-        cam1.src = "data:image/png;base64, " + data[0];
-        cam2.src = "data:image/png;base64, " + data[1];
-        cam3.src = "data:image/png;base64, " + data[2];
-        cam4.src = "data:image/png;base64, " + data[3];
+        cam1.src = "data:image/png;base64, " + data["UAV1"];
+        cam2.src = "data:image/png;base64, " + data["UAV2"];
+        cam3.src = "data:image/png;base64, " + data["UAV3"];
+        cam4.src = "data:image/png;base64, " + data["UAV4"];
     });
 }
 
@@ -44,6 +52,8 @@ function getPositions() {
     // update the robot positions
     fetch("positions").then(data => data.text()).then(data => {
         data = JSON.parse(data);
+
+        console.log("got positions", data)
 
         // update the ui objects
         for (let i in uiMap.uiObjects) {
@@ -65,7 +75,6 @@ function getWaypoints() {
         data = JSON.parse(data);
 
         for (var i in uiMap.uiObjects) {
-            console.log(">>>", uiMap.uiObjects[i].name)
             uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
         }
 

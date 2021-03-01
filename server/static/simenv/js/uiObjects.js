@@ -19,15 +19,18 @@ class MapUIObject {
 
         this.color = "";
 
-        this.displayDot = true;  // displays the colored dot in the center of the object
+        this.displayDot = false;  // displays the colored dot in the center of the object
+        this.displayName = false;   // displays the name of the object
 
         this.selectable = false;  // allows this object to be selected
     }
 
     // draws the image on the map canvas
     draw() {
-        // draw the UAV
-        this.context.drawImage(this.image, this.x-this.scale/2, this.y-this.scale/2, this.scale, this.scale);
+        // draw the image if one exists
+        if (this.image && this.scale) {
+            this.context.drawImage(this.image, this.x-this.scale/2, this.y-this.scale/2, this.scale, this.scale);
+        }
 
         // set the fill color
         this.context.fillStyle = this.color;
@@ -39,15 +42,25 @@ class MapUIObject {
 
         // draw the name
         // figure out what the name should be for vehicles
-        let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? this.connected ? "Connected" : "Cache" : this.name; 
-        this.context.font = this.nameAttention ? "bold 20px Arial" : "20px Arial";
-        this.context.textAlign = "center";
-        this.context.fillText(objectName, this.x, this.y - this.scale * .75);
+        if (this.displayName) {
+            let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? this.connected ? "Connected" : "Cache" : this.name; 
+            this.context.font = this.nameAttention ? "bold 20px Arial" : "20px Arial";
+            this.context.textAlign = "center";
+            this.context.fillText(objectName, this.x, this.y - this.scale * .75);
+        }
 
         // draw the color dot
         if (this.displayDot) {
             this.context.beginPath();
             this.context.arc(this.x, this.y, this.scale / 5, 0, 2 * Math.PI, false);
+            this.context.fill();
+        }
+
+        // if has a fill radius, fill it
+        if (this.fillRadius) {
+            this.context.fillStyle = "rgba(250, 250, 250, .5)";
+            this.context.beginPath();
+            this.context.arc(this.x, this.y, this.fillRadius * this.canvas.width, 0, 2 * Math.PI, false);
             this.context.fill();
         }
 
@@ -92,6 +105,9 @@ class Vehicle extends MapUIObject {
         }
 
         this.scale = 25;  // set the object scale to 25px
+
+        this.displayDot = true;
+        this.displayName = true;
 
         // initialize the vehicle waypoints
         this.waypoints = new Array();
@@ -182,12 +198,26 @@ class Cache extends MapUIObject {
         this.image.src = "/static/simenv/img/cache.png";
         this.scale = 25;
 
+        this.displayName = true;
         this.displayDot = false;
 
         this.adHocRadius = 0;
 
         // flag for if the cache is connected
         this.connected = false;
+    }
+}
+
+// Cache Area objects are locations where a cache could be (for Round 1). It is just a grey circle
+class CacheArea extends MapUIObject {
+    constructor() {
+        super();
+
+        this.type = "cache area";
+        this.name = "";
+        this.color = "lightgrey";
+
+        this.fillRadius = .125;
     }
 }
 
@@ -205,6 +235,8 @@ class Base extends MapUIObject {
 
         this.name = "Base";
         this.color = "black";
+
+        this.displayName = true;
         this.displayDot = false;
     }
 
