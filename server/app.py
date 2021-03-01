@@ -59,8 +59,8 @@ def robotCameraCallback(data):
     data = str(data.data)
     vehicle = data[:4]
     image = data[7:-1] # b' ... '
-    cam_images["UAV1"] = image
-    #print("Updated Camera")
+    cam_images[vehicle] = image
+    return
 
 
 # ROS callback function for the next waypoint
