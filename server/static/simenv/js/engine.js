@@ -15,7 +15,7 @@ function initEngine() {
             getCams();
             getPositions();
             getWaypoints();
-        }, 5000);
+        }, 500);
     }
 
     // set up the instructions bar to allow resetting the map
@@ -41,14 +41,14 @@ function getCams() {
     fetch("cams").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
-        console.log("camdata", data)
+        //console.log("camdata", data)
 
         cam1.src = "data:image/png;base64, " + data["UAV1"];
         cam2.src = "data:image/png;base64, " + data["UAV2"];
         cam3.src = "data:image/png;base64, " + data["UAV3"];
         cam4.src = "data:image/png;base64, " + data["UAV4"];
 
-        console.log("got cams")
+        //console.log("got cams")
     });
 }
 
@@ -57,7 +57,7 @@ function getPositions() {
     fetch("positions").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
-        console.log("got positions", data)
+        //console.log("got positions", data)
 
         // update the ui objects
         for (let i in uiMap.uiObjects) {
@@ -77,7 +77,7 @@ function getWaypoints() {
     // update the robot waypoints
     fetch("get-waypoints").then(data => data.text()).then(data => {
         data = JSON.parse(data);
-        console.log("Waypoints", data)
+        //console.log("Waypoints", data)
 
         for (var i in uiMap.uiObjects) {
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
