@@ -78,6 +78,7 @@ function getWaypoints() {
         console.log("Waypoints", data)
 
         for (var i in uiMap.uiObjects) {
+            console.log(">>>", uiMap.uiObjects[i].name)
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
                 uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
                 console.log("updated", uiMap.uiObjects[i].name,  uiMap.uiObjects[i].waypoints);
