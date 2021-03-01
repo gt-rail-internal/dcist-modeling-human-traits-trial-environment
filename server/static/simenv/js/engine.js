@@ -41,6 +41,8 @@ function getCams() {
     fetch("cams").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
+        console.log("camdata", data)
+
         cam1.src = "data:image/png;base64, " + data["UAV1"];
         cam2.src = "data:image/png;base64, " + data["UAV2"];
         cam3.src = "data:image/png;base64, " + data["UAV3"];
@@ -80,7 +82,7 @@ function getWaypoints() {
         for (var i in uiMap.uiObjects) {
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
                 uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
-                console.log("updated", uiMap.uiObjects[i].name,  uiMap.uiObjects[i].waypoints);
+                //console.log("updated", uiMap.uiObjects[i].name,  uiMap.uiObjects[i].waypoints);
             }
         }
     });
