@@ -48,6 +48,7 @@ def robotPositionCallback(data):
     global robot_positions
     data = str(data.data).split(",")
     robot_positions[data[0]] = [float(data[1]), float(data[2])]
+    print("Updated robot position", data[0])
     return
 
 
@@ -59,6 +60,7 @@ def robotCameraCallback(data):
     vehicle = data[:4]
     image = data[5:]
     cam_images[vehicle] = image
+    print("Updated Camera from", vehicle)
 
 
 # ROS callback function for the next waypoint
@@ -68,6 +70,7 @@ def robotAtWaypointCallback(data):
     waypoint = str(data[1]) + "," + str(data[2])
 
     if robot_waypoints[robot][0] == waypoint:        
+        print("Robot has reached a waypoint!")
         robot_waypoints[robot].pop(0)
         if len(robot_waypoints[robot]) > 0:  # if there are waypoints left, go to the next one
             robot_publishers[robot].publish(str(robot_waypoints[robot][0][0]) + "," + str(robot_waypoints[robot][0][1]))
