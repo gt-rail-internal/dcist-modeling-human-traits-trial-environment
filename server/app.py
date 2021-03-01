@@ -57,7 +57,8 @@ threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=T
 # ROS callback function for the camera feeds, gets the image component and adds it to the right spot
 def robotCameraCallback(data):
     data = str(data.data)
-    image = data[2:-1]
+    vehicle = data[:4]
+    image = data[6:-1] # b' ... '
     cam_images["UAV1"] = image
     #print("Updated Camera")
 
