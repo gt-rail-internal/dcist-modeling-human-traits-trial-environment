@@ -127,10 +127,6 @@ class Vehicle extends MapUIObject {
         this.y = y;
     }
 
-    // set up a subscriber to a Point ROS message for the vehicle position
-    initPositionListener(topic) {
-    }
-
     drawWaypoints(color) {
         let fromX = 0;
         let fromY = 0;

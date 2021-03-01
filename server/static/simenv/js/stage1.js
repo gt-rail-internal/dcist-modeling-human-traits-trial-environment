@@ -8,26 +8,22 @@ function initStage1() {
 
     // initialize two UAVs and two UGVs
     uav1 = new Vehicle("uav");
-    uav1.initPositionListener("uav1");
     uav1.index = 1;
     uav1.name = "UAV1";
     uav1.color = "red"
 
     uav2 = new Vehicle("uav");
-    uav2.initPositionListener("uav2");
     uav2.index = 2;
     uav2.name = "UAV2";
     uav2.color = "purple";
     
 
     uav3 = new Vehicle("uav");
-    uav3.initPositionListener("uav3");
     uav3.index = 3;
     uav3.name = "UAV3";
     uav3.color = "blue";
 
     uav4 = new Vehicle("uav");
-    uav4.initPositionListener("uav4");
     uav4.index = 4;
     uav4.name = "UAV4";
     uav4.color = "goldenrod"
