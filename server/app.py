@@ -58,7 +58,7 @@ threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=T
 def robotCameraCallback(data):
     data = str(data.data)
     vehicle = data[:4]
-    image = data[6:-1] # b' ... '
+    image = data[7:-1] # b' ... '
     cam_images["UAV1"] = image
     #print("Updated Camera")
 
