@@ -68,10 +68,10 @@ def robotAtWaypointCallback(data):
     robot = data[0]
     waypoint = [round(float(data[1]), 3), round(float(data[2]), 3)]
 
-    print("Robot close to waypoint")
+    #print("Robot close to waypoint")
 
     if len(robot_waypoints[robot]) > 0 and [round(robot_waypoints[robot][0][0], 3), round(robot_waypoints[robot][0][1], 3)] == waypoint:        
-        print(">>>>Robot has reached a waypoint!")
+        #print(">>>>Robot has reached a waypoint!")
         robot_waypoints[robot].pop(0)
         if len(robot_waypoints[robot]) > 0:  # if there are waypoints left, go to the next one
             robot_publishers[robot].publish(str(robot_waypoints[robot][0][0]) + "," + str(robot_waypoints[robot][0][1]))
