@@ -198,6 +198,7 @@ def addWaypoint():
 
 @app.route("/remove-waypoint", methods=["GET"])
 def removeWaypoint():
+    global robot_waypoints
     robot = request.args.get("id")
     if robot not in robot_waypoints:
         robot_waypoints = []
@@ -209,6 +210,7 @@ def removeWaypoint():
 
 @app.route("/remove-all-waypoints", methods=["GET"])
 def removeAllWaypoints():
+    global robot_waypoints
     robot = request.args.get("id")
     robot_waypoints[robot] = []
     robot_publishers[robot].publish("stop")
