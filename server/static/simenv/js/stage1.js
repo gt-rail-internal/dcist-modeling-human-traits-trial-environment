@@ -1,8 +1,8 @@
 // Create the game objects for Stage 1
 function initStage1() { 
 
-    // set the uiMap to not use networks
-    uiMap.networked = false;
+    // set the uiMap to use the network (server)
+    uiMap.networked = true;
     uiMap.stage = 2;
 
 
