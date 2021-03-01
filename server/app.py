@@ -88,6 +88,7 @@ def initROSSubscribers(stage):
             pub = rospy.Publisher("/" + name + "/set_position", String)
             robot_publishers[name] = pub
             cam_images[name] = ""
+            robot_waypoints[name] = []
 
 
 @app.route("/")
