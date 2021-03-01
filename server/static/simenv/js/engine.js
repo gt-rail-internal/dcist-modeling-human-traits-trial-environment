@@ -75,6 +75,7 @@ function getWaypoints() {
     // update the robot waypoints
     fetch("get-waypoints").then(data => data.text()).then(data => {
         data = JSON.parse(data);
+        console.log("Waypoints", data)
 
         for (var i in uiMap.uiObjects) {
             uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
