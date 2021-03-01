@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, make_response, jsonify
 
 import rospy
 from cv_bridge import CvBridge
-from sensor_msgs.msg import Image, String
+from std_msgs.msg import String
 import base64
 import threading
 import cv2
