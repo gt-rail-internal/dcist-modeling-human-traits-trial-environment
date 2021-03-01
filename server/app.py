@@ -66,11 +66,11 @@ def robotCameraCallback(data):
 def robotAtWaypointCallback(data):
     data = str(data.data).split(",")
     robot = data[0]
-    waypoint = str(data[1]) + "," + str(data[2])
+    waypoint = [round(float(data[1]), 3), round(float(data[2]), 3)]
 
     print("Robot close to waypoint")
 
-    if robot_waypoints[robot][0] == waypoint:        
+    if [round(robot_waypoints[robot][0][0], 3), round(robot_waypoints[robot][0][1], 3)] == waypoint:        
         print(">>>>Robot has reached a waypoint!")
         robot_waypoints[robot].pop(0)
         if len(robot_waypoints[robot]) > 0:  # if there are waypoints left, go to the next one
@@ -219,6 +219,7 @@ def removeAllWaypoints():
 # for when a robot reaches a waypoint, remove it from the list and let WeBots know
 @app.route("/at-waypoint", methods=["GET"])
 def atWaypoint():
+    global robot_waypoints
     robot = request.args.get("id")
     robot_waypoints[robot].pop(0)
     if len(robot_waypoints[robot]) > 0:  # if there are waypoints left, go to the next one
