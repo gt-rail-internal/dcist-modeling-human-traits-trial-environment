@@ -48,7 +48,7 @@ def robotPositionCallback(data):
     global robot_positions
     data = str(data.data).split(",")
     robot_positions[data[0]] = [float(data[1]), float(data[2])]
-    print("Updated robot position", data[0])
+    print("Updated robot position", data[0], robot_positions[data[0]])
     return
 
 
@@ -57,10 +57,9 @@ threading.Thread(target=lambda: rospy.init_node('dcistserver', disable_signals=T
 # ROS callback function for the camera feeds, gets the image component and adds it to the right spot
 def robotCameraCallback(data):
     data = str(data.data)
-    vehicle = data[:4]
-    image = data[5:]
-    cam_images[vehicle] = image
-    print("Updated Camera from", vehicle)
+    image = data
+    cam_images["UAV1"] = image
+    print("Updated Camera from", image)
 
 
 # ROS callback function for the next waypoint
