@@ -45,6 +45,8 @@ function getCams() {
         cam2.src = "data:image/png;base64, " + data["UAV2"];
         cam3.src = "data:image/png;base64, " + data["UAV3"];
         cam4.src = "data:image/png;base64, " + data["UAV4"];
+
+        console.log("got cams")
     });
 }
 
