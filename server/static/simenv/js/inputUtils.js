@@ -64,7 +64,7 @@ function canvasMouseHandler(event) {
 
         if (uiMap.stage != 2) {
             fetch("add-waypoint?id=" + uiMap.selectedObject.name + "&x=" + posX + "&y=" + posY);
-            print("added waypoint to server")
+            console.log("added waypoint to server")
         }
 
         log({action: "add-valid-waypoint", target: uiMap.selectedObject.name, location: "[" + posX + "," + posY + "]"});
