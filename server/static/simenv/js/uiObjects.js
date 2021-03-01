@@ -133,8 +133,6 @@ class Vehicle extends MapUIObject {
         let toX = 0;
         let toY = 0;
 
-        return;
-
         // draw the waypoint arrows
         this.context.beginPath();
         if (this.waypoints.length > 0) {
