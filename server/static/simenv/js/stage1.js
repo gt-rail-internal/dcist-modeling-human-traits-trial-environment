@@ -3,7 +3,7 @@ function initStage1() {
 
     // set the uiMap to use the network (server)
     uiMap.networked = true;
-    uiMap.stage = 2;
+    uiMap.stage = 1;
 
 
     // initialize two UAVs and two UGVs
