@@ -43,6 +43,9 @@ class UIMap {
         this.displayAdHocRanges = true;
         this.adHocLock = true;
 
+        // variables for stage 1
+        this.knownCaches = 0;
+
 
         this.goalLocations = [];
         this.displayGoalLocations = true;
