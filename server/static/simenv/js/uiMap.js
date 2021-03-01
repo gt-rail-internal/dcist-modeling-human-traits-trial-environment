@@ -82,14 +82,17 @@ class UIMap {
                 this.uiObjects[i].drawWaypoints(color);
 
                 // draw the adhoc range (will only draw if applicable)
-                this.uiObjects[i].drawAdHoc();   
+                if (this.displayAdHocRanges) {
+                    this.uiObjects[i].drawAdHoc();   
+                }
             }
 
             // draw the base-specific attributes
             if (this.uiObjects[i].constructor.name == "Base") {
                 // draw the adhoc range (will only draw if applicable stage)
-                this.uiObjects[i].drawAdHoc();
-                
+                if (this.displayAdHocRanges) {
+                    this.uiObjects[i].drawAdHoc();
+                }
             }
         }
 

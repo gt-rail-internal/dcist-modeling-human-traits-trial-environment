@@ -72,3 +72,19 @@
 1614286508.323895,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.39571428571428574,0.7771428571428571]', 'worker-id': '234234', 'stage': 0}
 1614286508.915325,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.2714285714285714,0.33]', 'worker-id': '234234', 'stage': 0}
 1614286509.719103,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.5228571428571429,0.4928571428571429]', 'worker-id': '234234', 'stage': 0}
+1614539400.915923,234234,{'stage': 2, 'action': 'stage-complete', 'worker-id': '234234'}
+1614539657.84648,234234,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '234234', 'stage': 2}
+1614539658.96512,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.36714285714285716,0.5957142857142858]', 'worker-id': '234234', 'stage': 2}
+1614539664.472825,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.5214285714285715,0.38]', 'worker-id': '234234', 'stage': 2}
+1614539665.169509,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.6442857142857142,0.4757142857142857]', 'worker-id': '234234', 'stage': 2}
+1614539665.70085,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.8371428571428572,0.6314285714285715]', 'worker-id': '234234', 'stage': 2}
+1614539666.204385,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.7842857142857143,0.8242857142857143]', 'worker-id': '234234', 'stage': 2}
+1614539666.718323,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.62,0.6014285714285714]', 'worker-id': '234234', 'stage': 2}
+1614539667.852222,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.5471428571428572,0.7228571428571429]', 'worker-id': '234234', 'stage': 2}
+1614539917.160126,234234,{'action': 'select-vehicle', 'target': 'UAV 1', 'worker-id': '234234', 'stage': 2}
+1614539917.671065,234234,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.4785714285714286,0.6971428571428572]', 'worker-id': '234234', 'stage': 2}
+1614540515.09114,234234,{'stage': 2, 'action': 'stage-complete', 'worker-id': '234234'}
+1614541235.776627,234234,{'stage': 2, 'action': 'reset map', 'worker-id': '234234'}
+1614542354.733031,234234,{'stage': 2, 'action': 'stage-complete', 'worker-id': '234234'}
+1614547621.00896,234234,{'stage': 2, 'action': 'stage-complete', 'worker-id': '234234'}
+1614549230.376813,234234,{'stage': 2, 'action': 'stage-complete', 'worker-id': '234234'}
