@@ -20,15 +20,6 @@ ramp_up = False
 position_x = None
 position_y = None
 
-def convert_to_pitch_roll(ex, ey, yaw):
-    c, s = np.cos(yaw), np.sin(yaw)
-    R = np.array(((c, -s), (s, c)))
-    exy_ = np.matmul([ex, ey], R)
-    # print("ex = %f, ey = %f" % (ex, ey))
-    # print(yaw)
-    # print("ex_ = %f, ey_ = %f" % (exy_[0], exy_[1]))
-    return exy_[0], exy_[1]
-
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
 
