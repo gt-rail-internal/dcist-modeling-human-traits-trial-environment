@@ -60,11 +60,12 @@ function initStage1() {
     uiMap.uiObjects.push(cacheArea4);
     uiMap.uiObjects.push(cacheArea5);
 
+    uiMap.uiObjects.push(base1);
     uiMap.uiObjects.push(uav1);
     uiMap.uiObjects.push(uav2);
     uiMap.uiObjects.push(uav3);
     uiMap.uiObjects.push(uav4);
-    uiMap.uiObjects.push(base1);
+    
 
     // initialize the end conditions
     uiMap.endCheck = stage1EndCheck;
