@@ -15,7 +15,7 @@ function initEngine() {
             getCams();
             getPositions();
             getWaypoints();
-        }, 500);
+        }, 250);
     }
 
     // set up the instructions bar to allow resetting the map
