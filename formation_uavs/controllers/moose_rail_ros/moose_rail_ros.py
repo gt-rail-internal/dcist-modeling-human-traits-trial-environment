@@ -173,14 +173,15 @@ def dji_controller():
         target_y = py + calc_y * fixed_power
         #print(robot.getName(), "PX", px, "PY", py, "World X", world_x, "World Y", world_y, "fixed power", fixed_power)
 
+        angle = atan2(target_y - py, target_x - px) * 180 / PI
         # Go Left
-        if abs(target_x - px) < abs(target_y - py):
+        if angle < 0.1:
             for left_motor in left_motors:
                 left_motor.setVelocity(-velocity)
             for right_motor in right_motors:
                 right_motor.setVelocity(velocity)
         # Go Right
-        elif abs(target_x - px) > abs(target_y - py):
+        elif angle > 0.1:
             for left_motor in left_motors:
                 left_motor.setVelocity(velocity)
             for right_motor in right_motors:
