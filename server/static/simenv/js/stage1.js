@@ -54,21 +54,69 @@ function initStage1() {
     cacheArea5.y = (.758 - .02) * uiMap.mapCanvas.height; 
     
     // add them to the UI Map
-    uiMap.uiObjects.push(uav1);
-    uiMap.uiObjects.push(uav2);
-    uiMap.uiObjects.push(uav3);
-    uiMap.uiObjects.push(uav4);
-    uiMap.uiObjects.push(base1);
-
     uiMap.uiObjects.push(cacheArea1);
     uiMap.uiObjects.push(cacheArea2);
     uiMap.uiObjects.push(cacheArea3);
     uiMap.uiObjects.push(cacheArea4);
     uiMap.uiObjects.push(cacheArea5);
 
+    uiMap.uiObjects.push(base1);
+    uiMap.uiObjects.push(uav1);
+    uiMap.uiObjects.push(uav2);
+    uiMap.uiObjects.push(uav3);
+    uiMap.uiObjects.push(uav4);
+    
+
     // initialize the end conditions
     uiMap.endCheck = stage1EndCheck;
     uiMap.displayAdHocRanges = false;
+
+    var title = document.getElementById("titlebar");
+    title.innerHTML = "Simulation Environment - Stage 1";
+
+    var instructionsTop = document.getElementById("instructions-top");
+    instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it!";
+
+    document.getElementById("cam1_button").innerHTML = "Mark Cache";
+    document.getElementById("cam2_button").innerHTML = "Mark Cache";
+    document.getElementById("cam3_button").innerHTML = "Mark Cache";
+    document.getElementById("cam4_button").innerHTML = "Mark Cache";
+
+    document.getElementById("cam1_button").onclick = () => {
+        addCache(uav1.x, uav1.y);
+    }
+    document.getElementById("cam2_button").onclick = () => {
+        addCache(uav2.x, uav2.y);
+    }
+    document.getElementById("cam3_button").onclick = () => {
+        addCache(uav3.x, uav3.y);
+    }
+    document.getElementById("cam4_button").onclick = () => {
+        addCache(uav4.x, uav4.y);
+    }
+}
+
+var cacheList = [false, false, false, false, false];
+
+function addCache(x, y) {
+    console.log("addCache UAV position", x, y)
+    for (let i=0; i<5; i++) {
+        // if UAV is within this cache range
+        if (distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < uiMap.uiObjects[i].fillRadius * uiMap.mapCanvas.width) {
+            // if cache already exists in this area, continue
+            if (cacheList[i] == true) {
+                continue;
+            }
+
+            // otherwise make the cache (will later add a distance to actual cache location check)
+            cache = new Cache();
+            cache.name = "Cache " + String(i + 1);
+            cache.x = x * uiMap.mapCanvas.width;
+            cache.y = y * uiMap.mapCanvas.height; 
+            uiMap.uiObjects.push(cache)
+            cacheList[i] = true;
+        }
+    }
 }
 
 
