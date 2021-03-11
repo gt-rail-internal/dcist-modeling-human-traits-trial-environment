@@ -36,22 +36,32 @@ function initStage1() {
     cacheArea1 = new CacheArea();
     cacheArea1.x = (.200 + .03) * uiMap.mapCanvas.width;
     cacheArea1.y = (.298 + .07) * uiMap.mapCanvas.height; 
+    cacheArea1.cacheX = 79.64;
+    cacheArea1.cacheY = 519.69;
     
     cacheArea2 = new CacheArea();
     cacheArea2.x = (.564 - .01) * uiMap.mapCanvas.width;
     cacheArea2.y = (.327 + .06) * uiMap.mapCanvas.height; 
+    cacheArea2.cacheX = 412.23;
+    cacheArea2.cacheY = 219.89;
 
     cacheArea3 = new CacheArea();
     cacheArea3.x = (.900 - .01) * uiMap.mapCanvas.width;
     cacheArea3.y = (.374 - .04) * uiMap.mapCanvas.height; 
+    cacheArea2.cacheX = 500.23;
+    cacheArea2.cacheY = 500.89;
 
     cacheArea4 = new CacheArea();
     cacheArea4.x = (.895 - .05) * uiMap.mapCanvas.width;
     cacheArea4.y = (.877 - 0) * uiMap.mapCanvas.height; 
+    cacheArea2.cacheX = 500.23;
+    cacheArea2.cacheY = 500.89;
 
     cacheArea5 = new CacheArea();
     cacheArea5.x = (.078 + .03) * uiMap.mapCanvas.width;
     cacheArea5.y = (.758 - .02) * uiMap.mapCanvas.height; 
+    cacheArea2.cacheX = 500.23;
+    cacheArea2.cacheY = 500.89;
     
     // add them to the UI Map
     uiMap.uiObjects.push(cacheArea1);
@@ -75,7 +85,7 @@ function initStage1() {
     title.innerHTML = "Simulation Environment - Stage 1";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it!";
+    instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it! You can expect low framerates with the aerial robot cameras and position updates.";
 
     document.getElementById("cam1_button").innerHTML = "Mark Cache";
     document.getElementById("cam2_button").innerHTML = "Mark Cache";
@@ -102,7 +112,7 @@ function addCache(x, y) {
     console.log("addCache UAV position", x, y)
     for (let i=0; i<5; i++) {
         // if UAV is within this cache range
-        if (distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < uiMap.uiObjects[i].fillRadius * uiMap.mapCanvas.width) {
+        if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .02 * uiMap.mapCanvas.width) {
             // if cache already exists in this area, continue
             if (cacheList[i] == true) {
                 continue;
@@ -111,8 +121,8 @@ function addCache(x, y) {
             // otherwise make the cache (will later add a distance to actual cache location check)
             cache = new Cache();
             cache.name = "Cache " + String(i + 1);
-            cache.x = x * uiMap.mapCanvas.width;
-            cache.y = y * uiMap.mapCanvas.height; 
+            cache.x = x
+            cache.y = y
             uiMap.uiObjects.push(cache)
             cacheList[i] = true;
         }
