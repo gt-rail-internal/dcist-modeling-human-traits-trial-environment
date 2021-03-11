@@ -214,6 +214,9 @@ class CacheArea extends MapUIObject {
         this.color = "lightgrey";
 
         this.fillRadius = .125;
+
+        this.cacheX = 0
+        this.cacheY = 0
     }
 }
 
