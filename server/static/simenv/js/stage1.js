@@ -36,8 +36,7 @@ function initStage1() {
     cacheArea1 = new CacheArea();
     cacheArea1.x = (.200 + .03) * uiMap.mapCanvas.width;
     cacheArea1.y = (.298 + .07) * uiMap.mapCanvas.height; 
-    cacheArea1.cacheX = 79.64;
-    cacheArea1.cacheY = 519.69;
+    
     
     cacheArea2 = new CacheArea();
     cacheArea2.x = (.564 - .01) * uiMap.mapCanvas.width;
@@ -48,20 +47,20 @@ function initStage1() {
     cacheArea3 = new CacheArea();
     cacheArea3.x = (.900 - .01) * uiMap.mapCanvas.width;
     cacheArea3.y = (.374 - .04) * uiMap.mapCanvas.height; 
-    cacheArea2.cacheX = 500.23;
-    cacheArea2.cacheY = 500.89;
+    cacheArea3.cacheX = 627.15;  // good, top right
+    cacheArea3.cacheY = 254.40;
 
     cacheArea4 = new CacheArea();
     cacheArea4.x = (.895 - .05) * uiMap.mapCanvas.width;
     cacheArea4.y = (.877 - 0) * uiMap.mapCanvas.height; 
-    cacheArea2.cacheX = 500.23;
-    cacheArea2.cacheY = 500.89;
+    cacheArea4.cacheX = 633.04;  // good, bottom right
+    cacheArea4.cacheY = 621.88;
 
     cacheArea5 = new CacheArea();
     cacheArea5.x = (.078 + .03) * uiMap.mapCanvas.width;
     cacheArea5.y = (.758 - .02) * uiMap.mapCanvas.height; 
-    cacheArea2.cacheX = 500.23;
-    cacheArea2.cacheY = 500.89;
+    cacheArea5.cacheX = 81.93; // good, bottom left
+    cacheArea5.cacheY = 514.03;
     
     // add them to the UI Map
     uiMap.uiObjects.push(cacheArea1);
