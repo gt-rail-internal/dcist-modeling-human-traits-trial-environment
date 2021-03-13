@@ -113,10 +113,11 @@ function addCache(x, y) {
     console.log("addCache button pressed for UAV position", x, y)
     for (let i=0; i<5; i++) {
         // if UAV is within this cache range
-        console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .02 * uiMap.mapCanvas.width);
-        if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .02 * uiMap.mapCanvas.width) {
+        console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
+        if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .05 * uiMap.mapCanvas.width) {
             // if cache already exists in this area, continue
             if (cacheList[i] == true) {
+                console.log("cache already exists");
                 continue;
             }
 
@@ -125,8 +126,12 @@ function addCache(x, y) {
             cache.name = "Cache " + String(i + 1);
             cache.x = x
             cache.y = y
-            uiMap.uiObjects.push(cache)
+            uiMap.uiObjects.splice(0, 0, cache);
             cacheList[i] = true;
+
+            uiMap.knownCaches += 1;  // variable to count the number of known caches
+
+            console.log("created cache");
         }
     }
 }
@@ -134,7 +139,7 @@ function addCache(x, y) {
 
 function stage1EndCheck() {
     // if all caches are connected, end
-    if (uiMap.stage == 1 && uiMap.knownCaches.length >= 5) {
+    if (uiMap.stage == 1 && uiMap.knownCaches >= 5) {
         return true;
     }
     return false;
