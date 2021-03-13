@@ -36,13 +36,14 @@ function initStage1() {
     cacheArea1 = new CacheArea();
     cacheArea1.x = (.200 + .03) * uiMap.mapCanvas.width;
     cacheArea1.y = (.298 + .07) * uiMap.mapCanvas.height; 
-    
+    cacheArea1.cacheX = 174.75; // good, top left
+    cacheArea1.cacheY = 200.02;
     
     cacheArea2 = new CacheArea();
     cacheArea2.x = (.564 - .01) * uiMap.mapCanvas.width;
     cacheArea2.y = (.327 + .06) * uiMap.mapCanvas.height; 
-    cacheArea2.cacheX = 412.23;
-    cacheArea2.cacheY = 219.89;
+    cacheArea2.cacheX = 400.39;  // good, top center
+    cacheArea2.cacheY = 221.38;
 
     cacheArea3 = new CacheArea();
     cacheArea3.x = (.900 - .01) * uiMap.mapCanvas.width;
@@ -84,6 +85,7 @@ function initStage1() {
     title.innerHTML = "Simulation Environment - Stage 1";
 
     var instructionsTop = document.getElementById("instructions-top");
+    instructionsTop.classList = "instructions grey-instructions";
     instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it! You can expect low framerates with the aerial robot cameras and position updates.";
 
     document.getElementById("cam1_button").innerHTML = "Mark Cache";
@@ -108,9 +110,10 @@ function initStage1() {
 var cacheList = [false, false, false, false, false];
 
 function addCache(x, y) {
-    console.log("addCache UAV position", x, y)
+    console.log("addCache button pressed for UAV position", x, y)
     for (let i=0; i<5; i++) {
         // if UAV is within this cache range
+        console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .02 * uiMap.mapCanvas.width);
         if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .02 * uiMap.mapCanvas.width) {
             // if cache already exists in this area, continue
             if (cacheList[i] == true) {
