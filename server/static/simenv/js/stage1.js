@@ -111,7 +111,12 @@ var cacheList = [false, false, false, false, false];
 
 function addCache(x, y) {
     console.log("addCache button pressed for UAV position", x, y)
-    for (let i=0; i<5; i++) {
+    for (let i=0; i<uiMap.uiObjects.length; i++) {
+        // ignore if not a cache area
+        if (uiMap.uiObjects[i].constructor.name != "CacheArea") {
+            continue;
+        }
+
         // if UAV is within this cache range
         console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
         if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .05 * uiMap.mapCanvas.width) {
@@ -126,7 +131,7 @@ function addCache(x, y) {
             cache.name = "Cache " + String(i + 1);
             cache.x = x
             cache.y = y
-            uiMap.uiObjects.splice(0, 0, cache);
+            uiMap.uiObjects.splice(5, 0, cache);
             cacheList[i] = true;
 
             uiMap.knownCaches += 1;  // variable to count the number of known caches
