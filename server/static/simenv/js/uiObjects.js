@@ -12,10 +12,14 @@ class MapUIObject {
 
         this.image = new Image();
 
+        this.hide = false;  // if true, does not draw the object
+
         this.type = "";
 
         this.name = "";
         this.nameAttention = false;  // give the name attention if needed (! name !)
+
+        this.carryingCache = false;
 
         this.color = "";
 
@@ -27,6 +31,11 @@ class MapUIObject {
 
     // draws the image on the map canvas
     draw() {
+        // if hiding the object, return
+        if (this.hide) {
+            return;
+        }
+
         // draw the image if one exists
         if (this.image && this.scale) {
             this.context.drawImage(this.image, this.x-this.scale/2, this.y-this.scale/2, this.scale, this.scale);
@@ -43,7 +52,10 @@ class MapUIObject {
         // draw the name
         // figure out what the name should be for vehicles
         if (this.displayName) {
-            let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? this.connected ? "Connected" : "Cache" : this.name; 
+            let objectName = uiMap.stageComplete ? "Complete" : this.type == "ugv" ? "Ground" : this.type == "uav" ? "Aerial" : this.type == "cache" ? this.connected ? "Connected" : "Cache" : this.name;
+            if (this.carryingCache) {
+                objectName = "📦 " + objectName;
+            }
             this.context.font = this.nameAttention ? "bold 20px Arial" : "20px Arial";
             this.context.textAlign = "center";
             this.context.fillText(objectName, this.x, this.y - this.scale * .75);
@@ -66,6 +78,7 @@ class MapUIObject {
 
         // reset the fill color
         this.context.fillStyle = "black";
+        return;
     }
 
     // get the location
@@ -217,6 +230,19 @@ class CacheArea extends MapUIObject {
 
         this.cacheX = 0
         this.cacheY = 0
+    }
+}
+
+// Router objects are invisible non-selectable objects that have an adhoc range
+class Router extends MapUIObject {
+    constructor() {
+        super();
+
+        this.type = "router";
+
+        // initialize the ad hoc radius
+        this.adHocRadius = 100;
+        this.adHocLocked = false;
     }
 }
 
