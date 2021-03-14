@@ -13,12 +13,13 @@ import base64
 
 world_x = None
 world_y = None
-world_next_x = None
-world_next_y = None
 ramp_down = False
 ramp_up = False
 position_x = None
 position_y = None
+
+initial_heading = False
+at_target = False
 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
@@ -44,13 +45,14 @@ def calc_world_movement(px, py):
 def dji_controller():
     global world_x
     global world_y
-    global world_next_x
-    global world_next_y
     global position_x
     global position_y
 
     global ramp_up
     global ramp_down
+    
+    global initial_heading
+    global at_target
 
     # create the Robot instance.
     robot = Robot()
@@ -69,33 +71,36 @@ def dji_controller():
     timestep = int(robot.getBasicTimeStep())
     keyboard = Keyboard()
     keyboard.enable(timestep)
-    camera = robot.getCamera("camera")
+    camera = robot.getDevice("camera")
     camera.enable(timestep)
-    gps = robot.getGPS("gps")
+    gps = robot.getDevice("gps")
     gps.enable(timestep)
-    left_motor_1 = robot.getMotor("left motor 1")
-    left_motor_2 = robot.getMotor("left motor 2")
-    left_motor_3 = robot.getMotor("left motor 3")
-    left_motor_4 = robot.getMotor("left motor 4")
-    right_motor_1 = robot.getMotor("right motor 1")
-    right_motor_2 = robot.getMotor("right motor 2")
-    right_motor_3 = robot.getMotor("right motor 3")
-    right_motor_4 = robot.getMotor("right motor 4")
+    compass = robot.getDevice("compass")
+    compass.enable(timestep)
+    left_motor_1 = robot.getDevice("left motor 1")
+    left_motor_2 = robot.getDevice("left motor 2")
+    left_motor_3 = robot.getDevice("left motor 3")
+    left_motor_4 = robot.getDevice("left motor 4")
+    right_motor_1 = robot.getDevice("right motor 1")
+    right_motor_2 = robot.getDevice("right motor 2")
+    right_motor_3 = robot.getDevice("right motor 3")
+    right_motor_4 = robot.getDevice("right motor 4")
     motors = [left_motor_1, left_motor_2, left_motor_3, left_motor_4, right_motor_1, right_motor_2, right_motor_3, right_motor_4]
     left_motors = [left_motor_1, left_motor_2, left_motor_3, left_motor_4]
     right_motors = [right_motor_1, right_motor_2, right_motor_3, right_motor_4]
     # arming
-    for i in range(4):
+    for i in range(8):
         motors[i].setPosition(float("inf"))
         motors[i].setVelocity(0.0)
 
     print("arming")
-    velocity = 30
+    forward_velocity = 15
 
     # target
     target_x = 0
     target_y = 0
     i = 0
+   
 
     fixed_power = 0
     count = 0
@@ -110,8 +115,8 @@ def dji_controller():
         px = gps.getValues()[0]
         py = gps.getValues()[2]
         # print("px = %f, py = %f" %(px, py))
-        roll_acceleration = gyro.getValues()[0]
-        pitch_acceleration = gyro.getValues()[1]
+        #roll_acceleration = gyro.getValues()[0]
+        #pitch_acceleration = gyro.getValues()[1]
     
         #print("x = %f, y = %f, z = %f" %(px ,py, altitude))
         #print(yaw)
@@ -119,12 +124,6 @@ def dji_controller():
         key=keyboard.getKey()
         while(key > 0):
             if (key==Keyboard.UP):
-                target_z += 0.01
-                break
-            if (key==Keyboard.DOWN):
-                target_z -= 0.01
-                break
-            if (key==Keyboard.RIGHT):
                 target_yaw += 0.01
                 break
             if (key==Keyboard.LEFT):
@@ -148,51 +147,10 @@ def dji_controller():
 
         position_x = px
         position_y = py
-
+        
         dist_to_target = math.sqrt((world_y - py)**2 + (world_x - px)**2) if world_x else 0
-        if ramp_down and fixed_power > 20:
-            fixed_power -= 2
-        elif ramp_down and fixed_power <= 20:
-            print("ramped down", world_x, world_y, world_next_x, world_next_y)
-            fixed_power = 0
-            world_x = world_next_x
-            world_y = world_next_y
-            ramp_down = False
-        elif ramp_up and fixed_power < min(max_fixed_power - 20, (max_fixed_power / approach_radius) * dist_to_target):
-            fixed_power += 2
-        elif ramp_up and fixed_power >= min(max_fixed_power - 20, (max_fixed_power / approach_radius) * dist_to_target):
-            fixed_power = max_fixed_power
-            ramp_up = False
-        elif not ramp_down and not ramp_up and world_x and world_y and dist_to_target < approach_radius:
-            fixed_power = (max_fixed_power / approach_radius) * dist_to_target
-        else:
-            fixed_power = max_fixed_power
 
-        calc_x, calc_y = calc_world_movement(px, py)
-        target_x = px + calc_x * fixed_power
-        target_y = py + calc_y * fixed_power
-        #print(robot.getName(), "PX", px, "PY", py, "World X", world_x, "World Y", world_y, "fixed power", fixed_power)
-
-        angle = atan2(target_y - py, target_x - px) * 180 / PI
-        # Go Left
-        if angle < 0.1:
-            for left_motor in left_motors:
-                left_motor.setVelocity(-velocity)
-            for right_motor in right_motors:
-                right_motor.setVelocity(velocity)
-        # Go Right
-        elif angle > 0.1:
-            for left_motor in left_motors:
-                left_motor.setVelocity(velocity)
-            for right_motor in right_motors:
-                right_motor.setVelocity(-velocity)
-        # Go forward
-        else:
-            for left_motor in left_motors:
-                left_motor.setVelocity(velocity)
-            for right_motor in right_motors:
-                right_motor.setVelocity(velocity)
-
+        
         # call the function -> world_x, world_y (don't name them that though)
         # format as a string str(world_x) + "," + str(world_y)
         # publish that string
@@ -210,10 +168,85 @@ def dji_controller():
                 at_waypoint.publish(robot.getName() + "," + str(waypoint_x) + "," + str(waypoint_y))
 
         count += 1
+
+        
+        #print(robot.getName(), "PX", px, "PY", py, "World X", world_x, "World Y", world_y, "fixed power", fixed_power)
+        print("Compass Values: ", compass.getValues())
+        compass_x = compass.getValues()[0]
+        compass_y = compass.getValues()[1]
+        compass_deg = math.atan2(compass_y, compass_x) * 180 / 3.14159265
+        if world_x is None and world_y is None:
+            continue
+
+        target_angle = math.atan2(world_y - py, world_x - px) * 180 / 3.14159265
+       
+        heading, left_angle, right_angle = find_heading(compass_deg,target_angle)
+        print("left angle", left_angle,"right angle", right_angle, "compass deg", int(compass_deg), "target_angle", int(target_angle))
+        
+        degrees_left = abs(int(compass_deg) - int(target_angle))
+        
+        if initial_heading:
+            # Go Left
+            if heading == "left":
+                print("left")
+                for left_motor in left_motors:
+                    left_motor.setVelocity(0)
+                for right_motor in right_motors:
+                    right_motor.setVelocity(forward_velocity)
+                    print(">>>>", right_motor.getVelocity())
+                
+            # Go Right
+            elif heading == "right":
+                print("right")
+                for left_motor in left_motors:
+                    left_motor.setVelocity(forward_velocity)
+                for right_motor in right_motors:
+                    right_motor.setVelocity(0)
+            
+            if degrees_left < 3:
+                 initial_heading = False
+        elif not at_target:
+            # Go forward
+            print("forward")
+            angle_scaling = 5
+            right_velocity_heading = right_angle / angle_scaling if heading == "right" else -left_angle / angle_scaling
+            left_velocity_heading = -right_angle / angle_scaling if heading == "right" else left_angle / angle_scaling
+            
+            for left_motor in left_motors:
+                left_motor.setVelocity(forward_velocity + right_velocity_heading)
+            for right_motor in right_motors:
+                right_motor.setVelocity(forward_velocity + left_velocity_heading)
+            if dist_to_target < 3:
+                at_target = True
+        else:
+            for motor in motors:
+                motor.setVelocity(0)
+               
+
         # Enter here functions to send actuator commands, like:
         #  motor.setPosition(10.0)
         pass
+        
+def find_heading(compass, target):
+    abs_diff = abs(compass - target)
+    left_angle = float('inf')
+    right_angle = float('inf')
+    if compass > target:  # was >
+        left_angle = abs_diff
+        right_angle = 360 - abs_diff
+    else:
+        left_angle = 360 - abs_diff
+        right_angle = abs_diff
+    #if abs(left_angle - right_angle) > 350:
+    #    return "forward"
+    if left_angle < right_angle:
+        return "left", left_angle, right_angle
+    else:
+        return "right", left_angle, right_angle
+
+    #return "forward"
     
+      
 def mapToWorld(forward, x, y):
     # data will be of the for ".87164,.32938", x,y
     y_scale = -89.8 - 125  # using bottom left to bottom right
@@ -246,28 +279,28 @@ def mapToWorld(forward, x, y):
 
 
 def convertPercentToMeters(data):
-    global world_next_x
-    global world_next_y
+    global world_x
+    global world_y
     global position_x
     global position_y
-    global ramp_down
-    global ramp_up
+    
+    global initial_heading
+    global at_target
 
     if str(data.data).lower() == "stop":
-        ramp_down = True
-        ramp_up = True
-        world_next_x = position_x
-        world_next_y = position_y
+        at_target = True
+        world_x = position_x
+        world_y = position_y
         return
 
     data = str(data.data).split(",")
     data_x = 1 - float(data[0])
     data_y = 1 - float(data[1])  # will come in from top left, 1- adjusts to bottom left
 
-    ramp_up = True
-    ramp_down = True
+    initial_heading = True
+    at_target = False
 
-    world_next_x, world_next_y = mapToWorld(True, data_x, data_y)
+    world_x, world_y = mapToWorld(True, data_x, data_y)
     return
 
     
