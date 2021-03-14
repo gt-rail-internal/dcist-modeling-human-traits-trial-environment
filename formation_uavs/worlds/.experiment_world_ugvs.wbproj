@@ -1,0 +1,18 @@
+Webots Project File version R2021a
+perspectives: 000000ff00000000fd00000003000000000000029300000394fc0100000002fb0000001e00480074006d006c0052006f0062006f007400570069006e0064006f00770000000000000002930000000000000000fb0000001a0044006f00630075006d0065006e0074006100740069006f006e0000000000ffffffff0000006900ffffff000000010000022c000002d6fc0200000001fb0000001400540065007800740045006400690074006f00720100000016000002d60000008900ffffff0000000300000780000000bcfc0100000001fb0000001a0043006f006e0073006f006c00650041006c006c0041006c006c0100000000000007800000006900ffffff00000552000002d600000001000000020000000100000008fc00000000
+simulationViewPerspectives: 000000ff0000000100000002000000fb000004550100000002010000000100
+sceneTreePerspectives: 000000ff0000000100000002000000c0000000fa0100000002010000000200
+maximizedDockId: -1
+centralWidgetVisible: 1
+orthographicViewHeight: 1
+textFiles: 2 "controllers/mavic2pro/mavic2pro.c" "controllers/dji_rail_ros/dji_rail_ros.py" "controllers/moose_rail_ros/moose_rail_ros.py"
+consoles: Console:All:All
+renderingDevicePerspectives: UAV1:camera;1;1;0;0
+renderingDevicePerspectives: UAV2:camera;1;1;0;0
+renderingDevicePerspectives: UAV3:camera;1;1;0;0
+renderingDevicePerspectives: UAV4:cam;1;0.0965;0;0
+renderingDevicePerspectives: UAV4:camera;1;1;0;0
+renderingDevicePerspectives: UGV1:camera;1;1;0;0
+renderingDevicePerspectives: UGV2:camera;1;1;0;0
+renderingDevicePerspectives: UGV3:camera;1;1;0;0
+renderingDevicePerspectives: UGV4:camera;1;1;0;0
