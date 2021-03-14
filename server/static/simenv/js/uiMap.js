@@ -48,6 +48,7 @@ class UIMap {
 
         // variables for stage 3
         this.returnedCaches = 0;
+        this.mainBase = undefined;
 
         this.goalLocations = [];
         this.displayGoalLocations = true;
@@ -85,7 +86,9 @@ class UIMap {
                 // draw grey waypoints for non-selected object, black for selected object
                 var color = this.selectedObject == this.uiObjects[i] ? "black" : "grey"
                 this.uiObjects[i].drawWaypoints(color);
+            }
 
+            if (this.uiObjects[i].constructor.name == "Vehicle" || this.uiObjects[i].constructor.name == "Router") {
                 // draw the adhoc range (will only draw if applicable)
                 if (this.displayAdHocRanges) {
                     this.uiObjects[i].drawAdHoc();   

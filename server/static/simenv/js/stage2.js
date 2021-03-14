@@ -16,43 +16,43 @@ function initStage2() {
     // initialize two UAVs and two UGVs
     uav1 = new Vehicle("uav");
     uav1.index = 1;
-    uav1.name = "UAV 1";
+    uav1.name = "UAV1";
     uav1.color = "red";
 
     uav2 = new Vehicle("uav");
     uav2.index = 2;
-    uav2.name = "UAV 2";
+    uav2.name = "UAV2";
     uav2.color = "red";
 
     uav3 = new Vehicle("uav");
     uav3.index = 3;
-    uav3.name = "UAV 3";
+    uav3.name = "UAV3";
     uav3.color = "red";
 
     uav4 = new Vehicle("uav");
     uav4.index = 4;
-    uav4.name = "UAV 4";
+    uav4.name = "UAV4";
     uav4.color = "red";
 
 
     ugv1 = new Vehicle("ugv");
     ugv1.index = 5;
-    ugv1.name = "UGV 1";
+    ugv1.name = "UGV1";
     ugv1.color = "blue";
 
     ugv2 = new Vehicle("ugv");
     ugv2.index = 6;
-    ugv2.name = "UGV 2";
+    ugv2.name = "UGV2";
     ugv2.color = "blue";
 
     ugv3 = new Vehicle("ugv");
     ugv3.index = 7;
-    ugv3.name = "UGV 3";
+    ugv3.name = "UGV3";
     ugv3.color = "blue";
 
     ugv4 = new Vehicle("ugv");
     ugv4.index = 8;
-    ugv4.name = "UGV 4";
+    ugv4.name = "UGV4";
     ugv4.color = "blue";
 
 
@@ -229,7 +229,6 @@ function initStage2() {
     //instructionsLeft.innerHTML = "Your task is to create a communications network from \"Base\" to all five caches. Each robot has a signal range, shown by a dashed circle around it. When signals overlap the robots are connected. Many robots can be connected in a chain to form a widespread network, but a robot can only move if it is part of a network that includes \"Base\". When all caches are connected to \"Base\" this stage will be complete.";
  
 }
-
 
 
 function stage2EndCheck() {

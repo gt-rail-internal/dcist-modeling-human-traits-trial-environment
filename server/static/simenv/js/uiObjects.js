@@ -244,6 +244,11 @@ class Router extends MapUIObject {
         this.adHocRadius = 100;
         this.adHocLocked = false;
     }
+
+    // drawing function to draw the adhoc circle
+    drawAdHoc() {
+        drawDashedCircle(this.context, this.x, this.y, this.adHocRadius, this.nameAttention ? "red" : "black");
+    }
 }
 
 // Base objects are where the robots come/return to

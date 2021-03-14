@@ -18,6 +18,13 @@ function initEngine() {
         }, 250);
     }
 
+    // set up the adhoc network check, if on Stage 3
+    if (uiMap.stage == 3) {
+        window.setInterval(function() {
+            manageAdHocRobots();
+        }, 200);
+    }
+
     // set up the instructions bar to allow resetting the map
     document.getElementById("instructions-top").onclick = () => {
         log({"stage": uiMap.stage, "action": "reset map"});
@@ -155,11 +162,6 @@ function simMotion() {
                         // remove waypoints
                         uiMap.uiObjects[i].waypoints = [];
 
-                        // if the object was not disconnected before, send a waypoint clearing message
-                        if (!uiMap.uiObjects[i].nameAttention) {
-                            fetch("/remove-all-waypoints?id=" + uiMap.uiObjects[i].name)
-                        }
-
                         // flag as needing attention
                         uiMap.uiObjects[i].nameAttention = true;
 
@@ -221,6 +223,35 @@ function simMotion() {
         lastUpdate = now;
 
     }, 100);
+}
+
+// checks whether robots are connected to the base, if not, flags them as disconnected
+function manageAdHocRobots() {
+    for (let i in uiMap.uiObjects) {
+        if (uiMap.uiObjects[i].constructor.name == "Vehicle") {
+            // check if robot is connected via adhoc, if applicable
+            if (uiMap.adHocLock) {
+                // if connected, great, the robot is not locked
+                if (robotConnectedToBase(uiMap.uiObjects[i].name)) {
+                    uiMap.uiObjects[i].nameAttention = false;
+                }
+                // if not connected
+                else{
+                    // remove waypoints
+                    uiMap.uiObjects[i].waypoints = [];
+
+                    // if the object was not disconnected before, send a waypoint clearing message
+                    if (!uiMap.uiObjects[i].nameAttention) {
+                        fetch("/remove-all-waypoints?id=" + uiMap.uiObjects[i].name)
+                    }
+
+                    // flag as needing attention
+                    uiMap.uiObjects[i].nameAttention = true;
+                    continue;
+                }
+            }
+        }
+    }
 }
 
 
