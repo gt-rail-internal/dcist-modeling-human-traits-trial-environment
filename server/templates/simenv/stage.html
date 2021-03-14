@@ -14,6 +14,7 @@
     <script src="{{url_for('static', filename='simenv/js/inputUtils.js')}}"></script>
     <script src="{{url_for('static', filename='simenv/js/stage1.js')}}"></script>
     <script src="{{url_for('static', filename='simenv/js/stage2.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/stage3.js')}}"></script>
     <script src="{{url_for('static', filename='simenv/js/testStage.js')}}"></script>
     <script src="{{url_for('static', filename='simenv/js/uiMap.js')}}"></script>
     <script src="{{url_for('static', filename='simenv/js/uiObjects.js')}}"></script>
@@ -30,7 +31,7 @@
 
     <div style="display: flex; justify-content: space-between;">
         <div class="side-panel" id="left-panel">
-            <div class="instructions grey-instructions" id="instructions-giveup" style="margin-left: 1%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+            <div class="instructions grey-instructions" id="instructions-cache" style="margin-left: 1%; display: none; flex-direction: row; justify-content: space-between; align-items: center;">
                 <div>Caches will look like:</div>
                 <div><img height=".05vh" src="{{url_for('static', filename='simenv/img/cache_view.png')}}" /></div>
             </div>
@@ -104,6 +105,12 @@
     if ("{{ stage }}" == "2") {
         console.log("Launching Stage 2");
         initStage2();
+    }
+
+    // initialize Stage 3
+    if ("{{ stage }}" == "3") {
+        console.log("Launching Stage 3");
+        initStage3();
     }
 
     // initialize the engine

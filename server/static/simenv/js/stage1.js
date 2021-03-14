@@ -88,6 +88,8 @@ function initStage1() {
     instructionsTop.classList = "instructions grey-instructions";
     instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it! You can expect low framerates with the aerial robot cameras and position updates.";
 
+    document.getElementById("instructions-cache").style.display = "flex";
+
     document.getElementById("cam1_button").innerHTML = "Mark Cache";
     document.getElementById("cam2_button").innerHTML = "Mark Cache";
     document.getElementById("cam3_button").innerHTML = "Mark Cache";

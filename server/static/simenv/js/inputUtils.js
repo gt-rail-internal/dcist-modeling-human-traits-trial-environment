@@ -47,7 +47,7 @@ function canvasMouseHandler(event) {
         posY = canvasY / uiMap.mapCanvas.height;
 
         // check if waypoint is valid, if on stage 2
-        if ((uiMap.stage == 2 || uiMap.stage == 0 )&& uiMap.selectedObject.type == "ugv") {
+        if ((uiMap.stage == 2 || uiMap.stage == 0 ) && uiMap.selectedObject.type == "ugv") {
             priorWaypoint = uiMap.selectedObject.getLastWaypoint();
 
             // if the waypoint is not valid, turn it red and delete it after half a second
@@ -60,6 +60,7 @@ function canvasMouseHandler(event) {
             }
         }
 
+        
         uiMap.selectedObject.waypoints.push([posX, posY]);
 
         if (uiMap.stage != 2) {
