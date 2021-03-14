@@ -46,6 +46,8 @@ class UIMap {
         // variables for stage 1
         this.knownCaches = 0;
 
+        // variables for stage 3
+        this.returnedCaches = 0;
 
         this.goalLocations = [];
         this.displayGoalLocations = true;
