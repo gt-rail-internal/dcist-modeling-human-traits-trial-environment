@@ -66,6 +66,7 @@ def robotCameraCallback(data):
     vehicle = data[:4]
     image = data[7:-1] # b' ... '
     cam_images[vehicle] = image
+    print("updated cam for ", vehicle)
     return
 
 
