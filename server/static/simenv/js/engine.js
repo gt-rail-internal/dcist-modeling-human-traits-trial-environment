@@ -50,10 +50,10 @@ function getCams() {
 
         //console.log("camdata", data)
 
-        cam1.src = "data:image/png;base64, " + data["UAV1"];
-        cam2.src = "data:image/png;base64, " + data["UAV2"];
-        cam3.src = "data:image/png;base64, " + data["UAV3"];
-        cam4.src = "data:image/png;base64, " + data["UAV4"];
+        cam1.src = "data:image/png;base64, " + data[uiMap.camNames[0]];
+        cam2.src = "data:image/png;base64, " + data[uiMap.camNames[1]];
+        cam3.src = "data:image/png;base64, " + data[uiMap.camNames[2]];
+        cam4.src = "data:image/png;base64, " + data[uiMap.camNames[3]];
 
         //console.log("got cams")
     });
