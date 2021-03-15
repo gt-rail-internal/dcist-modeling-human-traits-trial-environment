@@ -308,7 +308,7 @@ function BFS(rootNode, searchValue) {
 		// add each child to the queue
         for (i in uiMap.uiObjects) {
             // ignore objects that are not vehicles or bases
-            if (uiMap.uiObjects[i].constructor.name != "Vehicle" && uiMap.uiObjects[i].constructor.name != "Base" && uiMap.uiObjects[i].constructor.name != "Cache") {
+            if (uiMap.uiObjects[i].constructor.name != "Vehicle" && uiMap.uiObjects[i].constructor.name != "Base" && uiMap.uiObjects[i].constructor.name != "Cache" && uiMap.uiObjects[i].constructor.name != "Router") {
                 continue;
             }
         
