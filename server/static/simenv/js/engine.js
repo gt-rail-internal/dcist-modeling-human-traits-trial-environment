@@ -15,7 +15,7 @@ function initEngine() {
             getCams();
             getPositions();
             getWaypoints();
-        }, 250);
+        }, 100);
     }
 
     // set up the adhoc network check, if on Stage 3
