@@ -189,7 +189,7 @@ function collectCache(x, y, ugv) {
         if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < .05 * uiMap.mapCanvas.width) {
             uiMap.uiObjects[i].carryingCache = false;
             ugv.carryingCache = true;
-            console.log("transferred cache");
+            console.log("transferred cache", uiMap.uiObjects[i].carryingCache, ugv.carryingCache);
         }
     }
 }
