@@ -172,7 +172,7 @@ function collectCache(x, y, ugv) {
 
         // if UAV is within this cache range
         //console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
-        if (uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false && dist < .05 * uiMap.mapCanvas.width) {
+        if (uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false && dist < .03 * uiMap.mapCanvas.width) {
             // if cache already taken from this area, continue
             if (cacheList[i] == true) {
                 console.log("cache already collected");
@@ -186,7 +186,7 @@ function collectCache(x, y, ugv) {
             console.log("collected cache");
         }
 
-        else if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < .05 * uiMap.mapCanvas.width) {
+        else if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < .03 * uiMap.mapCanvas.width) {
             uiMap.uiObjects[i].carryingCache = false;
             ugv.carryingCache = true;
             console.log("transferred cache", uiMap.uiObjects[i].carryingCache, ugv.carryingCache);
