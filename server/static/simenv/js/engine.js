@@ -267,7 +267,7 @@ function robotConnectedToBase(robot) {
     // if Stage 1, don't worry about it
     
     // if Test Stage or Stage 2, do BFS to check if connects to a base
-    if (uiMap.stage == 0 || uiMap.stage == 2) {
+    if (uiMap.stage == 0 || uiMap.stage == 2 || uiMap.stage == 3) {
         result = BFS("Base", robot);
         //console.log(">>>", generateBFSTree(), result)
         return result.length > 0 ? true : false;
