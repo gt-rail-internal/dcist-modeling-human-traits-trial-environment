@@ -187,9 +187,11 @@ function collectCache(x, y, ugv) {
         }
 
         else if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < .03 * uiMap.mapCanvas.width) {
-            uiMap.uiObjects[i].carryingCache = false;
-            ugv.carryingCache = true;
-            console.log("transferred cache", uiMap.uiObjects[i].carryingCache, ugv.carryingCache);
+            if (uiMap.uiObjects[i].carryingCache) {
+                uiMap.uiObjects[i].carryingCache = false;
+                ugv.carryingCache = true;
+                console.log("transferred cache", uiMap.uiObjects[i].carryingCache, ugv.carryingCache);
+            }
         }
     }
 }
