@@ -25,12 +25,12 @@ function initTestStage() {
     // initialize one UAVs and one UGVs
     uav1 = new Vehicle("uav");
     uav1.index = 1;
-    uav1.name = "UAV 1";
+    uav1.name = "UAV1";
     uav1.color = "red";
 
     ugv1 = new Vehicle("ugv");
     ugv1.index = 2;
-    ugv1.name = "UGV 1";
+    ugv1.name = "UGV1";
     ugv1.color = "blue";
 
 
