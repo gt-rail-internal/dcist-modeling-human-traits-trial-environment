@@ -94,7 +94,7 @@ def initROSSubscribers(stage):
             rospy.Subscriber("/" + name + "/current_position", String, robotPositionCallback, queue_size=1)
             rospy.Subscriber("/" + name + "/current_image", String, robotCameraCallback, queue_size=1)
             rospy.Subscriber("/" + name + "/at_waypoint", String, robotAtWaypointCallback, queue_size=1)
-            pub = rospy.Publisher("/" + name + "/set_position", String)
+            pub = rospy.Publisher("/" + name + "/set_position", String, queue_size=5)
             robot_publishers[name] = pub
             cam_images[name] = ""
             robot_waypoints[name] = []
