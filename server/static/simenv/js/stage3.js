@@ -134,6 +134,10 @@ function initStage3() {
     instructionsTop.classList = "instructions grey-instructions";
     instructionsTop.innerHTML = "Use the Ground vehicles to collect the caches and return them to the base! When you are close to a cache, click the robot's \"Collect Cache\" button. You can expect low framerates with the ground robot cameras and position updates.";
 
+    var instructionsLeft = document.getElementById("instructions-cache");
+    instructionsLeft.style.display = "flex";
+    instructionsLeft.innerHTML = "The overhead locations can be inaccurate! Pay attention to the vehicle cameras to keep your robots from crashing!";
+
     document.getElementById("cam1_button").innerHTML = "Collect Cache";
     document.getElementById("cam2_button").innerHTML = "Collect Cache";
     document.getElementById("cam3_button").innerHTML = "Collect Cache";
@@ -159,13 +163,16 @@ function collectCache(x, y, ugv) {
     console.log("collectCache button pressed for UGV position", x, y)
     for (let i=0; i<uiMap.uiObjects.length; i++) {
         // ignore if not a cache area
-        if (uiMap.uiObjects[i].constructor.name != "Cache") {
+        if (uiMap.uiObjects[i].constructor.name != "Cache" && uiMap.uiObjects[i].constructor.name != "Vehicle") {
             continue;
         }
 
+        // get the distance
+        let dist = distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+
         // if UAV is within this cache range
-        console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
-        if (distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < .05 * uiMap.mapCanvas.width) {
+        //console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
+        if (uiMap.uiObjects[i].constructor.name == "Cache" && dist < .05 * uiMap.mapCanvas.width) {
             // if cache already taken from this area, continue
             if (cacheList[i] == true) {
                 console.log("cache already collected");
@@ -177,6 +184,12 @@ function collectCache(x, y, ugv) {
 
             cacheList[i] = true;
             console.log("collected cache");
+        }
+
+        if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < .05 * uiMap.mapCanvas.width) {
+            uiMap.uiObjects[i].carryingCache = false;
+            ugv.carryingCache = true;
+            console.log("transferred cache");
         }
     }
 }
