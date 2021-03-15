@@ -75,7 +75,9 @@
 
         if ({{ next_stage }} == 3) {
             selectDiv = document.getElementById("instructions-exp");
-            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=3"; };
+
+            // change the nextStage below to 3 for Stage 2, and 4 for Stage 3
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=4"; };
         }
 
         // if select div is defined (i.e. there is another stage to complete), make it a button

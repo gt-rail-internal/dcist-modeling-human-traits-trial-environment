@@ -34,7 +34,7 @@ function initTestStage() {
     ugv1.color = "blue";
 
 
-    // initialize one caches
+    // initialize one cache
     cache1 = new Cache();
     cache1.name = "Cache 1";
     cache1.x = .5 * uiMap.mapCanvas.width;

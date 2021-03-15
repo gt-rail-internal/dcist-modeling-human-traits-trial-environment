@@ -20,6 +20,10 @@ cam_images = {}
 
 # where the robots reset to
 robot_reset_positions = {
+    "0": {
+        "UAV1": [.522,.970],
+        "UGV1": [.641,.970],
+    }
     "1": {
         "UAV1": [.522,.970],
         "UAV2": [.641,.970],
@@ -165,7 +169,8 @@ def tutorial():
 @app.route("/test", methods=["GET"])
 def testStage():
     worker_id = request.args.get("workerId")
-    return render_template("simenv/stage.html", stage=0, worker_id=worker_id)
+    next_stage = request.args.get("nextStage")
+    return render_template("simenv/stage.html", stage=0, next_stage=next_stage, worker_id=worker_id)
 
 @app.route("/logging", methods=["POST"])
 def log():
