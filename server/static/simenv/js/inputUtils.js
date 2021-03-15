@@ -60,7 +60,12 @@ function canvasMouseHandler(event) {
             }
         }
 
-        
+        // if on stage 3 and robot is disconnected (name attention), don't move
+        if (uiMap.stage == 3 && uiMap.selectedObject.nameAttention) {
+            continue;
+        }
+
+
         uiMap.selectedObject.waypoints.push([posX, posY]);
 
         if (uiMap.stage != 2) {
