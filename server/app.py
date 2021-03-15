@@ -66,7 +66,6 @@ def robotCameraCallback(data):
     vehicle = data[:4]
     image = data[7:-1] # b' ... '
     cam_images[vehicle] = image
-    print("updated cam for ", vehicle)
     return
 
 
@@ -92,9 +91,9 @@ def initROSSubscribers(stage):
     global cam_images
     if stage == "1" or stage == "3":
         for name in robot_reset_positions[stage]:
-            rospy.Subscriber("/" + name + "/current_position", String, robotPositionCallback)
-            rospy.Subscriber("/" + name + "/current_image", String, robotCameraCallback)
-            rospy.Subscriber("/" + name + "/at_waypoint", String, robotAtWaypointCallback)
+            rospy.Subscriber("/" + name + "/current_position", String, robotPositionCallback, queue_size=1)
+            rospy.Subscriber("/" + name + "/current_image", String, robotCameraCallback, queue_size=1)
+            rospy.Subscriber("/" + name + "/at_waypoint", String, robotAtWaypointCallback, queue_size=1)
             pub = rospy.Publisher("/" + name + "/set_position", String)
             robot_publishers[name] = pub
             cam_images[name] = ""

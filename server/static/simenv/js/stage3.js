@@ -134,8 +134,6 @@ function initStage3() {
     instructionsTop.classList = "instructions grey-instructions";
     instructionsTop.innerHTML = "Use the Ground vehicles to collect the caches and return them to the base! When you are close to a cache, click the robot's \"Collect Cache\" button. You can expect low framerates with the ground robot cameras and position updates.";
 
-    document.getElementById("instructions-cache").style.display = "flex";
-
     document.getElementById("cam1_button").innerHTML = "Collect Cache";
     document.getElementById("cam2_button").innerHTML = "Collect Cache";
     document.getElementById("cam3_button").innerHTML = "Collect Cache";
