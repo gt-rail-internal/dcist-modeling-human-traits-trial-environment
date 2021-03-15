@@ -162,17 +162,23 @@ var cacheList = [false, false, false, false, false];
 function collectCache(x, y, ugv) {
     console.log("collectCache button pressed for UGV position", x, y)
     for (let i=0; i<uiMap.uiObjects.length; i++) {
-        // ignore if not a cache area
+        // ignore if not a cache or vehicle
         if (uiMap.uiObjects[i].constructor.name != "Cache" && uiMap.uiObjects[i].constructor.name != "Vehicle") {
+            continue;
+        }
+
+        // ignore if itself
+        if (uiMap.uiObjects[i] == ugv) {
             continue;
         }
 
         // get the distance
         let dist = distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        dist_scale = .05;
 
         // if UAV is within this cache range
-        console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]), "==", .03 * uiMap.mapCanvas.width, cacheList[i]);
-        if (uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false && dist < .03 * uiMap.mapCanvas.width) {
+        console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]), "==", dist_scale * uiMap.mapCanvas.width, cacheList[i]);
+        if (uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false && dist < dist_scale * uiMap.mapCanvas.width) {
             // if cache already taken from this area, continue
             if (cacheList[i] == true) {
                 console.log("cache already collected");
@@ -186,7 +192,7 @@ function collectCache(x, y, ugv) {
             console.log("collected cache");
         }
 
-        else if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < .03 * uiMap.mapCanvas.width) {
+        else if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < dist_scale * uiMap.mapCanvas.width) {
             if (uiMap.uiObjects[i].carryingCache) {
                 uiMap.uiObjects[i].carryingCache = false;
                 ugv.carryingCache = true;
