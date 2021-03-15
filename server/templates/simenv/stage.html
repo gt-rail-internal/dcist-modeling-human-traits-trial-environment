@@ -85,6 +85,9 @@
     // record the worker ID
     uiMap.workerID = "{{ worker_id }}";
 
+    // set the next stage, if applicable
+    uiMap.nextStage = "{{ next_stage }}";
+
     // have the map update almost constantly
     window.setInterval(function() {
         uiMap.draw();

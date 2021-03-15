@@ -341,7 +341,7 @@ function stageComplete() {
         topBar.innerHTML = "Redirecting you to the experiment portal"
         // if on the training stage, move to the next stage
         if (uiMap.stage == 0) {
-            window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage={{ next_stage }}";
+            window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + uiMap.nextStage;
         }
         else {
             window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1";
