@@ -24,6 +24,7 @@ class UIMap {
         this.stage = 0;
         this.stageComplete = false;
         this.stageVictory = false;
+        this.nextStage = 0;
 
         // variable for the end function
         this.endCheck = null;
