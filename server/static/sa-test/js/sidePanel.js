@@ -230,6 +230,10 @@ function sidePanelEndGame(scores) {
         window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId;
     }
 
+    window.setTimeout(() => {
+        window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId;
+    }, 5000);
+
     let score = scores.reduce((a, b) => a + b, 0);
 
     log({"stage": "SAGAT", "action": "complete", "score": score});

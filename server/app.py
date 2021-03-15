@@ -156,7 +156,7 @@ def portal():
     completion_code = "complete the missions first!"
     if completion_string in ["1101", "1011", "1111"]:
         next_stage = -1
-        completion_code = "415626404"
+        completion_code = "404626707"
 
     return render_template("simenv/portal.html", worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
 
