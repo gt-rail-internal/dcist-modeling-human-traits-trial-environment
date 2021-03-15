@@ -64,7 +64,7 @@ function getPositions() {
     fetch("positions").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
-        console.log("got positions", data)
+        //console.log("got positions", data)
 
         // update the ui objects
         for (let i in uiMap.uiObjects) {
