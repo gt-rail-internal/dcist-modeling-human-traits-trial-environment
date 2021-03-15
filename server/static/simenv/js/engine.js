@@ -48,7 +48,7 @@ function getCams() {
     fetch("cams").then(data => data.text()).then(data => {
         data = JSON.parse(data);
 
-        //console.log("camdata", data)
+        console.log("camdata", data)
 
         cam1.src = "data:image/png;base64, " + data[uiMap.camNames[0]];
         cam2.src = "data:image/png;base64, " + data[uiMap.camNames[1]];
