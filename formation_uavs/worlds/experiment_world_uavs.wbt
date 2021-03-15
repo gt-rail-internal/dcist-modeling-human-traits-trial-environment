@@ -13,8 +13,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.0681397682804666 0.9641877079984926 0.2563182313517663 3.401712634430389
-  position 3.087480371118569 4.180607325769628 -9.832027700858978
+  orientation 0.03876649669079994 0.893749322444014 0.4468884730726315 3.155080087498163
+  position 3.2550627414014754 8.1557150658739 -7.559590651557493
   near 0.2
   follow "leader"
   followSmoothness 0.2
@@ -111,34 +111,6 @@ Windmill {
   translation -43.8656 0 19.8433
   rotation 0 1 0 -1.0472
 }
-Koala {
-  translation 1 0 0
-  rotation 0 1 0 1.57079
-  controller ""
-  extensionSlot [
-    GPS {
-    }
-    Receiver {
-    }
-  ]
-}
-Moose {
-  translation 3.96 0.39 -1.28001
-  rotation 0 -1 0 -5.307179586466759e-06
-  controller "moose_rail_ros"
-  bodySlot [
-    Compass {
-    }
-    Camera {
-      translation 1.48 0 0.02
-      rotation -0.5773502691896257 0.5773502691896257 0.5773502691896257 -2.09
-      width 200
-      height 200
-    }
-    GPS {
-    }
-  ]
-}
 Windmill {
   translation -44.258 0 27.3356
   rotation 0 1 0 -1.0472
@@ -172,10 +144,6 @@ SmallManor {
   translation -58.2425 0 7.56314
   rotation 0 -1 0 1.70139
   name "small manor(3)"
-}
-CardboardBox {
-  translation 5.23799 0.3 0.322538
-  rotation 0 1 0 -0.261795307179586
 }
 Pine {
   translation -14.0083 0 14.4828

@@ -10,6 +10,8 @@ import numpy as np
 import rospy 
 from std_msgs.msg import String
 import base64
+import cv2
+
 
 world_x = None
 world_y = None
@@ -179,7 +181,7 @@ def dji_controller():
         if ramp_down and fixed_power > 20:
             fixed_power -= 2
         elif ramp_down and fixed_power <= 20:
-            print("ramped down", world_x, world_y, world_next_x, world_next_y)
+            #print("ramped down", world_x, world_y, world_next_x, world_next_y)
             fixed_power = 0
             world_x = world_next_x
             world_y = world_next_y
@@ -222,18 +224,23 @@ def dji_controller():
         rear_left_motor.setVelocity(-rear_left_motor_input)
         rear_right_motor.setVelocity(rear_right_motor_input)
 
-        # call the function -> world_x, world_y (don't name them that though)
-        # format as a string str(world_x) + "," + str(world_y)
-        # publish that string
         if count % 50 == 0:
             image = camera.getImageArray()
-            buffer = str(image)
-            encoded = buffer.encode()
+            
+            image_np = np.array(image)
+            print("Original Shape", image_np.shape)
+            image_np = np.rot90(image_np, k=1, axes=(1,0))
+            image_np[:, :, [2, 0]] = image_np[:, :, [0, 2]]
+            print("Resulting Shape", image_np.shape)
+            _, encoded = cv2.imencode('.png', image_np)
+
             b64 = base64.b64encode(encoded)
-            cam_img.publish(str(b64))   
+            cam_img.publish(robot.getName() + "," + str(b64))   
+
             robot_pos_x, robot_pos_y = mapToWorld(False, px, py)
             robot_current_position = robot.getName() + "," + str(robot_pos_x) + "," + str(robot_pos_y)
             rob_pos.publish(robot_current_position)
+            
             if dist_to_target < 5 and dist_to_target > 0:
                 waypoint_x, waypoint_y = mapToWorld(False, world_x, world_y)
                 at_waypoint.publish(robot.getName() + "," + str(waypoint_x) + "," + str(waypoint_y))
@@ -287,6 +294,7 @@ def convertPercentToMeters(data):
         ramp_up = True
         world_next_x = position_x
         world_next_y = position_y
+        print("Stop!")
         return
 
     data = str(data.data).split(",")
