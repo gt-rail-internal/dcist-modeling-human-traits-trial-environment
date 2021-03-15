@@ -28,6 +28,9 @@ class UIMap {
         // variable for the end function
         this.endCheck = null;
 
+        // variable for the cameras, names of the vehicles
+        this.camNames = [];
+
         // variable for connected cache
         this.cacheDisconnected = true;
 

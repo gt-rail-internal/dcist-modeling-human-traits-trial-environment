@@ -4,6 +4,7 @@ function initStage1() {
     // set the uiMap to use the network (server)
     uiMap.networked = true;
     uiMap.stage = 1;
+    uiMap.camNames = ["UAV1", "UAV2", "UAV3", "UAV4"]
 
 
     // initialize two UAVs and two UGVs

@@ -6,6 +6,7 @@ function initStage3() {
     uiMap.stage = 3;
     uiMap.displayAdHocRanges = true;
     uiMap.adHocLock = true;
+    uiMap.camNames = ["UGV1", "UGV2", "UGV3", "UGV4"]
 
     // initialize two UAVs and two UGVs
     ugv1 = new Vehicle("ugv");
