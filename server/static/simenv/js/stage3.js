@@ -207,22 +207,19 @@ function stage3EndCheck() {
     // check if any vehicles are out of range
     for (let i in uiMap.uiObjects) {
         if (uiMap.uiObjects[i].constructor.name == "Vehicle") {
-            // check if robot is connected via adhoc, if applicable
-            if (uiMap.adHocLock) {
-                // if connected, great, the robot is not locked
-                if (robotConnectedToBase(uiMap.uiObjects[i].name)) {
-                    uiMap.uiObjects[i].nameAttention = false;
-                }
-                // if not connected
-                else{
-                    console.log("disconnected", uiMap.uiObjects[i].name);
-                    // remove waypoints
-                    uiMap.uiObjects[i].waypoints = [];
-                    fetch("remove-all-waypoints?id=" + uiMap.uiObjects[i].name);
+            // if connected, great, the robot is not locked
+            if (robotConnectedToBase(uiMap.uiObjects[i].name)) {
+                uiMap.uiObjects[i].nameAttention = false;
+            }
+            // if not connected
+            else{
+                console.log("disconnected", uiMap.uiObjects[i].name);
+                // remove waypoints
+                uiMap.uiObjects[i].waypoints = [];
+                fetch("remove-all-waypoints?id=" + uiMap.uiObjects[i].name);
 
-                    // flag as needing attention
-                    uiMap.uiObjects[i].nameAttention = true;
-                }
+                // flag as needing attention
+                uiMap.uiObjects[i].nameAttention = true;
             }
         }
     }
