@@ -261,6 +261,7 @@ function checkButtons() {
         dist_scale = .05;
 
         // if UGV1 is within this cache range
+        console.log(">>>", (uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false), (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc), dist_1 < dist_scale * uiMap.mapCanvas.width))
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc)) && dist_1 < dist_scale * uiMap.mapCanvas.width) {
             document.getElementById("cam1_button").style.backgroundColor = "lightgrey";
         }
