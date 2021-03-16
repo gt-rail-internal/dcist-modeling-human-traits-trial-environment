@@ -75,6 +75,7 @@ function getPositions() {
                 // set it
                 uiMap.uiObjects[i].oldX = uiMap.uiObjects[i].x != uiMap.uiObjects.oldX ? uiMap.uiObjects[i].x : uiMap.uiObjects[i].oldX;
                 uiMap.uiObjects[i].oldY = uiMap.uiObjects[i].y != uiMap.uiObjects.oldY ? uiMap.uiObjects[i].y : uiMap.uiObjects[i].oldY;
+                console.log(">>>pos", uiMap.uiObjects[i].x, uiMap.uiObjects[i].oldX, "---", uiMap.uiObjects[i].y, uiMap.uiObjects[i].oldY);
                 uiMap.uiObjects[i].x = data[uiMap.uiObjects[i].name][0] * uiMap.mapCanvas.width;
                 uiMap.uiObjects[i].y = data[uiMap.uiObjects[i].name][1] * uiMap.mapCanvas.height;
             }
