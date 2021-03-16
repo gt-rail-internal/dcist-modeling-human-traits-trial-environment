@@ -246,6 +246,12 @@ function checkButtons() {
             ugv4_cc = uiMap.uiObjects[i].carryingCache;
         }
     }
+
+    // set colors to initial values
+    let cam1_color = "darkgrey";
+    let cam2_color = "darkgrey";
+    let cam3_color = "darkgrey";
+    let cam4_color = "darkgrey";
     
     for (let i=0; i<uiMap.uiObjects.length; i++) {
         // ignore if not a cache or vehicle
@@ -260,42 +266,33 @@ function checkButtons() {
         let dist_4 = distance([ugv4_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
         dist_scale = .05;
 
-        // if UGV1 is within this cache range
-        console.log("!!!!")
         
+
+        // if UGV1 is within this cache range        
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc)) && dist_1 < dist_scale * uiMap.mapCanvas.width) {
-            console.log(">>>", ((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc)) && dist_1 < dist_scale * uiMap.mapCanvas.width, (uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false), (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc), dist_1 < dist_scale * uiMap.mapCanvas.width);
-            document.getElementById("cam1_button").style.backgroundColor = "lightgrey";
-        }
-        else {
-            console.log("######")
-            document.getElementById("cam1_button").style.backgroundColor = "darkgrey";
+            cam1_color = "lightgrey";
         }
 
         // if UGV2 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv2_cc)) && dist_2 < dist_scale * uiMap.mapCanvas.width) {
-            document.getElementById("cam2_button").style.backgroundColor = "lightgrey";
-        }
-        else {
-            document.getElementById("cam2_button").style.backgroundColor = "darkgrey";
+            cam2_color = "lightgrey";
         }
 
         // if UGV3 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv3_cc)) && dist_3 < dist_scale * uiMap.mapCanvas.width) {
-            document.getElementById("cam3_button").style.backgroundColor = "lightgrey";
-        }
-        else {
-            document.getElementById("cam3_button").style.backgroundColor = "darkgrey";
+            cam3_color = "lightgrey";
         }
 
         // if UGV4 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv4_cc)) && dist_4 < dist_scale * uiMap.mapCanvas.width) {
-            document.getElementById("cam4_button").style.backgroundColor = "lightgrey";
-        }
-        else {
-            document.getElementById("cam4_button").style.backgroundColor = "darkgrey";
+            cam4_color = "lightgrey";
         }
     }
+
+    document.getElementById("cam1_button").style.backgroundColor = cam1_color;
+    document.getElementById("cam2_button").style.backgroundColor = cam2_color;
+    document.getElementById("cam3_button").style.backgroundColor = cam3_color;
+    document.getElementById("cam4_button").style.backgroundColor = cam4_color;
 }
 
 
