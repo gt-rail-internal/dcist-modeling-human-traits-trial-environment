@@ -37,8 +37,12 @@ class MapUIObject {
         }
 
         // draw the image if one exists
-        if (this.image && this.scale) {
+        if (this.image && this.scale && this.constructor.name != "Vehicle") {
             this.context.drawImage(this.image, this.x-this.scale/2, this.y-this.scale/2, this.scale, this.scale);
+        }
+        // for vehicles, draw a rotated image
+        else if (this.image && this.scale && this.constructor.name == "Vehicle") {
+            drawRotated(this.context, this.image, this.x, this.y, this.scale, -Math.atan2(this.y - this.oldY, this.oldX - this.x) + Math.PI/2);
         }
 
         // set the fill color
@@ -103,6 +107,9 @@ class Vehicle extends MapUIObject {
 
         // initialize the vehicle travel speed (for the Stage 2 simulated motion)
         this.speed = 10;  // pixels / sec
+
+        this.oldX = 0;
+        this.oldY = 0;
 
         // set some vehicle attributes by the type
         if (this.type == "uav") {

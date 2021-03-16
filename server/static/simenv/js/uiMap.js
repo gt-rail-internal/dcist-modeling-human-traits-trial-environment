@@ -113,9 +113,8 @@ class UIMap {
 
         // if a vehicle is selected...
         if (this.selectedObject) {
-            drawCircle(this.mapContext, this.selectedObject.x - this.selectedObject.scale, this.selectedObject.y - this.selectedObject.scale, this.selectedObject.scale * 2, this.selectedObject.color);
             // draw the selection circle
-            //this.mapContext.drawImage(this.selectorImage, this.selectedObject.x - this.selectedObject.scale, this.selectedObject.y - this.selectedObject.scale, this.selectedObject.scale * 2, this.selectedObject.scale * 2);
+            drawCircle(this.mapContext, this.selectedObject.x, this.selectedObject.y, this.selectedObject.scale, this.selectedObject.color);
         }
 
     }
