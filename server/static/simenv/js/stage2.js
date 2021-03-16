@@ -12,6 +12,7 @@ function initStage2() {
     // set the uiMap to not use networks
     uiMap.networked = false;
     uiMap.stage = 2;
+    uiMap.checkButtons = () => {};
 
     // initialize two UAVs and two UGVs
     uav1 = new Vehicle("uav");
