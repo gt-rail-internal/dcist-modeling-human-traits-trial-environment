@@ -267,6 +267,7 @@ function checkButtons() {
             document.getElementById("cam1_button").style.backgroundColor = "lightgrey";
         }
         else {
+            console.log("######")
             document.getElementById("cam1_button").style.backgroundColor = "darkgrey";
         }
 
