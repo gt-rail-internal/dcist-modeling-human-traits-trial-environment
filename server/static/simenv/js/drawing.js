@@ -1,5 +1,6 @@
 
-// Canvas arrow object, taken from https://stackoverflow.com/questions/808826
+// Canvas arrow object
+// adapted from https://stackoverflow.com/questions/808826
 function canvas_arrow(context, fromx, fromy, tox, toy) {
     var headlen = 10; // length of head in pixels
     var dx = tox - fromx;
@@ -32,4 +33,16 @@ function drawCircle(context, x, y, r, color) {
     context.arc(x, y, r, 0, 2 * Math.PI);
     context.stroke();
     context.strokeStyle = "black";
+    context.lineWidth = 2;
+}
+
+// draws a rotated image on the canvas
+// adapted from https://stackoverflow.com/questions/17411991
+function drawRotated(context, image, x, y, scale, rads){
+    context.save();
+    context.translate(x, y);
+    context.rotate(rads);
+    context.drawImage(image, -scale/2, -scale/2, scale, scale);
+    context.restore();
+    return;
 }

@@ -73,6 +73,8 @@ function getPositions() {
             // if the position was given for an object
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
                 // set it
+                uiMap.uiObjects[i].oldX = uiMap.uiObjects[i].x;
+                uiMap.uiObjects[i].oldY = uiMap.uiObjects[i].y;
                 uiMap.uiObjects[i].x = data[uiMap.uiObjects[i].name][0] * uiMap.mapCanvas.width;
                 uiMap.uiObjects[i].y = data[uiMap.uiObjects[i].name][1] * uiMap.mapCanvas.height;
             }
@@ -191,6 +193,9 @@ function simMotion() {
                 dy = (now - lastUpdate) * uiMap.uiObjects[i].speed * dy / normalization / 1000;  // normalize and account for speed
 
                 // move the object
+                uiMap.uiObjects[i].oldX = uiMap.uiObjects[i].x;
+                uiMap.uiObjects[i].oldY = uiMap.uiObjects[i].y;
+                
                 uiMap.uiObjects[i].x = uiMap.uiObjects[i].x + dx;
                 uiMap.uiObjects[i].y = uiMap.uiObjects[i].y + dy;
 
@@ -343,6 +348,8 @@ function stageComplete() {
     }
 
     alert("This stage has now ended! You will now move on to the next part of the experiment.");
+
+    log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
 
     // if on the training stage, move to the next stage
     if (uiMap.stage == 0) {
