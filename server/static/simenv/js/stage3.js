@@ -7,6 +7,7 @@ function initStage3() {
     uiMap.displayAdHocRanges = true;
     uiMap.adHocLock = true;
     uiMap.camNames = ["UGV1", "UGV2", "UGV3", "UGV4"]
+    uiMap.checkButtons = checkButtons;
 
     // initialize two UAVs and two UGVs
     ugv1 = new Vehicle("ugv");
@@ -132,7 +133,7 @@ function initStage3() {
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.classList = "instructions grey-instructions";
-    instructionsTop.innerHTML = "Use the Ground vehicles to collect the caches and return them to the base! When you are close to a cache, click the robot's \"Collect Cache\" button. You can expect low framerates with the ground robot cameras and position updates.";
+    instructionsTop.innerHTML = "Use the Ground robots to collect the caches and return them to the base! When you are close to a cache, the robot's \"Collect Cache\" button will turn light grey. Click it and then move the robot to the base. You can expect low framerates with the ground robot cameras and position updates.";
 
     var instructionsLeft = document.getElementById("instructions-cache");
     instructionsLeft.style.display = "flex";
@@ -161,6 +162,7 @@ var cacheList = [false, false, false, false, false];
 
 function collectCache(x, y, ugv) {
     console.log("collectCache button pressed for UGV position", x, y)
+    log({"stage": uiMap.stage, "action": "collectCache button pressed", "vehicle": ugv.name});
     for (let i=0; i<uiMap.uiObjects.length; i++) {
         // ignore if not a cache or vehicle
         if (uiMap.uiObjects[i].constructor.name != "Cache" && uiMap.uiObjects[i].constructor.name != "Vehicle") {
@@ -190,6 +192,7 @@ function collectCache(x, y, ugv) {
 
             cacheList[i] = true;
             console.log("collected cache");
+            log({"stage": uiMap.stage, "action": "cache collected", "cacheId": i});
         }
 
         else if (uiMap.uiObjects[i].constructor.name == "Vehicle" && dist < dist_scale * uiMap.mapCanvas.width) {
@@ -197,7 +200,96 @@ function collectCache(x, y, ugv) {
                 uiMap.uiObjects[i].carryingCache = false;
                 ugv.carryingCache = true;
                 console.log("transferred cache", uiMap.uiObjects[i].carryingCache, ugv.carryingCache);
+                log({"stage": uiMap.stage, "action": "cache transferred", "this": ugv.name, "target": uiMap.uiObjects[i].name});
             }
+        }
+    }
+}
+
+function checkButtons() {
+    ugv1_x = 0;
+    ugv1_y = 0;
+    ugv1_cc = false;
+    
+    ugv2_x = 0;
+    ugv2_y = 0;
+    ugv2_cc = false;
+
+    ugv3_x = 0;
+    ugv3_y = 0;
+    ugv3_cc = false;
+
+    ugv4_x = 0;
+    ugv4_y = 0;
+    ugv4_cc = false;
+
+    // assign UGV positions
+    for (let i=0; i<uiMap.uiObjects.length; i++) {
+        if (uiMap.uiObjects[i].name == "UGV1") {
+            ugv1_x = uiMap.uiObjects[i].x;
+            ugv1_y = uiMap.uiObjects[i].y;
+            ugv1_cc = uiMap.uiObjects[i].carryingCache;
+        }
+        if (uiMap.uiObjects[i].name == "UGV2") {
+            ugv2_x = uiMap.uiObjects[i].x;
+            ugv2_y = uiMap.uiObjects[i].y;
+            ugv2_cc = uiMap.uiObjects[i].carryingCache;
+        }
+        if (uiMap.uiObjects[i].name == "UGV3") {
+            ugv3_x = uiMap.uiObjects[i].x;
+            ugv3_y = uiMap.uiObjects[i].y;
+            ugv3_cc = uiMap.uiObjects[i].carryingCache;
+        }
+        if (uiMap.uiObjects[i].name == "UGV4") {
+            ugv4_x = uiMap.uiObjects[i].x;
+            ugv4_y = uiMap.uiObjects[i].y;
+            ugv4_cc = uiMap.uiObjects[i].carryingCache;
+        }
+    }
+    
+    for (let i=0; i<uiMap.uiObjects.length; i++) {
+        // ignore if not a cache or vehicle
+        if (uiMap.uiObjects[i].constructor.name != "Cache" && uiMap.uiObjects[i].constructor.name != "Vehicle") {
+            continue;
+        }
+
+        // get the distance
+        let dist_1 = distance([ugv1_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        let dist_2 = distance([ugv2_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        let dist_3 = distance([ugv3_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        let dist_4 = distance([ugv4_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        dist_scale = .05;
+
+        // if UGV1 is within this cache range
+        if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc)) && dist_1 < dist_scale * uiMap.mapCanvas.width) {
+            document.getElementById("cam1_button").style.backgroundColor = "lightgrey";
+        }
+        else {
+            document.getElementById("cam1_button").style.backgroundColor = "darkgrey";
+        }
+
+        // if UGV2 is within this cache range
+        if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv2_cc)) && dist_2 < dist_scale * uiMap.mapCanvas.width) {
+            document.getElementById("cam2_button").style.backgroundColor = "lightgrey";
+        }
+        else {
+            document.getElementById("cam2_button").style.backgroundColor = "darkgrey";
+        }
+
+        // if UGV3 is within this cache range
+        if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv3_cc)) && dist_3 < dist_scale * uiMap.mapCanvas.width) {
+            document.getElementById("cam3_button").style.backgroundColor = "lightgrey";
+        }
+        else {
+            document.getElementById("cam3_button").style.backgroundColor = "darkgrey";
+        }
+
+        // if UGV4 is within this cache range
+        if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv4_cc)) && dist_4 < dist_scale * uiMap.mapCanvas.width) {
+            document.getElementById("cam4_button").style.backgroundColor = "lightgrey";
+        }
+        else {
+            document.getElementById("cam4_button").style.backgroundColor = "darkgrey";
         }
     }
 }

@@ -15,6 +15,7 @@ function initEngine() {
             getCams();
             getPositions();
             getWaypoints();
+            uiMap.checkButtons();
         }, 200);
     }
 
@@ -333,27 +334,22 @@ function stageComplete() {
     // log it
     log({stage: uiMap.stage, action: "stage-complete"})
 
-    // set the instructions
-    topBar = document.getElementById("instructions-top");
-    topBar.classList = "instructions green-success"
-    topBar.innerHTML = uiMap.stageVictory ? "🎉 Congratulations! You have completed this stage. <b>Click here to continue</b>." : "This stage has ended. <b>Click here to continue</b>.";
-    topBar.onclick = () => {
-        topBar.innerHTML = "Redirecting you to the experiment portal"
-        // if on the training stage, move to the next stage
-        if (uiMap.stage == 0) {
-            window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + uiMap.nextStage;
-        }
-        else {
-            window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1";
-        }
-    }
-
     // set the ui map to complete
     uiMap.stageComplete = true;
 
     // set all vehicle names to "Complete"
     for (i in uiMap.uiObjects) {
         uiMap.uiObjects[i].name = "Complete";
+    }
+
+    alert("This stage has now ended! You will now move on to the next part of the experiment.");
+
+    // if on the training stage, move to the next stage
+    if (uiMap.stage == 0) {
+        window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + uiMap.nextStage;
+    }
+    else {
+        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1";
     }
 
 }

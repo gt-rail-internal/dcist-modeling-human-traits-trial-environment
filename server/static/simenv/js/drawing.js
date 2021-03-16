@@ -24,3 +24,12 @@ function drawDashedCircle(context, x, y, r, color) {
     context.setLineDash([]);  // set the line stroke back to normal
     context.strokeStyle = "black";
 }
+
+function drawCircle(context, x, y, r, color) {
+    context.strokeStyle = color;
+    context.lineWidth = 3;
+    context.beginPath();
+    context.arc(x, y, r, 0, 2 * Math.PI);
+    context.stroke();
+    context.strokeStyle = "black";
+}
