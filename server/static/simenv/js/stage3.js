@@ -275,17 +275,17 @@ function checkButtons() {
 
         // if UGV2 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv2_cc)) && dist_2 < dist_scale * uiMap.mapCanvas.width) {
-            cam2_color = "lightpink";
+            cam2_color = "lightpurple";
         }
 
         // if UGV3 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv3_cc)) && dist_3 < dist_scale * uiMap.mapCanvas.width) {
-            cam3_color = "lightpink";
+            cam3_color = "lightblue";
         }
 
         // if UGV4 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv4_cc)) && dist_4 < dist_scale * uiMap.mapCanvas.width) {
-            cam4_color = "lightpink";
+            cam4_color = "lightyellow";
         }
     }
 
