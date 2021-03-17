@@ -261,9 +261,9 @@ function checkButtons() {
 
         // get the distance
         let dist_1 = distance([ugv1_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
-        let dist_2 = distance([ugv2_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
-        let dist_3 = distance([ugv3_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
-        let dist_4 = distance([ugv4_x, ugv1_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        let dist_2 = distance([ugv2_x, ugv2_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        let dist_3 = distance([ugv3_x, ugv3_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+        let dist_4 = distance([ugv4_x, ugv4_y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
         dist_scale = .05;
 
         
@@ -275,7 +275,7 @@ function checkButtons() {
 
         // if UGV2 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv2_cc)) && dist_2 < dist_scale * uiMap.mapCanvas.width) {
-            cam2_color = "lightpurple";
+            cam2_color = "plum";
         }
 
         // if UGV3 is within this cache range
