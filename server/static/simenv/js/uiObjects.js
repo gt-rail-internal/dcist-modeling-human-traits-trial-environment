@@ -42,9 +42,6 @@ class MapUIObject {
         }
         // for vehicles, draw a rotated image
         else if (this.image && this.scale && this.constructor.name == "Vehicle") {
-            if (this.name == "UGV1") {
-                console.log(">>>", -Math.atan2(this.y - this.oldY, this.oldX - this.x) + Math.PI/2);
-            }
             drawRotated(this.context, this.image, this.x, this.y, this.scale, -Math.atan2(this.y - this.oldY, this.oldX - this.x) + Math.PI/2);
         }
 
