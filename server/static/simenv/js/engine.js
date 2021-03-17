@@ -80,7 +80,7 @@ function getPositions() {
                 uiMap.uiObjects[i].y = data[uiMap.uiObjects[i].name][1] * uiMap.mapCanvas.height;
 
                 if (uiMap.uiObjects[i].name == "UGV1") {
-                    console.log("calc", -Math.atan2(this.y - this.oldY, this.oldX - this.x) + Math.PI/2);
+                    console.log("calc", -Math.atan2(uiMap.uiObjects[i].y - uiMap.uiObjects[i].oldY, uiMap.uiObjects[i].oldX - uiMap.uiObjects[i].x) + Math.PI/2);
                 }
             }
         }
