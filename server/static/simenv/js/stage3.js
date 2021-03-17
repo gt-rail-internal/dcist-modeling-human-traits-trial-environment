@@ -270,22 +270,22 @@ function checkButtons() {
 
         // if UGV1 is within this cache range        
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv1_cc)) && dist_1 < dist_scale * uiMap.mapCanvas.width) {
-            cam1_color = "paleviolet";
+            cam1_color = "lightgrey";
         }
 
         // if UGV2 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv2_cc)) && dist_2 < dist_scale * uiMap.mapCanvas.width) {
-            cam2_color = "paleviolet";
+            cam2_color = "green";
         }
 
         // if UGV3 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv3_cc)) && dist_3 < dist_scale * uiMap.mapCanvas.width) {
-            cam3_color = "paleviolet";
+            cam3_color = "lightgrey";
         }
 
         // if UGV4 is within this cache range
         if (((uiMap.uiObjects[i].constructor.name == "Cache" && cacheList[i] == false) || (uiMap.uiObjects[i].constructor.name == "Vehicle" && uiMap.uiObjects[i].carryingCache && !ugv4_cc)) && dist_4 < dist_scale * uiMap.mapCanvas.width) {
-            cam4_color = "paleviolet";
+            cam4_color = "lightgrey";
         }
     }
 
