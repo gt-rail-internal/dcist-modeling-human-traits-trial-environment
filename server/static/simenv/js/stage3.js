@@ -133,11 +133,11 @@ function initStage3() {
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.classList = "instructions grey-instructions";
-    instructionsTop.innerHTML = "Use the Ground robots to collect the caches and return them to the base! When you are close to a cache, the robot's \"Collect Cache\" button will turn light grey. Click it and then move the robot to the base. You can expect low framerates with the ground robot cameras and position updates.";
+    instructionsTop.innerHTML = "Use the Ground robots to collect the caches and return them to the base! When you are close to a cache, the robot's \"Collect Cache\" button will turn colored. Click the button and then move the robot to the base. You can expect low framerates with the ground robot cameras and position updates.";
 
     var instructionsLeft = document.getElementById("instructions-cache");
     instructionsLeft.style.display = "flex";
-    instructionsLeft.innerHTML = "The overhead locations can be inaccurate! Pay attention to the vehicle cameras to keep your robots from crashing!";
+    instructionsLeft.innerHTML = "The overhead locations can be inaccurate! Pay attention to the vehicle cameras to keep your robots from crashing! If a robot with a cache gets stuck, you can use another robot to collect its cache.";
 
     document.getElementById("cam1_button").innerHTML = "Collect Cache";
     document.getElementById("cam2_button").innerHTML = "Collect Cache";
