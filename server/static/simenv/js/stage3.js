@@ -314,6 +314,7 @@ function stage3EndCheck() {
         if (uiMap.uiObjects[i].carryingCache && distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < .05 * uiMap.mapCanvas.width) {
             uiMap.returnedCaches += 1;
             uiMap.uiObjects[i].carryingCache = false;
+            log({"stage": uiMap.stage, "action": "cache returned", "cacheId": i});
             console.log("returned cache");
         }
     }
