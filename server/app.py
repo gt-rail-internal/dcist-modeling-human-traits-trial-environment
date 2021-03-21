@@ -218,8 +218,10 @@ def removeWaypoint():
     global robot_waypoints
     robot = request.args.get("id")
     if robot not in robot_waypoints:
-        robot_waypoints = []
-    robot_waypoints[robot].pop()
+        robot_waypoints[robot] = []
+        
+    if len(robot_waypoints[robot]) > 0:
+        robot_waypoints[robot].pop()
 
     if len(robot_waypoints[robot]) == 0:
         robot_publishers[robot].publish("stop")
