@@ -1,10 +1,10 @@
 // functions including setIntervals and timeouts for the overall game engine
 
 function initEngine() {
-    // get positions the first time, replace with "init stage X"
-    getPositions();
-
     if (uiMap.networked) {
+        // get positions the first time, replace with "init stage X"
+        getPositions();
+
         // have the map update camera images almost constantly
         image_counter = 0;
         cam1 = document.getElementById("cam1_image");
@@ -12,6 +12,7 @@ function initEngine() {
         cam3 = document.getElementById("cam3_image");
         cam4 = document.getElementById("cam4_image");
         window.setInterval(function() {
+            
             getCams();
             getPositions();
             getWaypoints();
