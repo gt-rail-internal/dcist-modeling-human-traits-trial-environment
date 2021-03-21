@@ -93,6 +93,7 @@ def robotAtWaypointCallback(data):
 def initROSSubscribers(stage):
     global robot_publishers
     global cam_images
+    print(">>>", robot_reset_positions[stage])
     if stage == "1" or stage == "3":
         for name in robot_reset_positions[stage]:
             rospy.Subscriber("/" + name + "/current_position", String, robotPositionCallback, queue_size=1)
