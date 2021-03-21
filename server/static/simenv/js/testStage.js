@@ -21,18 +21,20 @@ function initTestStage() {
     uiMap.networked = false;
     uiMap.stage = 0;
 
-
     // initialize one UAVs and one UGVs
     uav1 = new Vehicle("uav");
     uav1.index = 1;
     uav1.name = "UAV1";
     uav1.color = "red";
+    uav1.x = .522;
+    uav1.y = .970;
 
     ugv1 = new Vehicle("ugv");
     ugv1.index = 2;
     ugv1.name = "UGV1";
     ugv1.color = "blue";
-
+    ugv1.x = .641;
+    ugv1.y = .970;
 
     // initialize one cache
     cache1 = new Cache();
