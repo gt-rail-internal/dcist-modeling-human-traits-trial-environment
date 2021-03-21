@@ -93,7 +93,7 @@ def robotAtWaypointCallback(data):
 def initROSSubscribers(stage):
     global robot_publishers
     global cam_images
-    print(">>>", robot_reset_positions[stage])
+    #print(">>>", robot_reset_positions[stage])
     if stage == "1" or stage == "3":
         for name in robot_reset_positions[stage]:
             rospy.Subscriber("/" + name + "/current_position", String, robotPositionCallback, queue_size=1)
@@ -219,7 +219,7 @@ def removeWaypoint():
     robot = request.args.get("id")
     if robot not in robot_waypoints:
         robot_waypoints[robot] = []
-        
+
     if len(robot_waypoints[robot]) > 0:
         robot_waypoints[robot].pop()
 
