@@ -45,6 +45,11 @@ class MapUIObject {
             drawRotated(this.context, this.image, this.x, this.y, this.scale, -Math.atan2(this.y - this.oldY, this.oldX - this.x) + Math.PI/2);
         }
 
+        // for a base, draw dropoff circle around it if on Stage 3
+        if (this.constructor.name == "Base" && uiMap.stage == 3) {
+            drawCircle(this.context, this.x, this.y, .05 * uiMap.mapCanvas.width, "lightblue");
+        }
+
         // set the fill color
         this.context.fillStyle = this.color;
 
@@ -110,6 +115,10 @@ class Vehicle extends MapUIObject {
 
         this.oldX = 0;
         this.oldY = 0;
+
+        this.stuckX = -1;
+        this.stuckY = -1;
+        this.stuckTimer = 0;
 
         // set some vehicle attributes by the type
         if (this.type == "uav") {
