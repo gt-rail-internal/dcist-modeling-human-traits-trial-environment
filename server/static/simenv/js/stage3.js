@@ -302,20 +302,35 @@ function stage3EndCheck() {
         return true;
     }
 
-    // check if any caches need to be dropped off at the base
+    // check if any caches need to be dropped off at the base or if a robot is stuck
     for (let i=0; i<uiMap.uiObjects.length; i++) {
         // ignore if not a vehicle
         if (uiMap.uiObjects[i].constructor.name != "Vehicle") {
             continue;
         }
         
-        // if UGV is within the base range
+        // if UGV is within the base range, check if it can drop off a package
         //console.log("distance to base is", distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]), "==", .05 * uiMap.mapCanvas.width);
         if (uiMap.uiObjects[i].carryingCache && distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < .05 * uiMap.mapCanvas.width) {
             uiMap.returnedCaches += 1;
             uiMap.uiObjects[i].carryingCache = false;
             log({"stage": uiMap.stage, "action": "cache returned", "cacheId": i});
             console.log("returned cache");
+        }
+
+        // if stuck popup has not happened yet and the timer has been 10 seconds, run checks
+        if (!uiMap.announcedStuck && Date.now() / 1000 - uiMap.uiObjects[i].stuckTimer > 10) {
+            uiMap.uiObjects[i].stuckTimer = Date.now() / 1000;
+            // if robot has no waypoints, set stuck X/Y to -1 and move on
+            if (uiMap.uiObjects[i].waypoints.length == 0) {
+                uiMap.uiObjects[i].stuckX = -1;
+                uiMap.uiObjects[i].stuckY = -1;
+            }
+            // else if the stuck x/y are close to the current, announce
+            else if (Math.abs(uiMap.uiObjects[i].stuckX - uiMap.uiObjects[i].x) < .01 && Math.abs(uiMap.uiObjects[i].stuckY - uiMap.uiObjects[i].y) < .01) {
+                alert("It appears a robot is stuck! You are unlikely to free it, so use the other robots to complete the mission.\n\nIf the stuck robot is carrying a cache, you can bring another robot close to it and press its \"Collect Cache\" button.")
+                uiMap.announcedStuck = true;
+            }
         }
     }
 
