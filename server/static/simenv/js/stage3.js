@@ -331,6 +331,10 @@ function stage3EndCheck() {
                 alert("It appears a robot is stuck! You are unlikely to free it, so use the other robots to complete the mission.\n\nIf the stuck robot is carrying a cache, you can bring another robot close to it and press its \"Collect Cache\" button.")
                 uiMap.announcedStuck = true;
             }
+            else {
+                uiMap.uiObjects[i].stuckX = uiMap.uiObjects[i].x;
+                uiMap.uiObjects[i].stuckY = uiMap.uiObjects[i].y;
+            }
         }
     }
 
