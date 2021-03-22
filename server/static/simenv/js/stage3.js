@@ -328,7 +328,7 @@ function stage3EndCheck() {
                 uiMap.uiObjects[i].stuckY = -1;
             }
             // else if the stuck x/y are close to the current, announce
-            else if (Math.abs(uiMap.uiObjects[i].stuckX - uiMap.uiObjects[i].x) < .01 && Math.abs(uiMap.uiObjects[i].stuckY - uiMap.uiObjects[i].y) < .01) {
+            else if (Math.abs(uiMap.uiObjects[i].stuckX - uiMap.uiObjects[i].x) < .03 && Math.abs(uiMap.uiObjects[i].stuckY - uiMap.uiObjects[i].y) < .03) {
                 console.log("robot", i - 13, "alerting stuck");
                 alert("It appears a robot is stuck! You are unlikely to free it, so use the other robots to complete the mission.\n\nIf the stuck robot is carrying a cache, you can bring another robot close to it and press its \"Collect Cache\" button.")
                 uiMap.announcedStuck = true;
