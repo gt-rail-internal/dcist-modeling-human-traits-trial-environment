@@ -323,18 +323,18 @@ function stage3EndCheck() {
             uiMap.uiObjects[i].stuckTimer = Date.now() / 1000;
             // if robot has no waypoints, set stuck X/Y to -1 and move on
             if (uiMap.uiObjects[i].waypoints.length == 0) {
-                console.log("robot", i - 13, "reset stuck");
+                //console.log("robot", i - 13, "reset stuck");
                 uiMap.uiObjects[i].stuckX = -1;
                 uiMap.uiObjects[i].stuckY = -1;
             }
             // else if the stuck x/y are close to the current, announce
-            else if (Math.abs(uiMap.uiObjects[i].stuckX - uiMap.uiObjects[i].x) < .1 && Math.abs(uiMap.uiObjects[i].stuckY - uiMap.uiObjects[i].y) < .1) {
-                console.log("robot", i - 13, "alerting stuck");
+            else if (Math.abs(uiMap.uiObjects[i].stuckX - uiMap.uiObjects[i].x) < .5 && Math.abs(uiMap.uiObjects[i].stuckY - uiMap.uiObjects[i].y) < .5) {
+                //console.log("robot", i - 13, "alerting stuck");
                 alert("It appears a robot is stuck! You are unlikely to free it, so use the other robots to complete the mission.\n\nIf the stuck robot is carrying a cache, you can bring another robot close to it and press its \"Collect Cache\" button.")
                 uiMap.announcedStuck = true;
             }
             else {
-                console.log("robot", i - 13, "set stuck to current");
+                //console.log("robot", i - 13, "set stuck to current");
                 uiMap.uiObjects[i].stuckX = uiMap.uiObjects[i].x;
                 uiMap.uiObjects[i].stuckY = uiMap.uiObjects[i].y;
             }
