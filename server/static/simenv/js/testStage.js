@@ -174,6 +174,8 @@ function initTestStage() {
         }, 500);
     }
 
+    document.getElementById("instructions-giveup").innerHTML = document.getElementById("instructions-giveup").innerHTML + " Resetting the map will reset this timeout."
+
     // set up the instructions
     var instructionsLeft = document.getElementById("left-panel");
     instructionsLeft.style.justifyContent = "flex-start";
