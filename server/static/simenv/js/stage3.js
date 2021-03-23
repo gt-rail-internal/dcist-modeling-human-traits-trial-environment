@@ -133,7 +133,7 @@ function initStage3() {
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.classList = "instructions grey-instructions";
-    instructionsTop.innerHTML = "Use the Ground robots to collect the caches and return them to the base! When you are close to a cache, the robot's \"Collect Cache\" button will turn colored. Click the button to pick up the cache and then return the robot to the base. You can expect low framerates with the ground robot cameras and position updates.";
+    instructionsTop.innerHTML = "Use the Ground robots to collect the caches and return them to the base! When you are close to a cache, the robot's \"Collect Cache\" button will turn colored. Click the button to pick up the cache and then return the robot to the base. <b>You can expect low framerates with the ground robot cameras and position updates</b>.";
 
     var instructionsLeft = document.getElementById("instructions-cache");
     instructionsLeft.style.display = "flex";
