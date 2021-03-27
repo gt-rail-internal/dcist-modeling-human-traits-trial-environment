@@ -5,6 +5,8 @@ function initEngine() {
         // get positions the first time, replace with "init stage X"
         getPositions();
 
+        this.distanceTraveled = [0, 0, 0, 0];
+
         // have the map update camera images almost constantly
         image_counter = 0;
         cam1 = document.getElementById("cam1_image");
@@ -12,7 +14,6 @@ function initEngine() {
         cam3 = document.getElementById("cam3_image");
         cam4 = document.getElementById("cam4_image");
         window.setInterval(function() {
-            
             getCams();
             getPositions();
             getWaypoints();
