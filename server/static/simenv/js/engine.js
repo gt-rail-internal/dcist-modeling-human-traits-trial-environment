@@ -84,6 +84,7 @@ function getPositions() {
                 // get the distance this robot has traveled and add it to the list
                 dist = distance([uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
                 if (uiMap.uiObjects[i].name == "UGV1" || uiMap.uiObjects[i].name == "UAV1") {
+                    console.log("dist", dist)
                     uiMap.distanceTraveled[0] = uiMap.distanceTraveled[0] + dist;
                 }
                 if (uiMap.uiObjects[i].name == "UGV2" || uiMap.uiObjects[i].name == "UAV2") {
