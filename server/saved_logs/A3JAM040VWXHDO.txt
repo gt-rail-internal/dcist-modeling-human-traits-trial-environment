@@ -1,0 +1,680 @@
+
+1616204957.986548,A3JAM040VWXHDO,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A3JAM040VWXHDO'}
+1616204964.262139,A3JAM040VWXHDO,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': 'A3JAM040VWXHDO'}
+1616205004.440183,A3JAM040VWXHDO,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A3JAM040VWXHDO'}
+1616205008.314564,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing tutorial panel 1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205071.629328,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing tutorial panel 2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205071.630506,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button tutorial 1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205125.087204,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205125.087664,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button tutorial 2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205125.108378,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing tutorial panel 3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205136.396496,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205136.515867,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205137.406429,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205141.733355,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205141.747642,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205141.759217,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205142.258967,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205147.747372,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205147.751363,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205147.77365,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205147.813292,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205148.269231,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205148.735953,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205154.641643,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button tutorial 3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205154.665777,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing introduction', 'worker-id': 'A3JAM040VWXHDO'}
+1616205179.49975,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button introduction', 'worker-id': 'A3JAM040VWXHDO'}
+1616205179.500612,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205217.205935,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205217.232926,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button information', 'worker-id': 'A3JAM040VWXHDO'}
+1616205247.600408,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205265.671973,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205265.67288,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205265.697157,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205265.698076,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205265.6993,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205265.983558,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205276.537457,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205277.055729,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205282.592035,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205282.592825,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205282.613904,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205282.616415,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205282.705702,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205283.748128,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205284.478557,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205288.649365,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205294.707481,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205294.708136,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205294.733812,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205301.185206,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205301.70506,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205302.854656,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205307.868912,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205308.706349,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '7', 'worker-id': 'A3JAM040VWXHDO'}
+1616205312.675618,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '9', 'worker-id': 'A3JAM040VWXHDO'}
+1616205312.676668,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '8', 'worker-id': 'A3JAM040VWXHDO'}
+1616205312.680078,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205312.700161,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '5', 'worker-id': 'A3JAM040VWXHDO'}
+1616205312.700874,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205312.752069,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '6', 'worker-id': 'A3JAM040VWXHDO'}
+1616205313.59752,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205314.345823,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205314.970744,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205318.731285,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing misunderstanding panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205318.732123,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205318.73374,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205331.682935,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205332.213078,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205334.293611,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205334.295409,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205336.282246,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205336.283027,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205336.296827,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205336.696107,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205337.322354,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205338.576227,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205342.336085,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205344.009534,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205344.008811,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button misunderstanding panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205348.917664,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205348.918836,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205378.162575,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205384.249723,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205385.033252,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205389.967994,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205390.800732,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205391.219415,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205395.815189,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205395.820169,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205395.841769,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205395.842604,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205395.852188,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205396.545951,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205397.172359,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205401.872909,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205401.874202,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205401.899464,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '5', 'worker-id': 'A3JAM040VWXHDO'}
+1616205401.900316,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205401.901591,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '6', 'worker-id': 'A3JAM040VWXHDO'}
+1616205402.291628,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '7', 'worker-id': 'A3JAM040VWXHDO'}
+1616205403.130305,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205407.830761,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205407.853677,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205407.85982,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '9', 'worker-id': 'A3JAM040VWXHDO'}
+1616205407.859315,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205407.85879,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '8', 'worker-id': 'A3JAM040VWXHDO'}
+1616205408.24459,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205408.245165,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205438.164137,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205443.145892,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205443.145189,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205444.148691,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205444.699113,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205449.10542,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205449.106043,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205449.108708,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205449.110837,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205449.297859,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205449.624282,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205450.056536,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205455.146507,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205455.147332,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '6', 'worker-id': 'A3JAM040VWXHDO'}
+1616205455.149025,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205455.150204,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205455.150866,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '5', 'worker-id': 'A3JAM040VWXHDO'}
+1616205455.322089,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205456.164403,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '7', 'worker-id': 'A3JAM040VWXHDO'}
+1616205456.924848,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205461.14685,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205461.147515,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205461.153413,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '8', 'worker-id': 'A3JAM040VWXHDO'}
+1616205461.16517,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '9', 'worker-id': 'A3JAM040VWXHDO'}
+1616205461.166581,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205462.339441,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205462.343749,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205492.430493,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205496.506375,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205496.507698,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205497.235927,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205497.548362,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.562299,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.563205,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.565578,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.588655,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.589451,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.590441,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205502.592845,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205508.725608,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205508.726376,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205508.752297,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205510.709517,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205514.889747,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '6', 'worker-id': 'A3JAM040VWXHDO'}
+1616205514.890633,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '5', 'worker-id': 'A3JAM040VWXHDO'}
+1616205514.914383,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205514.915011,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205514.993063,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205515.620008,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '9', 'worker-id': 'A3JAM040VWXHDO'}
+1616205516.245281,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '8', 'worker-id': 'A3JAM040VWXHDO'}
+1616205516.747325,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '7', 'worker-id': 'A3JAM040VWXHDO'}
+1616205519.171705,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205519.176579,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205524.925914,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205524.927055,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205556.042227,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205556.04391,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205556.044568,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205556.878954,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205557.294057,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.681129,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.706175,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.710072,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.71256,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.716338,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.711857,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205561.717194,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205562.516227,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205564.188032,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205564.318363,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205568.261628,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205568.262687,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205568.273175,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205568.289163,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205568.289943,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205568.291116,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205569.096476,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '5', 'worker-id': 'A3JAM040VWXHDO'}
+1616205570.246103,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '6', 'worker-id': 'A3JAM040VWXHDO'}
+1616205570.559735,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205574.546333,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '7', 'worker-id': 'A3JAM040VWXHDO'}
+1616205574.554104,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '8', 'worker-id': 'A3JAM040VWXHDO'}
+1616205574.737002,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205574.73776,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '9', 'worker-id': 'A3JAM040VWXHDO'}
+1616205574.852865,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205574.865703,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing information panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205606.594165,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205607.220561,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205607.281899,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205607.364538,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205607.95194,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205608.130566,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '11', 'worker-id': 'A3JAM040VWXHDO'}
+1616205612.653115,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205612.653846,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '3', 'worker-id': 'A3JAM040VWXHDO'}
+1616205612.677421,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205612.679112,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205612.689178,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205613.278603,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205613.905589,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205618.292646,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205618.293573,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205618.322288,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '10', 'worker-id': 'A3JAM040VWXHDO'}
+1616205618.323749,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '4', 'worker-id': 'A3JAM040VWXHDO'}
+1616205619.338974,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205619.339412,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205619.340281,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '0', 'worker-id': 'A3JAM040VWXHDO'}
+1616205619.453512,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '12', 'worker-id': 'A3JAM040VWXHDO'}
+1616205620.206679,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205620.487657,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '13', 'worker-id': 'A3JAM040VWXHDO'}
+1616205621.321533,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205621.491206,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '14', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.022333,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.029484,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.030485,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.032407,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.047349,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.049229,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.050823,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '15', 'worker-id': 'A3JAM040VWXHDO'}
+1616205626.33585,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '16', 'worker-id': 'A3JAM040VWXHDO'}
+1616205627.588903,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '5', 'worker-id': 'A3JAM040VWXHDO'}
+1616205628.006806,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '6', 'worker-id': 'A3JAM040VWXHDO'}
+1616205632.081017,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '1', 'worker-id': 'A3JAM040VWXHDO'}
+1616205632.082409,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '7', 'worker-id': 'A3JAM040VWXHDO'}
+1616205632.083611,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '8', 'worker-id': 'A3JAM040VWXHDO'}
+1616205632.106532,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '2', 'worker-id': 'A3JAM040VWXHDO'}
+1616205632.108048,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'canvas-click', 'object': '9', 'worker-id': 'A3JAM040VWXHDO'}
+1616205633.232182,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing endgame panel', 'worker-id': 'A3JAM040VWXHDO'}
+1616205633.233481,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'side-panel-click', 'object': 'next button sagat questions', 'worker-id': 'A3JAM040VWXHDO'}
+1616205633.255209,A3JAM040VWXHDO,{'stage': 'SAGAT', 'action': 'complete', 'score': 69, 'worker-id': 'A3JAM040VWXHDO'}
+1616205638.444362,A3JAM040VWXHDO,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A3JAM040VWXHDO'}
+1616205652.69352,A3JAM040VWXHDO,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': 'A3JAM040VWXHDO'}
+1616205876.256581,A3JAM040VWXHDO,{'stage': 0, 'action': 'opened-page', 'worker-id': 'A3JAM040VWXHDO'}
+1616205911.066542,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205920.465557,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5257142857142857,0.8839285714285714]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205925.689734,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.49714285714285716,0.7939285714285714]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205935.193361,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.48,0.7010714285714286]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205944.80474,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5457142857142857,0.8539285714285715]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205946.893698,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.4785714285714286,0.6253571428571428]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205949.927219,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.47285714285714286,0.6253571428571428]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205955.006611,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205960.157969,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.5185714285714286,0.8653571428571428]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205975.745636,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4828571428571429,0.7853571428571429]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205991.909469,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616205995.491213,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.4928571428571429,0.6210714285714286]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206005.488129,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206010.397312,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.49142857142857144,0.6839285714285714]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206020.11291,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.49142857142857144,0.5810714285714286]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206030.765707,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5014285714285714,0.5184047589983259]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206045.07473,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206049.777421,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206049.811064,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206049.816473,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206049.84411,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206055.412988,A3JAM040VWXHDO,{'stage': 0, 'action': 'opened-page', 'worker-id': 'A3JAM040VWXHDO'}
+1616206061.159658,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206065.320986,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5042857142857143,0.8748095267159598]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206070.560428,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.41,0.7205238124302455]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206080.277349,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.4742857142857143,0.5805238124302455]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206095.005356,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206095.318138,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206095.32417,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206095.345691,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206096.339673,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206096.999069,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206097.022885,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.016876,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.042455,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.044523,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.04664,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.108752,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.12404,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.329085,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206100.543581,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206101.37339,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206101.583704,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206101.791144,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206102.105291,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206105.055036,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206105.056213,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206106.830516,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206115.379559,A3JAM040VWXHDO,{'action': 'deselect-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206115.381082,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206117.255561,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206120.487517,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206120.514302,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.45285714285714285,0.721952383858817]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206135.427186,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206135.486798,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206135.54134,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206135.560205,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206136.470347,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.096674,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.124151,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.125819,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.166025,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.191507,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.19337,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.207945,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.279112,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.280214,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.287489,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.295278,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.369109,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.38111,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.385885,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.502687,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.628353,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.643131,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.713923,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.714913,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.748439,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.749092,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206137.801145,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206140.673242,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206140.672429,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206140.677372,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206140.727106,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.168561,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.171329,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.195502,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.242172,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.302012,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.329513,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.377173,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.394181,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.446764,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.462372,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.519,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.535039,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.550327,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.621481,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.622357,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.624694,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.626102,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.691312,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.711734,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.717515,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.761475,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.779792,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.799394,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.836894,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.86685,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.897539,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.942819,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.964893,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206141.997288,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.03185,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.069126,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.094353,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.124507,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.154602,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.184648,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.232274,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.249907,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.27961,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.31395,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.380273,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.385673,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.423545,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.492845,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.593527,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.61234,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.613329,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.650134,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.682244,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.683031,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.756519,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.758037,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.788948,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.812376,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206142.831495,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.538349,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.540702,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.542587,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.586952,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.600515,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.626976,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.629397,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.676471,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.686866,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.705255,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.709713,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.751824,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.772681,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.786847,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.79724,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.849003,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.859044,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.877502,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.900394,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.924013,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.939127,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.978472,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206144.978924,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.02567,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.032457,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.048814,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.078947,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.111215,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.125969,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.146957,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.154248,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.193072,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.201352,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.240635,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.262118,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.286468,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.300189,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.337835,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.374064,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.395069,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.411084,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.44639,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.456363,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.500738,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.502206,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.520657,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.542113,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206145.580089,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.497072,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.524697,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.525396,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.563943,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.616819,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.618303,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.622547,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.671552,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.67609,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.71798,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.716176,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.750943,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.773989,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.80785,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.814164,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.844417,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.853108,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.882083,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.887349,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.919236,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.947017,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.957046,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206146.976748,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.016896,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.024364,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.043755,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.075168,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.104116,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.114156,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.151388,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.155066,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.185264,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.189149,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.223328,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.240542,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.274441,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.273986,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.309968,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.353441,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.357863,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.364779,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.42677,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.435156,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.450176,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.454449,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.534751,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.536211,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.55257,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.569318,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.742027,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.757427,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.773478,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.776595,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.824465,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.856805,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.863863,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.868574,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.91402,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206147.922208,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206148.585579,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4657142857142857,0.6290952410016741]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206151.927379,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206151.953573,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206151.962518,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206151.999156,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206152.659063,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206152.972601,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.001824,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.01956,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.050236,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.078659,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.130056,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.139541,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.170666,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.210543,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.240952,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.275108,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.312519,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.331521,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.399119,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.462774,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.489109,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.53225,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.559516,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.59896,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.632338,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.643975,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.657888,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.692185,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.719856,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.726319,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.756686,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.784705,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.818931,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.904601,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206153.905118,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206154.026834,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206154.029417,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206154.117434,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206154.11828,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206154.122756,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206157.155868,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.48857142857142855,0.8033809552873884]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206157.198265,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.49,0.821952383858817]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206162.893988,A3JAM040VWXHDO,{'stage': 0, 'action': 'reset map', 'worker-id': 'A3JAM040VWXHDO'}
+1616206163.849739,A3JAM040VWXHDO,{'stage': 0, 'action': 'opened-page', 'worker-id': 'A3JAM040VWXHDO'}
+1616206172.399377,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206172.401054,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5014285714285714,0.8266428484235491]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206173.157451,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.4585714285714286,0.8180714198521205]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206174.176513,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5285714285714286,0.7766428484235491]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206187.12939,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206192.037021,A3JAM040VWXHDO,{'action': 'deselect-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206201.644744,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206202.0639,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206206.351557,A3JAM040VWXHDO,{'action': 'deselect-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206216.023404,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206216.078208,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4585714285714286,0.5966428484235491]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206225.670533,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206225.694863,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.48857142857142855,0.8980714198521206]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206235.383045,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206235.40769,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.48,0.7109285627092634]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206245.305407,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206245.330879,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.49,0.8323571341378349]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206245.334058,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5057142857142857,0.8880714198521206]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206246.663457,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206250.137665,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5128571428571429,0.8323571341378349]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206250.138736,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5428571428571428,0.9166428484235492]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206250.142379,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5128571428571429,0.8323571341378349]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206256.901285,A3JAM040VWXHDO,{'stage': 0, 'action': 'reset map', 'worker-id': 'A3JAM040VWXHDO'}
+1616206260.973328,A3JAM040VWXHDO,{'stage': 0, 'action': 'opened-page', 'worker-id': 'A3JAM040VWXHDO'}
+1616206266.120315,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206266.146179,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5,0.9041666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206266.835112,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5314285714285715,0.8798809596470424]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206267.518089,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5128571428571429,0.8527381025041852]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206272.671125,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206276.06065,A3JAM040VWXHDO,{'action': 'deselect-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206282.176649,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206283.011823,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4228571428571429,0.7655952453613282]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206286.077374,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206292.101091,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4614285714285714,0.548452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206292.127295,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4614285714285714,0.548452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206315.913949,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206315.914806,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.5142857142857142,0.8370238167898996]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206325.732457,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206325.732942,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206326.360051,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.46714285714285714,0.7027381025041852]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206330.327126,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206330.911544,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4742857142857143,0.5855952453613281]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206332.417571,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.49,0.5555952453613281]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 0}
+1616206342.130824,A3JAM040VWXHDO,{'stage': 0, 'action': 'stage-complete', 'worker-id': 'A3JAM040VWXHDO'}
+1616206372.943237,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206374.408126,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.11714285714285715,0.7677381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206391.368606,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206391.408083,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8685714285714285,0.8891666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206409.966692,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206415.704816,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.7457142857142857,0.7677381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206439.898425,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206440.904487,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.4514285714285714,0.783452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206447.57822,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206452.978938,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.15142857142857144,0.5477381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206453.030228,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.14714285714285713,0.553452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206471.884406,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206471.890708,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.8742857142857143,0.49202381678989954]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206484.315615,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206484.387491,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8928571428571429,0.5477381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206488.978021,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206490.792904,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.1457142857142857,0.773452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206504.308438,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206509.386358,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.1957142857142857,0.32202381678989955]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206509.405884,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.19285714285714287,0.34202381678989957]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206534.169147,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206534.859186,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.7357142857142858,0.34202381678989957]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206546.308399,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206546.807921,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.15285714285714286,0.5363095310756139]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206554.612802,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206559.209427,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8614285714285714,0.4263095310756138]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206567.251926,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206568.135964,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206575.372749,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV1', 'worker-id': 'A3JAM040VWXHDO'}
+1616206577.161945,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206578.259412,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.2,0.29773810250418525]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206582.90026,A3JAM040VWXHDO,{'stage': 3, 'action': 'cache collected', 'cacheId': 0, 'worker-id': 'A3JAM040VWXHDO'}
+1616206582.901261,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV1', 'worker-id': 'A3JAM040VWXHDO'}
+1616206588.566267,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206588.571329,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.18,0.493452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206593.569715,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206593.57092,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.12571428571428572,0.7520238167898996]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206599.854821,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206599.856931,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.5757142857142857,0.3391666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206602.408206,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206602.417783,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206605.796409,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8971428571428571,0.3991666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206605.804126,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8971428571428571,0.3991666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206640.465748,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206641.430877,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206646.497703,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206646.533949,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.16285714285714287,0.5948809596470425]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206646.534597,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.16285714285714287,0.5948809596470425]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206648.047662,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206648.292749,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206652.269609,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.5585714285714286,0.33202381678989956]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206657.285223,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8971428571428571,0.3977381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206657.29137,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206663.766424,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV4', 'worker-id': 'A3JAM040VWXHDO'}
+1616206663.765588,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV2', 'worker-id': 'A3JAM040VWXHDO'}
+1616206666.347637,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206669.714942,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.5614285714285714,0.3305952453613281]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206669.944799,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.5457142857142857,0.3520238167898996]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206670.065502,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.5457142857142857,0.3520238167898996]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206681.933573,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV2', 'worker-id': 'A3JAM040VWXHDO'}
+1616206683.250395,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206688.616666,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.5128571428571429,0.28630953107561385]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206693.949911,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206694.494787,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206695.830463,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.5414285714285715,0.35630953107561386]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206701.438891,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV3', 'worker-id': 'A3JAM040VWXHDO'}
+1616206701.454671,A3JAM040VWXHDO,{'stage': 3, 'action': 'cache collected', 'cacheId': 1, 'worker-id': 'A3JAM040VWXHDO'}
+1616206705.018044,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.7957142857142857,0.35773810250418525]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206712.510711,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206712.537648,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206712.540134,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.12,0.5863095310756138]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206718.075348,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206724.130335,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.08857142857142856,0.7663095310756138]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206736.455794,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206736.465296,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8971428571428571,0.40345238821847096]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206753.898628,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206755.674491,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.15,0.6477381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206763.108796,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206763.2362,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206764.478775,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.8742857142857143,0.37488095964704243]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206798.840483,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206798.906959,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.8971428571428571,0.3905952453613281]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206817.718935,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206817.885198,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.09,0.773452388218471]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206824.12242,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206825.445802,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.9014285714285715,0.36202381678989953]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206841.326958,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206841.37521,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.21428571428571427,0.8191666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206847.487181,A3JAM040VWXHDO,{'stage': 3, 'action': 'collectCache button pressed', 'vehicle': 'UGV3', 'worker-id': 'A3JAM040VWXHDO'}
+1616206847.488102,A3JAM040VWXHDO,{'stage': 3, 'action': 'cache collected', 'cacheId': 2, 'worker-id': 'A3JAM040VWXHDO'}
+1616206849.740447,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206852.094447,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8285714285714286,0.7720238167898995]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206865.55591,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206866.492668,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.09857142857142857,0.7805952453613281]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206877.987775,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206883.825802,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8285714285714286,0.5620238167898995]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206889.583541,A3JAM040VWXHDO,{'action': 'remove-waypoint', 'target': 'UGV2', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206889.638718,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206890.755071,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.8457142857142858,0.5263095310756138]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206892.500314,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.8414285714285714,0.5191666739327567]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206903.338468,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206907.12982,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.37285714285714283,0.7720238167898995]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206918.732342,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206923.421422,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.08571428571428572,0.7677381025041853]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206941.910661,A3JAM040VWXHDO,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206941.911294,A3JAM040VWXHDO,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.31142857142857144,0.8148809596470424]', 'worker-id': 'A3JAM040VWXHDO', 'stage': 3}
+1616206947.948465,A3JAM040VWXHDO,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A3JAM040VWXHDO'}

@@ -79,6 +79,21 @@ function getPositions() {
                 
                 uiMap.uiObjects[i].x = data[uiMap.uiObjects[i].name][0] * uiMap.mapCanvas.width;
                 uiMap.uiObjects[i].y = data[uiMap.uiObjects[i].name][1] * uiMap.mapCanvas.height;
+
+                // get the distance this robot has traveled and add it to the list
+                dist = distance([uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+                if (uiMap.uiObjects[i].name == "UGV1" || uiMap.uiObjects[i].name == "UAV1") {
+                    uiMap.distanceTraveled[0] = uiMap.distanceTraveled[0] + dist;
+                }
+                if (uiMap.uiObjects[i].name == "UGV2" || uiMap.uiObjects[i].name == "UAV2") {
+                    uiMap.distanceTraveled[1] = uiMap.distanceTraveled[1] + dist;
+                }
+                if (uiMap.uiObjects[i].name == "UGV3" || uiMap.uiObjects[i].name == "UAV3") {
+                    uiMap.distanceTraveled[2] = uiMap.distanceTraveled[2] + dist;
+                }
+                if (uiMap.uiObjects[i].name == "UGV4" || uiMap.uiObjects[i].name == "UAV4") {
+                    uiMap.distanceTraveled[3] = uiMap.distanceTraveled[3] + dist;
+                }
             }
         }
     });
