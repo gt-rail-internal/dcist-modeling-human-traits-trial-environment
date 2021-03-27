@@ -129,7 +129,7 @@ function initStage3() {
     uiMap.endCheck = stage3EndCheck;
 
     var title = document.getElementById("titlebar");
-    title.innerHTML = "Simulation Environment - Stage 3";
+    title.innerHTML = "Simulation Environment - Stage 3a";
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.classList = "instructions grey-instructions";
