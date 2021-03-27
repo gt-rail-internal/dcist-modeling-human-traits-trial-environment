@@ -82,13 +82,14 @@ function getPositions() {
                 uiMap.uiObjects[i].y = data[uiMap.uiObjects[i].name][1] * uiMap.mapCanvas.height;
 
                 // get the distance this robot has traveled and add it to the list
-                // ignore if oldX and oldY are 0
-                if (uiMap.uiObjects[i].oldX == 0 && uiMap.uiObjects[i].oldY == 0) {
+                dist = distance([uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+
+                // if the distance is greater than 5, ignore it (impossible, indicates robot hasn't moved yet)
+                if (dist > 5.0) {
                     continue;
                 }
 
-                // if not, get the dist and add it
-                dist = distance([uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]);
+                // if not, add to the vehicle's distance traveled
                 if (uiMap.uiObjects[i].name == "UGV1" || uiMap.uiObjects[i].name == "UAV1") {
                     console.log("dist", dist, uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY)
                     uiMap.distanceTraveled[0] = uiMap.distanceTraveled[0] + dist;
