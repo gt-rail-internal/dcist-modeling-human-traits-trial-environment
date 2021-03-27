@@ -91,7 +91,7 @@ function getPositions() {
 
                 // if not, add to the vehicle's distance traveled
                 if (uiMap.uiObjects[i].name == "UGV1" || uiMap.uiObjects[i].name == "UAV1") {
-                    console.log("dist", dist, uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY)
+                    //console.log("dist", dist, uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY)
                     uiMap.distanceTraveled[0] = uiMap.distanceTraveled[0] + dist;
                 }
                 if (uiMap.uiObjects[i].name == "UGV2" || uiMap.uiObjects[i].name == "UAV2") {
