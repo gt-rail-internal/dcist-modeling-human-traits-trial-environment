@@ -121,7 +121,7 @@ def stage():
     # init the ROS subscribers and some other variables
     initROSSubscribers(stage)
     
-    return render_template("simenv/stage.html", worker_id=worker_id, stage=stage)
+    return render_template("simenv/stage.html", mission=mission, worker_id=worker_id, stage=stage)
 
 @app.route("/portal", methods=["GET"])
 def portal():
@@ -161,14 +161,14 @@ def portal():
         next_stage = -1
         completion_code = "404626707"
 
-    return render_template("simenv/portal.html", worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
+    return render_template("simenv/portal.html", mission=mission, worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
 
 @app.route("/tutorial", methods=["GET"])
 def tutorial():
     mission = str(request.args.get("mission"))
     worker_id = request.args.get("workerId")
     next_stage = request.args.get("nextStage")
-    return render_template("tutorial/index.html", worker_id=worker_id, next_stage=next_stage)
+    return render_template("tutorial/index.html", mission=mission, worker_id=worker_id, next_stage=next_stage)
 
 @app.route("/test", methods=["GET"])
 def testStage():
