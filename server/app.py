@@ -105,7 +105,7 @@ def initROSSubscribers(stage):
             robot_waypoints[name] = []
 
 
-@app.route("/", method=["GET"])
+@app.route("/", methods=["GET"])
 def index():
     mission = str(request.args.get("mission"))
     return render_template("simenv/index.html", mission=mission)
