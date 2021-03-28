@@ -113,7 +113,7 @@ def index():
 @app.route("/stage", methods=["GET"])
 def stage():
     global robot_positions
-    
+    mission = str(request.args.get("mission"))
     worker_id = request.args.get("workerId")
     stage = str(request.args.get("stage"))
     robot_positions = robot_reset_positions[stage]
@@ -165,6 +165,7 @@ def portal():
 
 @app.route("/tutorial", methods=["GET"])
 def tutorial():
+    mission = str(request.args.get("mission"))
     worker_id = request.args.get("workerId")
     next_stage = request.args.get("nextStage")
     return render_template("tutorial/index.html", worker_id=worker_id, next_stage=next_stage)
