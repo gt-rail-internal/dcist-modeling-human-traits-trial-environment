@@ -20,6 +20,8 @@ function initTestStage() {
     // set the uiMap to not use networks
     uiMap.networked = false;
     uiMap.stage = 0;
+    uiMap.displayAdHocRanges = false;
+    uiMap.adHocLock = false;
 
     // initialize one UAVs and one UGVs
     uav1 = new Vehicle("uav");
@@ -29,9 +31,9 @@ function initTestStage() {
     uav1.x = .522 * uiMap.mapCanvas.width;
     uav1.y = .970 * uiMap.mapCanvas.height;
 
-    ugv1 = new Vehicle("ugv");
+    ugv1 = new Vehicle(mission != "1" ? "ugv" : "uav");
     ugv1.index = 2;
-    ugv1.name = "UGV1";
+    ugv1.name = mission != "1" ? "UGV1" : "UAV2";
     ugv1.color = "blue";
     ugv1.x = .641 * uiMap.mapCanvas.width;
     ugv1.y = .970 * uiMap.mapCanvas.height;
@@ -227,14 +229,18 @@ function initTestStage() {
     taskDisconnect.innerHTML = "Disconnect a robot (move it out of range)";
     taskDisconnect.id = "disconnect-robot-div";
     taskDisconnect.style.marginBottom = "10%";
-    instructionsLeft.appendChild(taskDisconnect);
+    if (mission != "1") {  // if the mission is the first stage, don't care about network connectivity
+        instructionsLeft.appendChild(taskDisconnect);
+    }
 
     let taskCache = document.createElement("div");
     taskCache.classList = "grey-instructions";
     taskCache.innerHTML = "Extend the signal network to the Cache<img src='/static/simenv/img/extended.png' style='width: 100%'>";
     taskCache.id = "reach-cache-div";
     taskCache.style.marginBottom = "10%";
-    instructionsLeft.appendChild(taskCache);
+    if (mission != "1") {  // if the mission is the first stage, don't care about network connectivity
+        instructionsLeft.appendChild(taskCache);
+    }
     
     uiMap.training = true;
     uiMap.endCheck = testStageEndCheck;
@@ -257,10 +263,10 @@ function checkTraining() {
     if (trainingStopRobot > 0) {
         document.getElementById("stop-robot-div").style.backgroundColor = "palegreen";
     }
-    if (trainingDisconnectRobot > 0 && uiMap.interacted) {
+    if (trainingDisconnectRobot > 0 && uiMap.interacted && mission != 1) {
         document.getElementById("disconnect-robot-div").style.backgroundColor = "palegreen";
     }
-    if (trainingReachCache > 0) {
+    if (trainingReachCache > 0 && mission != 1) {
         document.getElementById("reach-cache-div").style.backgroundColor = "palegreen";
     }
 }
@@ -268,7 +274,7 @@ function checkTraining() {
 
 // check whether the end conditions are met
 function testStageEndCheck() {
-    if (trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && trainingDisconnectRobot > 0 && uiMap.interacted && trainingReachCache > 0) {
+    if (trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && (trainingDisconnectRobot > 0 && mission != 1) && uiMap.interacted && (trainingReachCache > 0 && mission != 1)) {
         return true;
     }
     return false;
