@@ -173,12 +173,12 @@ def tutorial():
 @app.route("/test", methods=["GET"])
 def testStage():
     global robot_positions
-
+    mission = request.args.get("mission")
     worker_id = request.args.get("workerId")
     next_stage = request.args.get("nextStage")
 
     robot_positions = robot_reset_positions["0"]
-    return render_template("simenv/stage.html", stage=0, next_stage=next_stage, worker_id=worker_id)
+    return render_template("simenv/stage.html", mission=mission, stage=0, next_stage=next_stage, worker_id=worker_id)
 
 @app.route("/logging", methods=["POST"])
 def log():
