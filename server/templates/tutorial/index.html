@@ -25,7 +25,7 @@
         // intro/training tab
         if (nextStage == 0) {
             images = ["{{url_for('static', filename='tutorial/img/instr-intro-1.png')}}", "{{url_for('static', filename='tutorial/img/instr-intro-2.png')}}"];
-            nextLocation = "/portal?workerId={{ worker_id }}&pageFrom=0&success=1";
+            nextLocation = "/portal?workerId={{ worker_id }}&mission={{ mission }}&pageFrom=0&success=1";
         }
 
         // ignoring the sa-test tab, as those instructions are within
