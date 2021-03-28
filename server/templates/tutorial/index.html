@@ -38,6 +38,7 @@
 
         // Stage 1 tab
         if (nextStage == 3) {
+            images = ["{{url_for('static', filename='tutorial/img/instr-connect-1.png')}}"]
             nextLocation = "/test?workerId={{ worker_id }}&mission={{ mission }}&nextStage=2";
         }
 
@@ -47,7 +48,7 @@
             nextLocation = "/test?workerId={{ worker_id }}&mission={{ mission }}&nextStage=3"
         }
 
-        // Stage 2 tab
+        // Stage 3 tab
         if (nextStage == 5) {
             images = ["{{url_for('static', filename='tutorial/img/instr-simenv-stage3-1.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-2.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-3.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-4.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-5.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-6.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-7.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-8.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-9.png')}}", "{{url_for('static', filename='tutorial/img/instr-simenv-stage3-10.png')}}"]
             nextLocation = "/test?workerId={{ worker_id }}&mission={{ mission }}&nextStage=3"
