@@ -60,24 +60,24 @@
 
         if ({{ next_stage }} == 0) {
             selectDiv = document.getElementById("instructions-intro");
-            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=0"; };
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&mission={{ mission }}&nextStage=0"; };
         }
 
         if ({{ next_stage }} == 1) {
             selectDiv = document.getElementById("instructions-sa");
-            selectDiv.onclick = () => { window.location.href = "/sa-test?workerId=" + "{{ worker_id }}"; };
+            selectDiv.onclick = () => { window.location.href = "/sa-test?workerId=" + "{{ worker_id }}&mission={{ mission }}"; };
         }
 
         if ({{ next_stage }} == 2) {
             selectDiv = document.getElementById("instructions-sa");  // used to be instructions-con
-            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=2"; };
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&mission={{ mission }}&nextStage=2"; };
         }
 
         if ({{ next_stage }} == 3) {
             selectDiv = document.getElementById("instructions-exp");
 
             // change the nextStage below to 3 for Stage 2, and 4 for Stage 3
-            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&nextStage=4"; };
+            selectDiv.onclick = () => { window.location.href = "/tutorial?workerId=" + "{{ worker_id }}&mission={{ mission }}&nextStage=4"; };
         }
 
         // if select div is defined (i.e. there is another stage to complete), make it a button
