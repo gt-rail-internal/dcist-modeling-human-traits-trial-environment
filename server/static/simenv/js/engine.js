@@ -382,7 +382,7 @@ function stageComplete() {
         window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + uiMap.nextStage + "&mission=" + mission;
     }
     else {
-        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + misison;
+        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
     }
 
 }
