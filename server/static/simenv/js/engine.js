@@ -379,10 +379,10 @@ function stageComplete() {
 
     // if on the training stage, move to the next stage
     if (uiMap.stage == 0) {
-        window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + uiMap.nextStage;
+        window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + uiMap.nextStage + "&mission=" + mission;
     }
     else {
-        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1";
+        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + misison;
     }
 
 }
