@@ -154,7 +154,7 @@ def portal():
     elif completion_string[0] == "1" and completion_string != "1111" and completion_string != "1011" and completion_string != "1101":
         next_stage = str(random.randint(1, 2))
     
-    print("Next stage:", next_stage)
+    print("Next stage:", next_stage, completion_string, completion_string in ["1110", "1100", "1010"])
 
     completion_code = "complete the missions first!"
     if completion_string in ["1101", "1011", "1111"]:
