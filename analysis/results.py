@@ -41,6 +41,8 @@ for p in os.listdir("./logs"):
         score = networks_analysis.determine_score(output)
         if score != -1:
           response += "\n" + "  NETWORK " + str(score)
+        else:
+          response += "\n" + "  INVALID NETWORK"
 
       # if completed Stage 2, print the start time, reset times, end time, and the duration
       if "stage" in a and a[-3] == "2" and stage == 0:
@@ -113,8 +115,8 @@ for p in os.listdir("./logs"):
 
       former_a = a
     
-    if complete:
-      print(response)
+    #if complete:
+    print(response)
 
 
 
