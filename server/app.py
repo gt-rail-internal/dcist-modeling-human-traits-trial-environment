@@ -150,7 +150,7 @@ def portal():
     # generate the selected stage if the training is complete
     next_stage = "0"
     if completion_string in ["1110", "1100", "1010"]:
-        next_stage = mission
+        next_stage = 3  # this indicates we are now doing the robot mission, the mission variable will set the particular mission
     elif completion_string[0] == "1" and completion_string != "1111" and completion_string != "1011" and completion_string != "1101":
         next_stage = str(random.randint(1, 2))
     
