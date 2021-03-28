@@ -35,7 +35,7 @@
     <script>
         document.getElementById("login-button").onclick = () => {
             workerId = document.getElementById("instructions-id").value;
-            window.location.href = "/portal?workerId=" + workerId
+            window.location.href = "/portal?workerId=" + workerId + "&mission=" + "{{ mission }}";
         }
     </script>
 

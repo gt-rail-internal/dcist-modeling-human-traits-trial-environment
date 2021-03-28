@@ -105,14 +105,15 @@ def initROSSubscribers(stage):
             robot_waypoints[name] = []
 
 
-@app.route("/")
+@app.route("/", method=["GET"])
 def index():
-    return render_template("simenv/index.html")
+    mission = str(request.args.get("mission"))
+    return render_template("simenv/index.html", mission=mission)
 
 @app.route("/stage", methods=["GET"])
 def stage():
     global robot_positions
-
+    
     worker_id = request.args.get("workerId")
     stage = str(request.args.get("stage"))
     robot_positions = robot_reset_positions[stage]
@@ -124,6 +125,7 @@ def stage():
 
 @app.route("/portal", methods=["GET"])
 def portal():
+    mission = str(request.args.get("mission"))
     worker_id = str(request.args.get("workerId"))
     page_from = str(request.args.get("pageFrom"))
     success = str(request.args.get("success"))
@@ -148,7 +150,7 @@ def portal():
     # generate the selected stage if the training is complete
     next_stage = "0"
     if completion_string in ["1110", "1100", "1010"]:
-        next_stage = "3"
+        next_stage = mission
     elif completion_string[0] == "1" and completion_string != "1111" and completion_string != "1011" and completion_string != "1101":
         next_stage = str(random.randint(1, 2))
     
