@@ -397,7 +397,7 @@ function log(data) {
 
 function checkTimeout() {
     now = new Date().getTime() / 1000;
-    timeout = 60 * 10;
+    timeout = mission != 1 ? 60 * 10 : 60 * 5;
 
     if (now - startTime > timeout) {
         return true;
