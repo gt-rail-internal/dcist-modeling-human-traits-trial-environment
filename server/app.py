@@ -116,6 +116,7 @@ def stage():
     mission = str(request.args.get("mission"))
     worker_id = request.args.get("workerId")
     stage = str(request.args.get("stage"))
+    print(">>>", mission, worker_id, stage, robot_reset_positions.keys())
     robot_positions = robot_reset_positions[stage]
 
     # init the ROS subscribers and some other variables
