@@ -20,8 +20,8 @@ function initTestStage() {
     // set the uiMap to not use networks
     uiMap.networked = false;
     uiMap.stage = 0;
-    uiMap.displayAdHocRanges = false;
-    uiMap.adHocLock = false;
+    uiMap.displayAdHocRanges = mission == 1 ? false : true;
+    uiMap.adHocLock = mission == 1 ? false : true;
 
     // initialize one UAVs and one UGVs
     uav1 = new Vehicle("uav");
