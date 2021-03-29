@@ -167,7 +167,7 @@ function initTestStage() {
     title.style.backgroundColor = "lightblue";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Complete all the goals listed on the left panel. If you get stuck or want to reset the map, <b>click here</b>.";
+    instructionsTop.innerHTML = "Familiarize yourself with controlling robots. Try to complete the goals on the left side. If you get stuck or want to reset the map, <b>click here</b>.";
     instructionsTop.style.width = uiMap.mapCanvas.width + "px";
     instructionsTop.onclick = () => {
         log({"stage": "0", "action": "reset map"});
@@ -176,7 +176,8 @@ function initTestStage() {
         }, 500);
     }
 
-    document.getElementById("instructions-giveup").innerHTML = document.getElementById("instructions-giveup").innerHTML + " Resetting the map will reset this timeout."
+
+    document.getElementById("instructions-giveup").innerHTML = mission == 1 ? "After 5 minutes you will move on to the full experiment. Resetting the map will reset this timeout." : document.getElementById("instructions-giveup").innerHTML + " Resetting the map will reset this timeout."
 
     // set up the instructions
     var instructionsLeft = document.getElementById("left-panel");
@@ -274,8 +275,13 @@ function checkTraining() {
 
 // check whether the end conditions are met
 function testStageEndCheck() {
-    if (trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && (trainingDisconnectRobot > 0 && mission != 1) && uiMap.interacted && (trainingReachCache > 0 && mission != 1)) {
+
+    if (mission != 1 && trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && trainingDisconnectRobot > 0 && uiMap.interacted && trainingReachCache > 0) {
         return true;
     }
+    else if (mission == 1 && Date().now() - uiMap.startTime >= 60 * 5) {
+        return true;
+    }
+
     return false;
 }
