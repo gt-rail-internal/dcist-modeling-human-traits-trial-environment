@@ -275,11 +275,7 @@ function checkTraining() {
 
 // check whether the end conditions are met
 function testStageEndCheck() {
-
     if (mission != 1 && trainingSelectRobot > 0 && trainingAddWaypoints >= 3 && trainingRemoveWaypoints > 0 && trainingDeselectRobot > 0 && trainingStopRobot > 0 && trainingDisconnectRobot > 0 && uiMap.interacted && trainingReachCache > 0) {
-        return true;
-    }
-    else if (mission == 1 && Date().now() - uiMap.startTime >= 60 * 5) {
         return true;
     }
 

@@ -38,9 +38,6 @@ class UIMap {
         // variable for distance traveled by each robot
         this.distanceTraveled = [0, 0, 0, 0];
 
-        // variable for start time
-        this.startTime = Date().now();
-
         // variable for connected cache
         this.cacheDisconnected = true;
 
