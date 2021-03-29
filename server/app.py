@@ -261,7 +261,8 @@ def getWaypoints():
 @app.route("/sa-test", methods=["GET"])
 def saTest():
     worker_id = request.args.get("workerId")
-    return render_template("sa-test/index.html", worker_id=worker_id)
+    mission = request.args.get("mission")
+    return render_template("sa-test/index.html", worker_id=worker_id, mission=mission)
 
 
 # ROUTES FOR THE NETWORK CONNECTIVITY TEST
@@ -279,7 +280,8 @@ def networkConnectivityData():
 @app.route("/connect", methods=["GET"])
 def networkConnectivity():
     worker_id = request.args.get("workerId")
-    return render_template("networks/connectivity.html", worker_id=worker_id)
+    mission = request.args.get("mission")
+    return render_template("networks/connectivity.html", worker_id=worker_id, mission=mission)
 
 
 if __name__ == "__main__":
