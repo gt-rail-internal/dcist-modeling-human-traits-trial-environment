@@ -227,11 +227,11 @@ function sidePanelEndGame(scores) {
     text5.style.justifyContent = "center";
 
     text5.onclick = () => {
-        window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId;
+        window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId + "&mission=" + mission;
     }
 
     window.setTimeout(() => {
-        window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId;
+        window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId + "&mission=" + mission;
     }, 5000);
 
     let score = scores.reduce((a, b) => a + b, 0);
