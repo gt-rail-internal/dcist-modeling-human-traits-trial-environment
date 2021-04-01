@@ -20,9 +20,11 @@ for p in os.listdir("./logs"):
     complete = False
     end_time = 0
 
-    num_caches = 0
     robots_interacted = [0, 0, 0, 0]
     num_interactions = [0, 0, 0, 0]
+
+    cache_collected = 0
+    cache_returned = 0
 
     stage = 0
 
@@ -100,14 +102,16 @@ for p in os.listdir("./logs"):
       if stage == 3 and "UGV4" in a and "select-vehicle" in former_a:
         num_interactions[3] += 1
 
-      
+      if stage == 3 and "cache collected" in a:
+        cache_collected += 1
       if stage == 3 and "cache returned" in a:
-        num_caches += 1
+        cache_returned += 1
         #response += "\n" + "  Stage 3 Cache Returned"
       
       if stage == 3 and started == True and "stage-complete" in a:
         complete = True
-        response += "\n" + "  Number of caches returned: " + str(num_caches)
+        response += "\n" + "  Number of caches collected: " + str(cache_collected)
+        response += "\n" + "  Number of caches returned: " + str(cache_returned)
         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
         response += "\n" + "  Total robot interactions: " + str(sum(num_interactions))
         response += "\n" + "  Interactions by robot: " + str(num_interactions[0]) + ", " + str(num_interactions[1]) + ", " + str(num_interactions[2]) + ", " + str(num_interactions[3])

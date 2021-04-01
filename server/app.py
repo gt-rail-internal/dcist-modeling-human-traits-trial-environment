@@ -153,7 +153,7 @@ def portal():
     if completion_string in ["1110", "1100", "1010"]:
         next_stage = 3  # this indicates we are now doing the robot mission, the mission variable will set the particular mission
     elif completion_string[0] == "1" and completion_string != "1111" and completion_string != "1011" and completion_string != "1101":
-        next_stage = str(random.randint(1, 2))
+        next_stage = 1 #str(random.randint(1, 2))  # currently only selecting SA test
     
     print("Next stage:", next_stage, completion_string, completion_string in ["1110", "1100", "1010"])
 
