@@ -65,4 +65,4 @@ def replay_stage(worker_id):
                 remove_waypoint(entry["target"])
                 print("removed waypoint")
 
-replay_stage("A1IC1DQ0QQBOOZ")
+replay_stage("A3OT9EHUD1UORR")
