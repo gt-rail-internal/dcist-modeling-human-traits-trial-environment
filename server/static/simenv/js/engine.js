@@ -46,6 +46,19 @@ function initEngine() {
     window.addEventListener("keydown", canvasKeypressHandler);
 }
 
+// uses the server parameter robot_positions to set the initial robot positions
+function setInitialPositions() {
+    console.log("AAA", robot_positions, uiMap.uiObjects)
+    for (let obj in uiMap.uiObjects) {
+        console.log(obj, uiMap.uiObjects[obj].name)
+        if (robot_positions.hasOwnProperty(uiMap.uiObjects[obj].name)) {
+            uiMap.uiObjects[obj].x = robot_positions[uiMap.uiObjects[obj].name][0] * uiMap.mapCanvas.width;
+            uiMap.uiObjects[obj].y = robot_positions[uiMap.uiObjects[obj].name][1] * uiMap.mapCanvas.height;
+            console.log("set", uiMap.uiObjects[obj].name)
+        }
+    }
+}
+
 function getCams() {
     // update the cameras
     fetch("cams").then(data => data.text()).then(data => {
