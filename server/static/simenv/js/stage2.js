@@ -108,6 +108,9 @@ function initStage2() {
     uiMap.uiObjects.push(cache4);
     uiMap.uiObjects.push(cache5);
 
+    // sets the robot positions
+    setInitialPositions();
+
     // add the map collisions
     northWarehouse = new MapUIObstacle();
     northWarehouse.shape = [[.600, .297],

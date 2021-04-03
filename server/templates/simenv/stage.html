@@ -90,6 +90,11 @@
 
     mission = "{{ mission }}";
 
+    // get the robot reset positions as a server parameter
+    //console.log('"{{ robot_positions | safe }}"');
+    position_string = '{{ robot_positions }}'.replace(/&#39;/g, '"')
+    robot_positions = JSON.parse(position_string);
+
     // have the map update almost constantly
     window.setInterval(function() {
         uiMap.draw();

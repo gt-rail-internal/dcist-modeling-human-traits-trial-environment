@@ -122,7 +122,7 @@ def stage():
     # init the ROS subscribers and some other variables
     initROSSubscribers(stage)
     
-    return render_template("simenv/stage.html", mission=mission, worker_id=worker_id, stage=stage)
+    return render_template("simenv/stage.html", mission=mission, worker_id=worker_id, stage=stage, robot_positions=str(robot_reset_positions[stage]))
 
 @app.route("/portal", methods=["GET"])
 def portal():
@@ -179,7 +179,7 @@ def testStage():
     next_stage = request.args.get("nextStage")
 
     robot_positions = robot_reset_positions["0"]
-    return render_template("simenv/stage.html", mission=mission, stage=0, next_stage=next_stage, worker_id=worker_id)
+    return render_template("simenv/stage.html", mission=mission, stage=0, next_stage=next_stage, worker_id=worker_id, robot_positions=str({}))
 
 @app.route("/logging", methods=["POST"])
 def log():
