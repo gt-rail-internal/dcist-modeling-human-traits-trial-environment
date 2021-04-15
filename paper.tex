@@ -1,0 +1,273 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
+
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+%In case you encounter the following error:
+%Error 1010 The PDF file may be corrupt (unable to open PDF file) OR
+%Error 1000 An error occurred while parsing a contents stream. Unable to analyze the PDF file.
+%This is a known problem with pdfLaTeX conversion filter. The file cannot be opened with acrobat reader
+%Please use one of the alternatives below to circumvent this error by uncommenting one or the other
+%\pdfobjcompresslevel=0
+%\pdfminorversion=4
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+\title{\LARGE \bf
+Predicting Individual Human Performance in Human-Robot Teaming
+}
+
+
+\author{Jack Kolb$^{1}$, Mayank Kishore$^{1}$, Kenneth Shaw$^{2}$, Harish Ravichandar$^{1}$, and Sonia Chernova$^{1}$}% <-this % stops a space
+\thanks{This work was supported by the Army Research Lab under Grant W911NF-17-2-0181 (DCIST CRA)}% <-this % stops a space
+\thanks{$^{1}$Authors are with the College of Computing,
+        Georgia Institute of Technology, North Avenue, Atlanta, GA 30332, USA
+        {\tt\small {kolb, mkishore5, harish.ravichandar, chernova} @gatech.edu}%
+\thanks{$^{2}$Author is with the Robotics Institute, Carnegie Mellon University, 5000 Forbes Avenue, Pittsburgh, PA 15213, USA
+        {\tt\small kshaw2@andrew.cmu.edu}}%
+}
+
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+Humans differ significantly in cognitive traits associated with human-robot teaming. Not utilizing these inherent differences when assigning humans to roles can be detrimental to the team’s performance. We developed cognitive tests to quantify two human traits – situational awareness and network conductivity – and found that scores from these tests correlate to human performance in two typical interactive human-robot tasks. This work is the first to explore linking human cognitive traits to human-robot task performance.
+
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{INTRODUCTION}
+
+\textit{Human-robot teaming (HRT)} enables groups of humans and autonomous robots to communicate, coordinate, and collaborate together to perform a joint activity.  HRT has been studied across a wide range of domains, including search and rescue~\cite{kohlbrecher2015}, defense~\cite{parasuraman2007adaptive}, and space exploration~\cite{fong2005interaction}.  In the context of HRT, the problem of \textit{task assignment} is that of determining which task or role each agent (human or robot) should perform.
+
+Prior work on task allocation involving a mix of human and autonomous agents has largely assumed that all human agents within a given category (e.g., soldier, firefighter, rescuer) are interchangeable and can be assigned arbitrarily.  However, treating all human operators as identical fails to account for individualized differences in capabilities, skills, or cognitive abilities between operators.
+For example, prior work has shown that humans varied up to 87.5\% in two traits associated with active robot path planning~\cite{shannon2017human}.
+The resulting task assignment fails to take advantage of the full potential of certain individuals, harming team performance.  We hypothesize that developing explicit models of individual human strengths and weaknesses can one day help improve task allocation in complex human-robot teams.
+
+In this work, we seek to develop a set of simple pretests that enable us to model the variations in human cognitive abilities that are pertinent to human-robot interaction, and how such models can help predict an operator’s ability to control a team of agents.  In particular, we seek to identify a correlation between an operator’s performance on simple cognitive tests, and their performance in complex swarm coordination tasks.  In the future, we envision this type of predictive model will enable team-level coordination algorithms, such as team composition and task assignment, to optimize human-robot teaming performance.
+
+\section{STUDY OVERVIEW}
+
+Our objective is to develop a set of cognitive tests that evaluate innate human abilities relevant to human-robot teaming, and to demonstrate that an individual's performance on these pretests correlates with their performance on certain human-robot teaming tasks. We looked at two cognitive traits -- \textit{situational awareness and network connectivity} -- and two generic human-robot teaming task scenarios -- \textit{creating an ad-hoc robot network and controlling multiple robots}. We hypothesized the following:
+
+\begin{enumerate}
+    \item Performance in the \textbf{situational awareness pretest} will correlate to performance in the \textbf{multi-robot control scenario}.
+    \item Performance in the \textbf{network connectivity pretest} will correlate to performance in the \textbf{ad-hoc robot network scenario}.
+    \item Performance in the \textbf{situational awareness pretest} will \underline{\textbf{not}} correlate to performance in the \textbf{ad-hoc robot network scenario}.
+    \item Performance in the \textbf{network connectivity pretest} will \underline{\textbf{not}} correlate to performance in the \textbf{multi-robot control scenario}.
+\end{enumerate}
+
+To test our hypotheses we conducted a two-way factorial within-subjects study where participants were exposed to one pretest and one human-robot task scenario. The pretests and scenarios returned numerical scores for each user, allowing us to determine the correlation coefficients between each pretest and each scenario. A correlation between a pretest and a scenario would indicate that the pretest could predict a participant's scenario performance, and could therefore be used to assign humans to scenarios to maximize the overall performance. The scenario roles were designed to mimic commonplace real-world robot control scenarios.
+
+Forty participants were recruited using Amazon Mechanical Turk and were fully informed of the study. Each of the four study conditions were completed by ten participants.
+
+\section{COGNITIVE PRETESTS}
+
+Prior work in human-robot control has identified a number of cognitive traits that affect a human's ability to control robots. Among the most prominently referenced traits are situational awareness~\cite{chen2014human, ponda2010predictive, harriott2014biologically}, prior experience with related tasks~\cite{chen2014human, ponda2010predictive}, understanding of the robots' autonomy~\cite{chen2014human, harriott2014biologically}, and ability to context switch between tasks~\cite{chen2014human}. However, no prior studies have attempted to find correlations between these cognitive traits and a human's performance in human-robot teaming tasks.
+
+Furthermore, recent work in cognitive science has found it possible to measure a human's ability to mentally model hidden network topologies~\cite{lynn2020abstract} -- we refer to this as \textit{"network connectivity"}. This trait is highly applicable to multi-agent robot scenarios, which often rely on hidden sensor or communication networks.
+
+From this array of traits we selected two that we assumed would vary in influence depending on the scenario. \textit{Situational awareness}, and \textit{network connectivity}. We avoided selecting traits that should affect a human's performance broadly across human-robot task scenarios, as our objective is to test traits that influence performance on some scenarios, but not others.
+
+We then developed a browser-based pretest for each trait. The pretests were designed to have the following characteristics, which we deemed important to keep pretests generalized and applicable to a variety of human-robot tasks:
+\begin{itemize}
+    \item Each pretest is abstract and does not directly mimic a specific human-robot teaming task. 
+    \item Each pretest seeks to estimate a single human trait or ability.
+    \item There is significant variance in participant performance on a given pretest.
+\end{itemize}
+
+\subsection{Situational Awareness Pretest}
+
+Situational awareness is a human's mental model of an environment. Situational awareness is often evaluated on Endsley's three-level model \cite{endsley1995}:
+
+\begin{itemize}
+    \item[] Level 1: Perception of elements in the environment.
+    \item[] Level 2: Comprehension of the environment's state.
+    \item[] Level 3: Prediction of the environment's future state.
+\end{itemize}
+
+We expect that the design of a human-robot task scenario will determine the effect a human's situational awareness has on their performance in the scenario. Scenarios that require a human to be actively aware of multiple robots simultaneously should utilize the human's situational awareness ability more than scenarios where such active awareness is unnecessary.
+
+Measuring situational awareness has been widely studied, and a number of metrics have been developed to quantify a user's situational awareness \cite{salmon2009measuring,paletta2017towards, endsley1988situation}.  Overwhelmingly used is the Situation Awareness Global Assessment Technique (SAGAT), a test format where the user is periodically interrupted from a task and asked questions about the task's environment \cite{endsley1988situation}. This format can test any levels of Endsley's situational awareness model, and can be applied to a wide range of task environments. 
+
+For this pretest we developed an abstract task in which the SAGAT format is used to quantity a user's situational awareness.  In the environment shown in Figure \ref{fig:pretest-SA}, the user watches `packages' (represented by small shapes) be distributed through an abstracted warehouse network (represented by large shapes).  Warehouses can only process packages of their own color and shape, and they forward incorrect packages to downstream warehouses. Warehouses with no downstream warehouses must store incorrect packages they receive. Warehouses only have a limited capacity, so once a warehouse has stored too many packages it can no longer accept more, removing itself from the network. Over time these package buildups gradually break down the distribution network.
+
+The participant must keep track of the capacity levels of fifteen warehouses in the network.   To evaluate the participant's situational awareness, the warehouse simulation is run for 30 seconds, then is paused and hidden.  The participant is asked to identify the capacity level of each warehouse as accurately as possible, or as `uncertain'.  The simulation then resumes and this process is repeated five times.  The participant is scored by the accuracy of their labeling: $ score = \# correct - \# incorrect $. Warehouses marked as `uncertain' are not counted for nor against the participant's score.
+
+This pretest focuses on capturing Level 1 and Level 2 of Endsley's situational awareness model. While the user is not directly asked comprehension questions about the warehouse network, as the network breaks down it becomes difficult to simply memorize the states of all fifteen warehouses. Users are therefore pushed to use their implicit comprehension of the network's congestion points and structure to most accurately label the warehouse capacities.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.85\linewidth]{sa-test}
+  \caption{Screenshot of the situational awareness pretest, showing the packages being distributed through the warehouse network.}
+  \label{fig:pretest-SA}
+\end{figure}
+
+\subsection{Network Connectivity Pretest}
+
+Network connectivity is a human's ability to form mental models of a system's underlying network structure. Recent prior work in cognitive science has demonstrated that it is possible to model and predict a human’s ability to learn abstract structures and relationships between a stochastic sequence of events \cite{lynn2020abstract}. Furthermore, a simple cognitive test was found to effectively quantify this ability. Many human-robot interactive tasks similarly require a user to mentally model complex structural information, such as communication networks, sensing capabilities, and relative influences of each agent on the swarm. We expect that a network connectivity pretest can be used to predict performance in human-robot task scenarios that heavily use underlying network structures.
+
+In our preliminary work we implemented the network connectivity cognitive test from \cite{lynn2020abstract}.  However, we found it challenging to apply in practice because it took up to 40 minutes of the participant's time.  As a result we created a variant of the pretest, loosely inspired by the prior work. Our pretest, shown in Figure \ref{fig:pretest-Net}, evaluates an individual’s ability to efficiently propagate information across a given network, much like a swarm’s communication network. The test consists of two phases.  In the first phase, the participant observes exemplar runs illustrating how information originating at various nodes propagates to the rest of the network, illustrated by flashing nodes (not pictured). In the second phase, the participant is asked to select the origin node such that information propagates to the rest of the network in the shortest amount of steps.  This process is repeated for seven networks of differing complexity (Figure \ref{fig:pretest-Net}(a) and (b) are two examples).  The underlying connectivity structure of the nodes (dotted lines in the figure) is not shown to the user, thus the operator must learn the underlying structure of the graph, just as in a swarm interaction scenario the operator must maintain a mental model of robot connectivity, line of sight, or other latent features.  The participant is scored by the total number of edges between their selected nodes and the correct nodes for each network.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.85\linewidth]{network-pretest.png}
+  \caption{Screenshot of the network connectivity pretest, showing nodes connected by edges (not shown to the user) that determine the order in which information is passed across the hidden network.  }
+  \label{fig:pretest-Net}
+\end{figure}
+
+\subsection{HUMAN-ROBOT TEAMING DOMAIN}
+
+To validate participant performance in a human-robot teaming task, we developed a simulation of a "search and retrieval" operation (Figure \ref{fig:sim}). In the simulation, participants control unmanned aerial vehicles (UAVs) and unmanned ground vehicles (UGVs) to retrieve several supply caches hidden throughout a 3D environment. To independently validate different human skill sets, we split the task into two scenarios.  The scenarios loosely represent two different typical operator roles:
+
+\begin{description}
+  \item[Scenario 1] Construct a communications relay network that extends to the caches.
+  \item[Scenario 2] Leverage the relay network to retrieve the caches.
+\end{description}
+
+Each scenario requires a different skill set and is subject to different constraints. We therefore expect participants to score higher on scenarios that emphasize their inherent traits.
+
+To reduce score variation due to learning effects, prior to starting their scenario participants were given a visual tutorial covering the contents of each scenario, and completed a set of navigation tasks in a simple demo world.
+
+The users controlled the robots remotely via a browser-based application. The 3D environment simulation was constructed in WeBots~\cite{michel2004cyberbotics}.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.85\linewidth]{webots-demo}
+  \caption{Screenshot of the simulated environment.}
+  \label{fig:sim}
+\end{figure}
+
+
+\begin{table}
+\begin{tabular}{lcccc}
+  &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Network \\ Type\end{tabular}} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Robot \\ Robot Control\end{tabular}} &
+  \textbf{\begin{tabular}[c]{@{}c@{}}Multi-Robot\\ Coordination\end{tabular}} \\ \hline
+\textbf{Sc. 1} & ad-hoc relay construction & high level & none \\ %\hline
+\textbf{Sc. 2} & ad-hoc relay navigation   & high level & high \\ %\hline
+\end{tabular}
+\caption{Summary of differences between scenarios.}
+\label{tab:scenariocharacteristics}
+\end{table}
+
+
+\subsection{Scenario 1: Relay Network}
+
+\textbf{User Capability Being Assessed:} Mental models of hidden robot network; understanding how network coverage will change with robot motion.
+
+\textbf{Overview:} The first scenario focuses on constructing a communication relay, or ad-hoc network, made up of a set of robots -- a common task in search and rescue missions. The participant is given a complete overhead map of the environment, including the locations of the caches. The participant controls two robot species, aerial robots and ground robots. However, the robots have a limited communication range.  To maintain control of a robot the operator must keep the robot connected to the base station, either directly or via a network of robots within each others' communication ranges. The operator's objective is to arrange available robots in a spatial configuration that forms a relay network reaching all of the caches.  Four aerial robots and four ground robots are used for this scenario -- just enough robots to cover all five caches on the map -- challenging the operator's ability to spacially arange the robots.
+
+The participant controls the robots by simply setting waypoints on a 2D overhead map. The vehicles autonomously travel along the waypoints to their destinations. By abstracting the robots to a high level control interface we sought to reduce the performance variation between users due to their abilities to control robots. If an aerial or ground exceeds the boundaries of the relay network, it becomes disconnected and stops; the disconnected robot will remain out of contact until it is reconnected to the network. The participant can retrieve disconnected robots by moving other robots to reestablish the network. The participant receives no information about the robots other than their locations and orientations as shown on the 2D overhead map.
+
+Solving this scenario requires the network to be built gradually from the robot base to the caches. While the aerial robots' movements are not affected by obstacles in the environment, the ground robots' movements are. However, as a tradeoff, the ground robots have a larger network relay range than the aerial robots due to their greater payload capacity. The user must therefore remain aware of the movements of the robots and the overall efficiency of the relay network. The scenario completes when the relay network extends to cover all five caches and the robot base, or 10 minutes have elapsed.
+
+We expected that performance in this scenario could be predicted by network connectivity pretest scores, but not situational awareness pretest scores. Since creating and applying a mental model of the robots' communication network is key to completing this scenario, it is reasonable to expect that network connectivity pretest scores would correlate to performance in this task. Alternatively, since there is little active awareness required, we did not expect the situational awareness pretest scores to correlate to this scenario's outcomes.
+
+\textbf{Metrics:} The participant is scored by the time it takes to complete the relay network. A lower score is superior.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.85\linewidth]{trialenv-stage2}
+  \caption{Mockup of the Scenario 2 user interface.}
+  \Description{Scenario 2 mockup image.}
+\end{figure}
+
+\subsection{Scenario 2: Cache Retrieval}
+
+\textbf{Participant Capability Being Assessed:} Situational awareness in the context of low-level robot control; context switching between multiple largely independent tasks.
+
+\textbf{Overview:} The second scenario focuses on low level robot control with the objective of cache retrieval.  The operator is tasked with retrieving each of the five caches and returning them to the robot base.  To begin the scenario, the participant is given a full map of the environment labeled with cache locations, and a suitable relay network that extends to the caches.  This configuration approximates the results of the other scenario, however each participant will be given the same ad-hoc network configuration.  The participant will only control the retrieval robots and will not be able to change the network.
+
+This scenario simulates a lower level of ground robot control.  While in the first scenario ground robots autonomously moved around obstacles, in this scenario they will always travel directly to the next waypoint.  As a result, the operator is required to closely supervise each robot and carefully arrange waypoints to avoid ground obstacles.  The operator must also keep each robot within the boundaries of the relay network; a robot that exceeds the boundaries of the relay network will become disconnected, as in the first scenario.  When a robot approaches a cache, the user retrieves it by pressing a button, and then returns the robot to the base.  The scenario ends when all caches have been collected or 10 minutes have elapsed. The user is allowed four ground robots to control.
+
+\textbf{Metrics:} The participant is scored by the cumulative distance traveled by their robots, and the number of cache interactions (pick up and returns) the robots carried out, via the function $ score = \frac{distance traveled}{# interactions} $. When a participant has zero robot interactions the score is twice the distance traveled (instead of infinity). A lower score is superior.
+
+
+\begin{figure}[thpb]
+  \centering
+  \framebox{\parbox{3in}{We suggest that you use a text box to insert a graphic (which is ideally a 300 dpi TIFF or EPS file, with all fonts embedded) because, in an document, this method is somewhat more stable than directly inserting a picture.
+}}
+  \includegraphics[width=1.0\linewidth]{trialenv-stage3}
+  \caption{Mockup of the Scenario 3 user interface}
+  \label{figurelabel}
+\end{figure}
+
+
+\section{RESULTS ANALYSIS}
+
+After conducting ten trials for each pretest and scenario pairing, the plots in Fig. \figurename{123} were generated for each pairing. Trend lines were fit to each plot and the correlation coefficients were calculated.
+
+Two data points in the situational awareness and cache retrieval pairing were discarded from the trend line due to fallbacks of the scoring system: the two participants moved their robots great distances but failed to have more than one interaction with the caches, resulting in abnormally high overall scores. They are shown on the plot but marked with "X"s.
+
+The correlation coefficients and visual trends supported all four of our hypotheses. The \textbf{situational awareness} pretest corresponded to an approximately 1x performance difference on the cache retrieval scenario ($r^2=.647$), and had no visible performance impact on the relay network scenario ($r^2=.155$). Alternatively, the \textbf{network connectivity} pretest had no meaningful performance impact on the cache retrieval scenario ($r^2=.335$), but corresponded to an approximately 3x performance difference on the relay network scenario ($r^2=.439$).
+
+These trends successfully link two cognitive pretests aimed at quantifying specific human traits with two commonplace human-robot teaming tasks.
+
+We have shown that scores from these cognitive pretests can be used to predict a human's performance on some human-robot teaming tasks. This work constututes a meaningful step towards using inherent human mental traits in assigning humans to roles on human-robot teams.
+
+%\section{CONCLUSIONS}
+
+%A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work %or suggest applications and extensions. 
+
+\addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
+                                  % on the last page of the document manually. It shortens
+                                  % the textheight of the last page by a suitable amount.
+                                  % This command does not take effect until the next page
+                                  % so it should come on the page before the last. Make
+                                  % sure that you do not shorten the textheight too much.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{APPENDIX}
+
+%Appendixes should appear before the acknowledgment.
+
+%\section*{ACKNOWLEDGMENT}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%References are important to the reader; therefore, each citation must be complete and correct. If at all possible, references should be commonly available publications.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
