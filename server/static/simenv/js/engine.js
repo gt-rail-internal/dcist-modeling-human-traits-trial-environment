@@ -410,7 +410,7 @@ function log(data) {
 
 function checkTimeout() {
     now = new Date().getTime() / 1000;
-    timeout = mission != 1 && uiMap.stage != 0 ? 60 * 10 : 60 * 5;
+    timeout = mission != 1 || uiMap.stage != 0 ? 60 * 10 : 60 * 5;
 
     if (now - startTime > timeout) {
         return true;
