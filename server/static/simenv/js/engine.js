@@ -386,6 +386,8 @@ function stageComplete() {
         uiMap.uiObjects[i].name = "Complete";
     }
 
+    log({stage: uiMap.stage, action: "distance-traveled" + uiMap.distanceTraveled});
+
     alert("This stage has now ended! You will now move on to the next part of the experiment.");
 
     log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
