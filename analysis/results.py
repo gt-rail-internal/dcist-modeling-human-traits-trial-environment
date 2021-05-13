@@ -25,6 +25,7 @@ for p in os.listdir("./logs"):
 
     cache_collected = 0
     cache_returned = 0
+    cache_identified = 0
 
     stage = 0
 
@@ -45,6 +46,28 @@ for p in os.listdir("./logs"):
           response += "\n" + "  NETWORK " + str(score)
         else:
           response += "\n" + "  INVALID NETWORK"
+
+      # if completed Stage 1, get stats
+      if "stage" in a and a[-3] == "1" and stage == 0:
+        stage = 1
+
+      if stage == 1 and "add-valid-waypoint" in a and not started:
+        started = True
+        start_time = int(a[:10])
+        response += "\n" + "  Stage 1 Start " + a[:11]
+
+      if stage == 1 and "cache collected" in a:
+        cache_collected += 1
+      
+      if stage == 1 and started == True and "stage-complete" in a:
+        complete = True
+        end_time = int(a[:10])
+        response += "\n" + "  Number of caches identified: " + str(cache_collected)
+        response += "\n" + "  Stage 1 End " + a[:11]
+
+      if stage == 1 and complete == True:
+        response += "\n" + "  Stage 1 duration " + str(end_time - start_time)
+        break
 
       # if completed Stage 2, print the start time, reset times, end time, and the duration
       if "stage" in a and a[-3] == "2" and stage == 0:

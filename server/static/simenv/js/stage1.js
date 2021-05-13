@@ -141,6 +141,7 @@ function addCache(x, y) {
             uiMap.knownCaches += 1;  // variable to count the number of known caches
 
             console.log("created cache");
+            log({stage: uiMap.stage, action: "collected cache"});
         }
     }
 }

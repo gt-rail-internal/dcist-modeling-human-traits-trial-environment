@@ -7,11 +7,11 @@ import time
 
 
 def add_waypoint(robot, x, y):
-    requests.get("http://708ae90a4f35.ngrok.io/add-waypoint?id=" + robot + "&x=" + str(x) + "&y=" + str(y))
+    requests.get("http://fbd7eaf459e6.ngrok.io/add-waypoint?id=" + robot + "&x=" + str(x) + "&y=" + str(y))
     return
 
 def remove_waypoint(robot):
-    requests.get("http://708ae90a4f35.ngrok.io/remove-waypoint?id=" + robot)
+    requests.get("http://fbd7eaf459e6.ngrok.io/remove-waypoint?id=" + robot)
     return
 
 def replay_stage(worker_id):
@@ -20,6 +20,7 @@ def replay_stage(worker_id):
     running = False
 
     with open("./logs/" + worker_id + ".txt", "r") as f:
+        print("found log")
         lines = f.readlines()
         lines = [x[:-1] for x in lines]  # remove the trailing \n
 
@@ -34,7 +35,7 @@ def replay_stage(worker_id):
             curr_time = datetime.datetime.now().timestamp() - diff_time
 
             # first get the first action
-            if not running and "add-valid-waypoint" in action and "'stage': 3" in action:
+            if not running and "add-valid-waypoint" in action and "'stage': 1" in action:
                 start_time = float(action.split(",")[0])
                 diff_time = datetime.datetime.now().timestamp() - start_time
                 running = True
@@ -64,5 +65,6 @@ def replay_stage(worker_id):
                 entry = ast.literal_eval(action[comma + len(worker_id) + 2:])
                 remove_waypoint(entry["target"])
                 print("removed waypoint")
+    print("done")
 
-replay_stage("AC1NK8NJ84V8Y")
+replay_stage("A1Q7FDGYMNEXTE")
