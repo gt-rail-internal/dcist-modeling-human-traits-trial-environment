@@ -373,35 +373,34 @@ function BFS(rootNode, searchValue) {
     return [];
 };
 
-
 function stageComplete() {
     // log it
-    log({stage: uiMap.stage, action: "stage-complete"})
+    log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
 
-    // set the ui map to complete
-    uiMap.stageComplete = true;
+    // after half a second (for the log message to go through), redirect
+    window.setTimeout(() => {
+        // set the ui map to complete
+        uiMap.stageComplete = true;
 
-    // set all vehicle names to "Complete"
-    for (i in uiMap.uiObjects) {
-        uiMap.uiObjects[i].name = "Complete";
-    }
+        // set all vehicle names to "Complete"
+        for (i in uiMap.uiObjects) {
+            uiMap.uiObjects[i].name = "Complete";
+        }
 
-    log({stage: uiMap.stage, action: "distance-traveled" + uiMap.distanceTraveled});
+        alert("This stage has now ended! You will now move on to the next part of the experiment.");
 
-    alert("This stage has now ended! You will now move on to the next part of the experiment.");
+        log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
 
-    log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
+        // if on the training stage, move to the next stage
+        if (uiMap.stage == 0) {
+            window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + mission + "&mission=" + mission;
+        }
+        else {
+            window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
+        }
 
-    // if on the training stage, move to the next stage
-    if (uiMap.stage == 0) {
-        window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + mission + "&mission=" + mission;
-    }
-    else {
-        window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
-    }
-
+    }, 1000);
 }
-
 
 function log(data) {
     data["worker-id"] = uiMap.workerID;  // include the worker ID
