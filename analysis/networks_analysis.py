@@ -121,12 +121,12 @@ def determine_score(picks):
     score = 0
 
     if len(picks) < 16:
-        print("  Networks has less than expected picks")
-        return -1
+        print("  Networks has less than expected picks", len(picks))
+        return -1, [], []
     
     if len(picks) > 16:
-        print("  Networks has more than expected picks")
-        return -1
+        print("  Networks has more than expected picks", len(picks))
+        return -1, [], []
 
     p1_attempt1 = int(picks[0])
     p1_attempt2 = int(picks[1])
@@ -147,39 +147,94 @@ def determine_score(picks):
 
     if easy != 2:
         print("  Network data may need to be cured")
-        return -1
+        return -1, [], []
 
-    total = dists[1][p1_attempt1]
-    total = (total + dists[1][p1_attempt2]) / 2 if p1_attempt2 != -1 else total
-    total = (2*total + dists[1][p1_attempt3]) / 3 if p1_attempt3 != -1 else 2 * total / 3  # if the second attempt was right, say the third was right too
-    score += total
-    #print("  P1:", total)
+    raws = [[], [], [], [], []]
 
-    total = dists[2][p2_attempt1]
-    total = (total + dists[2][p2_attempt2]) / 2 if p2_attempt2 != -1 else total
-    total = (2*total + dists[2][p2_attempt3]) / 3 if p2_attempt3 != -1 else 2 * total / 3  # if the second attempt was right, say the third was right too
-    score += total
-    #print("  P2:", total)
+    P1 = dists[1][p1_attempt1]
+    raws[0].append(dists[1][p1_attempt1])
 
-    total = dists[3][p3_attempt1]
-    total = (total + dists[3][p3_attempt2]) / 2 if p3_attempt2 != -1 else total
-    total = (2*total + dists[3][p3_attempt3]) / 3 if p3_attempt3 != -1 else 2 * total / 3  # if the second attempt was right, say the third was right too
-    score += total
+    P1 = (P1 + dists[1][p1_attempt2]) / 2 if p1_attempt2 != -1 else P1
+    if p1_attempt2 == -1:
+        raws[0].append(0)
+    else:
+        raws[0].append(dists[1][p1_attempt2])
+
+    P1 = (2*P1 + dists[1][p1_attempt3]) / 3 if p1_attempt3 != -1 else 2 * P1 / 3  # if the second attempt was right, say the third was right too
+    if p1_attempt3 == -1:
+        raws[0].append(0)
+    else:
+        raws[0].append(dists[1][p1_attempt3])
+    score += P1
+    #print("  P1:", P1)
+
+    P2 = dists[2][p2_attempt1]
+    raws[1].append(dists[2][p2_attempt1])
+
+    P2 = (P2 + dists[2][p2_attempt2]) / 2 if p2_attempt2 != -1 else P2
+    if p2_attempt2 == -1:
+        raws[1].append(0)
+    else:
+        raws[1].append(dists[2][p2_attempt2])
+
+    P2 = (2*P2 + dists[2][p2_attempt3]) / 3 if p2_attempt3 != -1 else 2 * P2 / 3  # if the second attempt was right, say the third was right too
+    if p2_attempt3 == -1:
+        raws[1].append(0)
+    else:
+        raws[1].append(dists[2][p2_attempt3])
+
+    score += P2
+    #print("  P2:", P2)
+
+    P3 = dists[3][p3_attempt1]
+    P3 = (P3 + dists[3][p3_attempt2]) / 2 if p3_attempt2 != -1 else P3
+    if p3_attempt2 == -1:
+        raws[2].append(0)
+    else:
+        raws[2].append(dists[3][p3_attempt2])
+
+    P3 = (2*P3 + dists[3][p3_attempt3]) / 3 if p3_attempt3 != -1 else 2 * P3 / 3  # if the second attempt was right, say the third was right too
+    if p3_attempt3 == -1:
+        raws[2].append(0)
+    else:
+        raws[2].append(dists[3][p3_attempt3])
+
+    score += P3
     #print("  P3:", total)
 
-    total = dists[4][p4_attempt1]
-    total = (total + dists[4][p4_attempt2]) / 2 if p4_attempt2 != -1 else total
-    total = (2*total + dists[4][p4_attempt3]) / 3 if p4_attempt3 != -1 else 2 * total / 3  # if the second attempt was right, say the third was right too
-    score += total
-    #print("  P4:", total)
+    P4 = dists[4][p4_attempt1]
+    P4 = (P4 + dists[4][p4_attempt2]) / 2 if p4_attempt2 != -1 else P4
+    if p4_attempt2 == -1:
+        raws[3].append(0)
+    else:
+        raws[3].append(dists[4][p4_attempt2])
 
-    total = dists[5][p5_attempt1]
-    total = (total + dists[5][p5_attempt2]) / 2 if p5_attempt2 != -1 else total
-    total = (2*total + dists[5][p5_attempt3]) / 3 if p5_attempt3 != -1 else 2 * total / 3  # if the second attempt was right, say the third was right too
-    score += total
-    #print("  P5:", total)
+    P4 = (2*P4 + dists[4][p4_attempt3]) / 3 if p4_attempt3 != -1 else 2 * P4 / 3  # if the second attempt was right, say the third was right too
+    if p4_attempt3 == -1:
+        raws[3].append(0)
+    else:
+        raws[3].append(dists[4][p4_attempt3])
+
+    score += P4
+    #print("  P4:", P4)
+
+    P5 = dists[5][p5_attempt1]
+    P5 = (P5 + dists[5][p5_attempt2]) / 2 if p5_attempt2 != -1 else P5
+    if p5_attempt2 == -1:
+        raws[4].append(0)
+    else:
+        raws[4].append(dists[5][p5_attempt2])
+
+    P5 = (2*P5 + dists[5][p5_attempt3]) / 3 if p5_attempt3 != -1 else 2 * P5 / 3  # if the second attempt was right, say the third was right too
+    if p5_attempt3 == -1:
+        raws[4].append(0)
+    else:
+        raws[4].append(dists[5][p5_attempt3])
+
+    score += P5
+    #print("  P5:", P5)
     
-    return score
+    return score, [P1, P2, P3, P4, P5], raws
 
 
 def load_picks():
