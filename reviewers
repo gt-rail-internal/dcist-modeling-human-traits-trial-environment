@@ -1,0 +1,86 @@
+Associate Editor
+
+This paper takes a novel direction in the HRT research with
+a clear overall presentation. However, the author should
+consider what reviewer 4 pointed out regarding statistical
+analysis.
+
+
+
+Reviewer 1 of ROMAN 2021 submission 276
+
+Comments to the author
+======================
+
+Summary: The paper introduces simple cognitive tests for
+measuring inherent variations in human capabilities related
+to human-robot teaming (HRT). A small user study is
+performed to test the correlation between the pretests and
+related HRT tasks.
+
+Strengths:
+
+1) The paper was clearly written and overall a fun read.
+The ideas, research question, contributions and the
+experimental results are all well explained. 
+
+2) The paper's research question is well motivated and it
+is of interest to the HRI community.
+
+3) This work seems to take a novel direction in developing
+metrics to test the variations between different humans in
+HRT tasks. 
+
+Weaknesses:
+
+1) I think the sample size in the user study is rather
+small. There are only 10 participants in each condition.
+Since the experiment in simulation, I think it should be
+easier to recruit more people, which should strength of the
+findings.
+
+2) I would like to see the next step of this experiment.
+After finding the correlation between pretests and HRT
+tasks, how can they be used for improving performance in
+HRT tasks with different humans? A user study on this would
+definitely put this paper in an award category.
+
+3) The correlation results for H4 are a little high
+(0.369). A small change in correlation can easily change
+the findings for H4. Given the small sample size, this can
+happen possibly by a single participant performing well on
+this task. I think this hypothesis needs further
+evaluation. 
+
+
+
+Reviewer 4 of ROMAN 2021 submission 276
+
+Comments to the author
+======================
+
+The number of data points used for fitting are not enough.
+In some cases, only 8 points are used to derive statistical
+conclusion. If you're using few number of data points, then
+error on each data point should be considered in your
+fitting. One way to estimate error per data point is to
+calculate the mean and standard deviation of each score and
+assign standard deviation as the error. 
+Additionally, there are inconsistencies with the user score
+distributions. Please check the attached figures. As you
+see, your distributions not identically distributed. This
+means you can not compare results obtained from these
+distributions. 
+To fix these issues, much more data points need to be
+obtained for each test. Only 8 to 10 data points are not
+enough to make the claims in your paper. If the users are
+only taking certain pairs of pretest and practical test,
+then you need to show that the distributions are
+independent and identically distributed with users taking
+other pairs of tests. 
+Additionally, I'm not convinced that situational awareness
+has no correlation with creating ad-hoc network. Or that
+network connectivity test has no correlation with
+controlling multiple robots. Again, this can be shown if
+you have more data points and you show that the data points
+are i.i.d.
