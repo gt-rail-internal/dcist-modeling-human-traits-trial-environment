@@ -152,24 +152,27 @@ function checkValidWaypoint(prior_waypoint, waypoint) {
 }
 
 function checkConditions() {
-    window.setInterval(() => {
+    let finished = false;
+    window.setTimeout(() => {
         // if the stage is complete, return
-        if (uiMap.stageComplete) {
+        if (uiMap.stageComplete || finished) {
             return;
         }
 
         // if the time limit has completed, time out
-        if (checkTimeout()) {
+        else if (checkTimeout()) {
             console.log("Timeout!");
             stageComplete();
+            finished = true;
             return;
         }
 
         // if the end condition is met, victory
-        if (uiMap.endCheck()) {
+        else if (uiMap.endCheck()) {
             console.log("VICTORY!!");
             uiMap.stageVictory = true;
             stageComplete();
+            finished = true;
             return;
         }
     }, 250);
@@ -389,6 +392,10 @@ function stageComplete() {
         for (i in uiMap.uiObjects) {
             uiMap.uiObjects[i].name = "Complete";
         }
+
+        document.getElementById("instructions-top").innerHTML = "This stage has now ended! You will now move on to the next part of the experiment.";
+        document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
+
 
         log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
 
