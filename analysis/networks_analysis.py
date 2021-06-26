@@ -147,7 +147,7 @@ def determine_score(picks):
 
     if easy != 2:
         print("  Network data may need to be cured")
-        return -1, [], []
+        #return -1, [], []
 
     raws = [[], [], [], [], []]
 

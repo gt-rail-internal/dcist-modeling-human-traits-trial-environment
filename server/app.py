@@ -120,7 +120,9 @@ def stage():
     robot_positions = robot_reset_positions[stage]
 
     # init the ROS subscribers and some other variables
-    initROSSubscribers(stage)
+    # if the stage is not stage 2
+    if stage != 2:
+        initROSSubscribers(stage)
     
     return render_template("simenv/stage.html", mission=mission, worker_id=worker_id, stage=stage, robot_positions=str(robot_reset_positions[stage]))
 
@@ -153,14 +155,14 @@ def portal():
     if completion_string in ["1110", "1100", "1010"]:
         next_stage = 3  # this indicates we are now doing the robot mission, the mission variable will set the particular mission
     elif completion_string[0] == "1" and completion_string != "1111" and completion_string != "1011" and completion_string != "1101":
-        next_stage = 2 #str(random.randint(1, 2))  # currently only selecting SA test (1) or the NC test (2)
+        next_stage = str(random.randint(1, 2))  # currently only selecting SA test (1) or the NC test (2)
     
     print("Next stage:", next_stage, completion_string, completion_string in ["1110", "1100", "1010"])
 
     completion_code = "complete the missions first!"
     if completion_string in ["1101", "1011", "1111"]:
         next_stage = -1
-        completion_code = "404626707"
+        completion_code = "1985636"
 
     return render_template("simenv/portal.html", mission=mission, worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
 
