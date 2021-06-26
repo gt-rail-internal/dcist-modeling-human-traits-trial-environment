@@ -152,10 +152,9 @@ function checkValidWaypoint(prior_waypoint, waypoint) {
 }
 
 function checkConditions() {
-    let finished = false;
     window.setTimeout(() => {
         // if the stage is complete, return
-        if (uiMap.stageComplete || finished) {
+        if (uiMap.stageComplete) {
             return;
         }
 
@@ -163,7 +162,6 @@ function checkConditions() {
         else if (checkTimeout()) {
             console.log("Timeout!");
             stageComplete();
-            finished = true;
             return;
         }
 
@@ -172,7 +170,6 @@ function checkConditions() {
             console.log("VICTORY!!");
             uiMap.stageVictory = true;
             stageComplete();
-            finished = true;
             return;
         }
     }, 250);
