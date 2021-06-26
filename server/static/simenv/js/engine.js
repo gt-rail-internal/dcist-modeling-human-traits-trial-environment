@@ -413,7 +413,7 @@ function stageComplete() {
 function log(data) {
     data["worker-id"] = uiMap.workerID;  // include the worker ID
     data["stage"] = uiMap.stage;
-    //console.log("log", data, uiMap.workerID);
+    console.log("log", data, uiMap.workerID);
     return fetch("/logging", {method: "POST", body: JSON.stringify(data)});
 }
 
