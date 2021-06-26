@@ -3,9 +3,9 @@
 import os
 import networks_analysis
 
-for p in os.listdir("./logs"):
+for p in os.listdir("./logs_stage_3"):
   p = p[:-4]
-  with open("./logs/" + p + ".txt", "r") as f:
+  with open("./logs_stage_3/" + p + ".txt", "r") as f:
     print("----", p)
     response = "Looking at user" + " " + p
 
@@ -22,6 +22,7 @@ for p in os.listdir("./logs"):
 
     robots_interacted = [0, 0, 0, 0]
     num_interactions = [0, 0, 0, 0]
+    distance_traveled = []
 
     cache_collected = 0
     cache_returned = 0
@@ -105,6 +106,9 @@ for p in os.listdir("./logs"):
       if stage == 3 and "add-valid-waypoint" in a and not started:
         started = True
         response += "\n" + "  Stage 3 Start"
+
+      if stage == 3 and "distance-traveled" in a:
+        distance_traveled = a.split("'")[9].split(":")[1].split(",")
       
       if stage == 3 and "add-valid-waypoint" in a:
         if "UGV1" in a:
@@ -138,6 +142,7 @@ for p in os.listdir("./logs"):
         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
         response += "\n" + "  Total robot interactions: " + str(sum(num_interactions))
         response += "\n" + "  Interactions by robot: " + str(num_interactions[0]) + ", " + str(num_interactions[1]) + ", " + str(num_interactions[2]) + ", " + str(num_interactions[3])
+        response += "\n" + "  Distance Traveled: " + str(sum([float(x) for x in distance_traveled])) + " " + str(distance_traveled)
         response += "\n" + "  Stage 3 End"
 
       former_a = a

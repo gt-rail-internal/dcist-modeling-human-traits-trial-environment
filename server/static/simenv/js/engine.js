@@ -286,7 +286,7 @@ function manageAdHocRobots() {
                     uiMap.uiObjects[i].waypoints = [];
 
                     // if the object was not disconnected before, send a waypoint clearing message
-                    if (!uiMap.uiObjects[i].nameAttention) {
+                    if (!uiMap.uiObjects[i].nameAttention && uiMap.stage != 2) {
                         fetch("/remove-all-waypoints?id=" + uiMap.uiObjects[i].name)
                     }
 
