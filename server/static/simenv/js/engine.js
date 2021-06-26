@@ -377,6 +377,9 @@ function stageComplete() {
     // log it
     log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
 
+    document.getElementById("instructions-top").innerHTML = "This stage has now ended! You will now move on to the next part of the experiment.";
+    document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
+
     // after half a second (for the log message to go through), redirect
     window.setTimeout(() => {
         // set the ui map to complete
@@ -386,8 +389,6 @@ function stageComplete() {
         for (i in uiMap.uiObjects) {
             uiMap.uiObjects[i].name = "Complete";
         }
-
-        alert("This stage has now ended! You will now move on to the next part of the experiment.");
 
         log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
 
