@@ -153,6 +153,8 @@ function checkValidWaypoint(prior_waypoint, waypoint) {
 
 function checkConditions() {
     window.setTimeout(() => {
+        console.log("complete?", uiMap.stageComplete);
+        
         // if the stage is complete, return
         if (uiMap.stageComplete) {
             return;
