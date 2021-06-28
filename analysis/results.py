@@ -3,9 +3,11 @@
 import os
 import networks_analysis
 
-for p in os.listdir("./logs_stage_3"):
+path = "./logs_stage2_roman2"
+
+for p in os.listdir(path):
   p = p[:-4]
-  with open("./logs_stage_3/" + p + ".txt", "r") as f:
+  with open(path + "/" + p + ".txt", "r") as f:
     print("----", p)
     response = "Looking at user" + " " + p
 

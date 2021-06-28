@@ -119,12 +119,24 @@ def stage():
     print(">>>", mission, worker_id, stage, robot_reset_positions.keys())
     robot_positions = robot_reset_positions[stage]
 
+    if stage == 2:
+        robot_positions = {
+            "UAV1": [.522,.970],
+            "UGV1": [.641,.970],
+            "UAV2": [.522,.970],
+            "UGV2": [.641,.970],
+            "UAV3": [.522,.970],
+            "UGV3": [.641,.970],
+            "UAV4": [.522,.970],
+            "UGV4": [.641,.970],
+        }
+
     # init the ROS subscribers and some other variables
     # if the stage is not stage 2
     if stage != 2:
         initROSSubscribers(stage)
     
-    return render_template("simenv/stage.html", mission=mission, worker_id=worker_id, stage=stage, robot_positions=str(robot_reset_positions[stage]))
+    return render_template("simenv/stage.html", mission=mission, worker_id=worker_id, stage=stage, robot_positions=robot_positions)
 
 @app.route("/portal", methods=["GET"])
 def portal():
