@@ -153,8 +153,6 @@ function checkValidWaypoint(prior_waypoint, waypoint) {
 
 function checkConditions() {
     window.setInterval(() => {
-        console.log("complete?", uiMap.stageComplete);
-
         // if the stage is complete, return
         if (uiMap.stageComplete) {
             return;
@@ -162,6 +160,7 @@ function checkConditions() {
 
         // if the time limit has completed, time out
         else if (checkTimeout()) {
+            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
             console.log("Timeout!");
             stageComplete();
             return;
@@ -169,6 +168,7 @@ function checkConditions() {
 
         // if the end condition is met, victory
         else if (uiMap.endCheck()) {
+            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
             console.log("VICTORY!!");
             uiMap.stageVictory = true;
             stageComplete();

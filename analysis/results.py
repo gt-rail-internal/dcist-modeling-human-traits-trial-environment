@@ -34,7 +34,9 @@ for p in os.listdir(path):
 
     former_a = ""
 
-    for a in actions:
+    for i in range(len(actions)):
+      a = actions[i]
+
       # if completed the SAGAT, print the score
       if "SAGAT" in a and "complete" in a:
         response += "\n" + "  SAGAT " + str(a[:-1])
@@ -76,9 +78,9 @@ for p in os.listdir(path):
       if "stage" in a and a[-3] == "2" and stage == 0:
         stage = 2
       
-      if stage == 2 and "add-valid-waypoint" in a and not started:
+      if stage == 2 and "select-vehicle" in a and not started:
         started = True
-        start_time = int(a[:10])
+        start_time = int(actions[i-1][:10])
         response += "\n" + "  Stage 2 Start " + a[:11]
 
       if stage == 2 and "add-valid-waypoint" in a and reset == True:
