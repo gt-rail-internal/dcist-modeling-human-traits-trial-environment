@@ -7,11 +7,11 @@ import time
 
 
 def add_waypoint(robot, x, y):
-    requests.get("http://fbd7eaf459e6.ngrok.io/add-waypoint?id=" + robot + "&x=" + str(x) + "&y=" + str(y))
+    requests.get("http://39eb7dbaed1c.ngrok.io/add-waypoint?id=" + robot + "&x=" + str(x) + "&y=" + str(y))
     return
 
 def remove_waypoint(robot):
-    requests.get("http://fbd7eaf459e6.ngrok.io/remove-waypoint?id=" + robot)
+    requests.get("http://39eb7dbaed1c.ngrok.io/remove-waypoint?id=" + robot)
     return
 
 def replay_stage(worker_id):
@@ -35,7 +35,7 @@ def replay_stage(worker_id):
             curr_time = datetime.datetime.now().timestamp() - diff_time
 
             # first get the first action
-            if not running and "add-valid-waypoint" in action and "'stage': 1" in action:
+            if not running and "add-valid-waypoint" in action and "'stage': 3" in action:
                 start_time = float(action.split(",")[0])
                 diff_time = datetime.datetime.now().timestamp() - start_time
                 running = True
@@ -67,4 +67,4 @@ def replay_stage(worker_id):
                 print("removed waypoint")
     print("done")
 
-replay_stage("A1Q7FDGYMNEXTE")
+replay_stage("A3JAENCLOQRECC")

@@ -14,6 +14,7 @@ def generateImpactMatrix(J, T):
         for t in range(T):
             # generate the impact (assuming normal distribution)
             impact_val = random.gauss(0, .1)
+            impact_val = impact_val if impact_val > 0 else 0
             impacts.append(impact_val)
         I.append(impacts)
 
@@ -106,10 +107,10 @@ def generateHumanLivePerformance(humans, I):
         for j in range(J):
             # element-wise multiply the human traits and the impact vector
             performance = [human[i] * I[j][i] for i in range(len(I[j]))]
-            # add or remove up to 10%
-            performance = [.9 * x + random.random() * .2 * x for x in performance]
-            # gaussian noise of 10% SD
-            performance = [x + random.gauss(0, .1 * x) for x in performance]
+            # add or remove up to 20%
+            performance = [.8 * x + random.random() * .4 * x for x in performance]
+            # add gaussian noise of 20% SD
+            performance = [x + random.gauss(0, .2 * x) for x in performance]
             # add to the human's performances
             performances.append(sum(performance))
         P.append(performances)
@@ -159,29 +160,31 @@ subsets = pullSubsets(len(live_S), len(live_S[0]))
 print("  Comparing human assignments")
 correct_assignments = 0  # number of correct assignments
 exact_assignments = 0  # number of exact assignments
+random_correct_assignments = 0
 
 for s in subsets:
     # pull predicted and live humans for this subset
     pred = [predicted_S[x] for x in s]
     live = [live_S[x] for x in s]
-
-    #print("dim", len(live), "x", len(live[0]))
-    #print(">", s)
     
     # determine their optimal assignments
     pred_a = hungarian(pred)
     live_a = hungarian(live)
     pred_a = pred_a
     live_a = live_a
+    rand_a = random.sample([0, 1, 2], J)
 
     # add to analysis
     num_match = sum([1 for i in range(len(pred_a)) if pred_a[i] == live_a[i]])
     correct_assignments += num_match
     if num_match == len(pred_a):
         exact_assignments += num_match
+    if rand_a == pred_a:
+        random_correct_assignments += 1
 
 print("")
 print("RESULTS:")
 print("Total assignments", len(subsets))
 print("Correct assignments", round(100 * correct_assignments / len(subsets) / len(subsets[0]), 2))
+print("Rand Correct assignments", round(100 * random_correct_assignments / len(subsets) / len(subsets[0]), 2))
 print("Exact assignments", round(100 * exact_assignments / len(subsets) / len(subsets[0]), 2))
