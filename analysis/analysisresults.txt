@@ -1,1637 +1,506 @@
----- A1QEQOI98976S0
-Looking at user A1QEQOI98976S0
-  SAGAT 1617476345.201796,A1QEQOI98976S0,{'stage': 'SAGAT', 'action': 'complete', 'score': 25, 'worker-id': 'A1QEQOI98976S0'}
-  Stage 2 Start 1617477039.
-  Stage 2 End 1617477604.
+---- AD1FDB9A61LMS.3
+Looking at user AD1FDB9A61LMS.3
+  SAGAT 1624904628.257212,AD1FDB9A61LMS,{'stage': 'SAGAT', 'action': 'complete', 'score': 62, 'worker-id': 'AD1FDB9A61LMS'}
+  Stage 2 Start 1624904798.
+  Stage 2 End 1624905141.
+  Stage 2 duration354
+  Number of robots interacted with: 8
+---- A1H198MRIM37T1.2
+Looking at user A1H198MRIM37T1.2
+  Stage 2 Start 1624904642.
+  Stage 2 End 1624905225.
   Stage 2 duration601
----- A28IA1E18OFZZC
-  Network data may need to be cured
-Looking at user A28IA1E18OFZZC
-  NETWORK (11.333333333333334, [4.333333333333333, 0.0, 2.0, 1.6666666666666667, 3.3333333333333335], [[4, 4, 5], [0, 0, 0], [4, 1], [1, 1], [2, 3]])
----- A27TE0L5XP1H0U
-Looking at user A27TE0L5XP1H0U
-  NETWORK (7.666666666666666, [0.0, 0.3333333333333333, 2.6666666666666665, 1.3333333333333333, 3.3333333333333335], [[0, 0, 0], [1, 0, 0], [4, 3], [1, 0], [2, 5]])
-  Stage 2 Start 1625098712.
-  Stage 2 End 1625098834.
-  Stage 2 duration132
----- A1GTMV7M3JGNVC
-Looking at user A1GTMV7M3JGNVC
-  SAGAT 1624039520.756928,A1GTMV7M3JGNVC,{'stage': 'SAGAT', 'action': 'complete', 'score': 41, 'worker-id': 'A1GTMV7M3JGNVC'}
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 43
-  Interactions by robot: 35, 6, 0, 2
-  Distance Traveled: 1517.5207950350923 ['1517.5207950350923', '0', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 43
-  Interactions by robot: 35, 6, 0, 2
-  Distance Traveled: 1517.6759488789817 ['1517.6759488789817', '0', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 43
-  Interactions by robot: 35, 6, 0, 2
-  Distance Traveled: 1981.6827239614686 ['1519.8926484844117', '461.7900754770568', '0', '0']
-  Stage 3 End
----- A2HH41KU9WWNP4
-  Network data may need to be cured
-  Network data may need to be cured
-Looking at user A2HH41KU9WWNP4
-  NETWORK (14.666666666666666, [2.6666666666666665, 3.0, 5.0, 2.0, 2.0], [[3, 3, 2], [3, 3, 3], [5, 5], [2, 2], [2, 2]])
-  NETWORK (9.666666666666666, [3.6666666666666665, 0.0, 4.0, 0.0, 2.0], [[3, 3, 5], [0, 0, 0], [4, 4], [0, 0], [3, 1]])
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 1
-  Interactions by robot: 1, 0, 0, 0
-  Distance Traveled: 683.427432120621 ['680.6642128072984', '2.7632193133225105', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 1
-  Interactions by robot: 1, 0, 0, 0
-  Distance Traveled: 683.4274321206215 ['680.6642128072987', '2.7632193133227645', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 1
-  Interactions by robot: 1, 0, 0, 0
-  Distance Traveled: 683.4274321206215 ['680.6642128072987', '2.7632193133227645', '0', '0']
-  Stage 3 End
----- AMMAHZVCIYS32
-  Network data may need to be cured
-Looking at user AMMAHZVCIYS32
-  NETWORK (22.666666666666664, [7.333333333333333, 0.0, 4.666666666666667, 5.333333333333333, 5.333333333333333], [[6, 9, 7], [0, 0, 0], [6, 4], [6, 6], [6, 6]])
-  Stage 3 Start
+  Number of robots interacted with: 8
 ---- A16QR0D9MVFMS7
+  Idle from action 1617492984.566771,A16QR0D9MVFMS7,{'action': 'deselect-vehicle', 'target': 'UGV1', 'worker-id': 'A16QR0D9MVFMS7', 'stage': 2}
+ UNTIL 1617493065.313474,A16QR0D9MVFMS7,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A16QR0D9MVFMS7', 'stage': 2}
+ SUM 81
+  Idle from action 1617493127.569679,A16QR0D9MVFMS7,{'action': 'remove-waypoint', 'target': 'UAV4', 'worker-id': 'A16QR0D9MVFMS7', 'stage': 2}
+ UNTIL 1617493262.913405,A16QR0D9MVFMS7,{'stage': 2, 'action': 'stage-complete', 'worker-id': 'A16QR0D9MVFMS7'}
+ SUM 135
 Looking at user A16QR0D9MVFMS7
   SAGAT 1617491989.995845,A16QR0D9MVFMS7,{'stage': 'SAGAT', 'action': 'complete', 'score': 20, 'worker-id': 'A16QR0D9MVFMS7'}
   Stage 2 Start 1617492664.
   Stage 2 End 1617493262.
   Stage 2 duration601
----- A35DEXUQBSKQWF
-Looking at user A35DEXUQBSKQWF
-  SAGAT 1617480123.236796,A35DEXUQBSKQWF,{'stage': 'SAGAT', 'action': 'complete', 'score': 43, 'worker-id': 'A35DEXUQBSKQWF'}
-  Stage 2 Start 1617482016.
-  Stage 2 End 1617482592.
+  Number of robots interacted with: 8
+---- A1QVWKEQC7LN51.4
+  Idle from action 1624906372.845625,A1QVWKEQC7LN51,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.6857142857142857,0.5717380850655692]', 'worker-id': 'A1QVWKEQC7LN51', 'stage': 2}
+ UNTIL 1624906656.090194,A1QVWKEQC7LN51,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A1QVWKEQC7LN51'}
+ SUM 284
+Looking at user A1QVWKEQC7LN51.4
+  Stage 2 Start 1624906063.
+  Stage 2 End 1624906656.
   Stage 2 duration601
----- A12SU4E5VRSZQZ
-Looking at user A12SU4E5VRSZQZ
----- A1OE5BZB0GRA9P
-Looking at user A1OE5BZB0GRA9P
----- A1BZWNYN6GHJ76
-  Networks has less than expected picks 15
-Looking at user A1BZWNYN6GHJ76
-  NETWORK (-1, [], [])
----- none
-Looking at user none
----- A3HVID0VN8HV9T
-  Network data may need to be cured
-Looking at user A3HVID0VN8HV9T
-  NETWORK (18.0, [8.0, 4.0, 0.0, 0.0, 6.0], [[10, 7, 7], [4, 4, 4], [0, 0], [0, 0], [6, 6]])
-  Stage 1 Start 1621299506.
----- A37TJQC9A89D65
-Looking at user A37TJQC9A89D65
----- A2NH5AHHQMKEQP
-  Network data may need to be cured
-Looking at user A2NH5AHHQMKEQP
-  NETWORK (15.333333333333332, [4.666666666666667, 1.3333333333333333, 3.0, 1.0, 5.333333333333333], [[5, 5, 4], [1, 3, 0], [6, 2], [0, 0], [6, 6]])
-  Stage 3 Start
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 7
-  Interactions by robot: 5, 2, 0, 0
-  Distance Traveled: 1657.5633351608167 ['285.52531323981617', '1372.0380219210006', '0', '0']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 7
-  Interactions by robot: 5, 2, 0, 0
-  Distance Traveled: 1660.6741281145828 ['285.5285816375388', '1375.145546477044', '0', '0']
-  Stage 3 End
----- AN5RJ76YJGLCG
-  Networks has more than expected picks 17
-Looking at user AN5RJ76YJGLCG
-  NETWORK (-1, [], [])
-  Stage 3 Start
-  Number of caches collected: 1
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 9
-  Interactions by robot: 4, 2, 1, 2
-  Distance Traveled: 3573.103299341339 ['1222.8046531576822', '898.1554171089751', '426.02941355873975', '1026.1138155159422']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 9
-  Interactions by robot: 4, 2, 1, 2
-  Distance Traveled: 3573.1048174476255 ['1222.8046531576824', '898.1554171089753', '426.0305154783623', '1026.1142317026058']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 9
-  Interactions by robot: 4, 2, 1, 2
-  Distance Traveled: 3573.1063355539127 ['1222.8046531576827', '898.1554171089754', '426.03161739798486', '1026.1146478892695']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 9
-  Interactions by robot: 4, 2, 1, 2
-  Distance Traveled: 3573.10940138674 ['1222.804653157683', '898.1554171089756', '426.0338232473715', '1026.1155078727102']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 9
-  Interactions by robot: 4, 2, 1, 2
-  Distance Traveled: 3573.110949113282 ['1222.8046531576833', '898.1554171089757', '426.0349271771356', '1026.1159516694872']
-  Stage 3 End
----- A2OPYRV3GLAPS1
-Looking at user A2OPYRV3GLAPS1
----- A3SA97VT1923NN
-Looking at user A3SA97VT1923NN
-  SAGAT 1619982789.837376,A3SA97VT1923NN,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'A3SA97VT1923NN'}
-  Stage 1 Start 1619983700.
----- A21RK0LH2UJT77
-Looking at user A21RK0LH2UJT77
----- A2G614G0EC71NV
-Looking at user A2G614G0EC71NV
-  SAGAT 1624766038.912625,A2G614G0EC71NV,{'stage': 'SAGAT', 'action': 'complete', 'score': 64, 'worker-id': 'A2G614G0EC71NV'}
-  Stage 2 Start 1624766898.
-  Stage 2 reset!
-    Stage 2 reset start 1624767088.
-  Stage 2 reset!
-    Stage 2 reset start 1624767679.
-  Stage 2 reset!
-    Stage 2 reset start 1624767859.
-  Stage 2 reset!
-    Stage 2 reset start 1624767906.
-  Stage 2 reset!
-    Stage 2 reset start 1624768010.
-  Stage 2 End 1624768594.
-  Stage 2 duration1717
-  Stage 2 reset duration584
----- A29IBN8FCHRVW1
-Looking at user A29IBN8FCHRVW1
----- A3SZF91DCOQPW3
-  Network data may need to be cured
-Looking at user A3SZF91DCOQPW3
-  NETWORK (20.0, [8.0, 4.0, 0.0, 2.0, 6.0], [[8, 8, 8], [4, 4, 4], [0, 0], [2, 2], [6, 6]])
-  Stage 3 Start
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 28
-  Interactions by robot: 10, 6, 5, 7
-  Distance Traveled: 8036.071387351002 ['2909.070216830204', '2385.133835706975', '1020.1487168952465', '1721.7186179185767']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 28
-  Interactions by robot: 10, 6, 5, 7
-  Distance Traveled: 8042.685966322106 ['2912.125116423753', '2385.594249090324', '1020.1529866177796', '1724.8136141902492']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 28
-  Interactions by robot: 10, 6, 5, 7
-  Distance Traveled: 8049.300545293209 ['2915.1800160173016', '2386.054662473673', '1020.1572563403126', '1727.9086104619216']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 28
-  Interactions by robot: 10, 6, 5, 7
-  Distance Traveled: 8062.41135503312 ['2921.278836528146', '2386.8678593564', '1020.1658054220518', '1734.0988537265234']
-  Stage 3 End
----- A2JR38ES001MRL
-Looking at user A2JR38ES001MRL
-  NETWORK (17.0, [7.0, 4.0, 0.0, 3.0, 3.0], [[7, 4, 10], [4, 4, 4], [0, 0], [3, 3], [3, 3]])
-  Stage 2 Start 1625155609.
-  Stage 2 End 1625156199.
-  Stage 2 duration600
----- AZ1AVPLL0XRGO
-Looking at user AZ1AVPLL0XRGO
-  SAGAT 1624836610.342351,AZ1AVPLL0XRGO,{'stage': 'SAGAT', 'action': 'complete', 'score': 0, 'worker-id': 'AZ1AVPLL0XRGO'}
-  Stage 2 Start 1624837699.
-  Stage 2 End 1624837872.
-  Stage 2 duration600
----- A2RSPBLA5GXHP5
-  Network data may need to be cured
-Looking at user A2RSPBLA5GXHP5
-  NETWORK (7.666666666666667, [1.0, 0.0, 4.0, 0.6666666666666666, 2.0], [[1, 1, 1], [0, 0, 0], [4, 4], [0, 0], [2, 2]])
----- A272X64FOZFYLB
-Looking at user A272X64FOZFYLB
-  NETWORK (10.333333333333332, [2.0, 3.6666666666666665, 0.0, 2.6666666666666665, 2.0], [[2, 1, 3], [4, 3, 4], [0, 0], [1, 4], [2, 3]])
-  Stage 1 Start 1618359258.
-  Number of caches identified: 0
-  Stage 1 End 1618359490.
-  Stage 1 duration 232
----- A34PLE1Z7L0W53
-Looking at user A34PLE1Z7L0W53
----- A34BU741DRZZDM
-Looking at user A34BU741DRZZDM
-  SAGAT 1621293241.273029,A34BU741DRZZDM,{'stage': 'SAGAT', 'action': 'complete', 'score': 32, 'worker-id': 'A34BU741DRZZDM'}
-  Stage 1 Start 1621293720.
----- A2IP3ZAFYGV8M9
-Looking at user A2IP3ZAFYGV8M9
-  SAGAT 1619890585.946077,A2IP3ZAFYGV8M9,{'stage': 'SAGAT', 'action': 'complete', 'score': 77, 'worker-id': 'A2IP3ZAFYGV8M9'}
-  Stage 1 Start 1619890997.
-  Number of caches identified: 0
-  Stage 1 End 1619891589.
-  Stage 1 duration 592
+  Number of robots interacted with: 7
 ---- AY7WPVKHVNBLG
 Looking at user AY7WPVKHVNBLG
   SAGAT 1624908136.14937,AY7WPVKHVNBLG,{'stage': 'SAGAT', 'action': 'complete', 'score': 55, 'worker-id': 'AY7WPVKHVNBLG'}
   Stage 2 Start 1624908451.
   Stage 2 End 1624908950.
   Stage 2 duration512
----- A2AXY7I6TCRVP5
-Looking at user A2AXY7I6TCRVP5
-  SAGAT 1619647869.859581,A2AXY7I6TCRVP5,{'stage': 'SAGAT', 'action': 'complete', 'score': -13, 'worker-id': 'A2AXY7I6TCRVP5'}
-  Stage 1 Start 1619648384.
-  Number of caches identified: 0
-  Stage 1 End 1619648896.
-  Stage 1 duration 512
----- A1AKL5YH9NLD2V
-Looking at user A1AKL5YH9NLD2V
-  NETWORK (10.333333333333334, [2.3333333333333335, 0.0, 4.0, 1.0, 3.0], [[5, 1, 1], [0, 0, 0], [7, 3], [0, 0], [4, 3]])
-  Stage 2 Start 1624821222.
-  Stage 2 reset!
-    Stage 2 reset start 1624821324.
-  Stage 2 End 1624821558.
-  Stage 2 duration345
-  Stage 2 reset duration234
----- A2ORPCQ79CC79R
-Looking at user A2ORPCQ79CC79R
-  SAGAT 1625165148.113088,A2ORPCQ79CC79R,{'stage': 'SAGAT', 'action': 'complete', 'score': 36, 'worker-id': 'A2ORPCQ79CC79R'}
-  Stage 2 Start 1625166257.
-  Stage 2 reset!
-  Stage 2 reset!
-  Stage 2 reset!
-  Stage 2 reset!
-    Stage 2 reset start 1625166583.
-  Stage 2 reset!
-  Stage 2 reset!
-    Stage 2 reset start 1625166793.
----- A2X6JK36FJ3G3E
-Looking at user A2X6JK36FJ3G3E
-  NETWORK (18.666666666666668, [8.0, 4.666666666666667, 2.3333333333333335, 2.6666666666666665, 1.0], [[8, 6, 10], [4, 4, 6], [0, 0], [6, 0], [0, 0]])
----- AB3Z97M4JJLK5
-Looking at user AB3Z97M4JJLK5
----- A1GIR1O7FBDXXA
-  Networks has more than expected picks 18
-Looking at user A1GIR1O7FBDXXA
-  NETWORK (-1, [], [])
----- A1LQLQ0KZQLIO8
-Looking at user A1LQLQ0KZQLIO8
----- AYDILOZLKOAS8
-Looking at user AYDILOZLKOAS8
----- A1H198MRIM37T1
-Looking at user A1H198MRIM37T1
-  NETWORK (8.666666666666666, [0.0, 0.0, 5.0, 1.0, 2.6666666666666665], [[0, 0, 0], [0, 0, 0], [7, 4], [0, 0], [3, 1]])
-  Stage 2 Start 1624904642.
-  Stage 2 End 1624905225.
-  Stage 2 duration601
----- A3A3R002WFC7UL
-Looking at user A3A3R002WFC7UL
----- A2IZ4YG7I68UVJ
-  Networks has more than expected picks 18
-Looking at user A2IZ4YG7I68UVJ
-  NETWORK (-1, [], [])
----- A19WXS1CLVLEEX
-Looking at user A19WXS1CLVLEEX
-  NETWORK (6.000000000000001, [1.0, 2.0, 0.3333333333333333, 1.0, 1.6666666666666667], [[1, 1, 1], [1, 1, 4], [0, 0], [0, 0], [3, 1]])
-  Stage 1 Start 1618500979.
-  Number of caches identified: 0
-  Stage 1 End 1618501222.
-  Stage 1 duration 243
----- A2871R3LEPWMMK
-Looking at user A2871R3LEPWMMK
-  SAGAT 1619657742.427022,A2871R3LEPWMMK,{'stage': 'SAGAT', 'action': 'complete', 'score': 75, 'worker-id': 'A2871R3LEPWMMK'}
-  Stage 1 Start 1619658176.
-  Number of caches identified: 0
-  Stage 1 End 1619658765.
-  Stage 1 duration 589
----- A222UNSULNQCN4
-  Networks has more than expected picks 19
-Looking at user A222UNSULNQCN4
-  NETWORK (-1, [], [])
----- A2VLTSW6CXIUMR
-Looking at user A2VLTSW6CXIUMR
-  SAGAT 1617478551.186195,A2VLTSW6CXIUMR,{'stage': 'SAGAT', 'action': 'complete', 'score': 79, 'worker-id': 'A2VLTSW6CXIUMR'}
-  Stage 2 Start 1617479042.
-  Stage 2 reset!
-    Stage 2 reset start 1617479253.
-  Stage 2 End 1617479841.
-  Stage 2 duration815
-  Stage 2 reset duration588
----- AJWEFOZ0K5GUC
-  Networks has more than expected picks 20
-Looking at user AJWEFOZ0K5GUC
-  NETWORK (-1, [], [])
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 2440.478100939736 ['2440.4762450254957', '0.0006188780913865759', '0.0006188778396100324', '0.0006181583095814838']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 2441.4227948890007 ['2441.4209389747593', '0.0006188780917081308', '0.000618877839864244', '0.0006181583098356953']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 2442.3674888382657 ['2442.365632924023', '0.0006188780920296856', '0.0006188778401184556', '0.0006181583100899069']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 2442.8398358128975 ['2442.837979898655', '0.0006188780921904631', '0.0006188778402455614', '0.0006181583102170127']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 2443.5604899056702 ['2443.5586339914266', '0.0006188780925120179', '0.000618877840499773', '0.0006181583104712243']
-  Stage 3 End
----- AZNLUQILUFMOQ
-  Networks has more than expected picks 18
-Looking at user AZNLUQILUFMOQ
-  NETWORK (-1, [], [])
----- A8J7DDQHGHJKP
-Looking at user A8J7DDQHGHJKP
----- A28T38MOUG43YD
-Looking at user A28T38MOUG43YD
----- AL4QXJSJQGT4H
-Looking at user AL4QXJSJQGT4H
-  SAGAT 1619654339.425744,AL4QXJSJQGT4H,{'stage': 'SAGAT', 'action': 'complete', 'score': 63, 'worker-id': 'AL4QXJSJQGT4H'}
----- A3737WAE5ECT0M
-Looking at user A3737WAE5ECT0M
----- A2G50WWV0BK6T7
-  Networks has more than expected picks 17
-Looking at user A2G50WWV0BK6T7
-  NETWORK (-1, [], [])
----- A1BSVEBYDZ0AAU
-Looking at user A1BSVEBYDZ0AAU
-  NETWORK (5.333333333333334, [0.6666666666666666, 0.0, 0.0, 1.6666666666666667, 3.0], [[2, 0, 0], [0, 0, 0], [0, 0], [3, 0], [2, 4]])
-  Stage 1 Start 1618523647.
-  Number of caches identified: 0
-  Stage 1 End 1618524242.
-  Stage 1 duration 595
----- A2LFVPB3RXLX3B
-Looking at user A2LFVPB3RXLX3B
----- A2C9X7PFN88GM0
-Looking at user A2C9X7PFN88GM0
----- A2OO4PG3LBLP5I
-  Networks has more than expected picks 18
-Looking at user A2OO4PG3LBLP5I
-  SAGAT 1620955655.041873,A2OO4PG3LBLP5I,{'stage': 'SAGAT', 'action': 'complete', 'score': 28, 'worker-id': 'A2OO4PG3LBLP5I'}
-  Stage 1 Start 1620956323.
-  NETWORK (-1, [], [])
-  Number of caches identified: 0
-  Stage 1 End 1624914776.
-  Stage 1 duration 3958453
----- A1XWTMAICB88OU
-  Networks has more than expected picks 18
-Looking at user A1XWTMAICB88OU
-  NETWORK (-1, [], [])
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 15
-  Interactions by robot: 3, 4, 5, 3
-  Distance Traveled: 1956.1957110127214 ['522.4457743523161', '1088.0101914759957', '88.85414122181989', '256.88560396258947']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 15
-  Interactions by robot: 3, 4, 5, 3
-  Distance Traveled: 1956.1957110127214 ['522.4457743523161', '1088.0101914759957', '88.85414122181989', '256.88560396258947']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 15
-  Interactions by robot: 3, 4, 5, 3
-  Distance Traveled: 1956.203922435555 ['522.4457743523163', '1088.0132498501434', '88.85414122182014', '256.89075701127524']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 15
-  Interactions by robot: 3, 4, 5, 3
-  Distance Traveled: 1956.2121338394932 ['522.4457743523166', '1088.0163082135086', '88.8541412218204', '256.8959100518474']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 15
-  Interactions by robot: 3, 4, 5, 3
-  Distance Traveled: 1956.2162395320138 ['522.4457743523167', '1088.0178373898', '88.85414122182053', '256.8984865680767']
-  Stage 3 End
----- A25CZJEFKXF4UV
-Looking at user A25CZJEFKXF4UV
+  Number of robots interacted with: 8
+---- A3N4L5F7CEY0B2.3
+Looking at user A3N4L5F7CEY0B2.3
+  SAGAT 1617480635.039964,A3N4L5F7CEY0B2,{'stage': 'SAGAT', 'action': 'complete', 'score': 64, 'worker-id': 'A3N4L5F7CEY0B2'}
+  Stage 2 Start 1617480997.
+  Stage 2 End 1617481419.
+  Stage 2 duration438
+  Number of robots interacted with: 8
+---- A2F1AA15HG0FRU.2
+Looking at user A2F1AA15HG0FRU.2
+  SAGAT 1617478770.000269,A2F1AA15HG0FRU,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'A2F1AA15HG0FRU'}
+  Stage 2 Start 1617479252.
+  Stage 2 End 1617479597.
+  Stage 2 duration353
+  Number of robots interacted with: 8
+---- A16G6PPH1INQL8.2
+Looking at user A16G6PPH1INQL8.2
+  Stage 2 Start 1614296125.
+  Stage 2 End 1614296671.
+  Stage 2 duration557
+  Number of robots interacted with: 8
 ---- A2615YW1YERQBO
 Looking at user A2615YW1YERQBO
   NETWORK (13.666666666666666, [0.6666666666666666, 0.3333333333333333, 6.0, 3.0, 3.6666666666666665], [[1, 1, 0], [1, 0, 0], [6, 5], [2, 4], [2, 6]])
   Stage 2 Start 1617568078.
   Stage 2 End 1617568616.
   Stage 2 duration556
----- A34SIGOLUGKIHJ
-Looking at user A34SIGOLUGKIHJ
-  NETWORK (7.333333333333334, [0.0, 0.0, 3.0, 2.3333333333333335, 2.0], [[0, 0, 0], [0, 0, 0], [1, 7], [4, 1], [2, 3]])
-  Stage 2 Start 1624730995.
-  Stage 2 End 1624731571.
+  Number of robots interacted with: 8
+---- AM65LGXJBTJ0I.2
+Looking at user AM65LGXJBTJ0I.2
+  Stage 2 Start 1624908353.
+  Stage 2 End 1624908941.
+  Stage 2 duration601
+  Number of robots interacted with: 8
+---- ALXW2ZXX4SJRO.2
+Looking at user ALXW2ZXX4SJRO.2
+  SAGAT 1614298369.318794,ALXW2ZXX4SJRO,{'stage': 'SAGAT', 'action': 'complete', 'score': 66, 'worker-id': 'ALXW2ZXX4SJRO'}
+  Stage 2 Start 1614298660.
+  Stage 2 End 1614299000.
+  Stage 2 duration353
+  Number of robots interacted with: 8
+---- A1GZ4Y5HNBTCES.2
+Looking at user A1GZ4Y5HNBTCES.2
+  SAGAT 1624839487.095926,A1GZ4Y5HNBTCES,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A1GZ4Y5HNBTCES'}
+  Stage 2 Start 1624839798.
+  Stage 2 End 1624840344.
+  Stage 2 duration562
+  Number of robots interacted with: 8
+---- A1HTCJXR3ENIW0.2
+  Idle from action 1625102869.324676,A1HTCJXR3ENIW0,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.7414285714285714,0.5342857142857143]', 'worker-id': 'A1HTCJXR3ENIW0', 'stage': 2}
+ UNTIL 1625103461.414826,A1HTCJXR3ENIW0,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A1HTCJXR3ENIW0'}
+ SUM 592
+Looking at user A1HTCJXR3ENIW0.2
+  SAGAT 1625102231.655601,A1HTCJXR3ENIW0,{'stage': 'SAGAT', 'action': 'complete', 'score': 33, 'worker-id': 'A1HTCJXR3ENIW0'}
+  Stage 2 Start 1625102866.
+  Stage 2 End 1625103461.
   Stage 2 duration600
----- A2UYZFH5VT5R3H
-Looking at user A2UYZFH5VT5R3H
-  SAGAT 1620949198.301387,A2UYZFH5VT5R3H,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A2UYZFH5VT5R3H'}
-  Stage 1 Start 1620949850.
-  Number of caches identified: 0
-  Stage 1 End 1620950261.
-  Stage 1 duration 411
----- ATKSALQW64TTQ
-  Networks has more than expected picks 18
-Looking at user ATKSALQW64TTQ
-  NETWORK (-1, [], [])
----- A11W55U13HODN1
-Looking at user A11W55U13HODN1
-  NETWORK (11.333333333333334, [0.3333333333333333, 0.0, 6.666666666666667, 1.0, 3.3333333333333335], [[1, 0, 0], [0, 0, 0], [6, 7], [0, 0], [3, 4]])
-  Stage 1 Start 1618342842.
-  Number of caches identified: 0
-  Stage 1 End 1618343084.
-  Stage 1 duration 242
----- A21L7K4NROSSF5
-  Networks has more than expected picks 18
-Looking at user A21L7K4NROSSF5
-  NETWORK (-1, [], [])
-  Stage 1 Start 1619123445.
-  Number of caches identified: 0
-  Stage 1 End 1619123943.
-  Stage 1 duration 498
----- A1DJ6UB3I1GTBC
-  Network data may need to be cured
-Looking at user A1DJ6UB3I1GTBC
-  NETWORK (18.333333333333332, [8.0, 3.6666666666666665, 1.0, 2.6666666666666665, 3.0], [[8, 8, 8], [3, 4, 4], [1, 1], [3, 3], [3, 3]])
----- A33TMM5YWN0Q67
-Looking at user A33TMM5YWN0Q67
-  SAGAT 1624821746.312881,A33TMM5YWN0Q67,{'stage': 'SAGAT', 'action': 'complete', 'score': 0, 'worker-id': 'A33TMM5YWN0Q67'}
-  Stage 2 Start 1624822664.
-  Stage 2 End 1624823252.
-  Stage 2 duration600
----- A2MW3X4AFJHY28
-Looking at user A2MW3X4AFJHY28
-  SAGAT 1623694343.782706,A2MW3X4AFJHY28,{'stage': 'SAGAT', 'action': 'complete', 'score': 28, 'worker-id': 'A2MW3X4AFJHY28'}
-  Stage 3 Start
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 2, 2, 2, 1
-  Distance Traveled: 3526.2681042318577 ['888.180557937757', '626.6059349870167', '1286.8987932415648', '724.5828180655195']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 2, 2, 2, 1
-  Distance Traveled: 3527.1213540560416 ['889.0293233767517', '626.6059349906619', '1286.8991060437359', '724.5869896448922']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 2, 2, 2, 1
-  Distance Traveled: 3527.1213540560416 ['889.0293233767517', '626.6059349906619', '1286.8991060437359', '724.5869896448922']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 2, 2, 2, 1
-  Distance Traveled: 3527.9746038802255 ['889.8780888157463', '626.6059349943072', '1286.899418845907', '724.591161224265']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 2, 2, 2, 1
-  Distance Traveled: 3529.250035084246 ['891.149027011999', '626.6059349979153', '1286.899731648078', '724.5953414262536']
-  Stage 3 End
----- A3VWWG2A0T60HZ
-Looking at user A3VWWG2A0T60HZ
-  SAGAT 1625158658.473261,A3VWWG2A0T60HZ,{'stage': 'SAGAT', 'action': 'complete', 'score': 55, 'worker-id': 'A3VWWG2A0T60HZ'}
-  Stage 2 Start 1625158954.
-  Stage 2 End 1625159542.
-  Stage 2 duration600
----- AOP9WB55GYGL7
-Looking at user AOP9WB55GYGL7
----- A26M997VYVK0E6
-  Networks has more than expected picks 17
-Looking at user A26M997VYVK0E6
-  NETWORK (-1, [], [])
-  Stage 1 Start 1621388891.
-  Number of caches identified: 0
-  Stage 1 End 1621389486.
-  Stage 1 duration 595
----- AYVZGRU2FL8FK
-  Networks has more than expected picks 18
-Looking at user AYVZGRU2FL8FK
-  NETWORK (-1, [], [])
-  Stage 2 Start 1625107629.
-  Stage 2 reset!
-    Stage 2 reset start 1625107784.
----- A2GXLM74C7BDI8
-Looking at user A2GXLM74C7BDI8
-  SAGAT 1617479802.60345,A2GXLM74C7BDI8,{'stage': 'SAGAT', 'action': 'complete', 'score': 69, 'worker-id': 'A2GXLM74C7BDI8'}
-  Stage 2 Start 1617479928.
-  Stage 2 reset!
-    Stage 2 reset start 1617480093.
-  Stage 2 End 1617480270.
-  Stage 2 duration349
-  Stage 2 reset duration177
----- A2CYRYF8JY6NWP
-  Networks has more than expected picks 18
-Looking at user A2CYRYF8JY6NWP
-  NETWORK (-1, [], [])
----- 123123
-  Network data may need to be cured
-Looking at user 123123
-  NETWORK (3.0, [0.0, 0.0, 2.6666666666666665, 0.0, 0.3333333333333333], [[0, 0, 0], [0, 0, 0], [3, 3], [0, 0], [0, 0]])
----- A3A3R002WFC7UK
-Looking at user A3A3R002WFC7UK
----- A24FFVVBYST8P2
-Looking at user A24FFVVBYST8P2
-  SAGAT 1617477727.035674,A24FFVVBYST8P2,{'stage': 'SAGAT', 'action': 'complete', 'score': 9, 'worker-id': 'A24FFVVBYST8P2'}
----- A2S64AUN7JI7ZS
-  Networks has more than expected picks 17
-Looking at user A2S64AUN7JI7ZS
-  NETWORK (-1, [], [])
-  Stage 2 Start 1624821270.
-  Stage 2 reset!
-    Stage 2 reset start 1624821404.
-  Stage 2 reset!
-    Stage 2 reset start 1624821473.
-  Stage 2 End 1624822005.
-  Stage 2 duration744
-  Stage 2 reset duration532
----- ANKPJWPDF2JYC
-  Networks has more than expected picks 19
-Looking at user ANKPJWPDF2JYC
-  NETWORK (-1, [], [])
-  Stage 3 Start
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 1, 2, 1, 3
-  Distance Traveled: 1774.9749247142643 ['440.44333604890215', '402.6342008767804', '545.7281269847622', '386.1692608038195']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 1, 2, 1, 3
-  Distance Traveled: 1774.9863993484944 ['440.4433360489024', '402.6445085143062', '545.7281269847624', '386.17042780052344']
-  Stage 3 End
-  Number of caches collected: 1
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 7
-  Interactions by robot: 1, 2, 1, 3
-  Distance Traveled: 1774.992269835428 ['440.4433360489025', '402.6496623333086', '545.7281269847625', '386.1711444684543']
-  Stage 3 End
----- A39W6X3PAURUBT
-Looking at user A39W6X3PAURUBT
----- A3A3R002WFC7U
-Looking at user A3A3R002WFC7U
----- A122LRCSBAD6DC
-Looking at user A122LRCSBAD6DC
-  Stage 1 Start 1618512746.
-  Number of caches identified: 0
-  Stage 1 End 1618513025.
-  Stage 1 duration 279
----- ASGL06ZNUZCRT
-Looking at user ASGL06ZNUZCRT
----- A1CEO8RFPXMO5W
-  Networks has more than expected picks 17
-Looking at user A1CEO8RFPXMO5W
-  NETWORK (-1, [], [])
----- A2SXSU80ZWHAZO
-Looking at user A2SXSU80ZWHAZO
----- A179M1VP5QMHNW
-Looking at user A179M1VP5QMHNW
-  SAGAT 1621647225.587801,A179M1VP5QMHNW,{'stage': 'SAGAT', 'action': 'complete', 'score': 36, 'worker-id': 'A179M1VP5QMHNW'}
-  Stage 1 Start 1621647565.
----- A3J40HL3MYAI1N
-Looking at user A3J40HL3MYAI1N
-  SAGAT 1624839587.681673,A3J40HL3MYAI1N,{'stage': 'SAGAT', 'action': 'complete', 'score': 0, 'worker-id': 'A3J40HL3MYAI1N'}
----- A2TEPDJI6Q6RYU
-Looking at user A2TEPDJI6Q6RYU
----- AGL33KV2Q91P5
-Looking at user AGL33KV2Q91P5
-  SAGAT 1617496775.059583,AGL33KV2Q91P5,{'stage': 'SAGAT', 'action': 'complete', 'score': 35, 'worker-id': 'AGL33KV2Q91P5'}
-  Stage 2 Start 1617497583.
-  Stage 2 reset!
-    Stage 2 reset start 1617497784.
-  Stage 2 reset!
-  Stage 2 reset!
-  Stage 2 reset!
-    Stage 2 reset start 1617498154.
-  Stage 2 reset!
----- A3FSDH6HUZPNQ8
-Looking at user A3FSDH6HUZPNQ8
----- A1DKVUTOBPQH11
-Looking at user A1DKVUTOBPQH11
-  SAGAT 1624906300.783011,A1DKVUTOBPQH11,{'stage': 'SAGAT', 'action': 'complete', 'score': 77, 'worker-id': 'A1DKVUTOBPQH11'}
-  Stage 2 Start 1624906749.
-  Stage 2 End 1624907267.
-  Stage 2 duration536
----- A3862RIFFUV141
-Looking at user A3862RIFFUV141
----- A3ETQRQFVCQ0QU
-  Networks has more than expected picks 17
-  Networks has more than expected picks 18
-  Network data may need to be cured
-  Networks has less than expected picks 15
-Looking at user A3ETQRQFVCQ0QU
-  NETWORK (-1, [], [])
-  NETWORK (-1, [], [])
-  NETWORK (16.0, [6.0, 2.3333333333333335, 2.0, 2.6666666666666665, 3.0], [[8, 1, 9], [1, 2, 4], [0, 0], [2, 0], [2, 1]])
-  NETWORK (-1, [], [])
----- ARWN6TT8EWCFJ
-  Networks has more than expected picks 17
-Looking at user ARWN6TT8EWCFJ
-  NETWORK (-1, [], [])
-  Stage 2 Start 1624823519.
-  Stage 2 reset!
-    Stage 2 reset start 1624823933.
-  Stage 2 reset!
-  Stage 2 reset!
-    Stage 2 reset start 1624823947.
-  Stage 2 reset!
-    Stage 2 reset start 1624824544.
-  Stage 2 reset!
-    Stage 2 reset start 1624824845.
----- AUIFUQ1AR8TLF
-  Networks has more than expected picks 17
-Looking at user AUIFUQ1AR8TLF
-  NETWORK (-1, [], [])
----- A2OVX9UW5WANQE
-Looking at user A2OVX9UW5WANQE
-  SAGAT 1623983076.649697,A2OVX9UW5WANQE,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'A2OVX9UW5WANQE'}
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 2
-  Interactions by robot: 1, 1, 0, 0
-  Distance Traveled: 1099.4890386351226 ['965.4939679404828', '133.99507069463982', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 2
-  Total robot interactions: 2
-  Interactions by robot: 1, 1, 0, 0
-  Distance Traveled: 1111.926838902719 ['970.5991721086555', '141.3276667940636', '0', '0']
-  Stage 3 End
----- A1GT650JC0YVAK
-Looking at user A1GT650JC0YVAK
----- A1GL9DKOEC0PFH
-Looking at user A1GL9DKOEC0PFH
-  SAGAT 1624132118.122514,A1GL9DKOEC0PFH,{'stage': 'SAGAT', 'action': 'complete', 'score': 25, 'worker-id': 'A1GL9DKOEC0PFH'}
-  Stage 3 Start
----- A179LPB3NPSEF8
-Looking at user A179LPB3NPSEF8
-  SAGAT 1619640368.413229,A179LPB3NPSEF8,{'stage': 'SAGAT', 'action': 'complete', 'score': -28, 'worker-id': 'A179LPB3NPSEF8'}
-  Stage 1 Start 1619640710.
----- A26X8BQELDQSGH
-Looking at user A26X8BQELDQSGH
-  Stage 2 Start 1617480105.
-  Stage 2 End 1617480595.
-  Stage 2 duration597
----- A3OZ288I9CBLWF
-Looking at user A3OZ288I9CBLWF
----- A2NC23YMQPXSYV
-Looking at user A2NC23YMQPXSYV
-  SAGAT 1619835223.213683,A2NC23YMQPXSYV,{'stage': 'SAGAT', 'action': 'complete', 'score': 24, 'worker-id': 'A2NC23YMQPXSYV'}
-  Stage 1 Start 1619835635.
----- A2E0LU8V4EUX5C
-Looking at user A2E0LU8V4EUX5C
----- A24ZQ9799KGBTO
-Looking at user A24ZQ9799KGBTO
-  SAGAT 1624051643.772793,A24ZQ9799KGBTO,{'stage': 'SAGAT', 'action': 'complete', 'score': 14, 'worker-id': 'A24ZQ9799KGBTO'}
----- AP0JPGLH4LVQO
-Looking at user AP0JPGLH4LVQO
-  NETWORK (18.333333333333336, [7.0, 1.3333333333333333, 4.0, 2.0, 4.0], [[4, 10, 7], [4, 0, 0], [4, 4], [2, 2], [3, 6]])
-  Stage 1 Start 1621308743.
----- A1BDPHQIAOC1WB
-  Networks has more than expected picks 17
-Looking at user A1BDPHQIAOC1WB
-  NETWORK (-1, [], [])
-  Stage 1 Start 1618598880.
----- A1KOML0K9MHJBF
-  Networks has more than expected picks 18
-Looking at user A1KOML0K9MHJBF
-  NETWORK (-1, [], [])
----- A2FYFCD16Z3PCC
-Looking at user A2FYFCD16Z3PCC
-  SAGAT 1624906437.665438,A2FYFCD16Z3PCC,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A2FYFCD16Z3PCC'}
-  Stage 2 Start 1624906878.
-  Stage 2 End 1624907084.
-  Stage 2 duration213
----- A1K8VUKRL53OX
-  Networks has more than expected picks 17
-Looking at user A1K8VUKRL53OX
-  NETWORK (-1, [], [])
+  Number of robots interacted with: 1
+---- A3AI8M7RTF0OI8
+Looking at user A3AI8M7RTF0OI8
+  NETWORK (10.666666666666666, [0.0, 0.0, 6.0, 2.6666666666666665, 2.0], [[0, 0, 0], [0, 0, 0], [6, 5], [3, 0], [2, 1]])
+  Stage 2 Start 1614301539.
+  Stage 2 End 1614301778.
+  Stage 2 duration246
+  Number of robots interacted with: 8
+---- A14KBCJ69UTVHJ.3
+Looking at user A14KBCJ69UTVHJ.3
+  Stage 2 Start 1624762216.
+  Stage 2 End 1624762649.
+  Stage 2 duration444
+  Number of robots interacted with: 8
+---- A3CH1Z6J9R38G9.2
+Looking at user A3CH1Z6J9R38G9.2
+  Stage 2 Start 1625098636.
+  Stage 2 End 1625098813.
+  Stage 2 duration192
+  Number of robots interacted with: 8
+---- A1K8VUKRL53OX.3
+  Idle from action 1624822784.979099,A1K8VUKRL53OX,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.32,0.696318620954241]', 'worker-id': 'A1K8VUKRL53OX', 'stage': 2}
+ UNTIL 1624822861.165007,A1K8VUKRL53OX,{'action': 'add-invalid-waypoint', 'target': 'UGV2', 'location': '[0.3757142857142857,0.519175763811384]', 'worker-id': 'A1K8VUKRL53OX', 'stage': 2}
+ SUM 77
+  Idle from action 1624822862.088998,A1K8VUKRL53OX,{'action': 'add-invalid-waypoint', 'target': 'UGV2', 'location': '[0.4357142857142857,0.5106043352399554]', 'worker-id': 'A1K8VUKRL53OX', 'stage': 2}
+ UNTIL 1624822948.819226,A1K8VUKRL53OX,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A1K8VUKRL53OX', 'stage': 2}
+ SUM 86
+Looking at user A1K8VUKRL53OX.3
   Stage 2 reset!
   Stage 2 Start 1624822573.
     Stage 2 reset start 1624822574.
   Stage 2 End 1624823160.
   Stage 2 duration600
   Stage 2 reset duration586
----- 123123123123123
-Looking at user 123123123123123
-  Stage 1 Start 1621282761.
-  Number of caches identified: 0
-  Stage 1 End 1621283360.
-  Stage 1 duration 599
----- A14XK2ZCR1E8FD
-Looking at user A14XK2ZCR1E8FD
----- AXY0D2AMLKE2A
-Looking at user AXY0D2AMLKE2A
-  SAGAT 1624230400.409265,AXY0D2AMLKE2A,{'stage': 'SAGAT', 'action': 'complete', 'score': 54, 'worker-id': 'AXY0D2AMLKE2A'}
-  Stage 3 Start
-  Number of caches collected: 4
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 34
-  Interactions by robot: 9, 10, 8, 7
-  Distance Traveled: 8061.986753720922 ['1941.300659264664', '2569.9311675014974', '1585.3137915701452', '1965.441135384615']
-  Stage 3 End
-  Number of caches collected: 4
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 34
-  Interactions by robot: 9, 10, 8, 7
-  Distance Traveled: 8061.998322510346 ['1941.3066071559163', '2569.931215691098', '1585.3178933561262', '1965.442606307206']
-  Stage 3 End
-  Number of caches collected: 4
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 34
-  Interactions by robot: 9, 10, 8, 7
-  Distance Traveled: 8062.009921789907 ['1941.3125608314167', '2569.931257503555', '1585.3219932619065', '1965.4441101930288']
-  Stage 3 End
-  Number of caches collected: 4
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 34
-  Interactions by robot: 9, 10, 8, 7
-  Distance Traveled: 8062.021521069468 ['1941.3185145069172', '2569.9312993160124', '1585.3260931676868', '1965.4456140788516']
-  Stage 3 End
-  Number of caches collected: 4
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 34
-  Interactions by robot: 9, 10, 8, 7
-  Distance Traveled: 8062.044749347326 ['1941.3304280985692', '2569.9313760659', '1585.334291124518', '1965.448654058339']
-  Stage 3 End
----- ATFIP7FLYDX3V
-  Networks has more than expected picks 17
-Looking at user ATFIP7FLYDX3V
-  NETWORK (-1, [], [])
----- A17Q4QN6UE0EZC
-Looking at user A17Q4QN6UE0EZC
-  NETWORK (7.0, [0.0, 0.0, 3.0, 2.0, 2.0], [[0, 0, 0], [0, 0, 0], [4, 0], [3, 0], [2, 3]])
-  Stage 3 Start
-  Number of caches collected: 3
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 46
-  Interactions by robot: 13, 9, 17, 7
-  Distance Traveled: 4912.88506274256 ['3434.0082054723125', '199.6532750450898', '1263.524981407159', '15.698600817999084']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 46
-  Interactions by robot: 13, 9, 17, 7
-  Distance Traveled: 4919.95957405396 ['3434.8899119327843', '199.65344501101902', '1269.708524446088', '15.707692664068626']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 46
-  Interactions by robot: 13, 9, 17, 7
-  Distance Traveled: 4923.082438015978 ['3434.9163754963943', '199.65352937452573', '1272.8002959603543', '15.712237184704417']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 46
-  Interactions by robot: 13, 9, 17, 7
-  Distance Traveled: 4926.205301977998 ['3434.942839060004', '199.65361373803245', '1275.8920674746207', '15.716781705340209']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 46
-  Interactions by robot: 13, 9, 17, 7
-  Distance Traveled: 4931.715715971398 ['3434.995707249205', '199.65378000839695', '1281.340364085085', '15.725864628711081']
-  Stage 3 End
----- A2IKPU88PDQTMF
-Looking at user A2IKPU88PDQTMF
-  SAGAT 1624775181.089998,A2IKPU88PDQTMF,{'stage': 'SAGAT', 'action': 'complete', 'score': 74, 'worker-id': 'A2IKPU88PDQTMF'}
-  Stage 2 Start 1624775389.
-  Stage 2 reset!
-    Stage 2 reset start 1624775742.
-  Stage 2 End 1624776336.
-  Stage 2 duration963
-  Stage 2 reset duration594
----- A1AAMCV6OSQFC3
-Looking at user A1AAMCV6OSQFC3
-  SAGAT 1617492460.543141,A1AAMCV6OSQFC3,{'stage': 'SAGAT', 'action': 'complete', 'score': 75, 'worker-id': 'A1AAMCV6OSQFC3'}
-  Stage 2 Start 1617492854.
-  Stage 2 reset!
-    Stage 2 reset start 1617492949.
-  Stage 2 reset!
-  Stage 2 reset!
-    Stage 2 reset start 1617493066.
-  Stage 2 reset!
-    Stage 2 reset start 1617493138.
----- A1F1TBDHPYAAXT
-Looking at user A1F1TBDHPYAAXT
-  NETWORK (10.0, [3.3333333333333335, 2.0, 0.0, 1.6666666666666667, 3.0], [[7, 3, 0], [3, 1, 2], [0, 0], [2, 0], [2, 6]])
-  Stage 2 Start 1624832775.
-  Stage 2 End 1624833365.
-  Stage 2 duration601
----- A1PUSSRD8P5HHH
-  Networks has more than expected picks 17
-Looking at user A1PUSSRD8P5HHH
-  NETWORK (-1, [], [])
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 37
-  Interactions by robot: 29, 1, 3, 4
-  Distance Traveled: 9.723190699768933 ['3.295691523729861', '3.458635564707683', '0', '2.96886361133139']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 37
-  Interactions by robot: 29, 1, 3, 4
-  Distance Traveled: 10.302280665836566 ['3.2959476330567288', '3.7848734082880133', '0', '3.2214596244918243']
-  Stage 3 End
----- A3UI9A8F9IDZTG
-Looking at user A3UI9A8F9IDZTG
-  NETWORK (12.999999999999998, [2.0, 0.0, 6.333333333333333, 1.0, 3.6666666666666665], [[4, 1, 1], [0, 0, 0], [7, 6], [0, 0], [5, 4]])
-  Stage 3 Start
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 74
-  Interactions by robot: 13, 30, 20, 11
-  Distance Traveled: 6749.116880054185 ['2310.4164110909624', '2259.91605032681', '1165.0483773602925', '1013.7360412761191']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 74
-  Interactions by robot: 13, 30, 20, 11
-  Distance Traveled: 6749.126592467658 ['2310.4189487249396', '2259.9164838403776', '1165.0551186262219', '1013.7360412761192']
-  Stage 3 End
----- A245VZU2AJ0H9D
-  Networks has more than expected picks 17
-Looking at user A245VZU2AJ0H9D
-  NETWORK (-1, [], [])
-  Stage 2 Start 1624911000.
-  Stage 2 End 1624911438.
-  Stage 2 duration463
----- A15CYEEX5TXYBB
-Looking at user A15CYEEX5TXYBB
-  SAGAT 1624152282.21174,A15CYEEX5TXYBB,{'stage': 'SAGAT', 'action': 'complete', 'score': 6, 'worker-id': 'A15CYEEX5TXYBB'}
-  Stage 3 Start
----- A3R5OJR60C6004
-Looking at user A3R5OJR60C6004
-  NETWORK (11.333333333333334, [6.0, 1.6666666666666667, 0.0, 2.0, 1.6666666666666667], [[5, 6, 7], [2, 2, 1], [0, 0], [1, 3], [1, 2]])
-  Stage 1 Start 1621456935.
-  Number of caches identified: 0
-  Stage 1 End 1621457602.
-  Stage 1 duration 667
----- A1E0BH4ERXSIGJ
-  Networks has more than expected picks 17
-Looking at user A1E0BH4ERXSIGJ
-  NETWORK (-1, [], [])
----- A335FK4HFOV26Z
-  Networks has less than expected picks 15
-Looking at user A335FK4HFOV26Z
-  NETWORK (-1, [], [])
----- AXMPSUNKUBEIL
-Looking at user AXMPSUNKUBEIL
----- ARHPCF7S5SGGJ
-Looking at user ARHPCF7S5SGGJ
----- A2868HFLIU4V0C
-Looking at user A2868HFLIU4V0C
-  NETWORK (17.0, [8.333333333333334, 4.333333333333333, 0.0, 1.3333333333333333, 3.0], [[7, 8, 10], [4, 7, 2], [0, 0], [1, 0], [3, 5]])
----- 12121
-Looking at user 12121
-  SAGAT 1620933371.480233,12121,{'stage': 'SAGAT', 'action': 'complete', 'score': 0, 'worker-id': '12121'}
-  Stage 1 Start 1620933905.
-  Number of caches identified: 0
-  Stage 1 End 1620934328.
-  Stage 1 duration 423
----- A33UL2LLVQPZMX
-  Networks has more than expected picks 18
-Looking at user A33UL2LLVQPZMX
-  NETWORK (-1, [], [])
----- A34MXCHJVM6ENI
-Looking at user A34MXCHJVM6ENI
-  SAGAT 1617480987.307267,A34MXCHJVM6ENI,{'stage': 'SAGAT', 'action': 'complete', 'score': 71, 'worker-id': 'A34MXCHJVM6ENI'}
-  Stage 2 Start 1617481293.
-  Stage 2 End 1617481885.
+  Number of robots interacted with: 7
+---- A1DKVUTOBPQH11
+Looking at user A1DKVUTOBPQH11
+  SAGAT 1624906300.783011,A1DKVUTOBPQH11,{'stage': 'SAGAT', 'action': 'complete', 'score': 77, 'worker-id': 'A1DKVUTOBPQH11'}
+  Stage 2 Start 1624906749.
+  Stage 2 End 1624907267.
+  Stage 2 duration536
+  Number of robots interacted with: 8
+---- A6E3QAJIQOFBQ.2
+Looking at user A6E3QAJIQOFBQ.2
+  SAGAT 1624729908.299992,A6E3QAJIQOFBQ,{'stage': 'SAGAT', 'action': 'complete', 'score': 75, 'worker-id': 'A6E3QAJIQOFBQ'}
+  Stage 2 Start 1624730423.
+  Stage 2 End 1624730814.
+  Stage 2 duration405
+  Number of robots interacted with: 8
+---- A3G5IPGLH1IIZN
+  Network data may need to be cured
+Looking at user A3G5IPGLH1IIZN
+  NETWORK (12.666666666666666, [5.333333333333333, 3.0, 0.0, 1.0, 3.3333333333333335], [[5, 5, 6], [3, 4, 2], [0, 0], [1, 0], [3, 4]])
+  Stage 2 Start 1614272814.
+  Stage 2 End 1614273105.
   Stage 2 duration600
----- A1RIP1O7FBDXXA
-Looking at user A1RIP1O7FBDXXA
----- A3JAENCLOQRECC
-Looking at user A3JAENCLOQRECC
-  SAGAT 1624065524.697624,A3JAENCLOQRECC,{'stage': 'SAGAT', 'action': 'complete', 'score': 10, 'worker-id': 'A3JAENCLOQRECC'}
-  Stage 3 Start
----- A288K9BCT6QXYP
-Looking at user A288K9BCT6QXYP
----- A3G9DL3KBPUHSG
-Looking at user A3G9DL3KBPUHSG
-  SAGAT 1621110499.445946,A3G9DL3KBPUHSG,{'stage': 'SAGAT', 'action': 'complete', 'score': -15, 'worker-id': 'A3G9DL3KBPUHSG'}
-  Stage 1 Start 1621110903.
----- A2JDYN6QM8M5UN
-Looking at user A2JDYN6QM8M5UN
-  NETWORK (9.333333333333334, [5.0, 2.3333333333333335, 0.0, 0.0, 2.0], [[5, 5, 5], [1, 4, 2], [0, 0], [0, 0], [3, 2]])
----- A28AXX4NCWPH1F
-Looking at user A28AXX4NCWPH1F
-  NETWORK (4.333333333333334, [0.0, 0.0, 1.6666666666666667, 1.0, 1.6666666666666667], [[0, 0, 0], [0, 0, 0], [1, 1], [0, 0], [3, 1]])
-  Stage 2 Start 1624738601.
-  Stage 2 End 1624739081.
-  Stage 2 duration487
----- A3AB866JYLTERS
-Looking at user A3AB866JYLTERS
-  NETWORK (15.333333333333332, [3.0, 0.0, 7.0, 2.6666666666666665, 2.6666666666666665], [[5, 4, 0], [0, 0, 0], [7, 7], [4, 1], [2, 3]])
-  Stage 2 Start 1625158129.
-  Stage 2 End 1625158689.
-  Stage 2 duration600
----- A3A3R002WFC7U3
-Looking at user A3A3R002WFC7U3
-  SAGAT 1624730737.378123,A3A3R002WFC7U3,{'stage': 'SAGAT', 'action': 'complete', 'score': 43, 'worker-id': 'A3A3R002WFC7U3'}
-  Stage 2 Start 1624731595.
-  Stage 2 reset!
-    Stage 2 reset start 1624731909.
-  Stage 2 End 1624732414.
-  Stage 2 duration842
-  Stage 2 reset duration505
----- A3BZVFD82AVLT8
-Looking at user A3BZVFD82AVLT8
-  NETWORK (11.333333333333332, [2.0, 1.3333333333333333, 3.0, 2.3333333333333335, 2.6666666666666665], [[1, 3, 2], [4, 0, 0], [6, 2], [1, 3], [2, 3]])
-  Stage 2 Start 1625158881.
-  Stage 2 End 1625159455.
-  Stage 2 duration596
----- AL0IQN97PITVV
-Looking at user AL0IQN97PITVV
-  SAGAT 1621555741.454636,AL0IQN97PITVV,{'stage': 'SAGAT', 'action': 'complete', 'score': 9, 'worker-id': 'AL0IQN97PITVV'}
-  Stage 1 Start 1621556128.
----- A1GZ4Y5HNBTCES
-Looking at user A1GZ4Y5HNBTCES
-  SAGAT 1624839487.095926,A1GZ4Y5HNBTCES,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A1GZ4Y5HNBTCES'}
-  Stage 2 Start 1624839798.
-  Stage 2 End 1624840344.
-  Stage 2 duration562
----- A1ATEUNLVLLLO
-  Network data may need to be cured
-Looking at user A1ATEUNLVLLLO
-  NETWORK (20.333333333333332, [4.333333333333333, 5.0, 4.0, 3.3333333333333335, 3.6666666666666665], [[4, 4, 5], [4, 4, 7], [7, 4], [2, 4], [2, 4]])
-  Stage 1 Start 1621459506.
----- A31A1PVXLJBISZ
-Looking at user A31A1PVXLJBISZ
-  SAGAT 1624043438.714334,A31A1PVXLJBISZ,{'stage': 'SAGAT', 'action': 'complete', 'score': 41, 'worker-id': 'A31A1PVXLJBISZ'}
-  Stage 3 Start
----- A17K1CHOI773VZ
-Looking at user A17K1CHOI773VZ
----- A37JC45Y9GLSA7
-Looking at user A37JC45Y9GLSA7
-  SAGAT 1617476772.983856,A37JC45Y9GLSA7,{'stage': 'SAGAT', 'action': 'complete', 'score': 9, 'worker-id': 'A37JC45Y9GLSA7'}
-  Stage 2 Start 1617477511.
-  Stage 2 reset!
-    Stage 2 reset start 1617477587.
-  Stage 2 reset!
-    Stage 2 reset start 1617477759.
-  Stage 2 reset!
-    Stage 2 reset start 1617478066.
-  Stage 2 End 1617478322.
-  Stage 2 duration815
-  Stage 2 reset duration256
----- A248QG4DPULP46
-Looking at user A248QG4DPULP46
----- A2Y87M8V0N1M6P
-Looking at user A2Y87M8V0N1M6P
-  SAGAT 1619922708.100034,A2Y87M8V0N1M6P,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'A2Y87M8V0N1M6P'}
----- A1M1E62KXCDNL0
-Looking at user A1M1E62KXCDNL0
----- A3NUIEPMZSHEZ4
-Looking at user A3NUIEPMZSHEZ4
-  SAGAT 1619634073.963364,A3NUIEPMZSHEZ4,{'stage': 'SAGAT', 'action': 'complete', 'score': 83, 'worker-id': 'A3NUIEPMZSHEZ4'}
-  Stage 1 Start 1619634522.
-  Number of caches identified: 0
-  Stage 1 End 1619635010.
-  Stage 1 duration 488
----- A2FL477TMKC91L
-Looking at user A2FL477TMKC91L
-  SAGAT 1623645492.019848,A2FL477TMKC91L,{'stage': 'SAGAT', 'action': 'complete', 'score': 79, 'worker-id': 'A2FL477TMKC91L'}
-  Stage 3 Start
-  Number of caches collected: 2
-  Number of caches returned: 2
-  Number of robots interacted with: 4
-  Total robot interactions: 27
-  Interactions by robot: 7, 9, 5, 6
-  Distance Traveled: 5792.198076630069 ['1397.8893041567467', '2714.8176589285454', '1042.6748581752342', '636.8162553695427']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 2
-  Number of robots interacted with: 4
-  Total robot interactions: 27
-  Interactions by robot: 7, 9, 5, 6
-  Distance Traveled: 5792.202177329276 ['1397.889304156747', '2714.821759627697', '1042.67485817529', '636.8162553695428']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 2
-  Number of robots interacted with: 4
-  Total robot interactions: 27
-  Interactions by robot: 7, 9, 5, 6
-  Distance Traveled: 5792.206227962558 ['1397.8893041567471', '2714.8258102609225', '1042.6748581753457', '636.8162553695429']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 2
-  Number of robots interacted with: 4
-  Total robot interactions: 27
-  Interactions by robot: 7, 9, 5, 6
-  Distance Traveled: 5792.21027859583 ['1397.8893041567474', '2714.829860894148', '1042.6748581753905', '636.816255369543']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 2
-  Number of robots interacted with: 4
-  Total robot interactions: 27
-  Interactions by robot: 7, 9, 5, 6
-  Distance Traveled: 5792.218379862361 ['1397.8893041567478', '2714.8379621605995', '1042.674858175471', '636.8162553695432']
-  Stage 3 End
----- A2LQJPUNUO9Z7I
-  Network data may need to be cured
-Looking at user A2LQJPUNUO9Z7I
-  NETWORK (16.666666666666668, [7.333333333333333, 3.6666666666666665, 0.0, 2.3333333333333335, 3.3333333333333335], [[8, 4, 10], [4, 4, 3], [0, 0], [1, 0], [2, 2]])
-  Stage 1 Start 1621484373.
----- AMLZT92RF3MYY
-Looking at user AMLZT92RF3MYY
-  SAGAT 1624834207.984214,AMLZT92RF3MYY,{'stage': 'SAGAT', 'action': 'complete', 'score': 77, 'worker-id': 'AMLZT92RF3MYY'}
-  Stage 2 Start 1624834398.
-  Stage 2 reset!
-    Stage 2 reset start 1624834606.
-  Stage 2 End 1624834901.
-  Stage 2 duration511
-  Stage 2 reset duration295
----- A16EBF4F4KII8W
-  Network data may need to be cured
-Looking at user A16EBF4F4KII8W
-  NETWORK (11.666666666666668, [4.0, 0.0, 3.3333333333333335, 2.3333333333333335, 2.0], [[4, 3, 5], [0, 0, 0], [4, 1], [3, 1], [1, 1]])
-  Stage 2 Start 1624908486.
----- A1S791R46SVUH5
-Looking at user A1S791R46SVUH5
-  SAGAT 1624834278.469698,A1S791R46SVUH5,{'stage': 'SAGAT', 'action': 'complete', 'score': 7, 'worker-id': 'A1S791R46SVUH5'}
----- A1CM7L3KK6G2RR
-  Network data may need to be cured
-Looking at user A1CM7L3KK6G2RR
-  NETWORK (11.0, [3.3333333333333335, 0.0, 3.0, 1.6666666666666667, 3.0], [[3, 4, 3], [0, 0, 0], [3, 2], [0, 0], [2, 4]])
-  Stage 1 Start 1618956985.
----- A2FJMUOKON4OCQ
-Looking at user A2FJMUOKON4OCQ
-  SAGAT 1620940077.171684,A2FJMUOKON4OCQ,{'stage': 'SAGAT', 'action': 'complete', 'score': 48, 'worker-id': 'A2FJMUOKON4OCQ'}
-  Stage 1 Start 1620941196.
----- A1M64R8HPYNNZA
-Looking at user A1M64R8HPYNNZA
-  SAGAT 1621622145.80245,A1M64R8HPYNNZA,{'stage': 'SAGAT', 'action': 'complete', 'score': -4, 'worker-id': 'A1M64R8HPYNNZA'}
-  Stage 1 Start 1621623350.
-  Number of caches identified: 0
-  Stage 1 End 1621623934.
-  Stage 1 duration 584
----- AY1NVR3M3GYCI
-Looking at user AY1NVR3M3GYCI
----- A2QRIJVRFJD4C5
-Looking at user A2QRIJVRFJD4C5
-  SAGAT 1621124764.662851,A2QRIJVRFJD4C5,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'A2QRIJVRFJD4C5'}
----- A390FP6231I631
-Looking at user A390FP6231I631
----- A2SD2N74VU4DE7
-  Networks has more than expected picks 18
-Looking at user A2SD2N74VU4DE7
+  Number of robots interacted with: 7
+---- A26X8BQELDQSGH
+  Idle from action 1617480107.152044,A26X8BQELDQSGH,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.3057142857142857,0.7728571428571429]', 'worker-id': 'A26X8BQELDQSGH', 'stage': 2}
+ UNTIL 1617480208.154559,A26X8BQELDQSGH,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A26X8BQELDQSGH', 'stage': 2}
+ SUM 101
+  Idle from action 1617480283.567504,A26X8BQELDQSGH,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.5771428571428572,0.6328571428571429]', 'worker-id': 'A26X8BQELDQSGH', 'stage': 2}
+ UNTIL 1617480450.152298,A26X8BQELDQSGH,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A26X8BQELDQSGH', 'stage': 2}
+ SUM 167
+  Idle from action 1617480452.46356,A26X8BQELDQSGH,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.8342857142857143,0.7842857142857143]', 'worker-id': 'A26X8BQELDQSGH', 'stage': 2}
+ UNTIL 1617480538.33136,A26X8BQELDQSGH,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A26X8BQELDQSGH', 'stage': 2}
+ SUM 86
+Looking at user A26X8BQELDQSGH
+  Stage 2 Start 1617480105.
+  Stage 2 End 1617480595.
+  Stage 2 duration597
+  Number of robots interacted with: 3
+---- ALEE1QD4TW9G4
+  Networks has more than expected picks 17
+Looking at user ALEE1QD4TW9G4
   NETWORK (-1, [], [])
-  Stage 2 Start 1624764376.
-  Stage 2 reset!
-    Stage 2 reset start 1624764703.
-  Stage 2 reset!
-    Stage 2 reset start 1624764903.
-  Stage 2 End 1624765317.
-  Stage 2 duration947
-  Stage 2 reset duration414
----- AHL5MIFQJKPPK
-Looking at user AHL5MIFQJKPPK
----- A2VN59CZEQ7P0R
-Looking at user A2VN59CZEQ7P0R
+  Stage 2 Start 1614295182.
+  Stage 2 End 1614295760.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A2FYFCD16Z3PCC
+Looking at user A2FYFCD16Z3PCC
+  SAGAT 1624906437.665438,A2FYFCD16Z3PCC,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A2FYFCD16Z3PCC'}
+  Stage 2 Start 1624906878.
+  Stage 2 End 1624907084.
+  Stage 2 duration213
+  Number of robots interacted with: 8
+---- A32QWM7BWCSPTS.2
+Looking at user A32QWM7BWCSPTS.2
+  SAGAT 1624832184.479556,A32QWM7BWCSPTS,{'stage': 'SAGAT', 'action': 'complete', 'score': 77, 'worker-id': 'A32QWM7BWCSPTS'}
+  Stage 2 Start 1624832473.
+  Stage 2 End 1624832703.
+  Stage 2 duration241
+  Number of robots interacted with: 8
+---- A256FHXGSY0E5D.4
+Looking at user A256FHXGSY0E5D.4
+  Stage 2 Start 1624903175.
+  Stage 2 End 1624903406.
+  Stage 2 duration239
+  Number of robots interacted with: 8
+---- A34SIGOLUGKIHJ.3
+Looking at user A34SIGOLUGKIHJ.3
+  Stage 2 Start 1624730995.
+  Stage 2 End 1624731571.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A1OW27AZS122X2
+  Networks has more than expected picks 19
+Looking at user A1OW27AZS122X2
+  NETWORK (-1, [], [])
+  Stage 2 Start 1614286655.
+  Stage 2 End 1614287161.
+  Stage 2 duration515
+  Number of robots interacted with: 8
+---- A2V4DP31BEVABF
+Looking at user A2V4DP31BEVABF
+  NETWORK (12.000000000000002, [5.666666666666667, 0.0, 2.0, 1.0, 3.3333333333333335], [[8, 6, 3], [0, 0, 0], [1, 4], [0, 0], [3, 6]])
+  Stage 2 Start 1614276763.
+  Stage 2 End 1614277260.
+  Stage 2 duration509
+  Number of robots interacted with: 8
+---- A3N6DWJC7P3HSI.2
+Looking at user A3N6DWJC7P3HSI.2
+  SAGAT 1614295506.978722,A3N6DWJC7P3HSI,{'stage': 'SAGAT', 'action': 'complete', 'score': 79, 'worker-id': 'A3N6DWJC7P3HSI'}
+  Stage 2 Start 1614295761.
+  Stage 2 End 1614295968.
+  Stage 2 duration212
+  Number of robots interacted with: 8
+---- A2BMHU56X2NH63.3
+  Idle from action 1624840081.080712,A2BMHU56X2NH63,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.1757142857142857,0.9071428571428571]', 'worker-id': 'A2BMHU56X2NH63', 'stage': 2}
+ UNTIL 1624840185.834307,A2BMHU56X2NH63,{'action': 'select-vehicle', 'target': 'UAV2', 'worker-id': 'A2BMHU56X2NH63', 'stage': 2}
+ SUM 104
+  Idle from action 1624840209.795335,A2BMHU56X2NH63,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.15285714285714286,0.5285714285714286]', 'worker-id': 'A2BMHU56X2NH63', 'stage': 2}
+ UNTIL 1624840277.08023,A2BMHU56X2NH63,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.16142857142857142,0.48142857142857143]', 'worker-id': 'A2BMHU56X2NH63', 'stage': 2}
+ SUM 68
+Looking at user A2BMHU56X2NH63.3
+  Stage 2 Start 1624839904.
+  Stage 2 End 1624840494.
+  Stage 2 duration600
+  Number of robots interacted with: 6
+---- A18A8BDCIIIF1N.2
+Looking at user A18A8BDCIIIF1N.2
+  SAGAT 1617477424.917373,A18A8BDCIIIF1N,{'stage': 'SAGAT', 'action': 'complete', 'score': 65, 'worker-id': 'A18A8BDCIIIF1N'}
+  Stage 2 Start 1617478266.
+  Stage 2 End 1617478859.
+  Stage 2 duration600
+  Number of robots interacted with: 8
 ---- A3N66DKF3VNB9X
 Looking at user A3N66DKF3VNB9X
----- A25BQO3PXRZ3JJ
-Looking at user A25BQO3PXRZ3JJ
----- A2PN1H89SQF28M
-Looking at user A2PN1H89SQF28M
----- AZNIEFUIVB2H0
-Looking at user AZNIEFUIVB2H0
----- AO2FV3VXA8ACW
-Looking at user AO2FV3VXA8ACW
----- A1S2R39Z9BVS9A
-  Networks has more than expected picks 18
-Looking at user A1S2R39Z9BVS9A
-  NETWORK (-1, [], [])
-  Stage 2 Start 1625101370.
-  Stage 2 reset!
-    Stage 2 reset start 1625101521.
-  Stage 2 reset!
-    Stage 2 reset start 1625101797.
-  Stage 2 End 1625102392.
-  Stage 2 duration1033
-  Stage 2 reset duration595
----- 123
-Looking at user 123
-  Stage 2 Start 1617723993.
-  Stage 2 End 1617724153.
-  Stage 2 duration167
----- A20PV11G7X26I5
-Looking at user A20PV11G7X26I5
-  NETWORK (16.666666666666668, [7.0, 0.0, 3.6666666666666665, 2.3333333333333335, 3.6666666666666665], [[7, 10, 4], [0, 0, 0], [4, 4], [3, 0], [4, 3]])
-  Stage 1 Start 1619108078.
-  Number of caches identified: 0
-  Stage 1 End 1619108662.
-  Stage 1 duration 584
----- A3L8SP8N52XSIT
-Looking at user A3L8SP8N52XSIT
-  SAGAT 1625154359.821758,A3L8SP8N52XSIT,{'stage': 'SAGAT', 'action': 'complete', 'score': 40, 'worker-id': 'A3L8SP8N52XSIT'}
----- A3PYD7EU2WFST6
-Looking at user A3PYD7EU2WFST6
----- A3TDE0OPWADJJN
-Looking at user A3TDE0OPWADJJN
----- A2KDWYLTP119O
-  Networks has more than expected picks 17
-Looking at user A2KDWYLTP119O
-  NETWORK (-1, [], [])
-  Stage 1 Start 1621371130.
-  Number of caches identified: 0
-  Stage 1 End 1621372560.
-  Stage 1 duration 1430
----- A19L8SNH73AX1Z
-Looking at user A19L8SNH73AX1Z
----- A2FUPODRRCESB
-Looking at user A2FUPODRRCESB
-  SAGAT 1617488136.945028,A2FUPODRRCESB,{'stage': 'SAGAT', 'action': 'complete', 'score': 45, 'worker-id': 'A2FUPODRRCESB'}
-  Stage 2 Start 1617488458.
-  Stage 2 reset!
-    Stage 2 reset start 1617488851.
-  Stage 2 End 1617489270.
-  Stage 2 duration821
-  Stage 2 reset duration419
----- A2B23GOIB0DMR6
-Looking at user A2B23GOIB0DMR6
-  SAGAT 1621566924.392018,A2B23GOIB0DMR6,{'stage': 'SAGAT', 'action': 'complete', 'score': 9, 'worker-id': 'A2B23GOIB0DMR6'}
-  Stage 1 Start 1621567343.
-  SAGAT 1624767777.445847,A2B23GOIB0DMR6,{'stage': 'SAGAT', 'action': 'complete', 'score': 37, 'worker-id': 'A2B23GOIB0DMR6'}
-  Number of caches identified: 0
-  Stage 1 End 1624768411.
-  Stage 1 duration 3201068
----- A174KS88QXW7QJ
-Looking at user A174KS88QXW7QJ
----- None
-Looking at user None
-  Stage 1 Start 1621282736.
-  Number of caches identified: 0
-  Stage 1 End 1621566689.
-  Stage 1 duration 283953
----- A1HSIM02KO5BBU
-  Networks has more than expected picks 20
-Looking at user A1HSIM02KO5BBU
-  NETWORK (-1, [], [])
-  Stage 1 Start 1621540670.
-  Number of caches identified: 0
-  Stage 1 End 1621541148.
-  Stage 1 duration 478
----- A2K3HEVVEWLUS4
-Looking at user A2K3HEVVEWLUS4
----- A23KAJRDVCVGOE
-  Networks has more than expected picks 17
-Looking at user A23KAJRDVCVGOE
-  NETWORK (-1, [], [])
-  Stage 2 Start 1624904046.
-  Stage 2 reset!
-    Stage 2 reset start 1624904288.
-  Stage 2 End 1624904869.
-  Stage 2 duration834
-  Stage 2 reset duration581
----- A1WIRNAFVTFNJL
-Looking at user A1WIRNAFVTFNJL
-  SAGAT 1621636679.832761,A1WIRNAFVTFNJL,{'stage': 'SAGAT', 'action': 'complete', 'score': 5, 'worker-id': 'A1WIRNAFVTFNJL'}
-  Stage 1 Start 1621637133.
----- A3UVG8BZ3B5FWI
-Looking at user A3UVG8BZ3B5FWI
-  SAGAT 1623686611.828176,A3UVG8BZ3B5FWI,{'stage': 'SAGAT', 'action': 'complete', 'score': 26, 'worker-id': 'A3UVG8BZ3B5FWI'}
-  Stage 3 Start
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 7
-  Interactions by robot: 7, 0, 0, 0
-  Distance Traveled: 3238.578990725324 ['3228.9364740921524', '9.642516633171363', '0', '0']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 7
-  Interactions by robot: 7, 0, 0, 0
-  Distance Traveled: 3238.578990725324 ['3228.9364740921524', '9.642516633171619', '0', '0']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 7
-  Interactions by robot: 7, 0, 0, 0
-  Distance Traveled: 3238.5789907253243 ['3228.9364740921524', '9.642516633171747', '0', '0']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 7
-  Interactions by robot: 7, 0, 0, 0
-  Distance Traveled: 3238.5789907253243 ['3228.9364740921524', '9.642516633171875', '0', '0']
-  Stage 3 End
-  Number of caches collected: 3
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 7
-  Interactions by robot: 7, 0, 0, 0
-  Distance Traveled: 3238.5789907253243 ['3228.9364740921524', '9.64251663317213', '0', '0']
-  Stage 3 End
----- AVUI25K9PIY6Z
-Looking at user AVUI25K9PIY6Z
-  SAGAT 1624155957.598962,AVUI25K9PIY6Z,{'stage': 'SAGAT', 'action': 'complete', 'score': 41, 'worker-id': 'AVUI25K9PIY6Z'}
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 63
-  Interactions by robot: 47, 7, 6, 3
-  Distance Traveled: 0.0 ['0', '0', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 63
-  Interactions by robot: 47, 7, 6, 3
-  Distance Traveled: 0.0 ['0', '0', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 63
-  Interactions by robot: 47, 7, 6, 3
-  Distance Traveled: 0.0 ['0', '0', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 63
-  Interactions by robot: 47, 7, 6, 3
-  Distance Traveled: 0.0 ['0', '0', '0', '0']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 4
-  Total robot interactions: 63
-  Interactions by robot: 47, 7, 6, 3
-  Distance Traveled: 0.0 ['0', '0', '0', '0']
-  Stage 3 End
----- A5RJAARS7IUFY
-  Network data may need to be cured
-Looking at user A5RJAARS7IUFY
-  NETWORK (13.333333333333332, [2.6666666666666665, 5.0, 0.0, 2.6666666666666665, 3.0], [[8, 0, 0], [4, 4, 7], [0, 0], [2, 0], [2, 1]])
-  Stage 2 Start 1624775202.
-  Stage 2 reset!
-    Stage 2 reset start 1624776012.
-  Stage 2 reset!
-    Stage 2 reset start 1624776185.
-  Stage 2 reset!
-    Stage 2 reset start 1624776280.
-  Stage 2 reset!
-    Stage 2 reset start 1624776443.
-  Stage 2 reset!
-    Stage 2 reset start 1624776539.
-  Stage 2 reset!
-    Stage 2 reset start 1624776820.
-  Stage 2 reset!
-    Stage 2 reset start 1624776841.
----- A8X9TMN4FOAG8
-Looking at user A8X9TMN4FOAG8
----- AD1FDB9A61LMS
-Looking at user AD1FDB9A61LMS
-  SAGAT 1624904628.257212,AD1FDB9A61LMS,{'stage': 'SAGAT', 'action': 'complete', 'score': 62, 'worker-id': 'AD1FDB9A61LMS'}
-  Stage 2 Start 1624904798.
-  Stage 2 End 1624905141.
-  Stage 2 duration354
----- A38V38OZAP6O0
-Looking at user A38V38OZAP6O0
+---- A38V38OZAP6O0.2
+  Idle from action 1625107902.709857,A38V38OZAP6O0,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.77,0.7864285714285715]', 'worker-id': 'A38V38OZAP6O0', 'stage': 2}
+ UNTIL 1625107999.381274,A38V38OZAP6O0,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.7957142857142857,0.7007142857142857]', 'worker-id': 'A38V38OZAP6O0', 'stage': 2}
+ SUM 97
+Looking at user A38V38OZAP6O0.2
   SAGAT 1625107613.625069,A38V38OZAP6O0,{'stage': 'SAGAT', 'action': 'complete', 'score': 74, 'worker-id': 'A38V38OZAP6O0'}
   Stage 2 Start 1625107764.
   Stage 2 End 1625108360.
   Stage 2 duration601
----- A34ZSQUJGNNFAB
-Looking at user A34ZSQUJGNNFAB
-  SAGAT 1621106442.869504,A34ZSQUJGNNFAB,{'stage': 'SAGAT', 'action': 'complete', 'score': 3, 'worker-id': 'A34ZSQUJGNNFAB'}
-  Stage 1 Start 1621107237.
----- A2NHFSO7GMM8QR
-Looking at user A2NHFSO7GMM8QR
-  Stage 2 Start 1625101294.
-  Stage 2 reset!
-    Stage 2 reset start 1625101542.
-  Stage 2 reset!
-    Stage 2 reset start 1625101990.
-  Stage 2 End 1625102574.
-  Stage 2 duration1319
-  Stage 2 reset duration584
----- A35X5ABMK2SUP3
-Looking at user A35X5ABMK2SUP3
-  NETWORK (12.333333333333332, [4.333333333333333, 0.0, 2.3333333333333335, 2.6666666666666665, 3.0], [[8, 4, 1], [0, 0, 0], [2, 4], [3, 2], [1, 2]])
-  Stage 3 Start
----- 111
-Looking at user 111
-  NETWORK (2.0, [0.0, 0.0, 2.0, 0.0, 0.0], [[0, 0, 0], [0, 0, 0], [1, 2], [0, 0], [0, 0]])
+  Number of robots interacted with: 8
+---- A3R7L5UI9IEWGD
+  Networks has more than expected picks 17
+  Idle from action 1614295455.072569,A3R7L5UI9IEWGD,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.9042857142857142,0.8771428571428571]', 'worker-id': 'A3R7L5UI9IEWGD', 'stage': 2}
+ UNTIL 1614295614.974582,A3R7L5UI9IEWGD,{'action': 'add-valid-waypoint', 'target': 'UAV 1', 'location': '[0.42857142857142855,0.9214285714285714]', 'worker-id': 'A3R7L5UI9IEWGD', 'stage': 2}
+ SUM 159
+Looking at user A3R7L5UI9IEWGD
+  NETWORK (-1, [], [])
+  Stage 2 Start 1614295414.
+  Stage 2 End 1614296000.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- AKNU5D6QK7M72.2
+  Idle from action 1614273057.731289,AKNU5D6QK7M72,{'action': 'add-valid-waypoint', 'target': 'UGV 3', 'location': '[0.7942857142857143,0.9057142857142857]', 'worker-id': 'AKNU5D6QK7M72', 'stage': 2}
+ UNTIL 1614273125.839211,AKNU5D6QK7M72,{'action': 'add-valid-waypoint', 'target': 'UGV 3', 'location': '[0.9057142857142857,0.7714285714285715]', 'worker-id': 'AKNU5D6QK7M72', 'stage': 2}
+ SUM 68
+  Idle from action 1614273131.062496,AKNU5D6QK7M72,{'action': 'add-valid-waypoint', 'target': 'UGV 2', 'location': '[0.8814285714285715,0.4742857142857143]', 'worker-id': 'AKNU5D6QK7M72', 'stage': 2}
+ UNTIL 1614273280.228337,AKNU5D6QK7M72,{'action': 'select-vehicle', 'target': 'UGV 4', 'worker-id': 'AKNU5D6QK7M72', 'stage': 2}
+ SUM 149
+Looking at user AKNU5D6QK7M72.2
+  SAGAT 1614272209.698928,AKNU5D6QK7M72,{'stage': 'SAGAT', 'action': 'complete', 'score': 75, 'worker-id': 'AKNU5D6QK7M72'}
+  Stage 2 Start 1614272835.
+  Stage 2 End 1614273409.
+  Stage 2 duration601
+  Number of robots interacted with: 8
 ---- A2F1AA15HG0FRU
 Looking at user A2F1AA15HG0FRU
   SAGAT 1617478770.000269,A2F1AA15HG0FRU,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'A2F1AA15HG0FRU'}
   Stage 2 Start 1617479252.
   Stage 2 End 1617479597.
   Stage 2 duration353
----- A1QVWKEQC7LN51
-  Networks has more than expected picks 17
-Looking at user A1QVWKEQC7LN51
-  NETWORK (-1, [], [])
-  Stage 2 Start 1624906063.
-  Stage 2 End 1624906656.
-  Stage 2 duration601
----- A14KBCJ69UTVHJ
-  Network data may need to be cured
-Looking at user A14KBCJ69UTVHJ
-  NETWORK (11.333333333333334, [3.3333333333333335, 3.3333333333333335, 0.0, 2.6666666666666665, 2.0], [[5, 5, 0], [2, 5, 3], [0, 0], [6, 0], [1, 3]])
-  Stage 2 Start 1624762216.
-  Stage 2 End 1624762649.
-  Stage 2 duration444
----- A2MOKIEQZ0OF2M
-Looking at user A2MOKIEQZ0OF2M
-  NETWORK (19.666666666666668, [4.0, 5.0, 6.333333333333333, 1.6666666666666667, 2.6666666666666665], [[8, 2, 2], [4, 7, 4], [6, 6], [2, 0], [3, 4]])
-  Stage 3 Start
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 23
-  Interactions by robot: 12, 5, 5, 1
-  Distance Traveled: 5781.118631591903 ['1782.5901814465299', '441.8099059076743', '3166.248404056591', '390.47014018110787']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 23
-  Interactions by robot: 12, 5, 5, 1
-  Distance Traveled: 5781.200944401027 ['1782.6109693523574', '441.81505886008244', '3166.2922378435564', '390.48267834503207']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 23
-  Interactions by robot: 12, 5, 5, 1
-  Distance Traveled: 5781.242100805591 ['1782.6213633052712', '441.8176353362865', '3166.314154737039', '390.4889474269942']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 23
-  Interactions by robot: 12, 5, 5, 1
-  Distance Traveled: 5781.283257210154 ['1782.631757258185', '441.8202118124906', '3166.336071630522', '390.4952165089563']
-  Stage 3 End
-  Number of caches collected: 2
-  Number of caches returned: 1
-  Number of robots interacted with: 4
-  Total robot interactions: 23
-  Interactions by robot: 12, 5, 5, 1
-  Distance Traveled: 5781.324413614716 ['1782.6421512110987', '441.82278828869465', '3166.3579885240047', '390.5014855909184']
-  Stage 3 End
+  Number of robots interacted with: 8
 ---- A3JC9VPPTHNKVL
 Looking at user A3JC9VPPTHNKVL
   SAGAT 1617477054.640118,A3JC9VPPTHNKVL,{'stage': 'SAGAT', 'action': 'complete', 'score': 53, 'worker-id': 'A3JC9VPPTHNKVL'}
   Stage 2 Start 1617477341.
   Stage 2 End 1617477790.
   Stage 2 duration464
----- tetet
-Looking at user tetet
-  NETWORK (2.3333333333333335, [0.0, 0.0, 2.3333333333333335, 0.0, 0.0], [[0, 0, 0], [0, 0, 0], [4, 1], [0, 0], [0, 0]])
----- A35LWWZHYTBJES
-Looking at user A35LWWZHYTBJES
-  SAGAT 1624055521.963457,A35LWWZHYTBJES,{'stage': 'SAGAT', 'action': 'complete', 'score': 34, 'worker-id': 'A35LWWZHYTBJES'}
-  Stage 3 Start
----- A2W615PWYVMZ23
-Looking at user A2W615PWYVMZ23
----- testtt
-Looking at user testtt
-  SAGAT 1624730077.712051,testtt,{'stage': 'SAGAT', 'action': 'complete', 'score': -1, 'worker-id': 'testtt'}
-  Stage 2 Start 1624730215.
-  Stage 2 End 1624730342.
-  Stage 2 duration130
----- A3K9GTQBOI7O5A
-  Networks has more than expected picks 19
-Looking at user A3K9GTQBOI7O5A
-  NETWORK (-1, [], [])
-  Stage 1 Start 1618844687.
-  Number of caches identified: 0
-  Stage 1 End 1618845251.
-  Stage 1 duration 564
----- A1WH32GYQOHIRQ
-Looking at user A1WH32GYQOHIRQ
-  SAGAT 1625153488.72144,A1WH32GYQOHIRQ,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A1WH32GYQOHIRQ'}
-  Stage 2 Start 1625154050.
-  Stage 2 End 1625154632.
-  Stage 2 duration600
----- 1
-Looking at user 1
----- A7807L5SP26ZL
-Looking at user A7807L5SP26ZL
-  SAGAT 1624833327.547319,A7807L5SP26ZL,{'stage': 'SAGAT', 'action': 'complete', 'score': 25, 'worker-id': 'A7807L5SP26ZL'}
-  Stage 2 Start 1624835122.
-  Stage 2 End 1624835513.
-  Stage 2 duration600
----- A1KFDDJW0WYGCJ
-Looking at user A1KFDDJW0WYGCJ
----- A6JKKANO7F4KD
-Looking at user A6JKKANO7F4KD
-  SAGAT 1624732251.503965,A6JKKANO7F4KD,{'stage': 'SAGAT', 'action': 'complete', 'score': 75, 'worker-id': 'A6JKKANO7F4KD'}
-  Stage 2 Start 1624732754.
-  Stage 2 reset!
-  Stage 2 reset!
-    Stage 2 reset start 1624732962.
-  Stage 2 End 1624733365.
-  Stage 2 duration629
-  Stage 2 reset duration403
----- A1WQACYPLESVGL
-Looking at user A1WQACYPLESVGL
-  SAGAT 1624840358.685986,A1WQACYPLESVGL,{'stage': 'SAGAT', 'action': 'complete', 'score': 75, 'worker-id': 'A1WQACYPLESVGL'}
-  Stage 2 Start 1624840682.
-  Stage 2 reset!
-    Stage 2 reset start 1624840900.
-  Stage 2 reset!
-    Stage 2 reset start 1624843941.
-  Stage 2 End 1624844558.
-  Stage 2 duration3888
-  Stage 2 reset duration617
----- 12312
-Looking at user 12312
-  Stage 2 Start 1617564680.
-  Stage 2 End 1617564831.
-  Stage 2 duration152
+  Number of robots interacted with: 8
+---- A1ZRK6K5JUPJAV
+Looking at user A1ZRK6K5JUPJAV
+  Stage 2 Start 1614294850.
+  Stage 2 End 1614295175.
+  Stage 2 duration336
+  Number of robots interacted with: 8
 ---- AUB6V4HVL1O45
 Looking at user AUB6V4HVL1O45
   SAGAT 1617487690.461519,AUB6V4HVL1O45,{'stage': 'SAGAT', 'action': 'complete', 'score': 65, 'worker-id': 'AUB6V4HVL1O45'}
   Stage 2 Start 1617487884.
   Stage 2 End 1617488462.
   Stage 2 duration600
----- A1V12EEDWM5F2H
-Looking at user A1V12EEDWM5F2H
-  SAGAT 1619806478.977919,A1V12EEDWM5F2H,{'stage': 'SAGAT', 'action': 'complete', 'score': 18, 'worker-id': 'A1V12EEDWM5F2H'}
-  Stage 1 Start 1619806922.
----- A2PXJTMWGUE5DC
-Looking at user A2PXJTMWGUE5DC
-  NETWORK (14.666666666666666, [4.333333333333333, 2.0, 3.3333333333333335, 0.0, 5.0], [[2, 1, 10], [1, 3, 2], [5, 1], [0, 0], [6, 3]])
-  Stage 1 Start 1618965210.
-  Number of caches identified: 0
-  Stage 1 End 1618965778.
-  Stage 1 duration 568
----- A1W98972IANMCI
-  Networks has more than expected picks 20
-Looking at user A1W98972IANMCI
-  NETWORK (-1, [], [])
----- A3U2NKVFM0AMBN
-  Networks has more than expected picks 20
-Looking at user A3U2NKVFM0AMBN
-  NETWORK (-1, [], [])
-  Stage 3 Start
----- A22W4Y4UI182L2
-Looking at user A22W4Y4UI182L2
----- A1YXKN5ATSR5I1
-Looking at user A1YXKN5ATSR5I1
-  SAGAT 1624236048.251575,A1YXKN5ATSR5I1,{'stage': 'SAGAT', 'action': 'complete', 'score': 33, 'worker-id': 'A1YXKN5ATSR5I1'}
-  Stage 3 Start
----- A123R7AGMJMYT7
-Looking at user A123R7AGMJMYT7
-  SAGAT 1624225364.520436,A123R7AGMJMYT7,{'stage': 'SAGAT', 'action': 'complete', 'score': 37, 'worker-id': 'A123R7AGMJMYT7'}
-  Stage 3 Start
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 940.660546087721 ['932.6392481937547', '8.020590700141177', '0.0003809463330250416', '0.00032624749196785615']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 940.6933629020223 ['932.672065008055', '8.020590700141433', '0.00038094633343494535', '0.0003262474924762791']
-  Stage 3 End
-  Number of caches collected: 0
-  Number of caches returned: 0
-  Number of robots interacted with: 1
-  Total robot interactions: 2
-  Interactions by robot: 2, 0, 0, 0
-  Distance Traveled: 940.6933629020223 ['932.672065008055', '8.020590700141433', '0.00038094633343494535', '0.0003262474924762791']
-  Stage 3 End
----- A3N8N0APBBUPT3
-Looking at user A3N8N0APBBUPT3
-  Stage 2 Start 1624904682.
-  Stage 2 End 1624905263.
-  Stage 2 duration600
----- A3PR7FCPPZ88JR
-Looking at user A3PR7FCPPZ88JR
----- A169729CJLRA3X
-  Networks has less than expected picks 15
-Looking at user A169729CJLRA3X
-  NETWORK (-1, [], [])
----- A10JXOU89D5RXR
-Looking at user A10JXOU89D5RXR
-  SAGAT 1619816203.595537,A10JXOU89D5RXR,{'stage': 'SAGAT', 'action': 'complete', 'score': 67, 'worker-id': 'A10JXOU89D5RXR'}
-  Stage 1 Start 1619816957.
-  Number of caches identified: 0
-  Stage 1 End 1619817540.
-  Stage 1 duration 583
+  Number of robots interacted with: 7
+---- ALXW2ZXX4SJRO
+Looking at user ALXW2ZXX4SJRO
+  SAGAT 1614298369.318794,ALXW2ZXX4SJRO,{'stage': 'SAGAT', 'action': 'complete', 'score': 66, 'worker-id': 'ALXW2ZXX4SJRO'}
+  Stage 2 Start 1614298660.
+  Stage 2 End 1614299000.
+  Stage 2 duration353
+  Number of robots interacted with: 8
 ---- A2KGELV8JP76TJ
+  Idle from action 1624914741.639194,A2KGELV8JP76TJ,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A2KGELV8JP76TJ', 'stage': 2}
+ UNTIL 1624914964.976169,A2KGELV8JP76TJ,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.7228571428571429,0.36]', 'worker-id': 'A2KGELV8JP76TJ', 'stage': 2}
+ SUM 223
+  Idle from action 1624914964.976169,A2KGELV8JP76TJ,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.7228571428571429,0.36]', 'worker-id': 'A2KGELV8JP76TJ', 'stage': 2}
+ UNTIL 1624915239.17078,A2KGELV8JP76TJ,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A2KGELV8JP76TJ'}
+ SUM 275
 Looking at user A2KGELV8JP76TJ
   SAGAT 1624914009.860916,A2KGELV8JP76TJ,{'stage': 'SAGAT', 'action': 'complete', 'score': 10, 'worker-id': 'A2KGELV8JP76TJ'}
   Stage 2 Start 1624914689.
   Stage 2 End 1624915239.
   Stage 2 duration600
----- AQYHSLW4XO
-Looking at user AQYHSLW4XO
----- A31K2MTCO7Z8R1
-Looking at user A31K2MTCO7Z8R1
----- FDGFHGSDSFD
-Looking at user FDGFHGSDSFD
----- A18SXC3JEN1O0U
+  Number of robots interacted with: 1
+---- A1F1TBDHPYAAXT.3
+Looking at user A1F1TBDHPYAAXT.3
+  Stage 2 Start 1624832775.
+  Stage 2 End 1624833365.
+  Stage 2 duration601
+  Number of robots interacted with: 8
+---- A15HEFHJNYJIU3
   Network data may need to be cured
-Looking at user A18SXC3JEN1O0U
-  NETWORK (21.0, [8.0, 5.0, 0.0, 3.0, 5.0], [[10, 7, 7], [4, 4, 7], [0, 0], [3, 0], [6, 3]])
-  Stage 2 Start 1617566751.
+  Networks has more than expected picks 20
+  Idle from action 1624765587.506231,A15HEFHJNYJIU3,{'action': 'add-valid-waypoint', 'target': 'UAV3', 'location': '[0.91,0.83]', 'worker-id': 'A15HEFHJNYJIU3', 'stage': 2}
+ UNTIL 1624765691.340439,A15HEFHJNYJIU3,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A15HEFHJNYJIU3', 'stage': 2}
+ SUM 104
+  Idle from action 1624765706.604581,A15HEFHJNYJIU3,{'action': 'add-valid-waypoint', 'target': 'UAV2', 'location': '[0.5728571428571428,0.34]', 'worker-id': 'A15HEFHJNYJIU3', 'stage': 2}
+ UNTIL 1624765864.272647,A15HEFHJNYJIU3,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A15HEFHJNYJIU3', 'stage': 2}
+ SUM 158
+  Idle from action 1624765891.145597,A15HEFHJNYJIU3,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.8214285714285714,0.2042857142857143]', 'worker-id': 'A15HEFHJNYJIU3', 'stage': 2}
+ UNTIL 1624765956.375166,A15HEFHJNYJIU3,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A15HEFHJNYJIU3'}
+ SUM 65
+Looking at user A15HEFHJNYJIU3
+  NETWORK (13.333333333333332, [2.6666666666666665, 5.0, 0.0, 3.0, 2.6666666666666665], [[8, 0, 0], [4, 4, 7], [0, 0], [2, 1], [2, 0]])
+  NETWORK (-1, [], [])
+  Stage 2 Start 1624765383.
+  Stage 2 End 1624765956.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A34MXCHJVM6ENI.2
+Looking at user A34MXCHJVM6ENI.2
+  SAGAT 1617480987.307267,A34MXCHJVM6ENI,{'stage': 'SAGAT', 'action': 'complete', 'score': 71, 'worker-id': 'A34MXCHJVM6ENI'}
+  Stage 2 Start 1617481293.
+  Stage 2 End 1617481885.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A2WRUK3KGSY1GZ.2
+Looking at user A2WRUK3KGSY1GZ.2
+  Stage 2 Start 1624833687.
+  Stage 2 End 1624834261.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A3A7XE8L9Q1WZF
+  Idle from action 1625106299.866791,A3A7XE8L9Q1WZF,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.8428571428571429,0.6128571428571429]', 'worker-id': 'A3A7XE8L9Q1WZF', 'stage': 2}
+ UNTIL 1625106400.626582,A3A7XE8L9Q1WZF,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.8,0.87]', 'worker-id': 'A3A7XE8L9Q1WZF', 'stage': 2}
+ SUM 101
+Looking at user A3A7XE8L9Q1WZF
+  SAGAT 1625105824.137481,A3A7XE8L9Q1WZF,{'stage': 'SAGAT', 'action': 'complete', 'score': 65, 'worker-id': 'A3A7XE8L9Q1WZF'}
+  Stage 2 Start 1625105966.
+  Stage 2 End 1625106541.
+  Stage 2 duration600
+  Number of robots interacted with: 5
+---- A2PJGKW2KOVM7Y.2
+Looking at user A2PJGKW2KOVM7Y.2
+  SAGAT 1617485198.770474,A2PJGKW2KOVM7Y,{'stage': 'SAGAT', 'action': 'complete', 'score': 70, 'worker-id': 'A2PJGKW2KOVM7Y'}
+  Stage 2 Start 1617485615.
+  Stage 2 End 1617486117.
+  Stage 2 duration512
+  Number of robots interacted with: 8
+---- A7N3J27F3IL6M
+  Idle from action 1624819835.497264,A7N3J27F3IL6M,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.08714285714285715,0.7171428571428572]', 'worker-id': 'A7N3J27F3IL6M', 'stage': 2}
+ UNTIL 1624819940.860447,A7N3J27F3IL6M,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A7N3J27F3IL6M'}
+ SUM 105
+Looking at user A7N3J27F3IL6M
+  NETWORK (13.0, [1.3333333333333333, 3.3333333333333335, 2.6666666666666665, 2.6666666666666665, 3.0], [[1, 2, 1], [3, 3, 4], [1, 3], [2, 3], [3, 3]])
+  Stage 2 Start 1624819400.
+  Stage 2 End 1624819940.
+  Stage 2 duration556
+  Number of robots interacted with: 8
+---- A14QFRGIYIMNHN
+  Idle from action 1624765436.683147,A14QFRGIYIMNHN,{'action': 'add-valid-waypoint', 'target': 'UAV3', 'location': '[0.8771428571428571,0.3842857142857143]', 'worker-id': 'A14QFRGIYIMNHN', 'stage': 2}
+ UNTIL 1624765545.113205,A14QFRGIYIMNHN,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A14QFRGIYIMNHN', 'stage': 2}
+ SUM 109
+  Idle from action 1624765568.386202,A14QFRGIYIMNHN,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.5757142857142857,0.3142857142857143]', 'worker-id': 'A14QFRGIYIMNHN', 'stage': 2}
+ UNTIL 1624765710.386875,A14QFRGIYIMNHN,{'action': 'select-vehicle', 'target': 'UAV4', 'worker-id': 'A14QFRGIYIMNHN', 'stage': 2}
+ SUM 142
+Looking at user A14QFRGIYIMNHN
+  SAGAT 1624764497.730075,A14QFRGIYIMNHN,{'stage': 'SAGAT', 'action': 'complete', 'score': 35, 'worker-id': 'A14QFRGIYIMNHN'}
+  Stage 2 Start 1624765153.
+  Stage 2 End 1624765732.
+  Stage 2 duration601
+  Number of robots interacted with: 8
+---- A245VZU2AJ0H9D.4
+Looking at user A245VZU2AJ0H9D.4
+  Stage 2 Start 1624911000.
+  Stage 2 End 1624911438.
+  Stage 2 duration463
+  Number of robots interacted with: 8
+---- A3I1W58P6SIV26
+Looking at user A3I1W58P6SIV26
+  NETWORK (15.0, [6.333333333333333, 0.0, 2.6666666666666665, 3.3333333333333335, 2.6666666666666665], [[6, 8, 5], [0, 0, 0], [2, 1], [1, 6], [2, 3]])
+  Stage 2 Start 1614296659.
+  Stage 2 End 1614297084.
+  Stage 2 duration435
+  Number of robots interacted with: 8
+---- AW5O1RK3W60FC.4
+  Idle from action 1624834737.909546,AW5O1RK3W60FC,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'AW5O1RK3W60FC', 'stage': 2}
+ UNTIL 1624834816.419714,AW5O1RK3W60FC,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'AW5O1RK3W60FC'}
+ SUM 79
+Looking at user AW5O1RK3W60FC.4
+  Stage 2 Start 1624834260.
   Stage 2 reset!
-    Stage 2 reset start 1617567151.
-  Stage 2 reset!
-    Stage 2 reset start 1617567565.
-  Stage 2 End 1617568153.
-  Stage 2 duration1416
-  Stage 2 reset duration588
----- 2
+    Stage 2 reset start 1624834329.
+  Stage 2 End 1624834925.
+  Stage 2 duration851
+  Stage 2 reset duration596
+  Number of robots interacted with: 7
+---- A18A8BDCIIIF1N.3
+Looking at user A18A8BDCIIIF1N.3
+  Stage 3 Start
+---- A18A8BDCIIIF1N
+Looking at user A18A8BDCIIIF1N
+  SAGAT 1617477424.917373,A18A8BDCIIIF1N,{'stage': 'SAGAT', 'action': 'complete', 'score': 65, 'worker-id': 'A18A8BDCIIIF1N'}
+  Stage 2 Start 1617478266.
+  Stage 2 End 1617478859.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A27TE0L5XP1H0U.2
+Looking at user A27TE0L5XP1H0U.2
+  Stage 2 Start 1625098712.
+  Stage 2 End 1625098834.
+  Stage 2 duration132
+  Number of robots interacted with: 8
+---- A1QEQOI98976S0.2
+  Idle from action 1617477040.399212,A1QEQOI98976S0,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.4114285714285714,0.5430952235630581]', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ UNTIL 1617477206.371088,A1QEQOI98976S0,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ SUM 166
+  Idle from action 1617477214.204595,A1QEQOI98976S0,{'action': 'add-valid-waypoint', 'target': 'UAV2', 'location': '[0.13,0.49880950927734374]', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ UNTIL 1617477355.010071,A1QEQOI98976S0,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ SUM 141
+  Idle from action 1617477356.151004,A1QEQOI98976S0,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.8971428571428571,0.3416666521344866]', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ UNTIL 1617477509.170443,A1QEQOI98976S0,{'action': 'select-vehicle', 'target': 'UAV3', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ SUM 153
+  Idle from action 1617477510.319604,A1QEQOI98976S0,{'action': 'add-valid-waypoint', 'target': 'UAV3', 'location': '[0.65,0.3102380807059152]', 'worker-id': 'A1QEQOI98976S0', 'stage': 2}
+ UNTIL 1617477604.18559,A1QEQOI98976S0,{'stage': 2, 'action': 'stage-complete', 'worker-id': 'A1QEQOI98976S0'}
+ SUM 94
+Looking at user A1QEQOI98976S0.2
+  SAGAT 1617476345.201796,A1QEQOI98976S0,{'stage': 'SAGAT', 'action': 'complete', 'score': 25, 'worker-id': 'A1QEQOI98976S0'}
+  Stage 2 Start 1617477039.
+  Stage 2 End 1617477604.
+  Stage 2 duration601
+  Number of robots interacted with: 4
+---- A3US4NGKXBVI48
+Looking at user A3US4NGKXBVI48
+  SAGAT 1617477095.487067,A3US4NGKXBVI48,{'stage': 'SAGAT', 'action': 'complete', 'score': 66, 'worker-id': 'A3US4NGKXBVI48'}
+  Stage 2 Start 1617477326.
+  Stage 2 End 1617477763.
+  Stage 2 duration444
+  Number of robots interacted with: 8
+---- A1P3HHEXWNLJMP.3
+Looking at user A1P3HHEXWNLJMP.3
+  SAGAT 1617490742.263217,A1P3HHEXWNLJMP,{'stage': 'SAGAT', 'action': 'complete', 'score': 71, 'worker-id': 'A1P3HHEXWNLJMP'}
+  Stage 2 Start 1617490985.
+  Stage 2 End 1617491247.
+  Stage 2 duration282
+  Number of robots interacted with: 8
+---- APDDA1Y59RHV9
+Looking at user APDDA1Y59RHV9
+  SAGAT 1624832203.605013,APDDA1Y59RHV9,{'stage': 'SAGAT', 'action': 'complete', 'score': 73, 'worker-id': 'APDDA1Y59RHV9'}
+  Stage 2 Start 1624832607.
+  Stage 2 End 1624833197.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A28AXX4NCWPH1F.2
+Looking at user A28AXX4NCWPH1F.2
+  Stage 2 Start 1624738601.
+  Stage 2 End 1624739081.
+  Stage 2 duration487
+  Number of robots interacted with: 8
+---- A10MSB9X1UFLJ5.3
+Looking at user A10MSB9X1UFLJ5.3
+  SAGAT 1624779206.530204,A10MSB9X1UFLJ5,{'stage': 'SAGAT', 'action': 'complete', 'score': 57, 'worker-id': 'A10MSB9X1UFLJ5'}
+  Stage 2 Start 1624779550.
+  Stage 2 End 1624780141.
+  Stage 2 duration600
+  Number of robots interacted with: 8
+---- A2615YW1YERQBO.2
+Looking at user A2615YW1YERQBO.2
+  Stage 2 Start 1617568078.
+  Stage 2 End 1617568616.
+  Stage 2 duration556
+  Number of robots interacted with: 8

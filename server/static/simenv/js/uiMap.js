@@ -26,6 +26,10 @@ class UIMap {
         this.stageVictory = false;
         this.nextStage = 0;
 
+        // variables for the REPLAY
+        this.replay = false;
+        this.maxConnected = 0;
+
         // variables for stage 3
         this.announcedStuck = false;
 

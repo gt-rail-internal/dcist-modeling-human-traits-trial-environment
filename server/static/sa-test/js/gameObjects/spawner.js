@@ -36,7 +36,7 @@ class Spawner {
 
     // draws the spawner and paths
     draw() {
-        
+        // the spawner is invisible (no icon or anything)
     }
 
     // spawns one instance of the package

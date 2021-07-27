@@ -1,8 +1,9 @@
-class SAGAT {
+// sagat.js: defines the SAGAT test
 
-    constructor(freezePeriod) {
+class SAGAT {
+    constructor() {
         this.stage = 0;
-        this.freezePeriod = freezePeriod * 1000;
+        this.freezePeriod = 30 * 1000;  // SET THIS TO THE SIMULATION PERIOD (TIME THE USER WATCHES THE SIMULATION BEFORE THE SAGAT TEST), 30 * 1000 = 30 seconds
         this.freezeTimeset = Date.now();
 
         this.active = false;
@@ -15,7 +16,7 @@ class SAGAT {
 
         this.scores = [];
         this.sagatCount = 1;
-        this.sagatMaxFreezes = 6;
+        this.sagatMaxFreezes = 4;  // SET THIS TO THE NUMBER OF SAGAT FREEZES IN THE EXPERIMENT
     }
 
     // start the sagat timer
@@ -67,14 +68,15 @@ class SAGAT {
     }
 
     // generates a score from the selected warehouse states
+    // SET THIS TO HOWEVER YOU WANT TO GRADE THE TEST AFTER EACH RUN
     gradeTest(warehouseSelections) {
         var score = 0;
-        console.log("-----")
+        var complete = true;
         for (var i in warehouseSelections) {
-            // if colored grey, ignore
+            // if colored grey, state that they need to fill in all the warehouses
             if (warehouseSelections[i] == 0) {
-                score += 0;
-                continue;
+                complete = false;
+                break;
             }
             
             // if colored green and warehouse is doing fine
@@ -98,20 +100,18 @@ class SAGAT {
             score -= 1;  // penalize wrong answers
         }
 
-        // for the first cycle, check if the warehouses are all green, otherwise write so in the side panel
-        console.log(">>>", this.sagatCount, score, warehouseSelections.length)
-        if (this.sagatCount == 1 && score != warehouseSelections.length) {
-            console.log("messed up the first test .-,", warehouseSelections.length);
+        // if the selections were incomplete (any greys), state so
+        if (!complete) {
             this.active = true;
             this.sagatCount -= 1;
-            sidePanelFailedFirstCycle();
+            sidePanelIncompleteSelection();
         }
 
-        if (this.sagatCount > 1) {  // don't record the first one
+        if (this.sagatCount > 1) {  // don't record the first score
             this.scores.push(score)  // record the score
         }
         
-        this.sagatCount += 1;  // increment the count\
+        this.sagatCount += 1;  // increment the count
     }
 
 }

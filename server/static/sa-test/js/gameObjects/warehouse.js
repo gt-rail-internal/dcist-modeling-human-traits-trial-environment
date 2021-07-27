@@ -1,24 +1,43 @@
 // warehouse.js: defines the class for the warehouse game object
 
 class Warehouse {
-    constructor(context, drawFunction, location, color, capacity=20, height=50) {
-        this.context = context;
-        this.drawFunction = drawFunction;
-        this.location = location;
-        this.color = color;
-        this.height = height;
+    constructor(context, drawFunction, location, color, capacity = 20, height = 50, prefill) {
+        this.context = context;  // the canvas context for drawing
+        this.drawFunction = drawFunction;  // the function called for drawing the shape
+        this.location = location;  // the location of the warehouse
+        this.color = color;  // the color of the warehouse
+        this.height = height;  // the height of the warehouse
+        this.prefill = prefill;  // boolean whether the warehouse is prefilled
 
         this.downstreamWarehouses = []; // downstream warehouses
 
-        this.count = 0;
-        this.storedPackages = [];
-        this.capacity = capacity;
-        this.isFull = false;
+        this.count = 0;  // the number of packages currently being stored
+
+        this.storedPackages = [];  // the package objects being stored
+        this.capacity = capacity;  // the maximum warehouse capacity
+        this.isFull = false;  // whether the warehouse is currently full
 
         this.selected = 0;  // whether the warehouse is currently selected in the SAGAT test
 
         this.transferPeriod = 2 * 1000;  // transfer period of 1 second
         this.transferTimeset = Date.now();
+
+    }
+
+    // used to randomly fill a warehouse if desired
+    prefillPackages(packages) {
+        let packageCount = (Math.random() * this.capacity / 4);  // get a random number of packages
+        for (let i = 0; i < packageCount; i++) {
+            // create the package
+            var newPackage = new Package(this.context, null, null, this.location, null, null);
+            newPackage.generatePackage(false, null, null, null);
+            // store the package
+            this.storedPackages.push(newPackage);
+            this.count += 1;
+            packages.push(newPackage);
+        }
+
+        return packages;
     }
 
     // returns the portion full as a decimal
@@ -52,6 +71,7 @@ class Warehouse {
         }
     }
 
+    // draws the warehouse
     draw(sagatActive) {
         // draw the warehouse
         var warehouseColor = sagatActive ? this.selected == 1 ? "green" : this.selected == 2 ? "red" : this.selected == 3 ? "orange" : "lightgrey" : this.color;
@@ -64,8 +84,8 @@ class Warehouse {
     drawCapacity(sagatActive) {
         var indicatorCapacity = this.count / this.capacity;
         var indicatorColor = sagatActive ? "lightgrey" : indicatorCapacity < .7 ? "green" : indicatorCapacity < .90 ? "orange" : indicatorCapacity < 1 ? "red" : "red";  // when full and 90%+, will turn red
-        drawRectangle(this.context, this.location[0]+this.height*.75, this.location[1]+this.height/2 - this.height/2, 10, this.height, "lightgrey") 
-        drawRectangle(this.context, this.location[0]+this.height*.75, this.location[1]+this.height/2 - indicatorCapacity * this.height/2, 10, indicatorCapacity * this.height, indicatorColor) 
+        drawRectangle(this.context, this.location[0] + this.height * .75, this.location[1] + this.height / 2 - this.height / 2, 10, this.height, "lightgrey")
+        drawRectangle(this.context, this.location[0] + this.height * .75, this.location[1] + this.height / 2 - indicatorCapacity * this.height / 2, 10, indicatorCapacity * this.height, indicatorColor)
     }
 
     // receive a package that has arrived
@@ -79,12 +99,12 @@ class Warehouse {
 
     // send a package to a warehouse that is applicable
     relayPackage(sendingPackage) {
-        // split warehouses into suitable and unsuitable
+        // split warehouses into suitable and unsuitable locations
         var matchingWarehouses = [];
         var sameShapeWarehouses = [];
         var sameColorWarehouses = [];
         var unsuitableWarehouses = [];
-        for (var i=0; i<this.downstreamWarehouses.length; i++) {
+        for (var i = 0; i < this.downstreamWarehouses.length; i++) {
             // check if full (disregard)
             if (this.downstreamWarehouses[i].isFull) {
                 continue;
@@ -106,7 +126,7 @@ class Warehouse {
                 unsuitableWarehouses.push(this.downstreamWarehouses[i]);
             }
         }
-        
+
         // if sending at random, choose a random warehouse from both the suitable and unsuitable warehouses
         if (this.random) {
             sendingPackage.targetWarehouse = randomFromArray(matchingWarehouses.concat(sameShapeWarehouses).concat(sameColorWarehouses).concat(unsuitableWarehouses));
@@ -140,12 +160,14 @@ class Warehouse {
     }
 }
 
+// update all the warehouses
 function updateWarehouses(warehouses) {
-    for (var i=0; i<warehouses.length; i++) {
+    for (var i = 0; i < warehouses.length; i++) {
         warehouses[i].timestep(Date.now());
     }
 }
 
+// deselect all the warehouses
 function clearSelectedWarehouses() {
     for (i in gameboard.warehouses) {
         gameboard.warehouses[i].selected = 0;

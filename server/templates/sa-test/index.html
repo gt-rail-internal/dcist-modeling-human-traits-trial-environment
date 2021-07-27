@@ -12,10 +12,26 @@
   </head>
   <!-- PULLED ON NOVEMBER 18 -->
   <!-- COPYRIGHTED (C) 2020, RAIL Lab @ Georgia Tech -->
+  
+  <!-- script imports, you may need to reformat based on the webserver you are using (an example for Python Flask is commented out below) -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+  
+  <!--
+  <script src="js/sagat.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/shapes.js"></script>
+  <script src="js/utility.js"></script>
+  <script src="js/sidePanel.js"></script>
+  <script src="js/gameObjects/gameboard.js"></script>
+  <script src="js/gameObjects/package.js"></script>
+  <script src="js/gameObjects/spawner.js"></script>
+  <script src="js/gameObjects/warehouse.js"></script>
+  -->
 
   <link rel="stylesheet" href="{{url_for('static', filename='sa-test/css/styles.css')}}">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
-  
+
   <script src="{{url_for('static', filename='sa-test/js/sagat.js')}}"></script>
   <script src="{{url_for('static', filename='sa-test/js/motion.js')}}"></script>
   <script src="{{url_for('static', filename='sa-test/js/shapes.js')}}"></script>
@@ -26,7 +42,9 @@
   <script src="{{url_for('static', filename='sa-test/js/gameObjects/spawner.js')}}"></script>
   <script src="{{url_for('static', filename='sa-test/js/gameObjects/warehouse.js')}}"></script>
   
+
   <body>
+    <!-- constructs the HTML body, it is simply a header title and two "side panel" divs side by side, and a button -->
     <div class="center-div">
       <h1></h1>
       <div style="display: flex;">
@@ -43,8 +61,7 @@
     </div>
 
     <script>
-      // log that this page is active
-      log({"stage": "SAGAT", "action": "opened-page"});
+      // initialize the situational awareness test and launch it
 
       var seed = xmur3("RAIL Lab");  // use xmur3 to create a seed hash
       var rand = mulberry32(seed());  // use the mulberry32 algorithm for the random number generator
@@ -55,10 +72,12 @@
       var tutorialActive = true;
       var gameActive = false;
       
-      var workerId = "{{ worker_id }}";
+      var workerId = "{{ worker_id }}";  // the worker ID is used for logging
+      var mission = "{{ mission }}";  // the mission ID is used by the RAIL lab and sent back to the experiment portal at the end, to indicate what comes next in the experiment
 
-      var mission = "{{ mission }}";
-
+      // log that this page is active
+      log({"stage": "SAGAT", "action": "opened-page"});
+      
       // initialize lists used to keep track of things
       var packages = [];  // active packages
       var warehouses = [];  // active warehouses
@@ -69,7 +88,7 @@
       gameboard.generateTutorialGameboard();
 
       // initialize the SAGAT test
-      var sagat = new SAGAT(30);  // the argument is the freeze period
+      var sagat = new SAGAT();
 
       // set the side panel to the introduction
       sidePanelTutorial1();
