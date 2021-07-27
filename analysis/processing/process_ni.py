@@ -24,3 +24,4 @@ def get_ni_data(path):
                     ni_scores[p] = score
         
             continue
+    return ni_scores
