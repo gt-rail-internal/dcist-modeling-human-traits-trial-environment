@@ -1,0 +1,108 @@
+<!-- If you are looking to set parameters for your own work, check out the <script> section -->
+<!-- To add your own puzzles, see puzzles.js -->
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Experiment Task</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Network Inference Pretest from Georgia Tech's RAIL Lab">
+    <meta name="author" content="Jack Kolb">
+  </head>
+
+  <!-- COPYRIGHTED (C) 2021, RAIL Lab @ Georgia Tech -->
+
+  <!-- import the Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+
+  <!-- when running this on a dynamic webserver (ex Flask), uncomment this section below, you may need to reformat it based on your webserver -->
+  <link rel="stylesheet" href="{{url_for('static', filename='ni-test/css/styles.css')}}">
+  <script src="{{url_for('static', filename='ni-test/js/gameboard.js')}}"></script>
+  <script src="{{url_for('static', filename='ni-test/js/Networks.js')}}"></script>
+  <script src="{{url_for('static', filename='ni-test/js/Node.js')}}"></script>
+  <script src="{{url_for('static', filename='ni-test/js/puzzles.js')}}"></script>
+  <script src="{{url_for('static', filename='ni-test/js/sidePanel.js')}}"></script>
+  <script src="{{url_for('static', filename='ni-test/js/utility.js')}}"></script>
+
+  <!-- when running this on a static webserver (ex GitHub), uncomment this section below -->
+  <!--<link rel="stylesheet" href="css/styles.css">
+  <script src="js/gameboard.js"></script>
+  <script src="js/Networks.js"></script>
+  <script src="js/Node.js"></script>
+  <script src="js/puzzles.js"></script>
+  <script src="js/sidePanel.js"></script>
+  <script src="js/utility.js"></script>-->
+
+  <!-- HTML content -->
+  <body>
+    <div class="center-div">
+      <!-- title, currently kept blank -->
+      <h1></h1>
+
+      <!-- content -->
+      <div style="display: flex;">
+        <!-- gameboard canvas, if you would like you can change the height/width -->
+        <canvas id="Canvas" class="stage" width="800" height="800"></canvas>
+        <!-- left side instructions panel -->
+        <div id="SidePanel" class="side-panel">
+          <!-- side panel title -->
+          <div id="SidePanelTitle" style="text-decoration: underline; text-align: center;"></div>
+          <!-- side panel text content -->
+          <div id="SidePanelContent"></div>
+          <br>
+          <!-- side panel next button -->
+          <div style="display:flex; flex-direction: column; justify-content: center">
+            <button id="networks-next-button" class="side-panel-button"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // initialize game variables
+      var stage = document.getElementById("Canvas");  // the gameboard stage (for drawing)
+      var context = stage.getContext("2d");  // the gameboard context (for drawing)
+
+      var workerId = "{{ worker_id }}";  // used in the RAIL@GT package to track the user's ID, you can change this if you are using a dynamic webserver and are passing in a user ID
+      var mission = "{{ mission }}";  // used in the RAIL@GT package to track the experiment's endgoal robot mission, you can change this if you are doing something similar, or you can remove it
+
+      var scores = [];  // will contain the score of each stage
+
+      // log that this page is active
+      log({"stage": "networks", "action": "opened-page"});
+
+      // initialize the gameboard
+      var gameboard = new Gameboard(context);
+
+      // initialize the Network Connectivity test
+      var networks = new Networks(0);  // the argument is the starting puzzle
+
+      // initialize the puzzles, you can add your own puzzles in gameboard.js
+      // SET THIS networks.puzzles below to the puzzles you wish to include in your experiment, they will appear in the order of the array
+      networks.puzzles = [generateSimpleLine, generateSimpleArc, generateComplexArc, generateTristar, generateSimpleCross, generateVeryComplexArc, generateLinearCross, generateWavyLinearCross];
+      networks.propagationPeriod = 500;  // SET THIS to the desired propagation time step, 500 means 500ms per time step
+      networks.showScore = true;  // SET THIS to whether you wish the show the user their score at the end of the game
+      networks.showTriangles = true;  // SET THIS to whether you wish to display some nodes as triangles, in some networks
+      networks.showOptimalNodes = "{{ showAnswers }}" != "" ? true : false;  // SET THIS to whether you wish to display the optimal nodes
+      gameboard.askId = false;  // SET THIS to whether you wish to ask for the user's Mechanical Turk ID
+
+      // loads the next puzzle into the network (in this initial case, it loads the first puzzle)
+      networks.nextPuzzle();
+
+      // intialize the side panel to the introduction
+      sidePanelIntroduction();
+
+      // initialize the mouseclick handler
+      window.addEventListener("mousedown", mouseHandler);
+
+      // main game loop
+      function updateBoard() {
+        context.clearRect(0, 0, stage.width, stage.height);  // clear the gameboard
+        gameboard.draw();  // draw the gameboard and objects
+        networks.timestep();  // update the timestep for the networks, for propagation
+        window.requestAnimationFrame(updateBoard);  // loop
+      }
+      window.requestAnimationFrame(updateBoard);
+    </script>
+  </body>
+</html>

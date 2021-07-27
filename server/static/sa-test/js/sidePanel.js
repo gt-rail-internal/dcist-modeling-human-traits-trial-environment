@@ -1,3 +1,5 @@
+// sidePanel.js: functions used to fill in the right side panel at various test stages
+
 function sidePanelTutorial1() {
     log({"stage": "SAGAT", "action": "side-panel-state", "object": "showing tutorial panel 1"});
 
@@ -36,19 +38,24 @@ function sidePanelTutorial2() {
     document.getElementById("SidePanel").style.backgroundColor = "#E8E8E8";
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Take a minute to watch the simulation, to gain an understanding of how packages are stored in warehouses, how packages are forwarded, and what happens when a warehouse is full.";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>When you are ready, click \"Continue\".";
+    var text2 = document.createElement("div"); text2.innerHTML = "<br>In 30 seconds you will be able to continue.";
 
     content.appendChild(text1);
     content.appendChild(text2);
 
-    document.getElementById("sagat-resume").style.display = "block";
-    document.getElementById("sagat-resume").innerHTML = "Continue";
-    document.getElementById("sagat-resume").onclick = function () {
-        log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button tutorial 2"});
-        gameActive = true;
-        sagat.freeze();
-        sidePanelTutorial3();
-    };
+    document.getElementById("sagat-resume").style.display = "none";
+
+    window.setTimeout(() => {
+        document.getElementById("sagat-resume").style.display = "block";
+        document.getElementById("sagat-resume").innerHTML = "Continue";
+        document.getElementById("sagat-resume").onclick = function () {
+            log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button tutorial 2"});
+            gameActive = true;
+            sagat.freeze();
+            sidePanelTutorial3();
+        };
+    }, 30000)
+    
 }
 
 function sidePanelTutorial3() {
@@ -62,23 +69,27 @@ function sidePanelTutorial3() {
 
     document.getElementById("SidePanel").style.backgroundColor = "#E8E8E8";
 
-    var text1 = document.createElement("div"); text1.innerHTML = "<br>After watching the simulation for 30 seconds, you will be asked to color the warehouses based on how full they are. Try it now, by clicking the warehouses to cycle their colors to green, red, orange, or grey.";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>When you are ready, click \"Continue\".";
+    var text1 = document.createElement("div"); text1.innerHTML = "<br>After watching the simulation for 30 seconds, you will be asked to color the warehouses based on how full they are. Try it now, by clicking the warehouses to cycle their colors to green, red, to orange.";
+    var text2 = document.createElement("div"); text2.innerHTML = "<br>You will be able to continue in 15 seconds.";
 
     content.appendChild(text1);
     content.appendChild(text2);
 
-    document.getElementById("sagat-resume").style.display = "block";
-    document.getElementById("sagat-resume").innerHTML = "Continue";
-    document.getElementById("sagat-resume").onclick = function () {
-        log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button tutorial 3"});
-        gameboard = new Gameboard(context);
-        gameboard.generateGameboard();
-        gameActive = false;
-        tutorialActive = false;
-        sagat = new SAGAT(30);
-        sidePanelShowIntro();
-    };
+    document.getElementById("sagat-resume").style.display = "none";
+
+    window.setTimeout(() => {
+        document.getElementById("sagat-resume").style.display = "block";
+        document.getElementById("sagat-resume").innerHTML = "Continue";
+        document.getElementById("sagat-resume").onclick = function () {
+            log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button tutorial 3"});
+            gameboard = new Gameboard(context);
+            gameboard.generateGameboard();
+            gameActive = false;
+            tutorialActive = false;
+            sagat = new SAGAT(30);
+            sidePanelShowIntro();
+        };
+    }, 15000)
 }
 
 function sidePanelShowIntro() {
@@ -98,7 +109,7 @@ function sidePanelShowIntro() {
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Now for the actual game! Welcome!";
     var text2 = document.createElement("div"); text2.innerHTML = "";
-    var text3 = document.createElement("div"); text3.innerHTML = "<br>You will watch the warehouse simulation on the left for 30 seconds, and then you be asked to mark warehouses as full, nearing capacity, or not nearing capacity.";
+    var text3 = document.createElement("div"); text3.innerHTML = "<br>You will watch the warehouse simulation on the left for 30 seconds, and then you be asked to mark warehouses as full, nearing capacity, or not nearing capacity. Use the capacity bars next to each warehouse to guide your understanding.";
     var text4 = document.createElement("div"); text4.innerHTML = "<br>Trying to memorize the state of every warehouse will be difficult, so instead focus on understanding the network overall.";
     var text5 = document.createElement("div"); text5.innerHTML = "<br>When you are ready, click \"Continue\" to review the instructions.";
 
@@ -129,7 +140,7 @@ function sidePanelShowInformation() {
     var text2 = document.createElement("div"); text2.innerHTML = "<br>Warehouses only accept packages of the correct shape and color.";
     var text3 = document.createElement("div"); text3.innerHTML = "<br>When a warehouse receives unwanted packages, it stores and forwards them to downstream warehouses. When a warehouse is full of unwanted packages, it will not accept any more packages."
     var text4 = document.createElement("div"); text4.innerHTML = "<br>When forwarding a package, warehouses prioritize sending to the correct shape/color, then the correct shape, then the correct color, and lastly randomly.";
-    var text5 = document.createElement("div"); text5.innerHTML = "<br>Stay aware of the warehouse capacities and try to predict bottlenecks in the network."
+    var text5 = document.createElement("div"); text5.innerHTML = "<br>Do your best to stay aware of the warehouse capacities."
 
     content.appendChild(text1);
     content.appendChild(text2);
@@ -161,11 +172,11 @@ function sidePanelSAGATQuestions() {
     document.getElementById("SidePanel").style.backgroundColor = "aliceblue";
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Now, we need you to access the health of the network.";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>Clicking a warehouse will cycle its color from green, to red, to orange, to grey.";
+    var text2 = document.createElement("div"); text2.innerHTML = "<br>Clicking a warehouse will cycle its color from green, to red, to orange.";
     var text3 = document.createElement("div"); text3.innerHTML = "<br>Which warehouses are at capacity (>90%)? Color them red.";
-    var text4 = document.createElement("div"); text4.innerHTML = "<br>Which warehouses are nearing capacity (>70%)? Color them orange.";
+    var text4 = document.createElement("div"); text4.innerHTML = "<br>Which warehouses are nearing capacity (>60%)? Color them orange.";
     var text5 = document.createElement("div"); text5.innerHTML = "<br>Which warehouses are not close to capacity? Color them green.";
-    var text6 = document.createElement("div"); text6.innerHTML = "<br><b><u>Try to color in all the warehouses you can</u></b>, if you are unsure of the state of a warehouse, color it grey. When you have completed, click \"Resume\".";
+    var text6 = document.createElement("div"); text6.innerHTML = "<br><b><u>You will need to color in all the warehouses</u></b>. When you have completed, click \"Resume\".";
 
     content.appendChild(text1);
     content.appendChild(text2);
@@ -176,15 +187,16 @@ function sidePanelSAGATQuestions() {
 
     document.getElementById("sagat-resume").style.display = "block";
     document.getElementById("sagat-resume").innerHTML = "Resume";
-    document.getElementById("sagat-resume").onclick = function() { log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button sagat questions"}); sagat.unfreeze(); };
+
+    document.getElementById("sagat-resume").onclick = function() { sagat.unfreeze(); }
 }
 
 
-function sidePanelFailedFirstCycle() {
-    log({"stage": "SAGAT", "action": "side-panel-state", "object": "showing misunderstanding panel"});
+function sidePanelIncompleteSelection() {
+    log({"stage": "SAGAT", "action": "side-panel-state", "object": "showing incomplete cycle panel"});
 
     var title = document.getElementById("SidePanelTitle");
-    title.innerHTML = "<b>Correctness Check</b>";
+    title.innerHTML = "<b>Completeness Check</b>";
 
     var content = document.getElementById("SidePanelContent");
     content.innerHTML = "";
@@ -192,18 +204,16 @@ function sidePanelFailedFirstCycle() {
     document.getElementById("SidePanel").style.backgroundColor = "mistyrose";
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>It seems there is a misunderstanding as to which warehouses to color.";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>As all the warehouses are currently at low capacity, they should <u>all</u> be colored green!";
-    var text3 = document.createElement("div"); text3.innerHTML = "<br>Make sure to color all the warehouses that you are confident about.";
-    var text4 = document.createElement("div"); text4.innerHTML = "<br>Click \"Resume\" to color the warehouses again.";
+    var text2 = document.createElement("div"); text2.innerHTML = "<br>You should color all warehouses to the best of your ability, leaving none colored grey.";
+    var text3 = document.createElement("div"); text3.innerHTML = "<br>Click \"Resume\" to color the warehouses again.";
 
     content.appendChild(text1);
     content.appendChild(text2);
     content.appendChild(text3);
-    content.appendChild(text4);
 
     document.getElementById("sagat-resume").style.display = "block";
     document.getElementById("sagat-resume").innerHTML = "Resume";
-    document.getElementById("sagat-resume").onclick = function() { log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button misunderstanding panel"}); sidePanelSAGATQuestions(); };
+    document.getElementById("sagat-resume").onclick = function() { log({"stage": "SAGAT", "action": "side-panel-click", "object": "next button incomplete panel"}); sidePanelSAGATQuestions(); };
 }
 
 
@@ -218,12 +228,16 @@ function sidePanelEndGame(scores) {
 
     document.getElementById("SidePanel").style.backgroundColor = "lightyellow";
 
+    let score = scores.reduce((a, b) => a + b, 0);
+
+    log({"stage": "SAGAT", "action": "complete", "score": score});
+
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Congratulations! You completed this minigame!";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>";
-    var text3 = document.createElement("div"); text3.innerHTML = "<br>Click below to return to the experiment portal";
-    var text4 = document.createElement("div"); text4.innerHTML = "<br><br>";
-    var text5 = document.createElement("div"); text5.innerHTML = "<button class='resume'>Return to Portal</button>";
-    text5.style.display = "flex";
+    var text2 = document.createElement("div"); text2.innerHTML = "<br>Your score is: " + (score / (15 * scores.length)).toFixed(2);
+    var text3 = document.createElement("div"); text3.innerHTML = "<br>Please tell the overseer that you have completed this stage.";
+    var text4 = document.createElement("div"); text4.innerHTML = "";
+    var text5 = document.createElement("div"); text5.innerHTML = "";
+    /*text5.style.display = "flex";
     text5.style.justifyContent = "center";
 
     text5.onclick = () => {
@@ -232,11 +246,8 @@ function sidePanelEndGame(scores) {
 
     window.setTimeout(() => {
         window.location.href = "portal?pageFrom=1&success=1&workerId=" + workerId + "&mission=" + mission;
-    }, 5000);
+    }, 5000);*/
 
-    let score = scores.reduce((a, b) => a + b, 0);
-
-    log({"stage": "SAGAT", "action": "complete", "score": score});
 
     content.appendChild(text1);
     content.appendChild(text2);

@@ -3,7 +3,7 @@
 import os
 import networks_analysis
 
-path = "./logs_stage2_roman2"
+path = "./logs_stage_3_sa/"
 
 for p in os.listdir(path):
   p = p[:-4]
@@ -22,7 +22,7 @@ for p in os.listdir(path):
     complete = False
     end_time = 0
 
-    robots_interacted = [0, 0, 0, 0]
+    robots_interacted = [0, 0, 0, 0, 0, 0, 0, 0]
     num_interactions = [0, 0, 0, 0]
     distance_traveled = []
 
@@ -30,12 +30,22 @@ for p in os.listdir(path):
     cache_returned = 0
     cache_identified = 0
 
+    last_action_time = 0
+    last_action = ""
+
     stage = 0
 
     former_a = ""
 
     for i in range(len(actions)):
       a = actions[i]
+
+      # check for timeout
+      this_action_time = int(a[:10]) if "\n" not in a[:10] else -1
+      if i > 0 and this_action_time != -1 and stage == 2 and this_action_time - last_action_time > 60:
+        print("  Idle from action", last_action, "UNTIL", a, "SUM", this_action_time - last_action_time)
+      last_action_time = this_action_time
+      last_action = a
 
       # if completed the SAGAT, print the score
       if "SAGAT" in a and "complete" in a:
@@ -84,9 +94,27 @@ for p in os.listdir(path):
         response += "\n" + "  Stage 2 Start " + a[:11]
 
       if stage == 2 and "add-valid-waypoint" in a and reset == True:
-          reset = False
-          reset_time = int(a[:10])
-          response += "\n" + "    Stage 2 reset start " + a[:11]
+        reset = False
+        reset_time = int(a[:10])
+        response += "\n" + "    Stage 2 reset start " + a[:11]
+          
+      if stage == 2 and "add-valid-waypoint" in a:
+        if "UGV1" in a.replace(" ", ""):
+          robots_interacted[0] = 1
+        if "UGV2" in a.replace(" ", ""):
+          robots_interacted[1] = 1
+        if "UGV3" in a.replace(" ", ""):
+          robots_interacted[2] = 1
+        if "UGV4" in a.replace(" ", ""):
+          robots_interacted[3] = 1
+        if "UAV1" in a.replace(" ", ""):
+          robots_interacted[4] = 1
+        if "UAV2" in a.replace(" ", ""):
+          robots_interacted[5] = 1
+        if "UAV3" in a.replace(" ", ""):
+          robots_interacted[6] = 1
+        if "UAV4" in a.replace(" ", ""):
+          robots_interacted[7] = 1
 
       if "'stage': 2, 'action': 'reset map'" in a:
         reset = True
@@ -101,6 +129,7 @@ for p in os.listdir(path):
         response += "\n" + "  Stage 2 duration" + str(end_time - start_time)
         if reset_time > 0:
           response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
+        response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
         break
 
       # if completed Stage 3, get stats

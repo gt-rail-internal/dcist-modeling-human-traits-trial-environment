@@ -1,0 +1,112 @@
+
+1625098165.411216,A27TE0L5XP1H0U,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098171.862128,A27TE0L5XP1H0U,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098201.658002,A27TE0L5XP1H0U,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098204.73119,A27TE0L5XP1H0U,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098251.551969,A27TE0L5XP1H0U,{'stage': 'connect', 'action': 'opened-page', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098473.359845,A27TE0L5XP1H0U,{'worker-id': 'A27TE0L5XP1H0U', 'stage': 'networks', 'data': 'A27TE0L5XP1H0U,10,-1,-1,10,8,-1,2,17,14,15,3,8,7,3,4,11,'}
+1625098473.465974,A27TE0L5XP1H0U,A27TE0L5XP1H0U,10,-1,-1,10,8,-1,2,17,14,15,3,8,7,3,4,11,
+1625098474.0778,A27TE0L5XP1H0U,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098478.794759,A27TE0L5XP1H0U,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098581.427317,A27TE0L5XP1H0U,{'stage': 0, 'action': 'opened-page', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098596.782868,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098601.080429,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.5557142857142857,0.8585714285714285]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098603.026492,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.46714285714285714,0.7628571428571429]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098607.227566,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.46285714285714286,0.7085714285714285]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098613.983896,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.46285714285714286,0.7242857142857143]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098616.139839,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4614285714285714,0.7171428571428572]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098619.822271,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098620.241279,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098620.640024,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098626.583511,A27TE0L5XP1H0U,{'action': 'deselect-vehicle', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098639.176521,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098643.080523,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.42142857142857143,0.7]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098645.952423,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098647.16749,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.4114285714285714,0.6957142857142857]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098659.238608,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098660.390802,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098661.614492,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.5114285714285715,0.8528571428571429]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098663.282215,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098664.065723,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.42,0.6414285714285715]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098667.765521,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.46714285714285714,0.5871428571428572]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098673.409098,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098675.131624,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098675.744199,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.5557142857142857,0.92]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098680.996436,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4614285714285714,0.7242857142857143]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098682.503215,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098683.489353,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098683.932209,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.45714285714285713,0.7185714285714285]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098685.571886,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.48142857142857143,0.7671428571428571]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098687.516212,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.4928571428571429,0.7414285714285714]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098688.956925,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098689.669895,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098691.20414,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098691.343503,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.49857142857142855,0.74]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098693.255708,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098695.098849,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.48857142857142855,0.5714285714285714]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 0}
+1625098698.787418,A27TE0L5XP1H0U,{'stage': 0, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098699.093177,A27TE0L5XP1H0U,{'stage': 0, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098699.264126,A27TE0L5XP1H0U,{'stage': 0, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098699.499422,A27TE0L5XP1H0U,{'stage': 0, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098699.809375,A27TE0L5XP1H0U,{'stage': 0, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098699.810066,A27TE0L5XP1H0U,{'stage': 0, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098700.017026,A27TE0L5XP1H0U,{'stage': 0, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098700.324833,A27TE0L5XP1H0U,{'stage': 0, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098700.502298,A27TE0L5XP1H0U,{'stage': 0, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098700.83689,A27TE0L5XP1H0U,{'stage': 0, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098702.173943,A27TE0L5XP1H0U,{'stage': 0, 'action': 'opened-page', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098712.618942,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098713.792116,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.77,0.9285714285714286]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098715.382847,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098718.143882,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.2257142857142857,0.8442857142857143]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098721.523292,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098722.753673,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098724.600699,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.46714285714285714,0.8428571428571429]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098725.518569,A27TE0L5XP1H0U,{'action': 'remove-waypoint', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098727.360757,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098727.974977,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.4785714285714286,0.8542857142857143]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098732.580911,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098733.502272,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV2', 'location': '[0.37857142857142856,0.6671428571428571]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098736.268352,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098743.337464,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098744.713134,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.7114285714285714,0.6757142857142857]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098747.944998,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV3', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098749.483918,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV3', 'location': '[0.5985714285714285,0.5028571428571429]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098753.477573,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV4', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098754.557523,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV4', 'location': '[0.8385714285714285,0.5285714285714286]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098756.856513,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098757.80514,A27TE0L5XP1H0U,{'action': 'add-invalid-waypoint', 'target': 'UGV4', 'location': '[0.37285714285714283,0.8414285714285714]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098759.622569,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.42857142857142855,0.8014285714285714]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098762.69449,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.3028571428571429,0.6571428571428571]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098766.080274,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098767.610434,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV1', 'location': '[0.79,0.79]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098777.9498,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098779.592868,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.20142857142857143,0.7271428571428571]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098785.121239,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.16428571428571428,0.7185714285714285]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098789.730364,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV3', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098791.364799,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV3', 'location': '[0.7071428571428572,0.54]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098793.72721,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV3', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098794.129185,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV3', 'location': '[0.61,0.4157142857142857]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098795.258135,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV4', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098796.181601,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV4', 'location': '[0.8657142857142858,0.4542857142857143]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098799.971396,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098800.889156,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV2', 'location': '[0.25142857142857145,0.45714285714285713]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098804.784751,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098805.412445,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV2', 'location': '[0.43714285714285717,0.7614285714285715]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098815.843589,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UGV4', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098816.716029,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UGV4', 'location': '[0.31285714285714283,0.5957142857142858]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098821.069773,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098821.68008,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV2', 'location': '[0.22857142857142856,0.39]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098833.666026,A27TE0L5XP1H0U,{'action': 'select-vehicle', 'target': 'UAV2', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098834.282641,A27TE0L5XP1H0U,{'action': 'add-valid-waypoint', 'target': 'UAV2', 'location': '[0.21428571428571427,0.36428571428571427]', 'worker-id': 'A27TE0L5XP1H0U', 'stage': 2}
+1625098834.892706,A27TE0L5XP1H0U,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098834.893379,A27TE0L5XP1H0U,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098835.160047,A27TE0L5XP1H0U,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098835.399565,A27TE0L5XP1H0U,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098835.604321,A27TE0L5XP1H0U,{'stage': 2, 'action': 'stage-complete', 'object': 'distance-traveled:0,0,0,0', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098835.618662,A27TE0L5XP1H0U,{'stage': 2, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098835.873495,A27TE0L5XP1H0U,{'stage': 2, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098836.429291,A27TE0L5XP1H0U,{'stage': 2, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098836.434437,A27TE0L5XP1H0U,{'stage': 2, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098836.744864,A27TE0L5XP1H0U,{'stage': 2, 'action': 'user confirmed end of stage, redirecting', 'worker-id': 'A27TE0L5XP1H0U'}
+1625098840.117321,A27TE0L5XP1H0U,{'stage': 'portal', 'action': 'opened-portal', 'worker-id': 'A27TE0L5XP1H0U'}

@@ -1,4 +1,4 @@
-// gameboard.js: defined the class for the gameboard
+// gameboard.js: defines the class for the gameboard
 
 class Gameboard {
     constructor(context, warehouses=[], spawners=[]) {
@@ -14,9 +14,9 @@ class Gameboard {
         var layer_1_C_loc = [900, 500];
 
         // create a warehouse for each shape
-        var layer_1_A = new Warehouse(this.context, drawTriangle, layer_1_A_loc, "blue");
-        var layer_1_B = new Warehouse(this.context, drawSquare, layer_1_B_loc, "red");
-        var layer_1_C = new Warehouse(this.context, drawPentagon, layer_1_C_loc, "gold");
+        var layer_1_A = new Warehouse(this.context, drawTriangle, layer_1_A_loc, "blue", 20, 50, true);
+        var layer_1_B = new Warehouse(this.context, drawSquare, layer_1_B_loc, "red", 20, 50, true);
+        var layer_1_C = new Warehouse(this.context, drawPentagon, layer_1_C_loc, "gold", 20, 50, true);
 
         // create a second layer of warehouses
         var layer_2_A_loc = [200, 300];
@@ -27,13 +27,13 @@ class Gameboard {
         var layer_2_F_loc = [900, 300];
         var layer_2_G_loc = [1000, 300];
 
-        var layer_2_A = new Warehouse(this.context, drawSquare, layer_2_A_loc, "red");
-        var layer_2_B = new Warehouse(this.context, drawTriangle, layer_2_B_loc, "blue");
-        var layer_2_C = new Warehouse(this.context, drawCircle, layer_2_C_loc, "gold");
-        var layer_2_D = new Warehouse(this.context, drawTriangle, layer_2_D_loc, "blue");
-        var layer_2_E = new Warehouse(this.context, drawSquare, layer_2_E_loc, "red");
-        var layer_2_F = new Warehouse(this.context, drawPentagon, layer_2_F_loc, "purple");
-        var layer_2_G = new Warehouse(this.context, drawSquare, layer_2_G_loc, "gold");
+        var layer_2_A = new Warehouse(this.context, drawSquare, layer_2_A_loc, "red", 20, 50, true);
+        var layer_2_B = new Warehouse(this.context, drawTriangle, layer_2_B_loc, "blue", 20, 50, true);
+        var layer_2_C = new Warehouse(this.context, drawCircle, layer_2_C_loc, "gold", 20, 50, true);
+        var layer_2_D = new Warehouse(this.context, drawTriangle, layer_2_D_loc, "blue", 20, 50, true);
+        var layer_2_E = new Warehouse(this.context, drawSquare, layer_2_E_loc, "red", 20, 50, true);
+        var layer_2_F = new Warehouse(this.context, drawPentagon, layer_2_F_loc, "purple", 20, 50, true);
+        var layer_2_G = new Warehouse(this.context, drawSquare, layer_2_G_loc, "gold", 20, 50, true);
 
 
         // create a third layer of warehouses
@@ -45,13 +45,13 @@ class Gameboard {
         var layer_3_F_loc = [950, 100];
         var layer_3_G_loc = [1050, 100];
 
-        var layer_3_A = new Warehouse(this.context, drawPentagon, layer_3_A_loc, "red");
-        var layer_3_B = new Warehouse(this.context, drawTriangle, layer_3_B_loc, "gold");
-        var layer_3_C = new Warehouse(this.context, drawSquare, layer_3_C_loc, "purple");
-        var layer_3_D = new Warehouse(this.context, drawSquare, layer_3_D_loc, "gold");
-        var layer_3_E = new Warehouse(this.context, drawTriangle, layer_3_E_loc, "purple");
-        var layer_3_F = new Warehouse(this.context, drawPentagon, layer_3_F_loc, "blue");
-        var layer_3_G = new Warehouse(this.context, drawCircle, layer_3_G_loc, "red");
+        var layer_3_A = new Warehouse(this.context, drawPentagon, layer_3_A_loc, "red", 20, 50, true);
+        var layer_3_B = new Warehouse(this.context, drawTriangle, layer_3_B_loc, "gold", 20, 50, true);
+        var layer_3_C = new Warehouse(this.context, drawSquare, layer_3_C_loc, "purple", 20, 50, true);
+        var layer_3_D = new Warehouse(this.context, drawSquare, layer_3_D_loc, "gold", 20, 50, true);
+        var layer_3_E = new Warehouse(this.context, drawTriangle, layer_3_E_loc, "purple", 20, 50, true);
+        var layer_3_F = new Warehouse(this.context, drawPentagon, layer_3_F_loc, "blue", 20, 50, true);
+        var layer_3_G = new Warehouse(this.context, drawCircle, layer_3_G_loc, "red", 20, 50, true);
 
         layer_1_A.downstreamWarehouses.push(layer_2_A, layer_2_B);
         layer_1_B.downstreamWarehouses.push(layer_2_B, layer_2_C, layer_2_D, layer_2_E);
@@ -78,17 +78,38 @@ class Gameboard {
         packages = [];  // active packages
         warehouses = this.warehouses;  // active warehouses
         spawners = this.spawners;  // active spawners
+
+        layer_1_A.prefillPackages(packages);
+        layer_1_B.prefillPackages(packages);
+        layer_1_C.prefillPackages(packages);
+
+        layer_2_A.prefillPackages(packages);
+        layer_2_B.prefillPackages(packages);
+        layer_2_C.prefillPackages(packages);
+        layer_2_D.prefillPackages(packages);
+        layer_2_E.prefillPackages(packages);
+        layer_2_F.prefillPackages(packages);
+        layer_2_G.prefillPackages(packages);
+
+        layer_3_A.prefillPackages(packages);
+        layer_3_B.prefillPackages(packages);
+        layer_3_C.prefillPackages(packages);
+        layer_3_D.prefillPackages(packages);
+        layer_3_E.prefillPackages(packages);
+        layer_3_F.prefillPackages(packages);
+        layer_3_G.prefillPackages(packages);
     }
 
+    // create the tutorial gameboard
     generateTutorialGameboard() {
         var layer_1_loc = [600, 400];
-        var layer_1 = new Warehouse(this.context, drawPentagon, layer_1_loc, "purple");
+        var layer_1 = new Warehouse(this.context, drawPentagon, layer_1_loc, "purple", 20, 50, false);
 
         var layer_2_A_loc = [500, 200];
-        var layer_2_A = new Warehouse(this.context, drawSquare, layer_2_A_loc, "gold");
+        var layer_2_A = new Warehouse(this.context, drawSquare, layer_2_A_loc, "gold", 20, 50, false);
 
         var layer_2_B_loc = [700, 200];
-        var layer_2_B = new Warehouse(this.context, drawCircle, layer_2_B_loc, "red");
+        var layer_2_B = new Warehouse(this.context, drawCircle, layer_2_B_loc, "red", 20, 50, false);
 
         layer_1.downstreamWarehouses.push(layer_2_A, layer_2_B);
 
@@ -126,9 +147,9 @@ class Gameboard {
             // draw the warehouse
             this.warehouses[i].draw(sagatActive);
         }
-
     }
 
+    // used to get the locations of each warehouse
     getWarehouseLocations() {
         var locations = [];
         for (var i=0; i<this.warehouses.length; i++) {

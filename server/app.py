@@ -11,6 +11,17 @@ import json
 import datetime
 import random
 
+import sys
+sys.path.insert(1, "../")
+
+import analysis.processing.process_sa
+import analysis.processing.process_ni
+import analysis.processing.process_ot
+
+import analysis.processing.process_s1
+import analysis.processing.process_s2
+import analysis.processing.process_s3
+
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['PROPAGATE_EXCEPTIONS'] = True
@@ -116,7 +127,7 @@ def stage():
     mission = str(request.args.get("mission"))
     worker_id = request.args.get("workerId")
     stage = str(request.args.get("stage"))
-    print(">>>", mission, worker_id, stage, robot_reset_positions.keys())
+    #print(">>>", mission, worker_id, stage, robot_reset_positions.keys())
     robot_positions = robot_reset_positions[stage]
 
     if stage == 2:
@@ -177,6 +188,10 @@ def portal():
         completion_code = "1985636"
 
     return render_template("simenv/portal.html", mission=mission, worker_id=worker_id, completions=completion_string, next_stage=int(next_stage), completion_code=completion_code)
+
+@app.route("/admin", methods=["GET"])
+def admin():
+    return render_template("admin/admin.html")
 
 @app.route("/tutorial", methods=["GET"])
 def tutorial():
@@ -296,6 +311,49 @@ def networkConnectivity():
     worker_id = request.args.get("workerId")
     mission = request.args.get("mission")
     return render_template("networks/connectivity.html", worker_id=worker_id, mission=mission)
+
+
+@app.route("/ni-test", methods=["GET"])
+def niTest():
+    worker_id = request.args.get("workerId")
+    mission = request.args.get("mission")
+    return render_template("ni-test/index.html", worker_id=worker_id, mission=mission)
+
+
+# ROUTES FOR THE OBJECT TRACKING TEST
+@app.route("/ot-test")
+def otTest():
+    worker_id = request.args.get("workerId")
+    mission = request.args.get("mission")
+    return render_template("ot-test/index.html", worker_id=worker_id, mission=mission)
+
+
+# ROUTE FOR DATA PROCESSING
+@app.route("/process-data")
+def processData():
+    sa_data = analysis.processing.process_sa.get_sa_data("logs")
+    #print(sa_data)
+    ni_data = analysis.processing.process_ni.get_ni_data("logs")
+    #print(ni_data)
+    ot_data = analysis.processing.process_ot.get_ot_data("logs")
+
+    s1_data = analysis.processing.process_s1.get_s1_data("../analysis/logs_stage_1")
+    print(s1_data)
+    s2_data = analysis.processing.process_s2.get_s2_data("../analysis/logs_stage2_roman2")
+    s3_data = analysis.processing.process_s3.get_s3_data("../analysis/logs_stage_3")
+
+    total = {}
+    for p in sa_data | ni_data | ot_data | s1_data | s2_data | s3_data:
+        if p not in total:
+            total[p] = {}
+        total[p]["sa"] = sa_data[p] if p in sa_data else -1
+        total[p]["ni"] = ni_data[p] if p in ni_data else -1
+        total[p]["ot"] = ot_data[p] if p in ot_data else -1
+        total[p]["s1"] = s1_data[p] if p in s1_data else -1
+        total[p]["s2"] = s2_data[p] if p in s2_data else -1
+        total[p]["s3"] = s3_data[p] if p in s3_data else -1
+    
+    return jsonify(total)
 
 
 if __name__ == "__main__":

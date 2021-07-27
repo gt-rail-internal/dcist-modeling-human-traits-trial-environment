@@ -10,7 +10,6 @@ function randomFromArray(arr) {
     return arr[Math.floor(rand() * arr.length)]
 }
 
-
 // handles mouse clicks to cycle the warehouse states
 function mouseHandler(event) {
     if (event.originalTarget == document.getElementById("Canvas") || event.target == document.getElementById("Canvas")) {
@@ -20,7 +19,7 @@ function mouseHandler(event) {
 
         for (i in gameboard.warehouses) {
             if (distance(canvasClick, gameboard.warehouses[i].location) < gameboard.warehouses[i].height * .75) {
-                gameboard.warehouses[i].selected = gameboard.warehouses[i].selected == 3 ? 0 : gameboard.warehouses[i].selected + 1;
+                gameboard.warehouses[i].selected = gameboard.warehouses[i].selected == 3 ? 1 : gameboard.warehouses[i].selected + 1;
                 selectedObject = i;
                 log({"stage": "SAGAT", "action": "canvas-click", "object": i});
                 break;
@@ -51,6 +50,7 @@ function mulberry32(a) {
     }
 }
 
+// logs data to the webserver (SET THIS for your own needs)
 function log(data) {
     data["worker-id"] = workerId;  // include the worker ID
     return fetch("/logging", {method: "POST", body: JSON.stringify(data)});

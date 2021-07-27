@@ -100,7 +100,6 @@ class Package {
 // move all packages to their built in target locations
 function movePackages(packages) {
     packages.forEach((package) => {
-        //console.log("package", package.targetWarehouse)
         package.move();
     });
     return;

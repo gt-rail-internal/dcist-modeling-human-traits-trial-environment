@@ -1,0 +1,119 @@
+
+1625765423.918451,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765423.919184,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button introduction', 'worker-id': 'A3OT74G4IPMU37'}
+1625765426.294469,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765437.86152,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765437.863579,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generateSimpleLine', 'worker-id': 'A3OT74G4IPMU37'}
+1625765449.359058,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateSimpleLine', 'action': 'node selected', 'object': 4, 'worker-id': 'A3OT74G4IPMU37'}
+1625765452.150167,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 1, 'name': 'generateSimpleLine', 'worker-id': 'A3OT74G4IPMU37'}
+1625765452.157479,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generateSimpleLine', 'worker-id': 'A3OT74G4IPMU37'}
+1625765455.609501,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateSimpleLine', 'action': 'node selected', 'object': 3, 'worker-id': 'A3OT74G4IPMU37'}
+1625765457.732687,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #1', 'score': 0, 'name': 'generateSimpleLine', 'worker-id': 'A3OT74G4IPMU37'}
+1625765457.806939,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generateSimpleLine', 'selections': [4, 3, -1], 'worker-id': 'A3OT74G4IPMU37'}
+1625765457.80968,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #2', 'name': 'generateSimpleLine', 'worker-id': 'A3OT74G4IPMU37'}
+1625765457.922209,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765457.925934,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765462.891856,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765462.904832,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765465.20505,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765476.788411,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765476.795923,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generateSimpleArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765479.474644,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateSimpleArc', 'action': 'node selected', 'object': 3, 'worker-id': 'A3OT74G4IPMU37'}
+1625765481.614995,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generateSimpleArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765481.620299,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 0, 'name': 'generateSimpleArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765481.703556,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765481.707909,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generateSimpleArc', 'selections': [3, -1, -1], 'worker-id': 'A3OT74G4IPMU37'}
+1625765481.710515,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765484.869076,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765484.875829,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765487.872696,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765510.530631,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765510.547634,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765513.456017,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateComplexArc', 'action': 'node selected', 'object': 8, 'worker-id': 'A3OT74G4IPMU37'}
+1625765519.784046,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765519.802166,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 2, 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765521.111162,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateComplexArc', 'action': 'node selected', 'object': 17, 'worker-id': 'A3OT74G4IPMU37'}
+1625765528.401746,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #2', 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765528.41311,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #1', 'score': 5, 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765530.612174,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateComplexArc', 'action': 'node selected', 'object': 17, 'worker-id': 'A3OT74G4IPMU37'}
+1625765538.01468,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #3', 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765538.019024,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765538.022795,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765538.024695,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generateComplexArc', 'selections': [8, 17, 17], 'worker-id': 'A3OT74G4IPMU37'}
+1625765538.106513,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #2', 'score': 5, 'name': 'generateComplexArc', 'worker-id': 'A3OT74G4IPMU37'}
+1625765541.047433,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765541.11445,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765542.912936,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765560.231976,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765560.24031,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765562.357359,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateLinearCross', 'action': 'node selected', 'object': 3, 'worker-id': 'A3OT74G4IPMU37'}
+1625765567.569568,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765567.577172,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 3, 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765569.847748,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateLinearCross', 'action': 'node selected', 'object': 3, 'worker-id': 'A3OT74G4IPMU37'}
+1625765575.196874,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #1', 'score': 3, 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765575.202765,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #2', 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765576.494103,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generateLinearCross', 'action': 'node selected', 'object': 11, 'worker-id': 'A3OT74G4IPMU37'}
+1625765582.955102,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765582.954363,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765582.953487,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #2', 'score': 5, 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765582.964858,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generateLinearCross', 'selections': [3, 3, 11], 'worker-id': 'A3OT74G4IPMU37'}
+1625765583.051471,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #3', 'name': 'generateLinearCross', 'worker-id': 'A3OT74G4IPMU37'}
+1625765584.925063,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765584.92601,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765587.458028,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765600.608425,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765600.617168,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generatePuzzleKlishinSemilong', 'worker-id': 'A3OT74G4IPMU37'}
+1625765603.014131,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinSemilong', 'action': 'node selected', 'object': 17, 'worker-id': 'A3OT74G4IPMU37'}
+1625765605.726245,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generatePuzzleKlishinSemilong', 'selections': [17, -1, -1], 'worker-id': 'A3OT74G4IPMU37'}
+1625765605.737292,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generatePuzzleKlishinSemilong', 'worker-id': 'A3OT74G4IPMU37'}
+1625765605.805734,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765605.807836,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765605.812587,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 0, 'name': 'generatePuzzleKlishinSemilong', 'worker-id': 'A3OT74G4IPMU37'}
+1625765609.200544,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765609.28211,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765611.608786,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765624.772146,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765624.773081,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765626.812553,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinShortcut', 'action': 'node selected', 'object': 23, 'worker-id': 'A3OT74G4IPMU37'}
+1625765630.518634,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 1, 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765630.529277,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765633.316549,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinShortcut', 'action': 'node selected', 'object': 11, 'worker-id': 'A3OT74G4IPMU37'}
+1625765637.054116,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #1', 'score': 1, 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765637.076153,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #2', 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765639.020801,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinShortcut', 'action': 'node selected', 'object': 20, 'worker-id': 'A3OT74G4IPMU37'}
+1625765643.132288,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #3', 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765643.13419,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765643.13609,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generatePuzzleKlishinShortcut', 'selections': [23, 11, 20], 'worker-id': 'A3OT74G4IPMU37'}
+1625765643.220698,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765643.229241,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #2', 'score': 2, 'name': 'generatePuzzleKlishinShortcut', 'worker-id': 'A3OT74G4IPMU37'}
+1625765644.956761,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765644.963029,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765647.510486,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765666.623018,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765666.619312,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generatePuzzleKlishinSparse', 'worker-id': 'A3OT74G4IPMU37'}
+1625765668.380746,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinSparse', 'action': 'node selected', 'object': 18, 'worker-id': 'A3OT74G4IPMU37'}
+1625765671.492266,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generatePuzzleKlishinSparse', 'worker-id': 'A3OT74G4IPMU37'}
+1625765671.493584,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generatePuzzleKlishinSparse', 'selections': [18, -1, -1], 'worker-id': 'A3OT74G4IPMU37'}
+1625765671.500265,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 0, 'name': 'generatePuzzleKlishinSparse', 'worker-id': 'A3OT74G4IPMU37'}
+1625765671.586002,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765671.607795,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765673.590285,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765673.596381,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765675.60663,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}
+1625765704.54328,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #0', 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765704.545051,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing response panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765707.052667,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinTreeShuffle', 'action': 'node selected', 'object': 5, 'worker-id': 'A3OT74G4IPMU37'}
+1625765715.941788,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #1', 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765715.950988,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #0', 'score': 7, 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765717.40598,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinTreeShuffle', 'action': 'node selected', 'object': 22, 'worker-id': 'A3OT74G4IPMU37'}
+1625765725.362327,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #1', 'score': 5, 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765725.453769,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #2', 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765728.454466,A3OT74G4IPMU37,{'stage': 'networks', 'puzzle': 'generatePuzzleKlishinTreeShuffle', 'action': 'node selected', 'object': 26, 'worker-id': 'A3OT74G4IPMU37'}
+1625765738.400814,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'ready for node selection #3', 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765738.40175,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'score from round #2', 'score': 9, 'name': 'generatePuzzleKlishinTreeShuffle', 'worker-id': 'A3OT74G4IPMU37'}
+1625765738.491496,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'puzzle complete', 'name': 'generatePuzzleKlishinTreeShuffle', 'selections': [5, 22, 26], 'worker-id': 'A3OT74G4IPMU37'}
+1625765738.492364,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'round complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765738.495997,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing puzzle complete panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765741.860283,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-state', 'object': 'showing observation panel', 'worker-id': 'A3OT74G4IPMU37'}
+1625765741.865217,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'next button puzzle complete', 'worker-id': 'A3OT74G4IPMU37'}
+1625765744.353904,A3OT74G4IPMU37,{'stage': 'networks', 'action': 'side-panel-click', 'object': 'begin networks', 'worker-id': 'A3OT74G4IPMU37'}

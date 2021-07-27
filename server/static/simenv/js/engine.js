@@ -46,6 +46,17 @@ function initEngine() {
     window.addEventListener("keydown", canvasKeypressHandler);
 }
 
+function startReplay() {
+    window.setInterval(() => {
+        replayCycle();
+    }, 100);
+    uiMap.replay = true;
+}
+
+function replayCycle() {
+    
+}
+
 // uses the server parameter robot_positions to set the initial robot positions
 function setInitialPositions() {
     console.log("AAA", robot_positions, uiMap.uiObjects)
@@ -403,7 +414,8 @@ function stageComplete() {
             window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + mission + "&mission=" + mission;
         }
         else {
-            window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
+            alert("Please notify that overseer that you have completed this stage");
+            //window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
         }
 
     }, 1000);

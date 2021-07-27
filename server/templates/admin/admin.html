@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <!--<link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='simenv/img/favicon.ico')}}" />-->
+    <!--<link rel="stylesheet" href="{{url_for('static', filename='simenv/css/style.css')}}">-->
+    <link rel="stylesheet" href="../../static/simenv/css/style.css">
+
+    <!-- Roboto font import -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style>
+
+    <!-- JS imports for the local JavaScript files -->
+    <!--<script src="{{url_for('static', filename='simenv/js/drawing.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/engine.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/inputUtils.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/stage1.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/stage2.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/stage3.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/testStage.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/uiMap.js')}}"></script>
+    <script src="{{url_for('static', filename='simenv/js/uiObjects.js')}}"></script>-->
+    <script src="../../static/simenv/js/admin.js"></script>
+
+    <title>Experiment Task</title>
+</head>
+
+<body>    
+    <div class="titlebar" style="display: flex; justify-content: center;">
+        <div class="title" id="titlebar">
+            Admin Portal
+        </div>
+    </div>
+
+    <br><br>
+
+    <div style="display: flex; flex-direction: column; align-items: center; ">
+
+        <div class="center-button" onclick="updateTable();"><b>Refresh Data</b></div>
+        <div class="center-panel">
+            <div style="display: flex; flex-direction: row;">
+                <table id="score-table"></table>
+            </div>
+        </div>
+        
+    </div>
+
+<script>
+
+</script>
+
+</body>
+
+</html>
