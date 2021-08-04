@@ -65,14 +65,11 @@
                 <div id="cam4_button" class="cam-button gold">Mark Cache</div>
             </div>
         </div>
-
-        
     </div>
 
 <script>
-
-
-    startTime = new Date().getTime() / 1000
+    stageStarted = false;
+    startTime = new Date().getTime() / 1000 // initially set the start time to now, we will overwrite this later
 
     // create the UI Map object
     uiMap = Object;

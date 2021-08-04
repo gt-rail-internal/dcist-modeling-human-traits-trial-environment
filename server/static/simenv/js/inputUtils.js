@@ -32,6 +32,11 @@ function canvasMouseHandler(event) {
             clickedVehicleIndex = i;
             log({action: "select-vehicle", target: uiMap.selectedObject.name});
 
+            // set the stage to started
+            if (!stageStarted) {
+                stageStarted = true;
+            }
+
             // if on the training stage, increment that count
             if (uiMap.stage == 0) {
                 trainingSelectRobot += 1;

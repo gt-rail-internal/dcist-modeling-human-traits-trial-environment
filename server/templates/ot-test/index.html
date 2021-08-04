@@ -72,6 +72,9 @@
       var mission = "{{ mission }}";  // used in the RAIL@GT package to track the experiment's endgoal robot mission, you can change this if you are doing something similar, or you can remove it
       var scores = [];  // will contain the score of each stage
 
+      var seed = xmur3("RAIL Lab");  // use xmur3 to create a seed hash
+      var rand = mulberry32(seed());  // use the mulberry32 algorithm for the random number generator
+
       // log that this page is active
       log({"stage": "object tracking", "action": "opened-page"});
     

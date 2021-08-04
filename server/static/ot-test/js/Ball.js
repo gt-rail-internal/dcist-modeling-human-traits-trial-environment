@@ -26,7 +26,7 @@ class Ball {
     }
 
     initAngle() {
-        this.angle = Math.random() * 2 * Math.PI;
+        this.angle = rand() * 2 * Math.PI;
     }
 
     initSpeed() {
