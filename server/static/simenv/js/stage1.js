@@ -44,14 +44,14 @@ function initStage1() {
     cacheArea2 = new CacheArea();
     cacheArea2.x = (.564 - .01) * uiMap.mapCanvas.width;
     cacheArea2.y = (.327 + .06) * uiMap.mapCanvas.height; 
-    cacheArea2.cacheX = 400.39;  // good, top center
-    cacheArea2.cacheY = 221.38;
+    cacheArea2.cacheX = 372;  // good, top center
+    cacheArea2.cacheY = 356;
 
     cacheArea3 = new CacheArea();
     cacheArea3.x = (.900 - .01) * uiMap.mapCanvas.width;
     cacheArea3.y = (.374 - .04) * uiMap.mapCanvas.height; 
-    cacheArea3.cacheX = 627.15;  // good, top right
-    cacheArea3.cacheY = 254.40;
+    cacheArea3.cacheX = 406;  // good, top right
+    cacheArea3.cacheY = 691;
 
     cacheArea4 = new CacheArea();
     cacheArea4.x = (.895 - .05) * uiMap.mapCanvas.width;
