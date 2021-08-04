@@ -1,6 +1,11 @@
 // functions including setIntervals and timeouts for the overall game engine
 
 function initEngine() {
+    // if the stage is 2, set the distance traveled to 0
+    if (uiMap.stage == 2) {
+        this.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
+    }
+
     if (uiMap.networked) {
         // get positions the first time, replace with "init stage X"
         getPositions();
@@ -244,6 +249,9 @@ function simMotion() {
                 dx = (now - lastUpdate) * uiMap.uiObjects[i].speed * dx / normalization / 1000;  // normalize and account for speed
                 dy = (now - lastUpdate) * uiMap.uiObjects[i].speed * dy / normalization / 1000;  // normalize and account for speed
 
+                let step_dist = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
+                uiMap.distanceTraveled[i] += step_dist;
+
                 // move the object
                 uiMap.uiObjects[i].oldX = uiMap.uiObjects[i].x;
                 uiMap.uiObjects[i].oldY = uiMap.uiObjects[i].y;
@@ -406,14 +414,12 @@ function stageComplete() {
         document.getElementById("instructions-top").innerHTML = "This stage has now ended! You will now move on to the next part of the experiment.";
         document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
 
-
-        log({"stage": uiMap.stage, "action": "user confirmed end of stage, redirecting"});
-
         // if on the training stage, move to the next stage
         if (uiMap.stage == 0) {
             window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + mission + "&mission=" + mission;
         }
         else {
+            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled});
             alert("Please notify that overseer that you have completed this stage");
             //window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
         }
@@ -429,8 +435,13 @@ function log(data) {
 }
 
 function checkTimeout() {
-    now = new Date().getTime() / 1000;
-    timeout = mission != 1 || uiMap.stage != 0 ? 60 * 10 : 60 * 5;
+    // if the stage has not started, do not complete yet
+    if (!stageStarted) {
+        return false;
+    }
+
+    let now = new Date().getTime() / 1000;
+    let timeout = mission != 1 || uiMap.stage != 0 ? 60 * 10 : 60 * 5;
 
     if (now - startTime > timeout) {
         return true;
