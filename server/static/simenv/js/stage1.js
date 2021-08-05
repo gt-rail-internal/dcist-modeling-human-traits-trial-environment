@@ -58,8 +58,8 @@ function initStage1() {
     cacheArea3 = new CacheArea();
     cacheArea3.x = (.900 - .01) * uiMap.mapCanvas.width;
     cacheArea3.y = (.374 - .04) * uiMap.mapCanvas.height; 
-    cacheArea3.cacheX = 406;  // good, top right
-    cacheArea3.cacheY = 691;
+    cacheArea3.cacheX = 646;  // good, top right
+    cacheArea3.cacheY = 266;
     cacheDebug3 = new Cache();
     cacheDebug3.name = "Cache " + String(3);
     cacheDebug3.x = cacheArea3.cacheX;
