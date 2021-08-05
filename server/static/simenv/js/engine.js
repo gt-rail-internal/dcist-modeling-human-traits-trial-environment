@@ -414,9 +414,9 @@ function stageComplete() {
         document.getElementById("instructions-top").innerHTML = "This stage has now ended! You will now move on to the next part of the experiment.";
         document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
 
-        // if on the training stage, move to the next stage
-        if (uiMap.stage == 0) {
-            window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + mission + "&mission=" + mission;
+        // if on the training stage, move to the next stage (COMMENTED OUT BECAUSE WE ARE LINKING PLAYERS TO STAGES DIRECTLY)
+        if (false && uiMap.stage == 0) {
+        //    window.location.href = "/stage?workerId=" + uiMap.workerID + "&stage=" + mission + "&mission=" + mission;
         }
         else {
             log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled});
