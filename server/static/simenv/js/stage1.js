@@ -56,8 +56,8 @@ function initStage1() {
     cacheArea4 = new CacheArea();
     cacheArea4.x = (.895 - .05) * uiMap.mapCanvas.width;
     cacheArea4.y = (.877 - 0) * uiMap.mapCanvas.height; 
-    cacheArea4.cacheX = 504;  // good, bottom right
-    cacheArea4.cacheY = 573;
+    cacheArea4.cacheX = 685;  // good, bottom right
+    cacheArea4.cacheY = 650;
 
     cacheArea5 = new CacheArea();
     cacheArea5.x = (.078 + .03) * uiMap.mapCanvas.width;
