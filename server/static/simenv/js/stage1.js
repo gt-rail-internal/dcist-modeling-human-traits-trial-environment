@@ -40,30 +40,50 @@ function initStage1() {
     cacheArea1.y = (.298 + .07) * uiMap.mapCanvas.height; 
     cacheArea1.cacheX = 111; // good, top left
     cacheArea1.cacheY = 273;
+    cacheDebug1 = new Cache();
+    cacheDebug1.name = "Cache " + String(1);
+    cacheDebug1.x = cacheArea1.cacheX;
+    cacheDebug1.y = cacheArea1.cacheY;
     
     cacheArea2 = new CacheArea();
     cacheArea2.x = (.564 - .01) * uiMap.mapCanvas.width;
     cacheArea2.y = (.327 + .06) * uiMap.mapCanvas.height; 
     cacheArea2.cacheX = 372;  // good, top center
     cacheArea2.cacheY = 356;
+    cacheDebug2 = new Cache();
+    cacheDebug2.name = "Cache " + String(2);
+    cacheDebug2.x = cacheArea2.cacheX;
+    cacheDebug2.y = cacheArea2.cacheY;
 
     cacheArea3 = new CacheArea();
     cacheArea3.x = (.900 - .01) * uiMap.mapCanvas.width;
     cacheArea3.y = (.374 - .04) * uiMap.mapCanvas.height; 
     cacheArea3.cacheX = 406;  // good, top right
     cacheArea3.cacheY = 691;
+    cacheDebug3 = new Cache();
+    cacheDebug3.name = "Cache " + String(3);
+    cacheDebug3.x = cacheArea3.cacheX;
+    cacheDebug3.y = cacheArea3.cacheY;
 
     cacheArea4 = new CacheArea();
     cacheArea4.x = (.895 - .05) * uiMap.mapCanvas.width;
     cacheArea4.y = (.877 - 0) * uiMap.mapCanvas.height; 
     cacheArea4.cacheX = 685;  // good, bottom right
     cacheArea4.cacheY = 650;
+    cacheDebug4 = new Cache();
+    cacheDebug4.name = "Cache " + String(4);
+    cacheDebug4.x = cacheArea4.cacheX;
+    cacheDebug4.y = cacheArea4.cacheY;
 
     cacheArea5 = new CacheArea();
     cacheArea5.x = (.078 + .03) * uiMap.mapCanvas.width;
     cacheArea5.y = (.758 - .02) * uiMap.mapCanvas.height; 
     cacheArea5.cacheX = 109; // good, bottom left
     cacheArea5.cacheY = 578;
+    cacheDebug5 = new Cache();
+    cacheDebug5.name = "Cache " + String(5);
+    cacheDebug5.x = cacheArea5.cacheX;
+    cacheDebug5.y = cacheArea5.cacheY;
     
     // add them to the UI Map
     uiMap.uiObjects.push(cacheArea1);
@@ -123,7 +143,7 @@ function addCache(x, y) {
 
         // if UAV is within this cache range
         console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
-        if (true || distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .05 * uiMap.mapCanvas.width) {
+        if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .05 * uiMap.mapCanvas.width) {
             // if cache already exists in this area, continue
             if (cacheList[i] == true) {
                 console.log("cache already exists");
