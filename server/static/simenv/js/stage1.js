@@ -92,6 +92,12 @@ function initStage1() {
     uiMap.uiObjects.push(cacheArea4);
     uiMap.uiObjects.push(cacheArea5);
 
+    uiMap.uiObjects.push(cacheDebug1);
+    uiMap.uiObjects.push(cacheDebug2);
+    uiMap.uiObjects.push(cacheDebug3);
+    uiMap.uiObjects.push(cacheDebug4);
+    uiMap.uiObjects.push(cacheDebug5);
+
     uiMap.uiObjects.push(base1);
     uiMap.uiObjects.push(uav1);
     uiMap.uiObjects.push(uav2);
