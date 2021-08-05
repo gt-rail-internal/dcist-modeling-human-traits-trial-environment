@@ -35,6 +35,7 @@ function canvasMouseHandler(event) {
             // set the stage to started
             if (!stageStarted) {
                 stageStarted = true;
+                startTime = new Date().getTime() / 1000;
             }
 
             // if on the training stage, increment that count
