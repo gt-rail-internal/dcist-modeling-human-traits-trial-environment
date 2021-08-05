@@ -123,7 +123,7 @@ function addCache(x, y) {
 
         // if UAV is within this cache range
         console.log("distance to cache", i, "is", distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]), "==", .05 * uiMap.mapCanvas.width);
-        if (distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .05 * uiMap.mapCanvas.width) {
+        if (true || distance([x, y], [uiMap.uiObjects[i].cacheX, uiMap.uiObjects[i].cacheY]) < .05 * uiMap.mapCanvas.width) {
             // if cache already exists in this area, continue
             if (cacheList[i] == true) {
                 console.log("cache already exists");
