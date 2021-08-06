@@ -110,11 +110,11 @@ function initStage1() {
     uiMap.displayAdHocRanges = false;
 
     var title = document.getElementById("titlebar");
-    title.innerHTML = "Simulation Environment - Stage 1";
+    title.innerHTML = "Simulation Environment";
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.classList = "instructions grey-instructions";
-    instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it! You can expect low framerates with the aerial robot cameras and position updates.";
+    instructionsTop.innerHTML = "Search the grey areas to find five supply caches. Each grey area has one cache. When a cache is found, mark it!";
 
     document.getElementById("instructions-cache").style.display = "flex";
 
