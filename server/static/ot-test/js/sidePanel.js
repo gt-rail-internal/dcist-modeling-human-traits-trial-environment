@@ -146,7 +146,7 @@ function sidePanelPuzzleComplete() {
 }
 
 // side panel for the game is over
-function sidePanelEndGame(score) {
+function sidePanelEndGame() {
     // log that the user is seeing this panel
     log({"stage": "object tracking", "action": "side-panel-state", "object": "showing endgame panel"});
 
