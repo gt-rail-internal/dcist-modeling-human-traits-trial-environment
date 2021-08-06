@@ -226,7 +226,6 @@ function initStage2() {
 
     var instructionsTop = document.getElementById("instructions-top");
     instructionsTop.innerHTML = "Extend the communication network from the \"Base\" to all five caches.";
-    instructionsTop.onclick("");
 
     // set up the instructions
     //var instructionsLeft = document.getElementById("left-panel");
