@@ -37,7 +37,9 @@ function initEngine() {
     document.getElementById("instructions-top").onclick = () => {
         log({"stage": uiMap.stage, "action": "reset map"});
         window.setTimeout(() => {
-            location.reload();
+            if (uiMap.stage == 0) {
+                location.reload();
+            }
         }, 500);
     }
 
