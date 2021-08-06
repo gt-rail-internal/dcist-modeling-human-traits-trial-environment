@@ -222,10 +222,11 @@ function initStage2() {
     simMotion();
 
     var title = document.getElementById("titlebar");
-    title.innerHTML = "Simulation Environment - Stage 2";
+    title.innerHTML = "Simulation Environment";
 
     var instructionsTop = document.getElementById("instructions-top");
-    instructionsTop.innerHTML = "Extend the communication network from the \"Base\" to all five caches. If you get stuck, such as all robots being disconnected, click here to reset the map.";
+    instructionsTop.innerHTML = "Extend the communication network from the \"Base\" to all five caches.";
+    instructionsTop.onclick("");
 
     // set up the instructions
     //var instructionsLeft = document.getElementById("left-panel");

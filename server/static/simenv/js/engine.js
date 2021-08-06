@@ -398,7 +398,7 @@ function stageComplete() {
     // log it
     log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
 
-    document.getElementById("instructions-top").innerHTML = "This stage has now ended! You will now move on to the next part of the experiment.";
+    document.getElementById("instructions-top").innerHTML = "This stage has now ended! Please notify the overseer.";
     document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
 
     // after half a second (for the log message to go through), redirect
@@ -411,7 +411,7 @@ function stageComplete() {
             uiMap.uiObjects[i].name = "Complete";
         }
 
-        document.getElementById("instructions-top").innerHTML = "This stage has now ended! You will now move on to the next part of the experiment.";
+        document.getElementById("instructions-top").innerHTML = "This stage has now ended! Please notify the overseer.";
         document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
 
         // if on the training stage, move to the next stage (COMMENTED OUT BECAUSE WE ARE LINKING PLAYERS TO STAGES DIRECTLY)
