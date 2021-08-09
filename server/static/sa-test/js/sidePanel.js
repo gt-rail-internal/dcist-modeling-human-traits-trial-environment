@@ -233,7 +233,7 @@ function sidePanelEndGame(scores) {
     log({"stage": "SAGAT", "action": "complete", "score": score});
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Congratulations! You completed this minigame!";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>Your score is: " + (score / (15 * scores.length)).toFixed(2);
+    var text2 = document.createElement("div"); text2.innerHTML = ""; //<br>Your score is: " + (score / (15 * scores.length)).toFixed(2);
     var text3 = document.createElement("div"); text3.innerHTML = "<br>Please tell the overseer that you have completed this stage.";
     var text4 = document.createElement("div"); text4.innerHTML = "";
     var text5 = document.createElement("div"); text5.innerHTML = "";

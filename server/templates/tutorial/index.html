@@ -57,6 +57,11 @@
             nextLocation = "/stage?workerId={{ worker_id }}&mission={{ mission }}&stage=3";
         }
 
+        // if running the test stage after this, set the location
+        if ("{{ test_stage }}" == "true") {
+            nextLocation = "/test?workerId={{ worker_id }}&mission={{ mission }}";
+        }
+
         document.getElementById("tutorialImg").src = images[0];
         setupArrows();
 
