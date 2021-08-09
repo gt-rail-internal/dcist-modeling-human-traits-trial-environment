@@ -101,8 +101,8 @@ function sidePanelResponse() {
     nextButton.onclick = function() {
         log({"stage": "object tracking", "action": "side-panel-click", "object": "side panel clicked done button"});
         gameboard.scoreRound();
-        gameboard.nextGame();
         sidePanelObservation();
+        gameboard.nextGame();
     }
 }
 
