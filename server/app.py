@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, make_response, jsonify
 
 import rospy
-from cv_bridge import CvBridge
 from std_msgs.msg import String
 import base64
 import threading
@@ -25,7 +24,6 @@ import analysis.processing.process_s3
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['PROPAGATE_EXCEPTIONS'] = True
-bridge = CvBridge()
 
 cam_images = {}
 
