@@ -59,11 +59,11 @@ class SAGAT {
         if (!this.active) {  // if the gradeTest() allows the test to continue
             if (this.sagatCount <= this.sagatMaxFreezes) {
                 sidePanelShowInformation();  // change the displayed side panel information
+                this.freezeTimeset = Date.now();  // reset the freeze timer
             }
             else {
                 sidePanelEndGame(this.scores);  // show the endgame panel information
             }
-            this.freezeTimeset = Date.now();  // reset the freeze timer
         }
     }
 
