@@ -198,7 +198,8 @@ def tutorial():
     mission = str(request.args.get("mission"))
     worker_id = request.args.get("workerId")
     next_stage = request.args.get("nextStage")
-    return render_template("tutorial/index.html", mission=mission, worker_id=worker_id, next_stage=next_stage)
+    test_stage = request.args.get("testStage")
+    return render_template("tutorial/index.html", mission=mission, worker_id=worker_id, next_stage=next_stage, test_stage=test_stage)
 
 @app.route("/test", methods=["GET"])
 def testStage():
