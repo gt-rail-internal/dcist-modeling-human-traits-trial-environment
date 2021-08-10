@@ -212,6 +212,9 @@ def testStage():
 @app.route("/logging", methods=["POST"])
 def log():
     data = json.loads(request.data.decode())
+    # ignore if the worker ID is not specified
+    if "worker-id" not in data:
+        return ""
     log_string = "\n" + str(datetime.datetime.now().timestamp()) + "," + data["worker-id"] + "," + str(data)
     with open("./logs/" + data["worker-id"] + ".txt", 'a+') as f:
         f.write(log_string)
