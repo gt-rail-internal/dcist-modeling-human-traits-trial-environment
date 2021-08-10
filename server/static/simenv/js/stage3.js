@@ -310,8 +310,7 @@ function stage3EndCheck() {
         }
         
         // if UGV is within the base range, check if it can drop off a package
-        //console.log("distance to base is", distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]), "==", .05 * uiMap.mapCanvas.width);
-        if (uiMap.uiObjects[i].carryingCache && distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < .05 * uiMap.mapCanvas.width) {
+        if (uiMap.uiObjects[i].carryingCache && distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < .08 * uiMap.mapCanvas.width) {
             uiMap.returnedCaches += 1;
             uiMap.uiObjects[i].carryingCache = false;
             log({"stage": uiMap.stage, "action": "cache returned", "cacheId": i});
