@@ -159,7 +159,7 @@ function sidePanelEndGame() {
     document.getElementById("SidePanel").style.backgroundColor = "lightyellow";
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Congratulations! You completed this minigame!";
-    var text2 = document.createElement("div"); text2.innerHTML = "<br>Please notify the overseer.";
+    var text2 = document.createElement("div"); text2.innerHTML = "<br>Please notify the researcher.";
 
     // after 5 seconds, redirect the user to the experiment portal
     //window.setTimeout(() => {
