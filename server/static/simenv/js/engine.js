@@ -199,6 +199,8 @@ function checkConditions() {
 function simMotion() {
     let date = new Date();
 
+    let oldNumConnected = 0;
+
     let lastUpdate = date.getTime();  // record the last update time 
     window.setInterval(() => {
         // if the stage is complete, don't move
@@ -209,6 +211,8 @@ function simMotion() {
         let now = new Date().getTime();
 
         uiMap.cacheDisconnected = false;
+
+        let numConnected = 0;
 
         // move vehicles closer to their goals
         for (let i in uiMap.uiObjects) {
@@ -274,6 +278,7 @@ function simMotion() {
                     // if connected, great, set a flag
                     if (robotConnectedToBase(uiMap.uiObjects[i].name)) {
                         uiMap.uiObjects[i].connected = true;
+                        numConnected += 1;
 
                         // update the training counter
                         if (uiMap.stage == 0) {
@@ -288,6 +293,13 @@ function simMotion() {
                 }
             }
         }
+
+        // if the number connected is different than the running number, send a log
+        if (numConnected != oldNumConnected) {
+            log({stage: uiMap.stage, action: "cache connected count", object: numConnected})
+        }
+        oldNumConnected = numConnected;
+
         lastUpdate = now;
 
     }, 100);
