@@ -412,7 +412,7 @@ function stageComplete() {
     // log it
     log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
 
-    document.getElementById("instructions-top").innerHTML = "This stage has now ended! Please notify the overseer.";
+    document.getElementById("instructions-top").innerHTML = "This stage has now ended! Please notify the researcher.";
     document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
 
     // after half a second (for the log message to go through), redirect
@@ -425,7 +425,7 @@ function stageComplete() {
             uiMap.uiObjects[i].name = "Complete";
         }
 
-        document.getElementById("instructions-top").innerHTML = "This stage has now ended! Please notify the overseer.";
+        document.getElementById("instructions-top").innerHTML = "This stage has now ended! Please notify the researcher.";
         document.getElementById("instructions-top").style.backgroundColor = "lightgreen";
 
         // if on the training stage, move to the next stage (COMMENTED OUT BECAUSE WE ARE LINKING PLAYERS TO STAGES DIRECTLY)
@@ -434,7 +434,7 @@ function stageComplete() {
         }
         else {
             log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled});
-            alert("Please notify that overseer that you have completed this stage");
+            alert("Please notify that researcher that you have completed this stage");
             //window.location.href = "/portal?workerId=" + uiMap.workerID + "&pageFrom=" + 3 + "&success=1" + "&mission=" + mission;
         }
 

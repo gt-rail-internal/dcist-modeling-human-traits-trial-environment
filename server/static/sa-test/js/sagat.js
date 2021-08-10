@@ -16,7 +16,7 @@ class SAGAT {
 
         this.scores = [];
         this.sagatCount = 1;
-        this.sagatMaxFreezes = 4;  // SET THIS TO THE NUMBER OF SAGAT FREEZES IN THE EXPERIMENT
+        this.sagatMaxFreezes = 6;  // SET THIS TO THE NUMBER OF SAGAT FREEZES IN THE EXPERIMENT
     }
 
     // start the sagat timer
@@ -62,6 +62,7 @@ class SAGAT {
                 this.freezeTimeset = Date.now();  // reset the freeze timer
             }
             else {
+                this.active = true;  // freeze the motion
                 sidePanelEndGame(this.scores);  // show the endgame panel information
             }
         }
