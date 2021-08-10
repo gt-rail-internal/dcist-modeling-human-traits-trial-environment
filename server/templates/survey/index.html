@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>Experiment Task</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Consent Form and Survey from Georgia Tech's RAIL Lab">
+    <meta name="author" content="Jack Kolb">
+    </head>
+
+    <!-- COPYRIGHTED (C) 2021, RAIL Lab @ Georgia Tech -->
+
+    <!-- import the Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+
+    <!-- when running this on a dynamic webserver (ex Flask), uncomment this section below, you may need to reformat it based on your webserver -->
+    <!--
+    <link rel="stylesheet" href="{{url_for('static', filename='sa-test/css/styles.css')}}">
+    <script src="{{url_for('static', filename='nc-test/js/gameboard.js')}}"></script>
+    <script src="{{url_for('static', filename='nc-test/js/Networks.js')}}"></script>
+    <script src="{{url_for('static', filename='nc-test/js/Node.js')}}"></script>
+    <script src="{{url_for('static', filename='nc-test/js/puzzles.js')}}"></script>
+    <script src="{{url_for('static', filename='nc-test/js/sidePanel.js')}}"></script>
+    <script src="{{url_for('static', filename='nc-test/js/utility.js')}}"></script>
+    -->
+    
+    <!-- when running this on a static webserver (ex GitHub), uncomment this section below -->
+    <link rel="stylesheet" href="/server/static/survey/css/styles.css">
+    <script src="/server/static/survey/js/elements.js"></script>
+    <script src="/server/static/survey/js/questionnaire.js"></script>
+
+    <!-- HTML content -->
+    <body>
+    <div class="center-div">
+        <!-- content -->
+        <div id="stage" class="stage">
+        <!-- question/response -->
+        <div style="display: flex; flex: 1; flex-direction: column;">
+            <!-- overall question text-->
+            <div id="question" class="question"></div>
+
+            <!-- user response div -->
+            <div id="response" class="response"></div>
+            
+        </div>
+
+        <!-- next button -->
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <button id="previous-button" class="next-button">Previous</button>
+            <button id="next-button" class="next-button">Next</button>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // log that this page is active
+        log({"stage": "object tracking", "action": "opened-page"});
+
+        // initialize game variables
+        var stage = document.getElementById("stage");  // the questionnaire stage
+
+        var workerId = "{{ worker_id }}";  // used in the RAIL@GT package to track the user's ID, you can change this if you are using a dynamic webserver and are passing in a user ID
+        
+        // initialize the questionnaire
+        var questionnaire = new Questionnaire(stage);
+
+        // start the questionairre
+        questionnaire.nextQuestion();
+
+    </script>
+    </body>
+</html>
