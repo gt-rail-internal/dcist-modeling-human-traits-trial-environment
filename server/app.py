@@ -285,6 +285,13 @@ def getWaypoints():
     return jsonify(robot_waypoints)
 
 
+# ROUTES FOR THE SURVEY TEST
+@app.route("/survey", methods=["GET"])
+def survey():
+    worker_id = request.args.get("workerId")
+    return render_template("survey/index.html", worker_id=worker_id)
+
+
 # ROUTES FOR THE SITUATIONAL AWARENESS TEST
 @app.route("/sa-test", methods=["GET"])
 def saTest():
