@@ -13,7 +13,7 @@ function sidePanelTutorial1() {
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>These are warehouses. Warehouses have a shape and a color. You will be watching packages sent through a warehouse network for processing.";
     var text2 = document.createElement("div"); text2.innerHTML = "<br>When a package arrives at a warehouse, it will be processed if the shape and color match. Processed packages will disappear. Otherwise, the package will be stored in the bar to the right of the warehouse and sent to a downstream warehouse.";
-    var text3 = document.createElement("div"); text3.innerHTML = "<br>Warehouses will try to forward packages to the best fit warehouse: first priority is by matching shape and color, then shape, then color, and lastly randomly."
+    var text3 = document.createElement("div"); text3.innerHTML = "";//"<br>Warehouses will try to forward packages to the best fit warehouse: first priority is by matching shape and color, then shape, then color, and lastly randomly."
     var text4 = document.createElement("div"); text4.innerHTML = "<br>If a warehouse is at maximum capacity, it will be unable to receive packages. Click \"Play\" to see this demo simulation.";
 
     content.appendChild(text1);
@@ -69,7 +69,7 @@ function sidePanelTutorial3() {
 
     document.getElementById("SidePanel").style.backgroundColor = "#E8E8E8";
 
-    var text1 = document.createElement("div"); text1.innerHTML = "<br>After watching the simulation for 30 seconds, you will be asked to color the warehouses based on how full they are. Try it now, by clicking the warehouses to cycle their colors to green, red, to orange.";
+    var text1 = document.createElement("div"); text1.innerHTML = "<br>After watching the simulation for 30 seconds, you will be asked to color the warehouses based on how full they are. Try it now, by clicking the warehouses to cycle their colors to green, red, and orange.";
     var text2 = document.createElement("div"); text2.innerHTML = "<br>You will be able to continue in 15 seconds.";
 
     content.appendChild(text1);
@@ -110,7 +110,7 @@ function sidePanelShowIntro() {
     var text1 = document.createElement("div"); text1.innerHTML = "<br>Now for the actual game! Welcome!";
     var text2 = document.createElement("div"); text2.innerHTML = "";
     var text3 = document.createElement("div"); text3.innerHTML = "<br>You will watch the warehouse simulation on the left for 30 seconds, and then you be asked to mark warehouses as full, nearing capacity, or not nearing capacity. Use the capacity bars next to each warehouse to guide your understanding.";
-    var text4 = document.createElement("div"); text4.innerHTML = "<br>Trying to memorize the state of every warehouse will be difficult, so instead focus on understanding the network overall.";
+    var text4 = document.createElement("div"); text4.innerHTML = "<br>Trying to memorize the state of every warehouse might be difficult, so instead focus on understanding the network overall.";
     var text5 = document.createElement("div"); text5.innerHTML = "<br>When you are ready, click \"Continue\" to review the instructions.";
 
     content.appendChild(text1);
@@ -138,8 +138,8 @@ function sidePanelShowInformation() {
 
     var text1 = document.createElement("div"); text1.innerHTML = "<br>You are the manager for this warehouse distribution network!";
     var text2 = document.createElement("div"); text2.innerHTML = "<br>Warehouses only accept packages of the correct shape and color.";
-    var text3 = document.createElement("div"); text3.innerHTML = "<br>When a warehouse receives unwanted packages, it stores and forwards them to downstream warehouses. When a warehouse is full of unwanted packages, it will not accept any more packages."
-    var text4 = document.createElement("div"); text4.innerHTML = "<br>When forwarding a package, warehouses prioritize sending to the correct shape/color, then the correct shape, then the correct color, and lastly randomly.";
+    var text3 = document.createElement("div"); text3.innerHTML = "<br>When a warehouse receives unwanted packages, it stores and forwards them to downstream warehouses. When a warehouse is full of unwanted packages, it will not accept any more packages.";
+    var text4 = document.createElement("div"); text4.innerHTML = ""; //"<br>When forwarding a package, warehouses prioritize sending to the correct shape/color, then the correct shape, then the correct color, and lastly randomly.";
     var text5 = document.createElement("div"); text5.innerHTML = "<br>Do your best to stay aware of the warehouse capacities."
 
     content.appendChild(text1);
