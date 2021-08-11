@@ -68,9 +68,10 @@ class Questionnaire {
         // set the questions
         this.questionDiv.innerHTML = "Please answer the following:";
 
-        createEntry("What email should we use for compensation?", "email");
+        createEntry("To what email should we send your compensation?", "email");
         createDropdown("What is your age?", ["18 - 25", "25 - 30", "30 - 35", "35 - 40", "40 - 45", "45+"]);
-        createDropdown("What is your gender?", ["Female", "Male", "Other, or Prefer Not to Say"]);
+        createDropdown("What is your gender?", ["Female", "Male", "Other, or Unspecified"]);
+        createDropdown("How familiar are you with robots?", ["Have never interacted with a robot", "Have interacted with a robot 1-2 times", "Have interacted with and programmed robots", "Have interacted with robots frequently"]);
         createSpace();
         createPixelCheckButton(1323, 919);
         
