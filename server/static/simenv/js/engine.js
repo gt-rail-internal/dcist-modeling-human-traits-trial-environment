@@ -144,7 +144,7 @@ function getWaypoints() {
     // update the robot waypoints
     fetch("get-waypoints").then(data => data.text()).then(data => {
         data = JSON.parse(data);
-        //console.log("Waypoints", data)
+        console.log("Waypoints", data)
 
         for (var i in uiMap.uiObjects) {
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
