@@ -265,9 +265,12 @@ function simMotion() {
                 uiMap.uiObjects[i].x = uiMap.uiObjects[i].x + dx;
                 uiMap.uiObjects[i].y = uiMap.uiObjects[i].y + dy;
 
-                // if close to the waypoint, remove the waypoint
+                // if close to the waypoint, remove the waypoint and log if the robot is at its end
                 if (distance([uiMap.uiObjects[i].x, uiMap.uiObjects[i].y], [uiMap.uiObjects[i].waypoints[0][0] * uiMap.mapCanvas.width, uiMap.uiObjects[i].waypoints[0][1] * uiMap.mapCanvas.height]) < 5) {
                     uiMap.uiObjects[i].waypoints.shift();
+                    if (uiMap.uiObjects[i].waypoints.length == 0) {
+                        log({stage: uiMap.stage, action: "robot " + uiMap.uiObjects[i].name + " idle"});
+                    }
                 }
             }
 
