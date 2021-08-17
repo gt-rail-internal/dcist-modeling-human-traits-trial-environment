@@ -112,6 +112,9 @@
                 var makeSure = confirm(nextStage != 1 ? "Are you ready to proceed?" : "Do you consent to this study?");
                 if (makeSure == true) {
                     log({"stage": "tutorial", "action": nextStage == 1 ? "Consented to study" : "Moving on from tutorial"});
+                    if (nextStage != 1) {
+                        window.location = nextLocation;
+                    }
                 }
                 else {
                     log({"stage": "tutorial", "action": nextStage == 1 ? "DID NOT consent to study" : "Not moving on from tutorial"});
