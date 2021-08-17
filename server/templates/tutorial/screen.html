@@ -10,13 +10,13 @@
     <div style="display: flex; justify-content: center; user-select: none;">
         <div id="left-panel" style="display: flex; justify-content: center; align-items: center; font-size: 30pt;"><div id="left-arrow"></div></div>
         <div class="center-panel" id="center-panel">
-            <img src="" id="tutorialImg" style="width: 80vw;"/>
+            <img src="" id="tutorialImg" style="height: 80vh;"/>
         </div>
         <div id="right-panel" style="display: flex; justify-content: center; align-items: center; font-size: 30pt;"><div id="right-arrow"></div></div>
     </div>
 
     <script>
-        var nextStage = {{ mission }};
+        var nextStage = {{ nextStage }};
 
         // sa-test tab
         if (nextStage == 0) {
