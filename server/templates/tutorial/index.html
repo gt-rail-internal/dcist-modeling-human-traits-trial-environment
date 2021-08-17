@@ -30,6 +30,8 @@
 
         // consent
         if (nextStage == 1) {
+            document.getElementById("tutorialImg").style.height = "95vh";
+            document.getElementById("tutorialImg").style.width = "auto";
             images = ["{{url_for('static', filename='tutorial/img/consent-1.png')}}", "{{url_for('static', filename='tutorial/img/consent-2.png')}}"];
             nextLocation = "";
         }
