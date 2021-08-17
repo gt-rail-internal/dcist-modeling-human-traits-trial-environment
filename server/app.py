@@ -191,6 +191,11 @@ def portal():
 def admin():
     return render_template("admin/admin.html")
 
+@app.route("/screen", methods=["GET"])
+def screen():
+    mission = str(request.args.get("mission"))
+    return render_template("tutorial/screen.html", mission=mission)
+
 @app.route("/tutorial", methods=["GET"])
 def tutorial():
     mission = str(request.args.get("mission"))
