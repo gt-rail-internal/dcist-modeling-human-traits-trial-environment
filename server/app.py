@@ -265,6 +265,7 @@ def removeWaypoint():
 
     if len(robot_waypoints[robot]) == 0:
         robot_publishers[robot].publish("stop")
+
     return "success"
 
 @app.route("/remove-all-waypoints", methods=["GET"])

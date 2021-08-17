@@ -148,7 +148,13 @@ function getWaypoints() {
 
         for (var i in uiMap.uiObjects) {
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
+                let old_waypoints = uiMap.uiObjects[i].waypoints;
+                // if the robot is now stopped, log that it is idle
+                if (data[uiMap.uiObjects[i].name].length == 0 && old_waypoints.length > 0) {
+                    log({stage: uiMap.stage, action: "robot " + uiMap.uiObjects[i].name + " idle"});
+                }
                 uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
+
                 //console.log("updated", uiMap.uiObjects[i].name,  uiMap.uiObjects[i].waypoints);
             }
         }
