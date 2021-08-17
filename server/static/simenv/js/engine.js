@@ -151,7 +151,11 @@ function getWaypoints() {
                 let old_waypoints = uiMap.uiObjects[i].waypoints;
                 // if the robot is now stopped, log that it is idle
                 if (data[uiMap.uiObjects[i].name].length == 0 && old_waypoints.length > 0) {
-                    log({stage: uiMap.stage, action: "robot " + uiMap.uiObjects[i].name + " idle"});
+                    log({stage: uiMap.stage, action: "robot " + uiMap.uiObjects[i].name + " is idle"});
+                }
+                // if the robot is no longer stopped, log that it is not idle
+                if (data[uiMap.uiObjects[i].name].length > 0 && old_waypoints.length == 0) {
+                    log({stage: uiMap.stage, action: "robot " + uiMap.uiObjects[i].name + " is no longer idle"});
                 }
                 uiMap.uiObjects[i].waypoints = data[uiMap.uiObjects[i].name];
 
