@@ -28,7 +28,11 @@
             nextLocation = "/test?workerId={{ worker_id }}&mission=2";
         }
 
-        // ignoring the sa-test tab, as those instructions are within
+        // consent
+        if (nextStage == 1) {
+            images = ["{{url_for('static', filename='tutorial/img/consent-1.png')}}", "{{url_for('static', filename='tutorial/img/consent-2.png')}}"];
+            nextLocation = "";
+        }
 
         // networks tab
         if (nextStage == 2) {
@@ -103,9 +107,12 @@
 
             // if pressing right on the last instruction, go to the next stage
             else if (index + 1 == images.length) {
-                var makeSure = confirm("Are you ready to proceed?");
+                var makeSure = confirm(nextStage != 1 ? "Are you ready to proceed?" : "Do you consent to this study?");
                 if (makeSure == true) {
-                    window.location.href = nextLocation;
+                    log({"stage": "tutorial", "action": nextStage == 1 ? "Consented to study" : "Moving on from tutorial"});
+                }
+                else {
+                    log({"stage": "tutorial", "action": nextStage == 1 ? "DID NOT consent to study" : "Not moving on from tutorial"});
                 }
             }
         };

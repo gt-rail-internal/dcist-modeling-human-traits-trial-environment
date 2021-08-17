@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='simenv/img/favicon.ico')}}" />
+</head>
+
+<body>    
+    <br><br>
+
+    <div style="display: flex; justify-content: center; user-select: none;">
+        <div id="left-panel" style="display: flex; justify-content: center; align-items: center; font-size: 30pt;"><div id="left-arrow"></div></div>
+        <div class="center-panel" id="center-panel">
+            <img src="" id="tutorialImg" style="width: 80vw;"/>
+        </div>
+        <div id="right-panel" style="display: flex; justify-content: center; align-items: center; font-size: 30pt;"><div id="right-arrow"></div></div>
+    </div>
+
+    <script>
+        var nextStage = {{ mission }};
+
+        // sa-test tab
+        if (nextStage == 0) {
+            image = "{{url_for('static', filename='tutorial/img/sa-demo.png')}}";
+        }
+
+        // networks tab
+        if (nextStage == 1) {
+            image = "{{url_for('static', filename='tutorial/img/ni-demo.png')}}";
+        }
+
+        // object tracking tab
+        if (nextStage == 2) {
+            image = "{{url_for('static', filename='tutorial/img/ot-demo.png')}}";
+        }
+
+        // Stage 1 tab
+        if (nextStage == 3) {
+            images = "{{url_for('static', filename='tutorial/img/s1-demo.png')}}";
+        }
+
+        // Stage 2 tab
+        if (nextStage == 4) {
+            images = "{{url_for('static', filename='tutorial/img/s2-demo.png')}}";
+        }
+
+        // Stage 3 tab
+        if (nextStage == 5) {
+            images = "{{url_for('static', filename='tutorial/img/s3-demo.png')}}";
+        }
+
+
+        document.getElementById("tutorialImg").src = image;
+
+    </script>
+
+</body>
+
+</html>
