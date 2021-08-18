@@ -102,7 +102,5 @@ def get_s2_data(path):
                     break
 
                 former_a = a
-                
-                #if complete:
-                #print(response)
+
     return s2_scores
