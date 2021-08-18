@@ -357,7 +357,7 @@ def processData():
     s2_data = analysis.processing.process_s2.get_s2_data("logs")
     s3_data = analysis.processing.process_s3.get_s3_data("logs")
 
-    total = {"123": {"sa": 1, "ni": 2, "ot": 3, "s1": 4, "s2": 5, "s3": 6}}
+    total = {"123": {"sa": 1, "ni": 2, "ot": 3, "s1": 4, "s2": 5, "s3": 6}, "456": {"sa": 1, "ni": 2, "ot": 3, "s1": 4, "s2": 5, "s3": 6}}
     
     for p in {**sa_data, **ni_data, **ot_data, **s1_data, **s2_data, **s3_data}:
         continue
