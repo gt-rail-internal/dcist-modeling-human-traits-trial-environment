@@ -357,7 +357,7 @@ def processData():
     s2_data = analysis.processing.process_s2.get_s2_data("logs")
     s3_data = analysis.processing.process_s3.get_s3_data("logs")
 
-    total = {}
+    total = {"test": "woo"}
     for p in {**sa_data, **ni_data, **ot_data, **s1_data, **s2_data, **s3_data}:
         if p not in total:
             total[p] = {}
