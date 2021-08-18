@@ -2,7 +2,7 @@
 
 function initEngine() {
     // if the stage is 2, set the distance traveled to 0
-    this.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
+    uiMap.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
     
 
     if (uiMap.networked) {
