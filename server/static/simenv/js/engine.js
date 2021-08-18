@@ -21,7 +21,13 @@ function initEngine() {
             getWaypoints();
             uiMap.checkButtons();
         }, 200);
+
     }
+
+    // log the distance traveled every 5 seconds
+    window.setInterval(function() {
+        log({stage: uiMap.stage, action: "distance-checkup", object: "distance-traveled:" + uiMap.distanceTraveled });
+    }, 5000);
 
     // set up the adhoc network check, if on Stage 3
     if (uiMap.stage == 3) {
