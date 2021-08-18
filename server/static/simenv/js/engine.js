@@ -2,15 +2,12 @@
 
 function initEngine() {
     // if the stage is 2, set the distance traveled to 0
-    if (uiMap.stage == 2) {
-        this.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
-    }
+    this.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
+    
 
     if (uiMap.networked) {
         // get positions the first time, replace with "init stage X"
         getPositions();
-
-        this.distanceTraveled = [0, 0, 0, 0];
 
         // have the map update camera images almost constantly
         image_counter = 0;
@@ -121,18 +118,29 @@ function getPositions() {
                 }
 
                 // if not, add to the vehicle's distance traveled
-                if (uiMap.uiObjects[i].name == "UGV1" || uiMap.uiObjects[i].name == "UAV1") {
-                    //console.log("dist", dist, uiMap.uiObjects[i].oldX, uiMap.uiObjects[i].oldY)
+                if (uiMap.uiObjects[i].name == "UGV1") {
                     uiMap.distanceTraveled[0] = uiMap.distanceTraveled[0] + dist;
-                }
-                if (uiMap.uiObjects[i].name == "UGV2" || uiMap.uiObjects[i].name == "UAV2") {
+                } 
+                if (uiMap.uiObjects[i].name == "UGV2") {
                     uiMap.distanceTraveled[1] = uiMap.distanceTraveled[1] + dist;
-                }
-                if (uiMap.uiObjects[i].name == "UGV3" || uiMap.uiObjects[i].name == "UAV3") {
+                } 
+                if (uiMap.uiObjects[i].name == "UGV3") {
                     uiMap.distanceTraveled[2] = uiMap.distanceTraveled[2] + dist;
-                }
-                if (uiMap.uiObjects[i].name == "UGV4" || uiMap.uiObjects[i].name == "UAV4") {
+                } 
+                if (uiMap.uiObjects[i].name == "UGV4") {
                     uiMap.distanceTraveled[3] = uiMap.distanceTraveled[3] + dist;
+                } 
+                if (uiMap.uiObjects[i].name == "UAV1") {
+                    uiMap.distanceTraveled[4] = uiMap.distanceTraveled[4] + dist;
+                }
+                if (uiMap.uiObjects[i].name == "UAV2") {
+                    uiMap.distanceTraveled[5] = uiMap.distanceTraveled[5] + dist;
+                }
+                if (uiMap.uiObjects[i].name == "UAV3") {
+                    uiMap.distanceTraveled[6] = uiMap.distanceTraveled[6] + dist;
+                }
+                if (uiMap.uiObjects[i].name == "UAV4") {
+                    uiMap.distanceTraveled[7] = uiMap.distanceTraveled[7] + dist;
                 }
             }
         }
@@ -265,7 +273,11 @@ function simMotion() {
                 dy = (now - lastUpdate) * uiMap.uiObjects[i].speed * dy / normalization / 1000;  // normalize and account for speed
 
                 let step_dist = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
-                uiMap.distanceTraveled[i] += step_dist;
+
+                // record the distance traveled
+                let robot_name = uiMap.uiObjects[i].name;
+                let robot_id = robot_name == "UGV1" ? 0 : robot_name == "UGV2" ? 1 : robot_name == "UGV3" ? 2 : robot_name == "UGV4" ? 3 : robot_name == "UAV1" ? 4 : robot_name == "UAV2" ? 5 : robot_name == "UAV3" ? 6 : robot_name == "UAV4" ? 7 : 0;
+                uiMap.distanceTraveled[robot_id] += step_dist;
 
                 // move the object
                 uiMap.uiObjects[i].oldX = uiMap.uiObjects[i].x;

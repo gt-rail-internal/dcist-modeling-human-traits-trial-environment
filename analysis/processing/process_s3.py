@@ -100,7 +100,7 @@ def get_s3_data(path):
                     
                     # if the user took this stage, score it, otherwise default to -1
                     if sum([float(x) for x in distance_traveled]) > 0:
-                        s3_scores[p] = (cache_collected + cache_returned) / sum([float(x) for x in distance_traveled])
+                        s3_scores[p] = int(100000 * (cache_collected + cache_returned) / sum([float(x) for x in distance_traveled]))
                     else:
                         s3_scores[p] = -1
                     
