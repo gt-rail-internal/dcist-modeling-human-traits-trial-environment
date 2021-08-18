@@ -351,11 +351,11 @@ def processData():
     ni_data = analysis.processing.process_ni.get_ni_data("logs")
     #print(ni_data)
     ot_data = analysis.processing.process_ot.get_ot_data("logs")
-
-    s1_data = analysis.processing.process_s1.get_s1_data("../analysis/logs_stage_1")
+    print("----- logs")
+    s1_data = analysis.processing.process_s1.get_s1_data("logs")
     print(s1_data)
-    s2_data = analysis.processing.process_s2.get_s2_data("../analysis/logs_stage2_roman2")
-    s3_data = analysis.processing.process_s3.get_s3_data("../analysis/logs_stage_3")
+    s2_data = analysis.processing.process_s2.get_s2_data("logs")
+    s3_data = analysis.processing.process_s3.get_s3_data("logs")
 
     total = {}
     for p in {**sa_data, **ni_data, **ot_data, **s1_data, **s2_data, **s3_data}:
