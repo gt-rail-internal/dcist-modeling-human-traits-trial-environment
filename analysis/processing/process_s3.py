@@ -97,7 +97,13 @@ def get_s3_data(path):
                     response += "\n" + "  Interactions by robot: " + str(num_interactions[0]) + ", " + str(num_interactions[1]) + ", " + str(num_interactions[2]) + ", " + str(num_interactions[3])
                     response += "\n" + "  Distance Traveled: " + str(sum([float(x) for x in distance_traveled])) + " " + str(distance_traveled)
                     response += "\n" + "  Stage 3 End"
-                    s3_scores[p] = (cache_collected + cache_returned) / sum([float(x) for x in distance_traveled])
+                    
+                    # if the user took this stage, score it, otherwise default to -1
+                    if sum([float(x) for x in distance_traveled]) > 0:
+                        s3_scores[p] = (cache_collected + cache_returned) / sum([float(x) for x in distance_traveled])
+                    else:
+                        s3_scores[p] = -1
+                    
 
                 former_a = a
                 
