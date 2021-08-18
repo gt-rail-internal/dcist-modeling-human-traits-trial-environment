@@ -6,6 +6,7 @@ import os
 #path = "./logs_stage_3_sa/"
 
 def get_s3_data(path):
+    print("PROCESSING S3 DATA")
     s3_scores = {}
     for p in os.listdir(path):
         p = p[:-4]
