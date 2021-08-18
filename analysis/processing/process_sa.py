@@ -1,6 +1,7 @@
 import os
 
 def get_sa_data(path):
+    print("PROCESSING SA DATA")
     sa_scores = {}
     for p in os.listdir(path):
         p = p[:-4]

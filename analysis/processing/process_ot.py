@@ -1,6 +1,7 @@
 import os
 
 def get_ot_data(path):
+    print("PROCESSING OT DATA")
     ot_scores = {}
     for p in os.listdir(path):
         p = p[:-4]
