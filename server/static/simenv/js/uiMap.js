@@ -40,7 +40,7 @@ class UIMap {
         this.camNames = [];
 
         // variable for distance traveled by each robot
-        this.distanceTraveled = [0, 0, 0, 0];
+        this.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
 
         // variable for connected cache
         this.cacheDisconnected = true;
