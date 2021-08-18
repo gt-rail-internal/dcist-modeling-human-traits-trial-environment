@@ -78,9 +78,9 @@ class Gameboard {
         // select random balls to track
         for (let i = 0; i < this.tracking; i++) {
             // get the index
-            let index = Math.floor(Math.random() * numBalls);
+            let index = Math.floor(rand() * numBalls);
             while (usedIndexes.includes(index)) {
-                index = Math.floor(Math.random() * numBalls);
+                index = Math.floor(rand() * numBalls);
             }
             usedIndexes.push(index);
 
