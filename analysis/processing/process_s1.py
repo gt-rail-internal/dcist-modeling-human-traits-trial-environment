@@ -6,7 +6,7 @@ import os
 #path = "./logs_stage_3_sa/"
 
 def get_s1_data(path):
-    print("PROCESSING S1 DATA")
+    print("PROCESSING S1 DATA", path)
     s1_scores = {}
     for p in os.listdir(path):
         p = p[:-4]
