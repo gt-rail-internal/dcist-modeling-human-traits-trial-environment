@@ -358,7 +358,7 @@ def processData():
     s3_data = analysis.processing.process_s3.get_s3_data("../analysis/logs_stage_3")
 
     total = {}
-    for p in sa_data | ni_data | ot_data | s1_data | s2_data | s3_data:
+    for p in {**sa_data, **ni_data, **ot_data, **s1_data, **s2_data, **s3_data}:
         if p not in total:
             total[p] = {}
         total[p]["sa"] = sa_data[p] if p in sa_data else -1
