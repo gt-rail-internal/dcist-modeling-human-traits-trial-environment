@@ -357,9 +357,8 @@ def processData():
     s2_data = analysis.processing.process_s2.get_s2_data("logs")
     s3_data = analysis.processing.process_s3.get_s3_data("logs")
 
-    total = {"test": "woo"}
-
-    """
+    total = {}
+    
     for p in {**sa_data, **ni_data, **ot_data, **s1_data, **s2_data, **s3_data}:
         if p not in total:
             total[p] = {}
@@ -369,7 +368,9 @@ def processData():
         total[p]["s1"] = s1_data[p] if p in s1_data else -1
         total[p]["s2"] = s2_data[p] if p in s2_data else -1
         total[p]["s3"] = s3_data[p] if p in s3_data else -1
-    """
+    
+
+    print("total", total)
     
     return jsonify(total)
 
