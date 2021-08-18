@@ -65,12 +65,6 @@ function updateTable() {
     // add the row to the table
     table.appendChild(row);
 
-    fetch("/process-data").then((response) => {
-        console.log("response", response);
-    })
-
-    return
-
     data = fetch("/process-data").then((response) => response.json()).then((data) => {
         console.log("received data", data);
         // add the data to the table
