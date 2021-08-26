@@ -94,7 +94,7 @@ def get_s2_data(path):
                     response += "\n" + "  Stage 2 End " + a[:11]
 
                 # get the distance traveled
-                if stage == 3 and started = True and "'stage': 2, 'action': 'distance-checkup'" in a:
+                if stage == 3 and started == True and "'stage': 2, 'action': 'distance-checkup'" in a:
                     distance_traveled = a.split("'")[9].split(":")[1].split(",")
 
                 if stage == 2 and complete == True:
