@@ -29,6 +29,8 @@ def get_s2_data(path):
             num_interactions = [0, 0, 0, 0]
             distance_traveled = []
 
+            max_caches_connected = 0
+
             cache_collected = 0
             cache_returned = 0
             cache_identified = 0
@@ -96,7 +98,10 @@ def get_s2_data(path):
                 # get the distance traveled
                 if stage == 2 and started == True and "'stage': 2, 'action': 'distance-checkup'" in a:
                     distance_traveled = a.split("'")[9].split(":")[1].split(",")
-                    print("S2D", distance_traveled)
+
+                # get the number of connected caches
+                if stage == 2 and started == True and "'stage': 2, 'action': 'cache connected count'" in a:
+                    max_caches_connected = a.split("'")[8].replace(" ", "").split(":")[1][0]
 
                 if stage == 2 and complete == True:
                     response += "\n" + "  Stage 2 duration" + str(end_time - start_time)
@@ -104,7 +109,7 @@ def get_s2_data(path):
                         response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
                         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
                     s2_scores[p] = (end_time - start_time)
-                    s2_scores[p] = distance_traveled
+                    s2_scores[p] = int(100000 * max_caches_connected / sum(distance_traveled))
                     break
 
                 former_a = a
