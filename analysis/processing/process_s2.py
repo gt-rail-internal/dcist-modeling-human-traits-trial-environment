@@ -93,12 +93,17 @@ def get_s2_data(path):
                     end_time = int(a[:10])
                     response += "\n" + "  Stage 2 End " + a[:11]
 
+                # get the distance traveled
+                if stage == 3 and started = True and "'stage': 2, 'action': 'distance-checkup'" in a:
+                    distance_traveled = a.split("'")[9].split(":")[1].split(",")
+
                 if stage == 2 and complete == True:
                     response += "\n" + "  Stage 2 duration" + str(end_time - start_time)
                     if reset_time > 0:
                         response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
                         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
                     s2_scores[p] = (end_time - start_time)
+                    s2_scores[p] = distance_traveled
                     break
 
                 former_a = a
