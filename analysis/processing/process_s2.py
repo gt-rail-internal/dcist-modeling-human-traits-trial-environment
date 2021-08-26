@@ -110,7 +110,7 @@ def get_s2_data(path):
                         response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
                         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
                     s2_scores[p] = (end_time - start_time)
-                    s2_scores[p] = int(100000 * max_caches_connected / sum(distance_traveled))
+                    s2_scores[p] = int(100000 * max_caches_connected / sum(distance_traveled)) if sum(distance_traveled) > 10 else 0
                     break
 
                 former_a = a
