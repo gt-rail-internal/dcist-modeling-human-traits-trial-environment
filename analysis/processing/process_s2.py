@@ -98,7 +98,7 @@ def get_s2_data(path):
                 # get the distance traveled
                 if stage == 2 and started == True and "'stage': 2, 'action': 'distance-checkup'" in a:
                     distance_traveled = a.split("'")[9].split(":")[1].split(",")
-                    distance_traveled = [int(x) for x in distance_traveled]
+                    distance_traveled = [int(float(x)) for x in distance_traveled]
 
                 # get the number of connected caches
                 if stage == 2 and started == True and "'stage': 2, 'action': 'cache connected count'" in a:
