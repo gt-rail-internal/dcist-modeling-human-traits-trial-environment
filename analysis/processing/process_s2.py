@@ -101,7 +101,7 @@ def get_s2_data(path):
 
                 # get the number of connected caches
                 if stage == 2 and started == True and "'stage': 2, 'action': 'cache connected count'" in a:
-                    max_caches_connected = a.split("'")[8].replace(" ", "").split(":")[1][0]
+                    max_caches_connected = int(a.split("'")[8].replace(" ", "").split(":")[1][0])
 
                 if stage == 2 and complete == True:
                     response += "\n" + "  Stage 2 duration" + str(end_time - start_time)
