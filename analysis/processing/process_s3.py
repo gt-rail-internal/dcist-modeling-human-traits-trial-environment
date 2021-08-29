@@ -102,7 +102,7 @@ def get_s3_data(path):
                     if sum([float(x) for x in distance_traveled]) > 0:
                         s3_scores[p] = int(100000 * (cache_collected + cache_returned) / sum([float(x) for x in distance_traveled]))
                     else:
-                        s3_scores[p] = -1
+                        s3_scores[p] = 0
                     
 
                 former_a = a
