@@ -61,7 +61,7 @@ def get_s1_data(path):
                     start_time = int(a[:10])
                     response += "\n" + "  Stage 1 Start " + a[:11]
 
-                if stage == 1 and "cache collected" in a:
+                if stage == 1 and "collected cache" in a:
                     cache_collected += 1
 
                 # get the distance traveled
