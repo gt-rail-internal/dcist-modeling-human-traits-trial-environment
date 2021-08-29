@@ -65,7 +65,7 @@ def get_s1_data(path):
                     cache_collected += 1
 
                 # get the distance traveled
-                if stage == 2 and started == True and "'stage': 1, 'action': 'distance-checkup'" in a and not complete:
+                if stage == 1 and started == True and "'stage': 1, 'action': 'distance-checkup'" in a and not complete:
                     distance_traveled = a.split("'")[9].split(":")[1].split(",")
                     distance_traveled = [int(float(x)) for x in distance_traveled]
                 
