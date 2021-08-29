@@ -63,6 +63,9 @@ def get_s1_data(path):
 
                 if stage == 1 and "cache collected" in a:
                     cache_collected += 1
+
+                if stage == 3 and "distance-traveled" in a and not complete:
+                    distance_traveled = a.split("'")[9].split(":")[1].split(",")
                 
                 if stage == 1 and started == True and "stage-complete" in a:
                     complete = True
@@ -72,7 +75,7 @@ def get_s1_data(path):
 
                 if stage == 1 and complete == True:
                     response += "\n" + "  Stage 1 duration " + str(end_time - start_time)
-                    s1_scores[p] = cache_collected / (end_time - start_time)
+                    s1_scores[p] = 100000 * cache_collected / sum([float(x) for x in distance_traveled]))
                     
                     break
 
