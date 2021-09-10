@@ -8,6 +8,8 @@ import os
 def get_s2_data(path):
     print("PROCESSING S2 DATA")
     s2_scores = {}
+    s2_total = 0
+    s2_complete = 0
     for p in os.listdir(path):
         p = p[:-4]
         s2_scores[p] = -1
@@ -109,10 +111,16 @@ def get_s2_data(path):
                     if reset_time > 0:
                         response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
                         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
-                    s2_scores[p] = (end_time - start_time)
-                    s2_scores[p] = int(100000 * max_caches_connected / sum(distance_traveled)) if sum(distance_traveled) > 10 else 0
+                    #s2_scores[p] = (end_time - start_time)
+                    s2_scores[p] = (end_time - start_time) / max_caches_connected if max_caches_connected > 0 else 700 #int(100000 * max_caches_connected / sum(distance_traveled)) if sum(distance_traveled) > 10 else 0
                     break
 
                 former_a = a
+
+        print("S2", max_caches_connected)
+        s2_total += 1
+        s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0
+    
+    print("S2", s2_complete, s2_total)
 
     return s2_scores

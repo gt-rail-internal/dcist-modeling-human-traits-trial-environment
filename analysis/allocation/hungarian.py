@@ -121,7 +121,7 @@ def generateHumanLivePerformance(humans, I):
 
 # optimally assigns each human worker to each job 
 #   input: S (NxJ matrix of human job cost)
-#   output: bool (whether a solution was found), a (job assignment of each worker)
+#   output: a (job assignment of each worker)
 def hungarian(S):
     # relies on the Munkres library (via Pip)
     m = Munkres()
@@ -135,8 +135,8 @@ print("Starting trial run")
 
 # step 0: set parameters
 J = 3  # number of jobs
-N = 30  # number of workers
-T = 5  # number of traits
+N = 3  # number of workers
+T = 3  # number of traits
 
 # step 1: generate impact matrix
 print("  Generating impact matrix")
