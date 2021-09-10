@@ -347,13 +347,9 @@ def otTest():
 @app.route("/process-data")
 def processData():
     sa_data = analysis.processing.process_sa.get_sa_data("logs")
-    #print(sa_data)
     ni_data = analysis.processing.process_ni.get_ni_data("logs")
-    #print(ni_data)
     ot_data = analysis.processing.process_ot.get_ot_data("logs")
-    print("----- logs")
     s1_data = analysis.processing.process_s1.get_s1_data("logs")
-    print(s1_data)
     s2_data = analysis.processing.process_s2.get_s2_data("logs")
     s3_data = analysis.processing.process_s3.get_s3_data("logs")
 
@@ -372,7 +368,7 @@ def processData():
         total[p]["s3"] = s3_data[p] if p in s3_data else -1
     
 
-    print("total", ["\n" + x + ": " + str(total[x]) for x in total])
+    
     
     return jsonify(total)
 

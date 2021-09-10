@@ -2,8 +2,7 @@
 
 function initEngine() {
     // if the stage is 2, set the distance traveled to 0
-    uiMap.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
-    
+    uiMap.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];    
 
     if (uiMap.networked) {
         // get positions the first time, replace with "init stage X"
@@ -26,7 +25,7 @@ function initEngine() {
 
     // log the distance traveled every 5 seconds
     window.setInterval(function() {
-        log({stage: uiMap.stage, action: "distance-checkup", object: "distance-traveled:" + uiMap.distanceTraveled });
+        log({stage: uiMap.stage, action: "distance-checkup", object: "distance-traveled:" + uiMap.distanceTraveled, locations: "locations:" + uiMap.robotLocations, cacheStates: "cacheStates:" + uiMap.cacheStates });
     }, 5000);
 
     // set up the adhoc network check, if on Stage 3
@@ -123,31 +122,38 @@ function getPositions() {
                     continue;
                 }
 
+                let idx = -1
+
                 // if not, add to the vehicle's distance traveled
                 if (uiMap.uiObjects[i].name == "UGV1") {
-                    uiMap.distanceTraveled[0] = uiMap.distanceTraveled[0] + dist;
+                    idx = 0;
                 } 
                 if (uiMap.uiObjects[i].name == "UGV2") {
-                    uiMap.distanceTraveled[1] = uiMap.distanceTraveled[1] + dist;
+                    idx = 1;
                 } 
                 if (uiMap.uiObjects[i].name == "UGV3") {
-                    uiMap.distanceTraveled[2] = uiMap.distanceTraveled[2] + dist;
+                    idx = 2;
                 } 
                 if (uiMap.uiObjects[i].name == "UGV4") {
-                    uiMap.distanceTraveled[3] = uiMap.distanceTraveled[3] + dist;
+                    idx = 3;
                 } 
                 if (uiMap.uiObjects[i].name == "UAV1") {
-                    uiMap.distanceTraveled[4] = uiMap.distanceTraveled[4] + dist;
+                    idx = 4;
                 }
                 if (uiMap.uiObjects[i].name == "UAV2") {
-                    uiMap.distanceTraveled[5] = uiMap.distanceTraveled[5] + dist;
+                    idx = 5;
                 }
                 if (uiMap.uiObjects[i].name == "UAV3") {
-                    uiMap.distanceTraveled[6] = uiMap.distanceTraveled[6] + dist;
+                    idx = 6;
                 }
                 if (uiMap.uiObjects[i].name == "UAV4") {
-                    uiMap.distanceTraveled[7] = uiMap.distanceTraveled[7] + dist;
+                    idx = 7;
                 }
+
+                uiMap.distanceTraveled[idx] = uiMap.distanceTraveled[idx] + dist;
+                uiMap.robotLocations[idx][0] = uiMap.uiObjects[i].x;
+                uiMap.robotLocations[idx][1] = uiMap.uiObjects[i].y;
+                uiMap.robotLocations[idx][2] = -Math.atan2(uiMap.uiObjects[i].y - uiMap.uiObjects[i].oldY, uiMap.uiObjects[i].oldX - uiMap.uiObjects[i].x) + Math.PI/2;
             }
         }
     });
@@ -292,6 +298,11 @@ function simMotion() {
                 uiMap.uiObjects[i].x = uiMap.uiObjects[i].x + dx;
                 uiMap.uiObjects[i].y = uiMap.uiObjects[i].y + dy;
 
+                // record the robot locations
+                uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[robot_id].x;
+                uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[robot_id].y;
+                uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.uiObjects[robot_id].oldY, uiMap.uiObjects[robot_id].oldX - uiMap.uiObjects[robot_id].x) + Math.PI/2;
+
                 // if close to the waypoint, remove the waypoint and log if the robot is at its end
                 if (distance([uiMap.uiObjects[i].x, uiMap.uiObjects[i].y], [uiMap.uiObjects[i].waypoints[0][0] * uiMap.mapCanvas.width, uiMap.uiObjects[i].waypoints[0][1] * uiMap.mapCanvas.height]) < 5) {
                     uiMap.uiObjects[i].waypoints.shift();
@@ -305,10 +316,16 @@ function simMotion() {
             if (uiMap.uiObjects[i].constructor.name == "Cache") {
                 // check if cache is connected to base
                 if (uiMap.adHocLock) {
+                    // get the ID of the cache
+                    let cacheId = uiMap.uiObjects[i].name == "Cache 1" ? 0 : uiMap.uiObjects[i].name == "Cache 2" ? 1 : uiMap.uiObjects[i].name == "Cache 3" ? 2 : uiMap.uiObjects[i].name == "Cache 4" ? 3 : uiMap.uiObjects[i].name == "Cache 5" ? 4 : -1;
+                    
                     // if connected, great, set a flag
                     if (robotConnectedToBase(uiMap.uiObjects[i].name)) {
                         uiMap.uiObjects[i].connected = true;
                         numConnected += 1;
+                        
+                        // mark the cache as connected
+                        uiMap.cacheStates[cacheId] = 1;
 
                         // update the training counter
                         if (uiMap.stage == 0) {
@@ -317,6 +334,9 @@ function simMotion() {
                         }
                     }
                     else {
+                        // mark the cache as disconnected
+                        uiMap.cacheStates[cacheId] = 0;
+                        
                         uiMap.uiObjects[i].connected = false;
                         uiMap.cacheDisconnected = true;
                     }

@@ -124,22 +124,22 @@ function initStage1() {
     document.getElementById("cam4_button").innerHTML = "Mark Cache";
 
     document.getElementById("cam1_button").onclick = () => {
-        addCache(uav1.x, uav1.y);
+        addCache(uav1.x, uav1.y, "1");
     }
     document.getElementById("cam2_button").onclick = () => {
-        addCache(uav2.x, uav2.y);
+        addCache(uav2.x, uav2.y, "2");
     }
     document.getElementById("cam3_button").onclick = () => {
-        addCache(uav3.x, uav3.y);
+        addCache(uav3.x, uav3.y, "3");
     }
     document.getElementById("cam4_button").onclick = () => {
-        addCache(uav4.x, uav4.y);
+        addCache(uav4.x, uav4.y, "4");
     }
 }
 
 var cacheList = [false, false, false, false, false];
 
-function addCache(x, y) {
+function addCache(x, y, robot_id) {
     console.log("addCache button pressed for UAV position", x, y)
     for (let i=0; i<uiMap.uiObjects.length; i++) {
         // ignore if not a cache area
@@ -163,6 +163,8 @@ function addCache(x, y) {
             cache.y = y
             uiMap.uiObjects.splice(5, 0, cache);
             cacheList[i] = true;
+
+            uiMap.cacheStates[i] = "1" + robot_id // mark the cache as marked 
 
             uiMap.knownCaches += 1;  // variable to count the number of known caches
 

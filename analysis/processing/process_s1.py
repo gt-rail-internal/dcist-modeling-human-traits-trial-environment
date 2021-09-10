@@ -8,6 +8,8 @@ import os
 def get_s1_data(path):
     print("PROCESSING S1 DATA", path)
     s1_scores = {}
+    s1_collected = 0
+    s1_total = 0
     for p in os.listdir(path):
         p = p[:-4]
         s1_scores[p] = 0
@@ -67,7 +69,6 @@ def get_s1_data(path):
                 # get the distance traveled
                 if stage == 1 and started == True and "'stage': 1, 'action': 'distance-checkup'" in a and not complete:
                     distance_traveled = a.split("'")[9].split(":")[1].split(",")
-                    print(">>>", p, distance_traveled)
                 
                 if stage == 1 and started == True and "stage-complete" in a:
                     complete = True
@@ -77,16 +78,21 @@ def get_s1_data(path):
 
                 if stage == 1 and complete == True:
                     response += "\n" + "  Stage 1 duration " + str(end_time - start_time)
-                    if sum([float(x) for x in distance_traveled]) > 0:
-                        s1_scores[p] = int(100000 * cache_collected / sum([float(x) for x in distance_traveled]))
-                        print("!!!", p, 100000 / sum([float(x) for x in distance_traveled]))
+                    if cache_collected > 0: #sum([float(x) for x in distance_traveled]) > 0:
+                        s1_scores[p] = (end_time - start_time) #int(100000 * cache_collected / sum([float(x) for x in distance_traveled]))
+                        
                     else:
                         s1_scores[p] = 0
-                        print("---", p, s1_scores[p])
 
                     break
 
                 former_a = a
-                
+        
+        s1_collected += 1 if cache_collected == 5 else 0
+        s1_total += 1
+        s1_ = [s1_scores[p] for p in s1_scores]
+        #print("___", s1_)
+        #print("S1 Cache", cache_collected, s1_collected, s1_total)
+
                 #if complete:
     return s1_scores

@@ -20,6 +20,7 @@ class MapUIObject {
         this.nameAttention = false;  // give the name attention if needed (! name !)
 
         this.carryingCache = false;
+        this.carryingCacheId = -1; // ID of the cache being carried
 
         this.color = "";
 
@@ -219,6 +220,8 @@ class Cache extends MapUIObject {
 
         this.name = "Cache";
         this.color = "black";
+
+        this.index = -1;
 
         this.image.src = "/static/simenv/img/cache.png";
         this.scale = 25;

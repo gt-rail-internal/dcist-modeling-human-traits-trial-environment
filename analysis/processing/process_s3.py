@@ -103,9 +103,10 @@ def get_s3_data(path):
                         s3_scores[p] = int(100000 * (cache_collected + cache_returned) / sum([float(x) for x in distance_traveled]))
                     else:
                         s3_scores[p] = 0
-                    
-
-                former_a = a
                 
-                #if complete:
+                former_a = a
+
+            print("S3", cache_collected, cache_returned, cache_collected + cache_returned)
+               
+            #if complete:
     return s3_scores

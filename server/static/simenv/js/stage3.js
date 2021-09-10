@@ -188,7 +188,11 @@ function collectCache(x, y, ugv) {
             }
 
             ugv.carryingCache = true;  // set the ugv to be carrying the cache
+            ugv.carryingCacheId = uiMap.uiObjects[i].index;
             uiMap.uiObjects[i].hide = true;  // hide the cache that was picked up
+
+            // mark the cache as collected
+            uiMap.cacheStates[i] = 10 + (ugv.index-1)
 
             cacheList[i] = true;
             console.log("collected cache");
@@ -199,6 +203,10 @@ function collectCache(x, y, ugv) {
             if (uiMap.uiObjects[i].carryingCache) {
                 uiMap.uiObjects[i].carryingCache = false;
                 ugv.carryingCache = true;
+                ugv.carryingCacheId = uiMap.uiObjects[i].carryingCacheId;  // transfer the carrying cache ID
+                uiMap.uiObjects[i].carryingCacheId = -1;  // remove the carrying cache ID from the previous robot
+                // mark the cache as transfered
+                uiMap.cacheStates[ugv.carryingCacheId] = 10 + (ugv.index-1)
                 console.log("transferred cache", uiMap.uiObjects[i].carryingCache, ugv.carryingCache);
                 log({"stage": uiMap.stage, "action": "cache transferred", "this": ugv.name, "target": uiMap.uiObjects[i].name});
             }
@@ -313,6 +321,8 @@ function stage3EndCheck() {
         if (uiMap.uiObjects[i].carryingCache && distance([base1.x, base1.y], [uiMap.uiObjects[i].x, uiMap.uiObjects[i].y]) < .08 * uiMap.mapCanvas.width) {
             uiMap.returnedCaches += 1;
             uiMap.uiObjects[i].carryingCache = false;
+            uiMap.cacheStates[uiMap.uiObjects[i].carryingCacheId] = 2;
+            
             log({"stage": uiMap.stage, "action": "cache returned", "cacheId": i});
             console.log("returned cache");
         }

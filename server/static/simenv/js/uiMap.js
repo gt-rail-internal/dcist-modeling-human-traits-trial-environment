@@ -42,6 +42,15 @@ class UIMap {
         // variable for distance traveled by each robot
         this.distanceTraveled = [0, 0, 0, 0, 0, 0, 0, 0];
 
+        // variable for the robot locations and orientations
+        this.robotLocations = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
+
+        // variable for the cache states
+        // Stage 1: 0=unmarked, 1=marked
+        // Stage 2: 0=unconnected, 1=connected
+        // Stage 3: 0=uncollected, 1X=connected on robot_id X, 2=returned
+        this.cacheStates = [0, 0, 0, 0, 0]
+
         // variable for connected cache
         this.cacheDisconnected = true;
 
