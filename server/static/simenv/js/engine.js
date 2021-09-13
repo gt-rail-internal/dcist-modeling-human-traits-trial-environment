@@ -202,6 +202,7 @@ function checkConditions() {
     window.setInterval(() => {
         // if the stage is complete, return
         if (uiMap.stageComplete) {
+            console.log("stage complete");
             return;
         }
 
