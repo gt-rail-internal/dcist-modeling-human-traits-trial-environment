@@ -100,7 +100,7 @@ function setInitialPositions() {
             }
             uiMap.robotLocations[idx][0] = robot_positions[uiMap.uiObjects[obj].name][0] * uiMap.mapCanvas.width;
             uiMap.robotLocations[idx][1] = robot_positions[uiMap.uiObjects[obj].name][1] * uiMap.mapCanvas.width;
-            uiMap.robotLocations[idx][2] = Math.atan2(uiMap.robotLocations[idx][1], uiMap.robotLocations[idx][0]);
+            uiMap.robotLocations[idx][2] = Math.PI/2;
             
             console.log("set", uiMap.uiObjects[obj].name)
         }
@@ -181,7 +181,7 @@ function getPositions() {
                 uiMap.distanceTraveled[idx] = uiMap.distanceTraveled[idx] + dist;
                 uiMap.robotLocations[idx][0] = uiMap.uiObjects[i].x;
                 uiMap.robotLocations[idx][1] = uiMap.uiObjects[i].y;
-                uiMap.robotLocations[idx][2] = Math.atan2(uiMap.uiObjects[i].y, uiMap.uiObjects[i].x);
+                uiMap.robotLocations[idx][2] = -Math.atan2(uiMap.uiObjects[i].y - uiMap.uiObjects[i].oldY, uiMap.uiObjects[i].oldX - uiMap.uiObjects[i].x) + Math.PI/2;
             }
         }
     });
@@ -331,7 +331,7 @@ function simMotion() {
                 // record the robot locations
                 uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[robot_id].x;
                 uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[robot_id].y;
-                uiMap.robotLocations[robot_id][2] = Math.atan2(uiMap.uiObjects[robot_id].y, uiMap.uiObjects[robot_id].x);
+                uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.uiObjects[robot_id].oldY, uiMap.uiObjects[robot_id].oldX - uiMap.uiObjects[robot_id].x) + Math.PI/2;
 
                 // if close to the waypoint, remove the waypoint and log if the robot is at its end
                 if (distance([uiMap.uiObjects[i].x, uiMap.uiObjects[i].y], [uiMap.uiObjects[i].waypoints[0][0] * uiMap.mapCanvas.width, uiMap.uiObjects[i].waypoints[0][1] * uiMap.mapCanvas.height]) < 5) {
