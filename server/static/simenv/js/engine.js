@@ -503,6 +503,7 @@ function log(data) {
 function checkTimeout() {
     // if the stage has not started, do not complete yet
     if (!stageStarted) {
+        console.log("Stage not started");
         return false;
     }
 
