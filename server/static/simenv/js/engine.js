@@ -500,10 +500,14 @@ function log(data) {
     return fetch("/logging", {method: "POST", body: JSON.stringify(data)});
 }
 
+function startStage() {
+    stageStarted = true;
+    startTime = new Date().getTime() / 1000;
+}
+
 function checkTimeout() {
     // if the stage has not started, do not complete yet
     if (!stageStarted) {
-        console.log("Stage not started");
         return false;
     }
 

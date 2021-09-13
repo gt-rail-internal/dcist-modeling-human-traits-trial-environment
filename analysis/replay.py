@@ -71,7 +71,7 @@ def replay_stage(worker_id):
                 start_time = float(action.split(",")[0])
                 diff_time = datetime.datetime.now().timestamp() - start_time
                 running = True
-                BROWSER.execute_script("stageStarted = true; startTime = new Date().getTime() / 1000;")
+                BROWSER.execute_script("startStage();")
                 print("starting run", action)
             
             # then check if at least the start time
