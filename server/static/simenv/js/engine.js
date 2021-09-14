@@ -328,9 +328,9 @@ function simMotion() {
 
                 // record the robot locations
                 if (robot_id != -1) {  // only record valid robots
+                    uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.robotLocations[robot_id][1], uiMap.uiObjects[robot_id].x - uiMap.robotLocations[robot_id][0]) + Math.PI/2;
                     uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[robot_id].x;
                     uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[robot_id].y;
-                    uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.uiObjects[robot_id].oldY, uiMap.uiObjects[robot_id].oldX - uiMap.uiObjects[robot_id].x) + Math.PI/2;
                     uiMap.distanceTraveled[robot_id] += step_dist;
                 }
 
