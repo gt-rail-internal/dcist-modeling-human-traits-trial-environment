@@ -74,6 +74,8 @@ function setInitialPositions() {
         if (robot_positions.hasOwnProperty(uiMap.uiObjects[obj].name)) {
             uiMap.uiObjects[obj].x = robot_positions[uiMap.uiObjects[obj].name][0] * uiMap.mapCanvas.width;
             uiMap.uiObjects[obj].y = robot_positions[uiMap.uiObjects[obj].name][1] * uiMap.mapCanvas.height;
+
+            idx = -1
             if (uiMap.uiObjects[obj].name == "UGV1") {
                 idx = 0;
             } 
@@ -98,9 +100,12 @@ function setInitialPositions() {
             if (uiMap.uiObjects[obj].name == "UAV4") {
                 idx = 7;
             }
-            uiMap.robotLocations[idx][0] = robot_positions[uiMap.uiObjects[obj].name][0] * uiMap.mapCanvas.width;
-            uiMap.robotLocations[idx][1] = robot_positions[uiMap.uiObjects[obj].name][1] * uiMap.mapCanvas.width;
-            uiMap.robotLocations[idx][2] = Math.PI/2;
+
+            if (idx != -1) {
+                uiMap.robotLocations[idx][0] = robot_positions[uiMap.uiObjects[obj].name][0] * uiMap.mapCanvas.width;
+                uiMap.robotLocations[idx][1] = robot_positions[uiMap.uiObjects[obj].name][1] * uiMap.mapCanvas.width;
+                uiMap.robotLocations[idx][2] = Math.PI/2;    
+            }
             
             console.log("set", uiMap.uiObjects[obj].name)
         }
@@ -176,11 +181,14 @@ function getPositions() {
                 if (uiMap.uiObjects[i].name == "UAV4") {
                     idx = 7;
                 }
-
-                uiMap.distanceTraveled[idx] = uiMap.distanceTraveled[idx] + dist;
-                uiMap.robotLocations[idx][0] = uiMap.uiObjects[i].x;
-                uiMap.robotLocations[idx][1] = uiMap.uiObjects[i].y;
-                uiMap.robotLocations[idx][2] = -Math.atan2(uiMap.uiObjects[i].y - uiMap.uiObjects[i].oldY, uiMap.uiObjects[i].oldX - uiMap.uiObjects[i].x) + Math.PI/2;
+                
+                if (idx != -1) {
+                    console.log("UPDATE FOR ", idx, uiMap.uiObjects[i].name, uiMap.uiObjects[i].x)
+                    uiMap.distanceTraveled[idx] = uiMap.distanceTraveled[idx] + dist;
+                    uiMap.robotLocations[idx][0] = uiMap.uiObjects[i].x;
+                    uiMap.robotLocations[idx][1] = uiMap.uiObjects[i].y;
+                    uiMap.robotLocations[idx][2] = -Math.atan2(uiMap.uiObjects[i].y - uiMap.uiObjects[i].oldY, uiMap.uiObjects[i].oldX - uiMap.uiObjects[i].x) + Math.PI/2;
+                }
             }
         }
     });
@@ -236,7 +244,7 @@ function checkConditions() {
 
         // if the time limit has completed, time out
         else if (checkTimeout()) {
-            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
+            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled, locations: "locations:" + uiMap.robotLocations})
             console.log("Timeout!");
             stageComplete();
             return;
@@ -244,7 +252,7 @@ function checkConditions() {
 
         // if the end condition is met, victory
         else if (uiMap.endCheck()) {
-            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled})
+            log({stage: uiMap.stage, action: "stage-complete", object: "distance-traveled:" + uiMap.distanceTraveled, locations: "locations:" + uiMap.robotLocations})
             console.log("VICTORY!!");
             uiMap.stageVictory = true;
             stageComplete();
