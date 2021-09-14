@@ -939,3 +939,33 @@ receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFra
 Line: 670, column: 0
 console.error: ({})
 JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 670: NS_ERROR_FILE_ACCESS_DENIED: Failed to open input source 'file:///'
+1631632840115	geckodriver	INFO	Listening on 127.0.0.1:58837
+1631632840118	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIlAlhP"
+1631632840529	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileIlAlhP/search.json.mozlz4", (void 0)))
+1631632842868	Marionette	INFO	Stopped listening on port 41365
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: resource:///modules/Interactions.jsm, line 209: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1631632843178	Marionette	INFO	Listening on port 35843
+1631632843245	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1631632873418	geckodriver	INFO	Listening on 127.0.0.1:49601
+1631632873421	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile19Xl51"
+1631632873824	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile19Xl51/search.json.mozlz4", (void 0)))
+1631632875830	Marionette	INFO	Listening on port 36887
+1631632875906	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+kf.jobwidgets: Couldn't start kuiserver from org.kde.kuiserver.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kuiserver was not provided by any .service files")
+kf.dbusaddons: Can not find 'kdeinit5' executable at  "/opt/ros/noetic/bin:/home/jack/GT/Courses/CS6601/miniconda3/bin:/home/jack/GT/Courses/CS6601/miniconda3/bin:/home/jack/google-cloud-sdk/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/jack/docs/bin:/opt/android-sdk/emulator:/opt/flutter/bin:/usr/lib/jvm/default/bin:/home/jack/.local/bin:/home/jack/.local/bin" "/usr/bin, /usr/bin"
+1631633734680	Marionette	INFO	Stopped listening on port 36887
+JavaScript error: resource:///modules/Interactions.jsm, line 209: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
