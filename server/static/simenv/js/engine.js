@@ -325,6 +325,7 @@ function simMotion() {
 
                 // record the distance traveled
                 let robot_name = uiMap.uiObjects[i].name;
+
                 let robot_id = robot_name == "UGV1" ? 0 : robot_name == "UGV2" ? 1 : robot_name == "UGV3" ? 2 : robot_name == "UGV4" ? 3 : robot_name == "UAV1" ? 4 : robot_name == "UAV2" ? 5 : robot_name == "UAV3" ? 6 : robot_name == "UAV4" ? 7 : -1;
                 
                 // move the object
@@ -336,9 +337,9 @@ function simMotion() {
 
                 // record the robot locations
                 if (robot_id != -1) {  // only record valid robots
-                    uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.robotLocations[robot_id][1], uiMap.uiObjects[robot_id].x - uiMap.robotLocations[robot_id][0]) + Math.PI/2;
-                    uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[robot_id].x;
-                    uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[robot_id].y;
+                    uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[i].y - uiMap.robotLocations[robot_id][1], uiMap.uiObjects[i].x - uiMap.robotLocations[robot_id][0]) + Math.PI/2;
+                    uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[i].x;
+                    uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[i].y;
                     uiMap.distanceTraveled[robot_id] += step_dist;
                 }
 
