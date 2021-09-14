@@ -132,7 +132,6 @@ function getPositions() {
 
         // update the ui objects
         for (let i in uiMap.uiObjects) {
-            //console.log(uiMap.uiObjects[i].name, data)
             // if the position was given for an object
             if (data.hasOwnProperty(uiMap.uiObjects[i].name)) {
                 // set it
@@ -318,9 +317,8 @@ function simMotion() {
 
                 // record the distance traveled
                 let robot_name = uiMap.uiObjects[i].name;
-                let robot_id = robot_name == "UGV1" ? 0 : robot_name == "UGV2" ? 1 : robot_name == "UGV3" ? 2 : robot_name == "UGV4" ? 3 : robot_name == "UAV1" ? 4 : robot_name == "UAV2" ? 5 : robot_name == "UAV3" ? 6 : robot_name == "UAV4" ? 7 : 0;
-                uiMap.distanceTraveled[robot_id] += step_dist;
-
+                let robot_id = robot_name == "UGV1" ? 0 : robot_name == "UGV2" ? 1 : robot_name == "UGV3" ? 2 : robot_name == "UGV4" ? 3 : robot_name == "UAV1" ? 4 : robot_name == "UAV2" ? 5 : robot_name == "UAV3" ? 6 : robot_name == "UAV4" ? 7 : -1;
+                
                 // move the object
                 uiMap.uiObjects[i].oldX = uiMap.uiObjects[i].x;
                 uiMap.uiObjects[i].oldY = uiMap.uiObjects[i].y;
@@ -329,9 +327,12 @@ function simMotion() {
                 uiMap.uiObjects[i].y = uiMap.uiObjects[i].y + dy;
 
                 // record the robot locations
-                uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[robot_id].x;
-                uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[robot_id].y;
-                uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.uiObjects[robot_id].oldY, uiMap.uiObjects[robot_id].oldX - uiMap.uiObjects[robot_id].x) + Math.PI/2;
+                if (robot_id != -1) {  // only record valid robots
+                    uiMap.robotLocations[robot_id][0] = uiMap.uiObjects[robot_id].x;
+                    uiMap.robotLocations[robot_id][1] = uiMap.uiObjects[robot_id].y;
+                    uiMap.robotLocations[robot_id][2] = -Math.atan2(uiMap.uiObjects[robot_id].y - uiMap.uiObjects[robot_id].oldY, uiMap.uiObjects[robot_id].oldX - uiMap.uiObjects[robot_id].x) + Math.PI/2;
+                    uiMap.distanceTraveled[robot_id] += step_dist;
+                }
 
                 // if close to the waypoint, remove the waypoint and log if the robot is at its end
                 if (distance([uiMap.uiObjects[i].x, uiMap.uiObjects[i].y], [uiMap.uiObjects[i].waypoints[0][0] * uiMap.mapCanvas.width, uiMap.uiObjects[i].waypoints[0][1] * uiMap.mapCanvas.height]) < 5) {

@@ -8,7 +8,7 @@ from selenium import webdriver
 
 DOMAIN = "35b4-143-215-178-206"
 STAGE = 2
-USER = "9115"
+USER = "7310"
 BROWSER = None
 
 # open the stage in a new browser instance
