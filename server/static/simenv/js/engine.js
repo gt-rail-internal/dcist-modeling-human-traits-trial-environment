@@ -183,7 +183,6 @@ function getPositions() {
                 }
                 
                 if (idx != -1) {
-                    console.log("UPDATE FOR ", idx, uiMap.uiObjects[i].name, uiMap.uiObjects[i].x)
                     uiMap.distanceTraveled[idx] = uiMap.distanceTraveled[idx] + dist;
                     uiMap.robotLocations[idx][0] = uiMap.uiObjects[i].x;
                     uiMap.robotLocations[idx][1] = uiMap.uiObjects[i].y;
