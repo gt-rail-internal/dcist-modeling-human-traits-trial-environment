@@ -7,7 +7,7 @@ import time
 from selenium import webdriver
 
 DOMAIN = "35b4-143-215-178-206"
-STAGE = 2
+STAGE = 1
 USER = "9633"
 BROWSER = None
 
