@@ -10,6 +10,24 @@ import math
 def distance(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
+def calc_min_dist(robot_locations, cache_locations):
+    trial_min_connection_dists = [float("inf"), float("inf"), float("inf"), float("inf"), float("inf")]
+    # calculate the distance to each cache
+    for i in range(5):  # for each cache
+        # for each robot
+        for r in range(8):
+            # get dist to the cache
+            dist = distance(cache_locations[i], [robot_locations[3 * r], robot_locations[3 * r + 1]])
+            
+            # subtract the cache connection dist (UGV: 100, UAV: 75)
+            dist -= 100 if r <= 3 else 75  # if r <= 3 (first four robots) it's a UGV, otherwise it's a UAV
+            
+            #print("DIST", i, r, dist)
+            # update if less than current recorded distance
+            trial_min_connection_dists[i] = min(max(dist, 0), trial_min_connection_dists[i])
+    return sum(trial_min_connection_dists)
+
+
 def get_s2_data(path):
     print("PROCESSING S2 DATA")
     s2_scores = {}
@@ -17,7 +35,7 @@ def get_s2_data(path):
     s2_complete = 0
     for p in os.listdir(path):
         p = p[:-4]
-        if "replay" not in p or "S2" not in p or "copy" not in p:
+        if "replay" in p or "S2" in p:
             continue
         s2_scores[p] = -1
         with open(path + "/" + p + ".txt", "r") as f:
@@ -36,7 +54,13 @@ def get_s2_data(path):
 
             robots_interacted = [0, 0, 0, 0, 0, 0, 0, 0]
             robot_locations = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            cache_locations = [[111, 273], [372, 356], [640, 150], [607, 523], [109, 578]]
+            cache_locations = [[140, 208.6], [394.8, 228.9], [630, 261.8], [626.5, 613.9], [54.6, 530.6]]
+            
+            # get the theoretical max score, so we can measure progress
+            #init_robot_locations = [448.7, 679, 0, 448.7, 679, 0, 448.7, 679, 0, 448.7, 679, 0, 365.4, 679, 0, 365.4, 679, 0, 365.4, 679, 0, 365.4, 679, 0]
+            #print("INIT LOCATIONS", calc_min_dist(init_robot_locations, cache_locations))
+            max_score = 1513.575
+
             num_interactions = [0, 0, 0, 0]
             distance_traveled = []
             min_connection_distance = float("inf")
@@ -78,7 +102,7 @@ def get_s2_data(path):
                 if stage == 2 and "add-valid-waypoint" in a:
                     if not started:
                         started = True
-                        start_time = int(actions[i-1][:10]) if not started else start_time
+                        start_time = int(actions[i-1][:10])
                     if reset:
                         reset = False
                         reset_time = int(a[:10])
@@ -111,6 +135,11 @@ def get_s2_data(path):
                     end_time = int(a[:10])
                     response += "\n" + "  Stage 2 End " + a[:11]
 
+                    if "location" in a:
+                        robot_locations = [float(x) for x in a.split("'")[13].split(":")[1].split(",")]
+                        trial_min_connection_dist = calc_min_dist(robot_locations, cache_locations)
+                        min_connection_distance = min(trial_min_connection_dist, min_connection_distance)
+
                     # 406,690.9 535,250 97,461 107,525 150,282 265,560 112,446 619,619
 
                 # get the distance traveled
@@ -121,23 +150,9 @@ def get_s2_data(path):
                  # get the robot and cache states
                 if stage == 2 and started == True and "locations" in a and not complete:
                     robot_locations = [float(x) for x in a.split("'")[13].split(":")[1].split(",")]
-                    print(">>>>", [round(x,1) for x in robot_locations])
                     cache_states = [float(x) for x in a.split("'")[17].split(":")[1].split(",")]
-                    trial_min_connection_dists = [float("inf"), float("inf"), float("inf"), float("inf"), float("inf")]
-                    # calculate the distance to each cache
-                    for i in range(5):  # for each cache
-                        # for each robot
-                        for r in range(8):
-                            # get dist to the cache
-                            dist = distance(cache_locations[i], [robot_locations[3 * r], robot_locations[3 * r + 1]])
-                            # subtract the cache connection dist (UGV: 100, UAV: 75)
-                            dist -= 100 if r <= 3 else 75  # if r <= 3 (first four robtos) it's a UGV, otherwise it's a UAV
-                            #print("DIST", i, r, dist)
-                            # update if less than current recorded distance
-                            trial_min_connection_dists[i] = min(max(dist, 0), trial_min_connection_dists[i])
-
-                    print("DIST", p, trial_min_connection_dists)
-                    min_connection_distance = min(sum(trial_min_connection_dists), min_connection_distance)
+                    trial_min_connection_dist = calc_min_dist(robot_locations, cache_locations)
+                    min_connection_distance = min(trial_min_connection_dist, min_connection_distance)
 
                 # get the number of connected caches
                 if stage == 2 and started == True and "'stage': 2, 'action': 'cache connected count'" in a:
@@ -155,10 +170,13 @@ def get_s2_data(path):
 
                 former_a = a
 
-        print("S2", min_connection_distance)
+        duration = end_time - start_time
+        if duration < 600:
+            min_connection_distance = 0
+        score = (max_score - min_connection_distance) / duration
+        print("S2", p, score)
         s2_total += 1
         s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0
-        input()
     
     print("S2 Summary", s2_complete, s2_total)
 

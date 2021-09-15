@@ -8,7 +8,7 @@ from selenium import webdriver
 
 DOMAIN = "35b4-143-215-178-206"
 STAGE = 2
-USER = "7310"
+USER = "9633"
 BROWSER = None
 
 # open the stage in a new browser instance
@@ -83,9 +83,15 @@ def replay_stage(worker_id):
                 print("    ", action)
                 continue
 
+            # get the execution time offset
+            time_offset = 0
+            if "add-valid-waypoint" in action:
+                time_offset = .365
+            if "remove-waypoint" in action:
+                time_offset = .006
+
             # at this point action is either add valid waypoint or remove, so wait until time to execute
-            while curr_time < this_time:
-                time.sleep(.1)
+            while curr_time < this_time - time_offset:
                 curr_time = datetime.datetime.now().timestamp() - diff_time
 
             # select a robot
@@ -98,10 +104,12 @@ def replay_stage(worker_id):
                 print("selected vehicle")
 
             if "deselect-vehicle" in action:
+                
                 act = webdriver.common.action_chains.ActionChains(BROWSER)
                 act.send_keys("q")
                 act.perform()
-                print("removed waypoint")
+                print("deselected waypoint")
+                
             
             if "add-valid-waypoint" in action:
                 entry = ast.literal_eval(action[comma + len(worker_id) + 2:])
@@ -111,18 +119,22 @@ def replay_stage(worker_id):
                 act = webdriver.common.action_chains.ActionChains(BROWSER)
                 act.move_to_element_with_offset(stage, 700 * location[0], 700 * location[1])
                 act.click().perform()
-
                 print("added waypoint", action)
-
+                
             if "remove-waypoint" in action:
+                #t0 = time.time()
                 act = webdriver.common.action_chains.ActionChains(BROWSER)
                 act.send_keys("r")
                 act.perform()
                 print("removed waypoint")
+                #t1 = time.time()
+                #print("   TIME", t1 - t0)
             
-            if "cache" in action.lower() and "cache connected" not in action.lower():
+            if "cache" in action.lower() and "cache connected" not in action.lower() and "states" not in action.lower():
                 collect_cache()
                 print("collected cache")
+
+            
 
     print("done")
 
