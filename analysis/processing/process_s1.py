@@ -128,4 +128,4 @@ def get_s1_data(path):
                 #if complete:
     return s1_scores
 
-get_s1_data("logs")
+#get_s1_data("logs")
