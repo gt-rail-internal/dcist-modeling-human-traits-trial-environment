@@ -182,4 +182,4 @@ def get_s2_data(path):
 
     return s2_scores
 
-get_s2_data("logs")
+#get_s2_data("logs")
