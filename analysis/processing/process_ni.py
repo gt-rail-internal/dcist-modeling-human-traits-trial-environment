@@ -22,6 +22,6 @@ def get_ni_data(path):
                 if "networks" in action and "game complete" in action:
                     score = round(1 - sum([ int(x) for x in action.split(": ")[4].split("[")[1].split("]")[0].split(",") ]) / 70, 2)  # using 70 as a max (bad) score, most players cap at 60, 1-score so higher is better
                     ni_scores[p] = score
-        
+                    print(ni_scores[p], p)
             continue
     return ni_scores
