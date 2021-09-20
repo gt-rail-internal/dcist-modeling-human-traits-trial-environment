@@ -3,7 +3,7 @@
 import os
 import math
 #import networks_analysis
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #path = "./logs_stage_3_sa/"
 
@@ -179,7 +179,7 @@ def get_s2_data(path):
                 former_a = a
             
             # plot and wait
-            plt.plot(plot_time, plot_score)
+            #plt.plot(plot_time, plot_score)
 
         duration = end_time - start_time
         if duration < 600:
