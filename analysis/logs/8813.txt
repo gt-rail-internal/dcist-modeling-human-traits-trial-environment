@@ -200,9 +200,6 @@
 1629231507.894574,8813,{'stage': 'object tracking', 'action': 'side-panel-state', 'object': 'showing endgame panel', 'worker-id': '8813'}
 1629231507.925738,8813,{'stage': 'object tracking', 'result': [1, 1, 3, 4, 2, 3, 5], 'worker-id': '8813'}
 1629231636.342148,8813,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': '8813'}
-1629231647.078578,8813,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': '8813', 'stage': 1}
-1629231648.519792,8813,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.7085714285714285,0.9471428571428572]', 'worker-id': '8813', 'stage': 1}
-
 1629231775.788597,8813,{'stage': 'SAGAT', 'action': 'opened-page', 'worker-id': '8813'}
 1629231775.789524,8813,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing tutorial panel 1', 'worker-id': '8813'}
 1629231800.235549,8813,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing tutorial panel 2', 'worker-id': '8813'}
@@ -454,17 +451,6 @@
 1629232229.964719,8813,{'stage': 'SAGAT', 'action': 'complete', 'score': 63, 'worker-id': '8813'}
 1629232229.965333,8813,{'stage': 'SAGAT', 'action': 'side-panel-state', 'object': 'showing endgame panel', 'worker-id': '8813'}
 1629232295.267607,8813,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': '8813'}
-1629232315.285914,8813,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': '8813', 'stage': 1}
-1629232316.168588,8813,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.7142857142857143,0.9528571428571428]', 'worker-id': '8813', 'stage': 1}
-1629232316.334013,8813,{'stage': 1, 'action': 'robot UAV1 is idle', 'worker-id': '8813'}
-1629232317.544826,8813,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.6071428571428571,0.8828571428571429]', 'worker-id': '8813', 'stage': 1}
-1629232325.055816,8813,{'action': 'select-vehicle', 'target': 'UAV1', 'worker-id': '8813', 'stage': 1}
-1629232328.121555,8813,{'stage': 1, 'action': 'robot UAV1 is no longer idle', 'worker-id': '8813'}
-1629232330.029336,8813,{'action': 'add-valid-waypoint', 'target': 'UAV1', 'location': '[0.7171428571428572,0.8914285714285715]', 'worker-id': '8813', 'stage': 1}
-1629232336.055098,8813,{'stage': 1, 'action': 'robot UAV1 is idle', 'worker-id': '8813'}
-1629232339.681246,8813,{'stage': 1, 'action': 'robot UAV1 is idle', 'worker-id': '8813'}
-1629232348.394519,8813,{'stage': 1, 'action': 'robot UAV1 is idle', 'worker-id': '8813'}
-1629232349.056596,8813,{'stage': 1, 'action': 'robot UAV1 is no longer idle', 'worker-id': '8813'}
 1629232429.103783,8813,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': '8813'}
 1629232429.170432,8813,{'stage': 'tutorial', 'action': 'opened-tutorial', 'worker-id': '8813'}
 1629232442.705706,8813,{'stage': 0, 'action': 'opened-page', 'worker-id': '8813'}

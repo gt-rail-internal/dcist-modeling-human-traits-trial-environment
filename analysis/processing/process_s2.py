@@ -3,6 +3,7 @@
 import os
 import math
 #import networks_analysis
+import matplotlib.pyplot as plt
 
 #path = "./logs_stage_3_sa/"
 
@@ -35,7 +36,7 @@ def get_s2_data(path):
     s2_complete = 0
     for p in os.listdir(path):
         p = p[:-4]
-        if "replay" in p or "S2" in p:
+        if ("replay" not in p or "S2" not in p ) or ("9633" not in p and "8813" not in p and "8466" not in p and "4122" not in p):
             continue
         s2_scores[p] = -1
         with open(path + "/" + p + ".txt", "r") as f:
@@ -80,11 +81,14 @@ def get_s2_data(path):
 
             response = ""
 
+            plot_time = []
+            plot_score = []
+
             for i in range(len(actions)):
                 a = actions[i]
 
                 # check for timeout
-                this_action_time = int(a[:10]) if isinstance(a[:10], int) and "\n" not in a[:10] else -1
+                this_action_time = int(a[:10]) if a[:10].isdigit() and "\n" not in a[:10] else -1
                 if i > 0 and this_action_time != -1 and stage == 2 and this_action_time - last_action_time > 60:
                     print("  Idle from action", last_action, "UNTIL", a, "SUM", this_action_time - last_action_time)
                 last_action_time = this_action_time
@@ -154,6 +158,10 @@ def get_s2_data(path):
                     trial_min_connection_dist = calc_min_dist(robot_locations, cache_locations)
                     min_connection_distance = min(trial_min_connection_dist, min_connection_distance)
 
+                    # for plotting
+                    plot_time.append(this_action_time - start_time)
+                    plot_score.append(min_connection_distance)
+
                 # get the number of connected caches
                 if stage == 2 and started == True and "'stage': 2, 'action': 'cache connected count'" in a:
                     max_caches_connected = int(a.split("'")[8].replace(" ", "").split(":")[1][0])
@@ -169,15 +177,26 @@ def get_s2_data(path):
                     break
 
                 former_a = a
+            
+            # plot and wait
+            plt.plot(plot_time, plot_score)
 
         duration = end_time - start_time
         if duration < 600:
             min_connection_distance = 0
+        if duration == 0:
+            continue
         score = (max_score - min_connection_distance) / duration
-        print("S2", p, score)
+        print(p)
+        print(score)
         s2_total += 1
         s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0
+
     
+    #plt.ylabel("Min Connection Distance to all Caches")
+    #plt.xlabel("Time (sec)")
+    #plt.show()
+
     print("S2 Summary", s2_complete, s2_total)
 
     return s2_scores
