@@ -57,7 +57,7 @@ for kfold in range(int(1 / (1 - train_ratio))):
         pred_value = 0
         worst_value = 0
         rand_value = 0
-        # for each index of the subset
+        # for each index (user) of the subset
         for i in range(len(s)):
             user_id = s[i]  # the user ID of this person
 
@@ -66,7 +66,9 @@ for kfold in range(int(1 / (1 - train_ratio))):
             worst_value += user_scores[user_id][tasks[worst_a[i]]]  # add the worst score to the value of that team assignment
             rand_value += user_scores[user_id][tasks[rand_a[i]]]  # add the random score to the value of that team assignment
 
-        score_data.append([best_value, pred_value, worst_value, rand_value])  # record the score data
+            #print("BEST", best_value, pred_value, worst_value, rand_value)
+
+        score_data.append([best_value / best_value, pred_value / best_value, worst_value / best_value, rand_value / best_value])  # record the score data
         
 
 # plot the results 
@@ -77,12 +79,13 @@ data = [[x[i] for x in score_data] for i in range(len(score_data[0]))]
 
 ax = plt.gca()  # get the plot axis
 plot = ax.violinplot(data)  # create the violin plot
+ax.set_title("[K-Fold Sampling] Task Assignment Scores via Assignment Methods, K-Fold K=" + str(K) + " N=" + str(len(data[0])))
 ax.set_xlabel("Team Assignment Type")  # set x label
 ax.set_xticks([1, 2, 3, 4])  # set locations of x ticks
-ax.set_xticklabels(["Optimal", "Trait-Based", "Worst", "Random"])  # set labels of x ticks
-ax.set_ylabel("Retroactive Team Score")  # set y label
+ax.set_xticklabels(["Known Best", "Trait-Based", "Known Worst", "Random"])  # set labels of x ticks
+ax.set_ylabel("Retroactive Team Scores\n[proportion of teams' Known Best score]")  # set y label
 for i in range(len(plot["bodies"])):
-    plot["bodies"][i].set_facecolor(["green", "blue", "red", "purple"][i])
+    plot["bodies"][i].set_facecolor(["green", "blue", "black", "purple"][i])
     plot["bodies"][i].set_edgecolor("black")
     plot["cbars"].set_edgecolor("grey")
     plot["cmins"].set_edgecolor("grey")

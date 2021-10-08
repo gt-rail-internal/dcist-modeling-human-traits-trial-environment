@@ -10,17 +10,30 @@ import math
 def distance(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
-def get_s1_data(path):
-    print("PROCESSING S1 DATA", path)
+def get_s1_data(path, specific_users=[]):
+    #print("PROCESSING S1 DATA")
     s1_scores = {}
     s1_collected = 0
     s1_total = 0
     for p in os.listdir(path):
         p = p[:-4]
-        s1_scores[p] = 0
-        if "replay" not in p:
+
+        if "replay" in p and "S1" not in p:
             continue
-        print("LOOKING AT USER", p)
+
+        # check specific users
+        if specific_users != [] and sum([1 for x in specific_users if x in p]) == 0:
+            continue
+
+        #print(">", p)
+
+        worker_id = p.split("-")[0]
+        if not worker_id.isnumeric():
+            continue 
+        
+        if worker_id not in s1_scores:
+            s1_scores[worker_id] = 1
+        #print("LOOKING AT USER", p)
 
         with open(path + "/" + p + ".txt", "r") as f:
             #print("S1 Looking at user" + " " + p)
@@ -91,41 +104,62 @@ def get_s1_data(path):
                 # get the robot and cache states
                 if stage == 1 and started == True and "locations" in a and not complete:
                     robot_locations = [float(x) for x in a.split("'")[13].split(":")[1].split(",")]
-                    cache_states = [float(x) for x in a.split("'")[17].split(":")[1].split(",")]
+                    if len(a.split("'")) > 17 and len(a.split("'")[17].split(":")) > 1:
+                        cache_states = [float(x) for x in a.split("'")[17].split(":")[1].split(",")]
                     # calculate the distance to each cache
-                    for i in range(len(min_cache_dist)):  # for each cache
+                    for ii in range(len(min_cache_dist)):  # for each cache
                         # for each robot
                         for r in range(len(robot_locations) // 3):
                             # get dist
-                            dist = distance(cache_locations[i], [robot_locations[3 * r], robot_locations[3 * r + 1]])
+                            dist = distance(cache_locations[ii], [robot_locations[3 * r], robot_locations[3 * r + 1]])
                             # update if less than current recorded distance
-                            min_cache_dist[i] = dist if dist < min_cache_dist[i] else min_cache_dist[i]
-                    
+                            min_cache_dist[ii] = dist if dist < min_cache_dist[ii] else min_cache_dist[ii]
 
                 # finish the stage
-                if stage == 1 and started == True and ("stage-complete" in a or int(a[:10]) - start_time > 60 * 10):
+                if stage == 1 and started == True and ("stage-complete" in a or int(a[:10]) - start_time > 60 * 10 or i == len(actions)-1):
                     complete = True
                     end_time = int(a[:10])
-                    print("\n" + "  Number of caches identified: " + str(cache_collected))
+                    #print("  Number of caches identified: " + str(cache_collected))
 
                 if stage == 1 and complete == True:
                     duration = end_time - start_time
-                    print("\n" + "  Stage 1 duration " + str(duration))
-                    print("min dist", str(min_cache_dist), "=", sum(min_cache_dist))
-                    print("cache states", cache_states)
-                    s1_scores[p] = sum(min_cache_dist) / duration
-                        
+                    #print("min dist", str(min_cache_dist), "=", sum(min_cache_dist))
+                    #print("cache states", cache_states)
+                    # the initial cache locations
+                    initial_dist = sum([294.7032405658275, 329.2152862712491, 581.7380457581583, 255.74581870331477, 314.70295872494506])
+
+                    # if this run is a replay and the current score value is not 1, override
+                    if "replay" in p and s1_scores[worker_id] == 1 / 600:
+                        #print(p, "already saw orig, = dist / 600")
+                        s1_scores[worker_id] = (initial_dist - sum(min_cache_dist)) / 600
+
+                    # if this run is a replay and the value is still 1, set the numerator
+                    elif "replay" in p and s1_scores[worker_id] == 1:
+                        #print(p, "have not seen orig, = dist")
+                        s1_scores[worker_id] *= (initial_dist - sum(min_cache_dist))
+                    
+                    # if this run is NOT a replay and the duration is less than 600, override
+                    elif "replay" not in p and duration < 600:
+                        #print(p, "may/not have seen replay and low duration, = initial_dist / duration")
+                        s1_scores[worker_id] = initial_dist / duration
+                    
+                    # if this run is NOT A replay and the duration >= 600, divide by 600
+                    elif "replay" not in p and duration >= 600:
+                        #print(p, "may/may not have seen replay and high duration, = dist / 600")
+                        s1_scores[worker_id] /= 600
+
+                    #print("done with", p)
                     break
 
                 former_a = a
-        
-        s1_collected += 1 if cache_collected == 5 else 0
-        s1_total += 1
-        s1_ = [s1_scores[p] for p in s1_scores]
-        #print("___", s1_)
-        #print("S1 Cache", cache_collected, s1_collected, s1_total)
 
-                #if complete:
+    # normalize scores
+    normalization = max(s1_scores.values())  # normalization factor
+
+    s1_scores = {p : s1_scores[p] / normalization for p in s1_scores}
+    
+    s1_collected += 1 if cache_collected == 5 else 0
+    s1_total += 1
+    #print("___", s1_)
+
     return s1_scores
-
-#get_s1_data("logs")
