@@ -3,6 +3,41 @@
 from statistics import median
 import allocation.assignment_util
 
+PLOTTING = True  # flag for if we are plotting the results OR calculating them
+
+# check if we have a results, if so display them
+if PLOTTING:
+    import sys, os.path, pickle
+    # check if the file exists
+    if not os.path.isfile("f6c3_results.pkl"):
+        print("No results file")
+        sys.exit()
+
+    # load the list
+    with open("f6c3_results.pkl", "rb") as f:
+        iteration_scores = pickle.load(f)
+    
+    # format data into histogram distributions
+    from matplotlib import pyplot as plt
+    data = [[x[i] for x in iteration_scores] for i in range(len(iteration_scores[0]))]
+
+    ax = plt.gca()  # get the plot axis
+    bins = 50
+    alpha = 0.5
+    range = [0, 3]
+    plot = ax.hist(data[0], bins=bins, range=range, alpha=alpha, color="green", label="Known Best")  # histogram for best scores
+    plot = ax.hist(data[1], bins=bins, range=range, alpha=alpha, color="blue", label="Trait-Based Predicted")  # histogram for predicted actual
+    plot = ax.hist(data[3], bins=bins, range=range, alpha=alpha, color="orange", label="Expected Value")  # histogram for expected scores
+    plot = ax.hist(data[2], bins=bins, range=range, alpha=alpha, color="red", label="Known Worst")  # histogram for worst scores
+    
+    ax.legend()
+    ax.set_title("[From 6 Choose 3] Histogram of Scores via Assignment Methods")
+    ax.set_xlabel("Team Assignment Score")  # set x label
+    ax.set_xlim([0, 3])  # set locations of x ticks
+    ax.set_ylabel("Number of Teams")  # set y label
+    plt.show()
+
+
 # define the trait and tasks
 traits=["ot", "sa", "ni"]
 tasks=["s1", "s2", "s3"]
@@ -10,7 +45,7 @@ tasks=["s1", "s2", "s3"]
 import os, random
 
 # for N iterations, choose 6 users, get best predicted team of 3, compare to actual team of 3
-N = 1000
+N = 5000
 
 used_samplings = []
 
@@ -143,3 +178,11 @@ for n in range(N):
 
     # generate averages
     print("AVG best", sum([x[0] for x in iteration_scores]) / len(iteration_scores), "AVG pred", sum([x[1] for x in iteration_scores]) / len(iteration_scores), "AVG worst", sum([x[2] for x in iteration_scores]) / len(iteration_scores), "AVG exp", sum([x[3] for x in iteration_scores]) / len(iteration_scores))
+
+# save the iteration scores
+import pickle
+
+with open("f6c3_results.pkl", "wb") as f:
+    pickle.dump(iteration_scores, f)
+
+print("done")
