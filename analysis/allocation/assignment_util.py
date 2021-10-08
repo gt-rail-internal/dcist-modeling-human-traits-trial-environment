@@ -3,7 +3,7 @@ from statistics import mean
 # process the data logs into a user score matrix
 #    input: log file path
 #    output: dict{dict{}}, N x (T + J) matrix, N is number of participants, T is number of traits, J is number of tasks
-def process_logs(path="logs"):
+def process_logs(path="logs", specific_users=[]):
     # process the text files to get user scores
     import processing.process_ot
     import processing.process_sa
@@ -12,12 +12,13 @@ def process_logs(path="logs"):
     import processing.process_s2
     import processing.process_s3
 
-    ot_data = processing.process_ot.get_ot_data(path)
-    sa_data = processing.process_sa.get_sa_data(path)
-    ni_data = processing.process_ni.get_ni_data(path)
-    s1_data = processing.process_s1.get_s1_data(path)
-    s2_data = processing.process_s2.get_s2_data(path)
-    s3_data = processing.process_s3.get_s3_data(path)
+    ot_data = processing.process_ot.get_ot_data(path, specific_users=[])
+    sa_data = processing.process_sa.get_sa_data(path, specific_users=[])
+    ni_data = processing.process_ni.get_ni_data(path, specific_users=[])
+    s1_data = processing.process_s1.get_s1_data(path, specific_users=[])
+    s2_data = processing.process_s2.get_s2_data(path, specific_users=[])
+    s3_data = processing.process_s3.get_s3_data(path, specific_users=[])
+
 
     # combine into a dictionary format
     user_scores = {}
@@ -45,31 +46,21 @@ def pullSubsets(N, J, subsets=[], subset=[], slot=-1, all=False):
     subsets = [list(x) for x in itertools.combinations(range(N), J)]
     return subsets
 
-    # if still have more slot to subset, fill children
-    if slot < J - 1:
-        # add each worker to the subset
-        for worker in range(N):
-            # only add if worker is not already in subset
-            if worker not in subset:
-                new_subset = sorted([x for x in subset] + [worker])
-                pullSubsets(N, J, subsets, new_subset, slot + 1)
-        
-    # otherwise, this is the last slot, check if subset exists and return
-    elif subset not in subsets:
-        subsets.append(subset)
-
-    # top level return
-    return subsets    
-
-
-# function for calculating best fit line
+# function for calculating best fit line, from (https://stackoverflow.com/questions/10048571)
 def best_fit_slope(score_pairing):
     xs = [x[0] for x in score_pairing]
     ys = [x[1] for x in score_pairing]
-    m = (mean(xs)*mean(ys) - mean([xs[i]*ys[i] for i in range(len(xs))])) / (mean(xs)*mean(xs) - mean([x*x for x in xs]))
-    return m
-
-
+    N = len(xs)
+    Sx = Sy = Sxx = Syy = Sxy = 0.0
+    for x, y in zip(xs, ys):
+        Sx = Sx + x
+        Sy = Sy + y
+        Sxx = Sxx + x*x
+        Syy = Syy + y*y
+        Sxy = Sxy + x*y
+    det = Sxx * N - Sx * Sx
+    return (Sxy * N - Sy * Sx)/det, (Sxx * Sy - Sx * Sxy)/det
+    
 # function for removing outliers (1.5x IQR)
 def remove_outliers(scores):
     # if empty list, return
@@ -90,6 +81,7 @@ def remove_outliers(scores):
 # function for generating the impact matrix from user scores
 def generate_impact_matrix(user_scores, traits, tasks):
     impact_matrix = {}
+    yint_matrix = {}  # while not necessary, including the y intercept matrix so we can play with absolute predicted scores (not just relative scores)
     
     # generate the impact matrix: slope for each trait/task pairing
     for trait in traits:
@@ -101,22 +93,28 @@ def generate_impact_matrix(user_scores, traits, tasks):
             pairing = remove_outliers(pairing)
 
             # determine the slopes of each best fit line
-            m = best_fit_slope(pairing)
+            m, y = best_fit_slope(pairing)
             
             # store the slopes in the impact matrix
             if trait not in impact_matrix:
                 impact_matrix[trait] = {}
+                yint_matrix[trait] = {}
             impact_matrix[trait][task] = m
+            yint_matrix[trait][task] = y
         
-    return impact_matrix
+    return impact_matrix, yint_matrix
 
 
 # function for predicting a user's score given the impact matrix and the user test scores
-def predict_test_user_performance(test_user_scores, impact_matrix={}, traits=[], tasks=[]):
+def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matrix={}, traits=[], tasks=[]):
     score_predictions = {p : {} for p in test_user_scores}
     for p in test_user_scores:
         for task in tasks:
-            score_predictions[p][task] = sum([impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])
+            #print("-", [(yint_matrix[trait][task] if yint_matrix != {} else 0) for trait in traits])
+            if yint_matrix == {}:
+                score_predictions[p][task] = sum([impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])
+            else:
+                score_predictions[p][task] = sum([(impact_matrix[trait][task] * test_user_scores[p][trait] + yint_matrix[trait][task]) / len(traits) for trait in traits])
     return score_predictions
 
 
