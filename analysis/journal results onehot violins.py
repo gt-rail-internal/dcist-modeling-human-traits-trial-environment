@@ -12,7 +12,6 @@ specific_users = []
 user_scores = allocation.assignment_util.process_logs("logs", specific_users=specific_users)  # all user scores (even those who failed to have complete data)
 complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores, traits=traits, tasks=tasks)  # ONLY users who have complete data
 
-
 # generate the one hot of test and trait data
 import random
 
@@ -34,7 +33,7 @@ for team in team_indexes:
     training_user_scores = {p : user_scores[p] for p in training_ids}  # get training subset of user scores
 
     # generate impact matrix for the nine trait-task pairings, using the training user scores
-    impact_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)
+    impact_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)[0]
 
     # use the impact matrix to get the predicted score for each of the test users
     score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, traits=traits, tasks=tasks)  # predicted user scores for each task
@@ -89,16 +88,31 @@ data = [[x[i] for x in score_data] for i in range(len(score_data[0]))]
 data[3] = data[3] + data[4]
 del data[4]
 
+# also double the predicted data
+data[1] = data[1] + data[1]
+
 # randomness sanity check
 correct_rand = sum([1 for x in data[3] if x == 1])
 total_rand = len(data[3])
-print("worst ratio", round(sum([1 for x in data[3] if x == 0]) / len(data[3]), 3), "correct rand", correct_rand, "total rand", total_rand, "ratio", round(correct_rand / total_rand, 3), "mean", sum(data[3]) / len(data[3]), "median", median(data[3]))
+print("worst ratio", round(sum([1 for x in data[3] if x == 0]) / len(data[3]), 3), "correct rand", correct_rand, "total rand", total_rand, "ratio", round(correct_rand / total_rand, 4), "mean", sum(data[3]) / len(data[3]), "median", median(data[3]))
 
 # predicted results
 correct_pred = sum([1 for x in data[1] if x == 1])
 total_pred = len(data[1])
-print("worst ratio", round(sum([1 for x in data[1] if x == 0]) / len(data[1]), 3), "correct pred", correct_pred, "total pred", total_pred, "ratio", round(correct_pred / total_pred, 3), "mean", sum(data[1]) / len(data[1]), "median", median(data[1]))
+print("worst ratio", round(sum([1 for x in data[1] if x == 0]) / len(data[1]), 3), "correct pred", correct_pred, "total pred", total_pred, "ratio", round(correct_pred / total_pred, 4), "mean", sum(data[1]) / len(data[1]), "median", median(data[1]))
 
+# FOR DCIST QUARTERLY
+import seaborn as sns
+ax = sns.violinplot(data=[data[1], data[3]], scale="area")
+ax.set_title("Team performance scaled from their Known Worst to Known Optimal performances, using Trait-Based and Random Assignment (N=" + str(len(data[0])) + ")")
+ax.set_xlabel("Team Assignment Type")  # set x label
+ax.set_xticks([0, 1])  # set locations of x ticks
+ax.set_xticklabels(["Trait-Based", "Random"])  # set labels of x ticks
+ax.set_ylabel("Team Performance with respect to each Team's Known Worst and Known Optimal assignments\n(higher is better)")  # set y label
+ax.set_ylim([0, 1])
+plt.show()
+
+"""
 ax = plt.gca()  # get the plot axis
 plot = ax.violinplot(data)  # create the violin plot
 ax.set_title("[Leave One Out Sampling] Team Task Assignment Scores compared to Known Best and Known Worst vs. Assignment Methods, N=" + str(len(data[0])))
@@ -115,3 +129,4 @@ for i in range(len(plot["bodies"])):
     plot["cmaxes"].set_edgecolor("grey")
     plot["bodies"][i].set_alpha(.3)
 plt.show()
+"""

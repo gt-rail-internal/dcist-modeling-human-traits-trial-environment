@@ -11,7 +11,7 @@ user_scores = allocation.assignment_util.process_logs("logs", specific_users=spe
 complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores, traits=traits, tasks=tasks)  # ONLY users who have complete data
 
 # generate impact matrix for the nine trait-task pairings, using the training user scores
-impact_matrix = allocation.assignment_util.generate_impact_matrix(complete_user_scores, traits=traits, tasks=tasks)
+impact_matrix = allocation.assignment_util.generate_impact_matrix(complete_user_scores, traits=traits, tasks=tasks)[0]
 
 # use the impact matrix to get the predicted score for each of the test users
 score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(complete_user_scores, impact_matrix=impact_matrix, traits=traits, tasks=tasks)  # predicted user scores for each task
