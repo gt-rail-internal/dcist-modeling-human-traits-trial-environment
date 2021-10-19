@@ -38,6 +38,47 @@ def process_logs(path="logs", specific_users=[]):
     return user_scores
 
 
+import random
+# generate random users to test the allocation algorithms
+#    input: N (number of users), trait_noise (standard deviation of user trait scores, on the scale of %), task_noise (standard deviation of user task scores, on the scale of %)
+#    output: dict{dict{}}, N x (T + J) matrix, N is number of participants, T is number of traits, J is number of tasks
+def generate_fake_user_scores(N=30, trait_noise=0, task_noise=0):
+    user_scores = {}
+
+    tasks = ["s1", "s2", "s3"]
+    traits = ["ot", "ni", "sa"]
+
+    # generate the slopes for each trait/task relationship
+    slopes = {}
+    for task in tasks:
+        slopes[task] = {}
+        for trait in traits:
+            slopes[task][trait] = random.random() / 2 - 0.1  # scale from -.1 to .4
+
+    # for each user, generate fake scores
+    for i in range(N):
+        p = random.randint(1000, 9999)  # user ID
+        user_scores[p] = {}
+
+        for task in tasks:
+            user_scores[p][task] = 0
+            for trait in traits:
+                trait_score = random.gauss(.5, trait_noise)  # trait score
+
+                user_scores[p][trait] = trait_score
+                user_scores[p][task] += (1 / 3) * (slopes[task][trait] * trait_score + random.gauss(0, task_noise))  # task score
+
+    # normalize user score tasks by the highest task score
+    for task in tasks:
+        max_task = max([user_scores[p][task] for p in user_scores])
+            
+    
+    print(">>>", slopes)
+    print(user_scores)
+    # return the user scores
+    return user_scores
+
+
 # pulls every human subset
 #   input: N (number of rows), J (number of assignments))
 #   output: subsets (N^(J-1)xJ)
@@ -110,7 +151,6 @@ def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matri
     score_predictions = {p : {} for p in test_user_scores}
     for p in test_user_scores:
         for task in tasks:
-            #print("-", [(yint_matrix[trait][task] if yint_matrix != {} else 0) for trait in traits])
             if yint_matrix == {}:
                 score_predictions[p][task] = sum([impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])
             else:

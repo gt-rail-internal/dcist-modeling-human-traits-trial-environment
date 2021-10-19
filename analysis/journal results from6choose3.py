@@ -3,7 +3,7 @@
 from statistics import median
 import allocation.assignment_util
 
-PLOTTING = True  # flag for if we are plotting the results OR calculating them
+PLOTTING = False  # flag for if we are plotting the results OR calculating them
 
 # check if we have a results, if so display them
 if PLOTTING:
@@ -26,7 +26,7 @@ if PLOTTING:
     alpha = 0.5
     range = [0, 3]
     plot = ax.hist(data[0], bins=bins, range=range, alpha=alpha, color="green", label="Known Best")  # histogram for best scores
-    plot = ax.hist(data[1], bins=bins, range=range, alpha=alpha, color="blue", label="Trait-Based Predicted")  # histogram for predicted actual
+    plot = ax.hist(data[1], bins=bins, range=range, alpha=alpha, color="blue", label="Trait-Based")  # histogram for predicted actual
     plot = ax.hist(data[3], bins=bins, range=range, alpha=alpha, color="orange", label="Expected Value")  # histogram for expected scores
     plot = ax.hist(data[2], bins=bins, range=range, alpha=alpha, color="red", label="Known Worst")  # histogram for worst scores
     
@@ -47,28 +47,26 @@ import os, random
 # for N iterations, choose 6 users, get best predicted team of 3, compare to actual team of 3
 N = 5000
 
-used_samplings = []
-
+used_samplings = []  # list of 6-user samples we have already looked at
 iteration_scores = []
+
+# pull the user scores from the logs (or generate them randomly)
+user_scores = allocation.assignment_util.process_logs("logs")  # all user scores (even those who failed to have complete data)
+#user_scores = allocation.assignment_util.generate_fake_user_scores(N=30, trait_noise=0, task_noise=0)
+
+# pull out the complete users (applicable for a 6-user subset)
+complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores, traits=traits, tasks=tasks)  # ONLY users who have complete data
+complete_user_scores_ids = list(complete_user_scores.keys())  # pull the IDs of the users who completed all stages
+
 for n in range(N):
     print("#", n)
     # randomly choose 6 users
-
-    all_users = [x.split(".")[0] for x in os.listdir("./logs") if "-" not in x and "email" not in x]  # get user names
-
-    # sample a user set
     while True:
-        specific_users = random.sample(all_users, 6)  # select 6
+        specific_users = random.sample(complete_user_scores_ids, 6)  # select 6
         if specific_users not in used_samplings:
             used_samplings.append(specific_users)
             break
-    
 
-    # process the data into user scores matrix
-    user_scores = allocation.assignment_util.process_logs("logs", specific_users=specific_users)  # all user scores (even those who failed to have complete data)
-    complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores, traits=traits, tasks=tasks)  # ONLY users who have complete data
-
-    complete_user_scores_ids = list(complete_user_scores.keys())  # pull the IDs of the users who completed all stages
     team_indexes = allocation.assignment_util.pullSubsets(len(specific_users), len(tasks))  # pull each possible team, in the form of indexes instead of IDs
 
     # train and evaluate on each fold
@@ -83,7 +81,7 @@ for n in range(N):
         training_user_scores = {p : user_scores[p] for p in training_ids}  # get training subset of user scores
 
         # generate impact matrix for the nine trait-task pairings, using the training user scores
-        impact_matrix, yint_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)
+        impact_matrix, yint_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)[0]
 
         # use the impact matrix to get the predicted score for each of the test users
         score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, yint_matrix={}, traits=traits, tasks=tasks)  # predicted user scores for each task
