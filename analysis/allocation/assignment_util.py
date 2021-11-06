@@ -42,7 +42,7 @@ import random
 # generate random users to test the allocation algorithms
 #    input: N (number of users), trait_noise (standard deviation of user trait scores, on the scale of %), task_noise (standard deviation of user task scores, on the scale of %)
 #    output: dict{dict{}}, N x (T + J) matrix, N is number of participants, T is number of traits, J is number of tasks
-def generate_fake_user_scores(N=30, trait_noise=0, task_noise=0):
+def generate_fake_user_scores(N=30, r=.9, trait_noise=0, task_noise=0):
     user_scores = {}
 
     tasks = ["s1", "s2", "s3"]
@@ -53,30 +53,31 @@ def generate_fake_user_scores(N=30, trait_noise=0, task_noise=0):
     for task in tasks:
         slopes[task] = {}
         for trait in traits:
-            slopes[task][trait] = random.random() / 2 - 0.1  # scale from -.1 to .4
+            slopes[task][trait] = random.random()  # scale from -.1 to .4
 
     # for each user, generate fake scores
     for i in range(N):
-        p = random.randint(1000, 9999)  # user ID
+        # generate the user ID, ensure it's not already used
+        while True:
+            p = random.randint(1000, 9999)  # user ID
+            if p not in user_scores:
+                break
+
         user_scores[p] = {}
 
-        for task in tasks:
-            user_scores[p][task] = 0
-            for trait in traits:
-                trait_score = random.gauss(.5, trait_noise)  # trait score
+        # for each task
+        for t in range(len(tasks)):
+            # generate the task score
+            user_scores[p][tasks[t]] = random.gauss(.5, .2)
 
-                user_scores[p][trait] = trait_score
-                user_scores[p][task] += (1 / 3) * (slopes[task][trait] * trait_score + random.gauss(0, task_noise))  # task score
-
-    # normalize user score tasks by the highest task score
-    for task in tasks:
-        max_task = max([user_scores[p][task] for p in user_scores])
-            
+            # generate diagonal trait
+            user_scores[p][traits[i]] = X*r+Y*SQRT(1-r**2) 
+                    
     
-    print(">>>", slopes)
-    print(user_scores)
+    p = list(user_scores.keys())[0]
+    
     # return the user scores
-    return user_scores
+    return user_scores, slopes
 
 
 # pulls every human subset
@@ -84,7 +85,10 @@ def generate_fake_user_scores(N=30, trait_noise=0, task_noise=0):
 #   output: subsets (N^(J-1)xJ)
 import itertools
 def pullSubsets(N, J, subsets=[], subset=[], slot=-1, all=False):
-    subsets = [list(x) for x in itertools.combinations(range(N), J)]
+    if not all:
+        subsets = [list(x) for x in itertools.combinations(range(N), J)]
+    if all:
+        subsets = [list(x) for x in itertools.permutations(range(N), J)]
     return subsets
 
 # function for calculating best fit line, from (https://stackoverflow.com/questions/10048571)
@@ -142,7 +146,6 @@ def generate_impact_matrix(user_scores, traits, tasks):
                 yint_matrix[trait] = {}
             impact_matrix[trait][task] = m
             yint_matrix[trait][task] = y
-        
     return impact_matrix, yint_matrix
 
 
@@ -155,6 +158,13 @@ def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matri
                 score_predictions[p][task] = sum([impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])
             else:
                 score_predictions[p][task] = sum([(impact_matrix[trait][task] * test_user_scores[p][trait] + yint_matrix[trait][task]) / len(traits) for trait in traits])
+        # if some stages are ignored, fill their values with 0
+        if "s1" not in tasks:
+            score_predictions[p]["s1"] = 0
+        if "s2" not in tasks:
+            score_predictions[p]["s2"] = 0
+        if "s3" not in tasks:
+            score_predictions[p]["s3"] = 0
     return score_predictions
 
 
