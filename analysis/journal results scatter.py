@@ -10,7 +10,7 @@ if not os.path.isfile("f3c3fake_results.pkl"):
     sys.exit()
 
 # load users
-user_scores, slopes = allocation.assignment_util.generate_fake_user_scores(N=30, trait_noise=0.4, task_noise=0)
+user_scores, slopes = allocation.assignment_util.generate_fake_user_scores(N=30, r=.95, trait_noise=0.4, task_noise=0)
 print("2", list(user_scores.keys())[0])
 # process scores into lists for each trait and task
 s1 = []
@@ -29,16 +29,31 @@ for p in user_scores:
     ni.append(user_scores[p]["ni"])
     sa.append(user_scores[p]["sa"])
     theory_ot.append(user_scores[p]["ot"] * slopes["s1"]["ot"] + 0.5)
-    print(">>", user_scores[p]["ot"] * slopes["s1"]["ot"] + 0.5, user_scores[p]["s1"])
-
-for i in range(len(s1)):
-    print(ot[i], slopes["s1"]["ot"] * ot[i] + 0.5, s1[i])
 
 # scatterplot each relationship
 from matplotlib import pyplot as plt
-ax = plt.gca()  # get the plot axis
+traits = ["Object Tracking", "Network Inference", "Situational Awareness"]
+tasks = ["Stage 1", "Stage 2", "Stage 3"]
 
-plot_ot_s1 = ax.scatter(ot, s1)
-plot_ottheory_s1 = ax.scatter(ot, theory_ot)
+fig, axes = plt.subplots(nrows=3, ncols=3)
+
+axes[0][0].scatter(ot, s1)
+axes[0][1].scatter(ni, s1)
+axes[0][2].scatter(sa, s1)
+axes[1][0].scatter(ot, s2)
+axes[1][1].scatter(ni, s2)
+axes[1][2].scatter(sa, s2)
+axes[2][0].scatter(ot, s3)
+axes[2][1].scatter(ni, s3)
+axes[2][2].scatter(sa, s3)
+
+for row in range(len(axes)):
+    for col in range(len(axes[row])):
+        axes[row][col].set_xlabel(traits[col])
+        axes[row][col].set_ylabel(tasks[row])
+        axes[row][col].set_xlim([0,1])
+        axes[row][col].set_ylim([0,1])
+
+ax = plt.gca()  # get the plot axis
 
 plt.show()
