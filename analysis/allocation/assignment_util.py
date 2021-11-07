@@ -42,7 +42,7 @@ import random
 # generate random users to test the allocation algorithms
 #    input: N (number of users), trait_noise (standard deviation of user trait scores, on the scale of %), task_noise (standard deviation of user task scores, on the scale of %)
 #    output: dict{dict{}}, N x (T + J) matrix, N is number of participants, T is number of traits, J is number of tasks
-def generate_fake_user_scores(N=30, r=.9, trait_noise=0, task_noise=0):
+def generate_fake_user_scores(N=30, r=0.9, trait_noise=0, task_noise=0):
     user_scores = {}
 
     tasks = ["s1", "s2", "s3"]
@@ -50,10 +50,13 @@ def generate_fake_user_scores(N=30, r=.9, trait_noise=0, task_noise=0):
 
     # generate the slopes for each trait/task relationship
     slopes = {}
+    y_ints = {}
     for task in tasks:
         slopes[task] = {}
+        y_ints[task] = {}
         for trait in traits:
-            slopes[task][trait] = random.random()  # scale from -.1 to .4
+            slopes[task][trait] = random.random() / 2  # scale from 0 to .5
+            y_ints[task][trait] = random.random() / 2  # scale from 0 to .5
 
     # for each user, generate fake scores
     for i in range(N):
@@ -62,18 +65,17 @@ def generate_fake_user_scores(N=30, r=.9, trait_noise=0, task_noise=0):
             p = random.randint(1000, 9999)  # user ID
             if p not in user_scores:
                 break
-
+        
         user_scores[p] = {}
 
         # for each task
         for t in range(len(tasks)):
-            # generate the task score
-            user_scores[p][tasks[t]] = random.gauss(.5, .2)
+            # generate the trait score
+            user_scores[p][traits[t]] = random.gauss(.5, .2)
 
             # generate diagonal trait
-            user_scores[p][traits[i]] = X*r+Y*SQRT(1-r**2) 
-                    
-    
+            user_scores[p][tasks[t]] = slopes[tasks[t]][traits[t]] * user_scores[p][traits[t]] + (random.random() - 0.5) * (1.0 - r) + y_ints[tasks[t]][traits[t]]  # theoretical + noise + y_int
+
     p = list(user_scores.keys())[0]
     
     # return the user scores
