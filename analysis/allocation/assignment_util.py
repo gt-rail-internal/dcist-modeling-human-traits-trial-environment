@@ -42,7 +42,7 @@ import random
 # generate random users to test the allocation algorithms
 #    input: N (number of users), trait_noise (standard deviation of user trait scores, on the scale of %), task_noise (standard deviation of user task scores, on the scale of %)
 #    output: dict{dict{}}, N x (T + J) matrix, N is number of participants, T is number of traits, J is number of tasks
-def generate_fake_user_scores(N=30, r=0.9, trait_noise=0, task_noise=0):
+def generate_fake_user_scores(N=30, trait_noise=0, task_noise=0):
     user_scores = {}
 
     tasks = ["s1", "s2", "s3"]
@@ -56,7 +56,8 @@ def generate_fake_user_scores(N=30, r=0.9, trait_noise=0, task_noise=0):
         y_ints[task] = {}
         for trait in traits:
             slopes[task][trait] = random.random() / 2  # scale from 0 to .5
-            y_ints[task][trait] = random.random() / 2  # scale from 0 to .5
+            y_ints[task][trait] = random.gauss(.5, .2)
+            y_ints[task][trait] -= max(0, slopes[task][trait] + y_ints[task][trait] - 1)  # correct the y intercept so no scores are above 1
 
     # for each user, generate fake scores
     for i in range(N):
@@ -71,10 +72,10 @@ def generate_fake_user_scores(N=30, r=0.9, trait_noise=0, task_noise=0):
         # for each task
         for t in range(len(tasks)):
             # generate the trait score
-            user_scores[p][traits[t]] = random.gauss(.5, .2)
+            user_scores[p][traits[t]] = random.gauss(.5, trait_noise)
 
             # generate diagonal trait
-            user_scores[p][tasks[t]] = slopes[tasks[t]][traits[t]] * user_scores[p][traits[t]] + (random.random() - 0.5) * (1.0 - r) + y_ints[tasks[t]][traits[t]]  # theoretical + noise + y_int
+            user_scores[p][tasks[t]] = slopes[tasks[t]][traits[t]] * user_scores[p][traits[t]] + (2 * random.random() - 1) * task_noise + y_ints[tasks[t]][traits[t]]  # theoretical + noise + y_int
 
     p = list(user_scores.keys())[0]
     
@@ -92,6 +93,7 @@ def pullSubsets(N, J, subsets=[], subset=[], slot=-1, all=False):
     if all:
         subsets = [list(x) for x in itertools.permutations(range(N), J)]
     return subsets
+
 
 # function for calculating best fit line, from (https://stackoverflow.com/questions/10048571)
 def best_fit_slope(score_pairing):
@@ -126,10 +128,12 @@ def remove_outliers(scores):
 
 
 # function for generating the impact matrix from user scores
+from scipy.stats import pearsonr
 def generate_impact_matrix(user_scores, traits, tasks):
     impact_matrix = {}
     yint_matrix = {}  # while not necessary, including the y intercept matrix so we can play with absolute predicted scores (not just relative scores)
-    
+    weight_matrix = {}
+
     # generate the impact matrix: slope for each trait/task pairing
     for trait in traits:
         for task in tasks:
@@ -146,20 +150,27 @@ def generate_impact_matrix(user_scores, traits, tasks):
             if trait not in impact_matrix:
                 impact_matrix[trait] = {}
                 yint_matrix[trait] = {}
+                weight_matrix[trait] = {}
             impact_matrix[trait][task] = m
             yint_matrix[trait][task] = y
-    return impact_matrix, yint_matrix
+            weight_matrix[trait][task] = pearsonr([x[0] for x in pairing], [x[1] for x in pairing])[0]
+        
+        # normalize the weight matrix
+        for task in tasks:
+            weight_matrix[trait][task] /= sum(weight_matrix[trait].values())
+    
+    return impact_matrix, yint_matrix, weight_matrix
 
 
 # function for predicting a user's score given the impact matrix and the user test scores
-def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matrix={}, traits=[], tasks=[]):
+def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matrix={}, weight_matrix={}, traits=[], tasks=[]):
     score_predictions = {p : {} for p in test_user_scores}
     for p in test_user_scores:
         for task in tasks:
             if yint_matrix == {}:
-                score_predictions[p][task] = sum([impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])
+                score_predictions[p][task] = sum([weight_matrix[trait][task] * impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])  # sum of weight * slope * trait
             else:
-                score_predictions[p][task] = sum([(impact_matrix[trait][task] * test_user_scores[p][trait] + yint_matrix[trait][task]) / len(traits) for trait in traits])
+                score_predictions[p][task] = sum([weight_matrix[trait][task] * (impact_matrix[trait][task] * test_user_scores[p][trait] + yint_matrix[trait][task]) for trait in traits])
         # if some stages are ignored, fill their values with 0
         if "s1" not in tasks:
             score_predictions[p]["s1"] = 0

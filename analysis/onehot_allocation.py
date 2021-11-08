@@ -1,6 +1,6 @@
 import allocation
 
-# runs onehot allocation on a
+# runs onehot allocation on a set of test users
 def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[]):
     # if prediction tasks weren't provided, use all tasks
     if prediction_tasks == []:
@@ -13,12 +13,12 @@ def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[])
     test_user_scores = {p : user_scores[p] for p in test_ids}  # get testing subset of user scores
     training_user_scores = {p : user_scores[p] for p in training_ids}  # get training subset of user scores
 
-    # generate impact matrix for the nine trait-task pairings, using the training user scores
-    impact_matrix, yint_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)
+    # generate impact matrix for the nine trait-task pairings, using the training user scores, as well as the y intercept matrix and the weight matrix (correlation coefficients)
+    impact_matrix, yint_matrix, weight_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)
 
     # use the impact matrix to get the predicted score for each of the test users
-    score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, yint_matrix={}, traits=traits, tasks=prediction_tasks)  # predicted user scores for each task
-    score_adjusted_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, yint_matrix=yint_matrix, traits=traits, tasks=tasks)  # predicted user scores for each task INCLUDING Y INTERCEPT (not used by algorithm)
+    score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, yint_matrix={}, weight_matrix=weight_matrix, traits=traits, tasks=prediction_tasks)  # predicted user scores for each task
+    score_adjusted_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, yint_matrix=yint_matrix, weight_matrix=weight_matrix, traits=traits, tasks=tasks)  # predicted user scores for each task INCLUDING Y INTERCEPT (not used by algorithm)
     score_actual_matrix = {p : {task : user_scores[p][task] for task in tasks} for p in test_user_scores}  # actual user scores for each task
 
     # for each team member, get the predicted best score and the actual best score

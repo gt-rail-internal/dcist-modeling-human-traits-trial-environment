@@ -10,8 +10,7 @@ if not os.path.isfile("f3c3fake_results.pkl"):
     sys.exit()
 
 # load users
-user_scores, slopes = allocation.assignment_util.generate_fake_user_scores(N=30, r=.95, trait_noise=0.4, task_noise=0)
-print("2", list(user_scores.keys())[0])
+user_scores, slopes = allocation.assignment_util.generate_fake_user_scores(N=30, trait_noise=0.2, task_noise=0.05)
 # process scores into lists for each trait and task
 s1 = []
 s2 = []
