@@ -72,10 +72,14 @@ def generate_fake_user_scores(N=30, trait_noise=0, task_noise=0):
         # for each task
         for t in range(len(tasks)):
             # generate the trait score
-            user_scores[p][traits[t]] = random.gauss(.5, trait_noise)
+            user_scores[p][traits[t]] = 1.1
+            while user_scores[p][traits[t]] > 1 or user_scores[p][traits[t]] < 0:
+                user_scores[p][traits[t]] = random.gauss(.5, trait_noise)
 
-            # generate diagonal trait
-            user_scores[p][tasks[t]] = slopes[tasks[t]][traits[t]] * user_scores[p][traits[t]] + (2 * random.random() - 1) * task_noise + y_ints[tasks[t]][traits[t]]  # theoretical + noise + y_int
+            # generate diagonal task scores
+            user_scores[p][tasks[t]] = 1.1
+            while user_scores[p][tasks[t]] > 1 or user_scores[p][tasks[t]] < 0:
+                user_scores[p][tasks[t]] = slopes[tasks[t]][traits[t]] * user_scores[p][traits[t]] + (2 * random.random() - 1) * task_noise + y_ints[tasks[t]][traits[t]]  # theoretical + noise + y_int
 
     p = list(user_scores.keys())[0]
     
@@ -128,7 +132,7 @@ def remove_outliers(scores):
 
 
 # function for generating the impact matrix from user scores
-from scipy.stats import pearsonr
+import scipy.stats
 def generate_impact_matrix(user_scores, traits, tasks):
     impact_matrix = {}
     yint_matrix = {}  # while not necessary, including the y intercept matrix so we can play with absolute predicted scores (not just relative scores)
@@ -153,11 +157,11 @@ def generate_impact_matrix(user_scores, traits, tasks):
                 weight_matrix[trait] = {}
             impact_matrix[trait][task] = m
             yint_matrix[trait][task] = y
-            weight_matrix[trait][task] = pearsonr([x[0] for x in pairing], [x[1] for x in pairing])[0]
+            weight_matrix[trait][task] = scipy.stats.spearmanr([x[0] for x in pairing], [x[1] for x in pairing])[0]
         
         # normalize the weight matrix
         for task in tasks:
-            weight_matrix[trait][task] /= sum(weight_matrix[trait].values())
+            weight_matrix[trait][task] /= sum([abs(x) for x in weight_matrix[trait].values()])
     
     return impact_matrix, yint_matrix, weight_matrix
 
@@ -205,3 +209,27 @@ def filter_complete_users(user_scores, traits=[], tasks=[]):
     # ignores users with a -1 trait (incomplete data), -1 task (incomplete data), or a 0 task (did not complete any base objectives)
     filtered_scores = {p : user_scores[p] for p in user_scores if -1 not in [user_scores[p][trait] for trait in traits] and -1 not in [user_scores[p][task] for task in tasks] and 0 not in [user_scores[p][task] for task in tasks]}
     return filtered_scores
+
+
+# processes a set of user scores into the trait-based team assignments for all 3-user teams, onehot
+import allocation.onehot_allocation
+import random
+def process_users(user_scores, complete_user_scores, traits=[], tasks=[]):
+    # define the trait and tasks
+    prediction_tasks = tasks
+
+    # generate the one hot of test and trait data
+    num_train = len(user_scores) - len(tasks)  # the number of items to train on
+    num_test = len(tasks)  # the number of items to test on
+
+    complete_user_scores_ids = list(complete_user_scores.keys())  # pull the IDs of the users who completed all stages
+    team_indexes = pullSubsets(len(complete_user_scores_ids), len(tasks))  # pull each possible team, in the form of indexes instead of IDs
+
+    # train and evaluate on each fold
+    score_data = []  # holds the data for each team combination
+    for team in team_indexes:
+        # extract the test/train user IDs from the team indexes
+        test_ids = [complete_user_scores_ids[i] for i in team]  # convert the team indexes to user IDs
+        score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
+    
+    return score_data

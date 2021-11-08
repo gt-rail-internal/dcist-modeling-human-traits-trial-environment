@@ -1,4 +1,4 @@
-import allocation
+import allocation.assignment_util
 
 # runs onehot allocation on a set of test users
 def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[]):

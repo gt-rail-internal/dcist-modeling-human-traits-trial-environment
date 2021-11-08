@@ -1,6 +1,8 @@
 # analyzes the data to determine the results
 
 from statistics import median
+
+from matplotlib.pyplot import plot
 import allocation.assignment_util
 
 # define the trait and tasks
@@ -16,7 +18,7 @@ complete_user_scores, slopes = allocation.assignment_util.generate_fake_user_sco
 
 # generate the one hot of test and trait data
 import random
-import onehot_allocation
+import allocation.onehot_allocation
 
 num_train = len(complete_user_scores) - len(tasks)  # the number of items to train on
 num_test = len(tasks)  # the number of items to test on
@@ -37,59 +39,9 @@ import pickle
 with open("f3c3fake_results.pkl", "wb") as f:
     pickle.dump(score_data, f)
 
+# plot the histogram
+import plotting.plot_histogram
+fig = plotting.plot_histogram.plot_histogram(iteration_scores=score_data)
 
-
-import sys, os.path, pickle
-# check if the file exists
-if not os.path.isfile("f3c3fake_results.pkl"):
-    print("No results file")
-    sys.exit()
-
-# load the list
-with open("f3c3fake_results.pkl", "rb") as f:
-    iteration_scores = pickle.load(f)
-
-# format data into histogram distributions
-from matplotlib import pyplot as plt
-import itertools
-data = [[x[i] for x in iteration_scores] for i in range(len(iteration_scores[0])-1)]  # -1 to not consider the last (all possibilities)
-all_assignments = list(itertools.chain.from_iterable([x[-1] for x in iteration_scores]))
-print(len(data[-1]))
-
-# as an aside, determine how trait-based compares to all-assignments within a 3-user group
-tb_wins = 0  # count of trait-based wins
-all_wins = 0  # count of all-assignment wins
-tie = 0  # count of ties
-todos = [x[-1] for x in iteration_scores]  # all possible assignments for each set of 3 users (6)
-for d in range(len(data[0])):  # for each set of 3 users
-    tb = data[3][d]  # pull their trait-based score
-    for all in todos[d]:  # for each possible score for that set
-        if tb > all:  # if trait-based wins
-            tb_wins += 1
-        if tb == all:  # if they tie (should be >= num of 3 user sets, 3276)
-            tie += 1
-        if tb < all:  # if all-assignment wins
-            all_wins += 1
-
-print("TB", tb_wins, "ALL", all_wins, "TIE", tie)
-print("m1", sum(all_assignments) / len(all_assignments), "m2", sum(data[3]) / len(data[3]))
-ax = plt.gca()  # get the plot axis
-bins = 50
-background_alpha = .4
-alpha = 0.5
-range = [0, 3]
-
-#print(all_assignments)
-import numpy
-(counts, bins) = numpy.histogram(all_assignments, bins=bins)
-plot = ax.hist(data[4], bins=bins, range=range, alpha=alpha, color="red", label="Known Worst")  # histogram for worst scores
-plot = ax.hist(data[0], bins=bins, range=range, alpha=alpha, color="green", label="Known Best")  # histogram for best scores
-plot = ax.hist(bins[:-1], bins, weights=counts / 6, range=range, alpha=alpha, color="orange", label="All Possibilities")
-plot = ax.hist(data[3], bins=bins, range=range, alpha=alpha, color="blue", label="Trait-Based")  # histogram for predicted actual
-
-ax.legend()
-ax.set_title("[Assigning 3 Generated Users] Histogram of Scores via Assignment Methods with all Traits Applied, N=" + str(len(data[0])))
-ax.set_xlabel("Team Assignment Score")  # set x label
-ax.set_xlim([0, 3])  # set locations of x ticks
-ax.set_ylabel("Number of Teams")  # set y label
+import matplotlib.pyplot as plt
 plt.show()
