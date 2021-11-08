@@ -17,6 +17,9 @@ task_noise = 0.1
 
 # load users
 user_scores, slopes = allocation.assignment_util.generate_fake_user_scores(N=30, trait_noise=0.2, task_noise=task_noise)
+user_scores = allocation.assignment_util.process_logs()
+complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores=user_scores)
+
 
 # plot the scatter plot
 fig_scatter = plotting.plot_scatter.plot_scatter(user_scores)
