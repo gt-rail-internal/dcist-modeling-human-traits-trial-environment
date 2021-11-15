@@ -1,4 +1,5 @@
 from statistics import mean
+import numpy as np
 
 # process the data logs into a user score matrix
 #    input: log file path
@@ -39,6 +40,62 @@ def process_logs(path="logs", specific_users=[]):
 
 
 import random
+from scipy.linalg import cholesky
+def generate_fake_bivariate_user_scores(N=30, R=1, slope_range=[0,1]):
+    # uses a correlation matrix to determine bivariate data, from (https://quantcorner.wordpress.com/2018/02/09/generation-of-correlated-random-numbers-using-python/)
+
+    # initialize the users and slopes
+    user_scores = {}
+    all_data = {}
+
+    tasks = ["s1", "s2", "s3"]
+    traits = ["ot", "ni", "sa"]
+
+    # generate the user ID, ensure it's not already used
+    for i in range(N):
+        while True:
+            p = random.randint(1000, 9999)  # user ID
+            if p not in user_scores:
+                break
+        
+        user_scores[p] = {}
+    
+    for i in range(len(tasks)):
+        # specify the correlation matrix
+        corr_mat= np.array([[1.0, R], [R, 1.0]])
+
+        # compute the (upper) Cholesky decomposition matrix
+        upper_chol = cholesky(corr_mat)
+
+        # generate 2 series of normally distributed (Gaussian) numbers (for a diagonal trait-task relationship)
+        rnd = np.zeros((30, 2))
+        counter = 0
+        while rnd[29,0] == 0:  # while not filled
+            sample = np.random.normal(0.5, .2, size=(2))
+            # reject samples outside the bounds
+            if sample[0] < 0 or sample[0] > 1 or sample[1] < 0 or sample[1] > 1:
+                continue
+
+            rnd[counter,:] = sample
+            counter += 1
+        
+        # finally, compute the inner product of upper_chol and rnd
+        result = rnd @ upper_chol
+
+        # assign the results to users
+        user_ids = list(user_scores.keys())
+        for j in range(len(user_ids)):
+            user_scores[user_ids[j]][tasks[i]] = result[j][0]
+            user_scores[user_ids[j]][traits[i]] = result[j][1]
+
+        all_data[tasks[i]] = result[:,0]
+        all_data[traits[i]] = result[:,1]
+        
+        
+    return user_scores
+
+
+
 # generate random users to test the allocation algorithms
 #    input: N (number of users), trait_noise (standard deviation of user trait scores, on the scale of %), task_noise (standard deviation of user task scores, on the scale of %)
 #    output: dict{dict{}}, N x (T + J) matrix, N is number of participants, T is number of traits, J is number of tasks

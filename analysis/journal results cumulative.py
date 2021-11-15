@@ -13,13 +13,12 @@ if not os.path.isfile("f3c3fake_results.pkl"):
     sys.exit()
 
 # set parameters
-task_noise = 0.1
+R = .95  # correlation of generated users
 
 # load users
-user_scores, slopes = allocation.assignment_util.generate_fake_user_scores(N=30, trait_noise=0.2, task_noise=task_noise)
-user_scores = allocation.assignment_util.process_logs()
-complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores=user_scores)
-
+user_scores = allocation.assignment_util.generate_fake_bivariate_user_scores(N=30, R=R, slope_range=[0,.5])
+#user_scores = allocation.assignment_util.process_logs()
+#complete_user_scores = allocation.assignment_util.filter_complete_users(user_scores=user_scores)
 
 # plot the scatter plot
 fig_scatter = plotting.plot_scatter.plot_scatter(user_scores)
@@ -28,7 +27,7 @@ fig_scatter = plotting.plot_scatter.plot_scatter(user_scores)
 score_data = allocation.assignment_util.process_users(user_scores=user_scores, complete_user_scores=user_scores, traits=["ot", "ni", "sa"], tasks=["s1", "s2", "s3"])
 
 # plot the onehot histogram
-fig_histogram = plotting.plot_histogram.plot_histogram(score_data, task_noise=task_noise)
+fig_histogram = plotting.plot_histogram.plot_histogram(score_data, R=R)
 
 
 plt.show()
