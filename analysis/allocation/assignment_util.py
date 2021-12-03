@@ -214,7 +214,7 @@ def filter_complete_users(user_scores, traits=[], tasks=[]):
 # processes a set of user scores into the trait-based team assignments for all 3-user teams, onehot
 import allocation.onehot_allocation
 import random
-def process_users(user_scores, complete_user_scores, traits=[], tasks=[]):
+def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_size=3):
     # define the trait and tasks
     prediction_tasks = tasks
 
@@ -223,7 +223,7 @@ def process_users(user_scores, complete_user_scores, traits=[], tasks=[]):
     num_test = len(tasks)  # the number of items to test on
 
     complete_user_scores_ids = list(complete_user_scores.keys())  # pull the IDs of the users who completed all stages
-    team_indexes = pullSubsets(len(complete_user_scores_ids), len(tasks))  # pull each possible team, in the form of indexes instead of IDs
+    team_indexes = pullSubsets(len(complete_user_scores_ids), team_size)  # pull each possible team, in the form of indexes instead of IDs
 
     # train and evaluate on each fold
     score_data = []  # holds the data for each team combination

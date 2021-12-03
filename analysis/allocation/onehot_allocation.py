@@ -1,5 +1,14 @@
 import allocation.assignment_util
 
+# zeros out a task
+def cut_task(user_scores, task):
+    new_scores = {}
+    for p in user_scores:
+        new_user = user_scores[p]
+        new_user[task] = 0
+        new_scores[p] = new_user
+    return
+
 # runs onehot allocation on a set of test users
 def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[]):
     # if prediction tasks weren't provided, use all tasks
@@ -27,7 +36,7 @@ def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[])
     pred = [[p[task] for task in tasks] for p in [score_prediction_matrix[x] for x in test_ids]]
     adjusted_pred = [[p[task] for task in tasks] for p in [score_adjusted_prediction_matrix[x] for x in test_ids]]
     actual = [[p[task] for task in tasks] for p in [score_actual_matrix[x] for x in test_ids]]
-    
+
     # determine their optimal assignments
     best_a = allocation.assignment_util.hungarian(actual, maximize=True)
     pred_a = allocation.assignment_util.hungarian(pred, maximize=True)
@@ -49,25 +58,39 @@ def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[])
         actual_value += user_scores[idx][tasks[pred_a[i]]]  # add the predicted score to the value of that team assignment
         worst_value += user_scores[idx][tasks[worst_a[i]]]  # add the worst score to the value of that team assignment
 
+
+
     # get the expected value for the team
     expected_value = 0
     all_assignments = []
-    score = user_scores[test_ids[0]][tasks[0]] + user_scores[test_ids[1]][tasks[1]] + user_scores[test_ids[2]][tasks[2]]
+    score = user_scores[test_ids[0]][tasks[0]] + user_scores[test_ids[1]][tasks[1]] 
+    if len(tasks) > 2:
+        score += user_scores[test_ids[2]][tasks[2]]
     expected_value += score
     all_assignments.append(score)
-    score = user_scores[test_ids[0]][tasks[0]] + user_scores[test_ids[2]][tasks[1]] + user_scores[test_ids[1]][tasks[2]]
+    score = user_scores[test_ids[0]][tasks[0]] + user_scores[test_ids[2]][tasks[1]]
+    if len(tasks) > 2:
+        score += user_scores[test_ids[1]][tasks[2]]
     expected_value += score
     all_assignments.append(score)
-    score = user_scores[test_ids[1]][tasks[0]] + user_scores[test_ids[2]][tasks[1]] + user_scores[test_ids[0]][tasks[2]]
+    score = user_scores[test_ids[1]][tasks[0]] + user_scores[test_ids[2]][tasks[1]]
+    if len(tasks) > 2:
+        score += user_scores[test_ids[0]][tasks[2]]
     expected_value += score
     all_assignments.append(score)
-    score = user_scores[test_ids[1]][tasks[0]] + user_scores[test_ids[0]][tasks[1]] + user_scores[test_ids[2]][tasks[2]]
+    score = user_scores[test_ids[1]][tasks[0]] + user_scores[test_ids[0]][tasks[1]]
+    if len(tasks) > 2:
+        score += user_scores[test_ids[2]][tasks[2]]
     expected_value += score
     all_assignments.append(score)
-    score = user_scores[test_ids[2]][tasks[0]] + user_scores[test_ids[0]][tasks[1]] + user_scores[test_ids[1]][tasks[2]]
+    score = user_scores[test_ids[2]][tasks[0]] + user_scores[test_ids[0]][tasks[1]]
+    if len(tasks) > 2:
+        score += user_scores[test_ids[1]][tasks[2]]
     expected_value += score
     all_assignments.append(score)
-    score = user_scores[test_ids[2]][tasks[0]] + user_scores[test_ids[1]][tasks[1]] + user_scores[test_ids[0]][tasks[2]]
+    score = user_scores[test_ids[2]][tasks[0]] + user_scores[test_ids[1]][tasks[1]]
+    if len(tasks) > 2:
+        score += user_scores[test_ids[0]][tasks[2]]
     expected_value += score
     all_assignments.append(score)
     expected_value /= 6

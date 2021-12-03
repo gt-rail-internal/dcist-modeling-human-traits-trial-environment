@@ -1,7 +1,7 @@
 # determines results for each user
 
 import os
-import networks_analysis
+import process_ni_old_scoring
 
 path = "./logs_stage_3_sa/"
 

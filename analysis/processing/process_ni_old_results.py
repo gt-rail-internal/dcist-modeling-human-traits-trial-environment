@@ -1,7 +1,7 @@
 # determines results for each user
 
 import os
-import networks_analysis
+import process_ni_old
 
 puzzle_scores = [[], [], [], [], []]
 puzzle_raws = [[], [], [], [], []]

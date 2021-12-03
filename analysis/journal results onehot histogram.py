@@ -4,6 +4,7 @@ from statistics import median
 
 from matplotlib.pyplot import plot
 import allocation.assignment_util
+import allocation.onehot_allocation
 
 # define the trait and tasks
 traits=["ot", "sa", "ni"]
@@ -31,7 +32,7 @@ score_data = []  # holds the data for each team combination
 for team in team_indexes:
     # extract the test/train user IDs from the team indexes
     test_ids = [complete_user_scores_ids[i] for i in team]  # convert the team indexes to user IDs
-    score_data.append(onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
+    score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
 
 # save the iteration scores
 import pickle
