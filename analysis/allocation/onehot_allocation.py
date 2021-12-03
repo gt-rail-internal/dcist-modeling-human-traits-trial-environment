@@ -7,7 +7,7 @@ def cut_task(user_scores, task):
         new_user = user_scores[p]
         new_user[task] = 0
         new_scores[p] = new_user
-    return
+    return new_scores
 
 # runs onehot allocation on a set of test users
 def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[]):
@@ -36,6 +36,8 @@ def onehot_allocation(user_scores, test_ids, traits, tasks, prediction_tasks=[])
     pred = [[p[task] for task in tasks] for p in [score_prediction_matrix[x] for x in test_ids]]
     adjusted_pred = [[p[task] for task in tasks] for p in [score_adjusted_prediction_matrix[x] for x in test_ids]]
     actual = [[p[task] for task in tasks] for p in [score_actual_matrix[x] for x in test_ids]]
+
+    print(">>>", pred)
 
     # determine their optimal assignments
     best_a = allocation.assignment_util.hungarian(actual, maximize=True)

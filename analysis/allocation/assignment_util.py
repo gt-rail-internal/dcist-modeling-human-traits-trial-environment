@@ -169,6 +169,8 @@ def best_fit_slope(score_pairing):
         Syy = Syy + y*y
         Sxy = Sxy + x*y
     det = Sxx * N - Sx * Sx
+    if det == 0:
+        return 0, 0
     return (Sxy * N - Sy * Sx)/det, (Sxx * Sy - Sx * Sxy)/det
     
 # function for removing outliers (1.5x IQR)
@@ -284,7 +286,12 @@ def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_s
 
     # train and evaluate on each fold
     score_data = []  # holds the data for each team combination
+    num_teams = len(team_indexes)
+    counter = 0
+    print("Processing", num_teams, "teams")
     for team in team_indexes:
+        if counter % 10 == 0:
+            print(round(counter / num_teams, 2))
         # extract the test/train user IDs from the team indexes
         test_ids = [complete_user_scores_ids[i] for i in team]  # convert the team indexes to user IDs
         score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
