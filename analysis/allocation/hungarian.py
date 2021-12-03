@@ -13,8 +13,10 @@ def generateImpactMatrix(J, T):
         # for each trait
         for t in range(T):
             # generate the impact (assuming normal distribution)
-            impact_val = random.gauss(0, .1)
-            impact_val = impact_val if impact_val > 0 else 0
+            while True:
+                impact_val = random.gauss(0, .1)
+                if impact_val > 0:
+                    break
             impacts.append(impact_val)
         I.append(impacts)
 
@@ -33,8 +35,10 @@ def generateHumans(N, T):
         # for each trait
         for t in range(T):
             # generate the trait (assuming normal distribution)
-            trait_val = random.gauss(.5, .2)
-            trait_val = 0 if trait_val < 0 else 1 if trait_val > 1 else trait_val
+            while True:
+                trait_val = random.gauss(.5, .2)
+                if trait_val > 0 and trait_val < 1:
+                    break
             traits.append(trait_val)
         humans.append(traits)
     
@@ -107,10 +111,8 @@ def generateHumanLivePerformance(humans, I):
         for j in range(J):
             # element-wise multiply the human traits and the impact vector
             performance = [human[i] * I[j][i] for i in range(len(I[j]))]
-            # add or remove up to 20%
-            performance = [.8 * x + random.random() * .4 * x for x in performance]
-            # add gaussian noise of 20% SD
-            performance = [x + random.gauss(0, .2 * x) for x in performance]
+            # add or remove up to 20% gauss noise
+            performance = [x + random.gauss(0, .2) for x in performance]
             # add to the human's performances
             performances.append(sum(performance))
         P.append(performances)
@@ -135,7 +137,7 @@ print("Starting trial run")
 
 # step 0: set parameters
 J = 3  # number of jobs
-N = 3  # number of workers
+N = 200  # number of workers
 T = 3  # number of traits
 
 # step 1: generate impact matrix
@@ -158,11 +160,18 @@ subsets = pullSubsets(len(live_S), len(live_S[0]))
 
 # step 4: for each subset, compare predicted assignment vs actual assignment
 print("  Comparing human assignments")
-correct_assignments = 0  # number of correct assignments
+correct_assignments = 0  # number of correct assignments -- human in role
 exact_assignments = 0  # number of exact assignments
-random_correct_assignments = 0
+rand_correct_assignments = 0
+rand_exact_assignments = 0
 
+ll = len(subsets)
+print("len subsets", ll)
+count = 0
 for s in subsets:
+    count += 1
+    if count % 10000 == 0:
+        print(count / ll)
     # pull predicted and live humans for this subset
     pred = [predicted_S[x] for x in s]
     live = [live_S[x] for x in s]
@@ -179,12 +188,16 @@ for s in subsets:
     correct_assignments += num_match
     if num_match == len(pred_a):
         exact_assignments += num_match
-    if rand_a == pred_a:
-        random_correct_assignments += 1
+
+    rand_num_match = sum([1 for i in range(len(pred_a)) if pred_a[i] == rand_a[i]])
+    rand_correct_assignments += rand_num_match
+    if rand_num_match == len(pred_a):
+        rand_exact_assignments += rand_num_match
 
 print("")
 print("RESULTS:")
 print("Total assignments", len(subsets))
-print("Correct assignments", round(100 * correct_assignments / len(subsets) / len(subsets[0]), 2))
-print("Rand Correct assignments", round(100 * random_correct_assignments / len(subsets) / len(subsets[0]), 2))
-print("Exact assignments", round(100 * exact_assignments / len(subsets) / len(subsets[0]), 2))
+print("Correct assignments (% of correct user assignments to their known best roles)", round(100 * correct_assignments / len(subsets) / len(subsets[0]), 2), "%")
+print("Rand Exact assignments", round(100 * rand_exact_assignments / len(subsets) / len(subsets[0]), 2), "%")
+print("Rand Correct assignments", round(100 * rand_correct_assignments / len(subsets) / len(subsets[0]), 2), "%")
+print("Exact assignments (% of completely correct team assignments, all humans to known best roles)", round(100 * exact_assignments / len(subsets) / len(subsets[0]), 2), "%")

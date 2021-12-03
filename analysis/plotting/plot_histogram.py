@@ -4,7 +4,7 @@ import itertools
 import numpy
 
 # plots the histogram of team assignment scores
-def plot_histogram(iteration_scores, task_noise=-1):
+def plot_histogram(iteration_scores, R=-1):
     # format data into histogram distributions
     data = [[x[i] for x in iteration_scores] for i in range(len(iteration_scores[0])-1)]  # -1 to not consider the last (all possibilities)
     all_assignments = list(itertools.chain.from_iterable([x[-1] for x in iteration_scores]))
@@ -40,7 +40,7 @@ def plot_histogram(iteration_scores, task_noise=-1):
     plot = ax.hist(data[3], bins=bins, range=axis_range, alpha=alpha, color="blue", label="Trait-Based")  # histogram for predicted actual
 
     ax.legend()
-    ax.set_title("[Assigning 3 Generated Users" + (", task noise of " + str(task_noise) if task_noise != -1 else "") + "] Histogram of Scores via Assignment Methods with all Traits Applied, N=" + str(len(data[0])))
+    ax.set_title("[Assigning 3 Generated Users" + (", target r^2 of " + str(R) if R != -1 else "") + "] Histogram of Scores via Assignment Methods with all Traits Applied, N=" + str(len(data[0])))
     ax.set_xlabel("Team Assignment Score")  # set x label
     ax.set_xlim([0, 3])  # set locations of x ticks
     ax.set_ylabel("Number of Teams")  # set y label
