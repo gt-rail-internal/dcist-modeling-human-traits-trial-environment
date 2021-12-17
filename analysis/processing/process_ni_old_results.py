@@ -1,7 +1,7 @@
 # determines results for each user
 
 import os
-import process_ni_old
+import process_ni_old_scoring
 
 puzzle_scores = [[], [], [], [], []]
 puzzle_raws = [[], [], [], [], []]

@@ -33,10 +33,10 @@ for team in team_indexes:
     training_user_scores = {p : user_scores[p] for p in training_ids}  # get training subset of user scores
 
     # generate impact matrix for the nine trait-task pairings, using the training user scores
-    impact_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)[0]
+    impact_matrix, yint_matrix, weight_matrix = allocation.assignment_util.generate_impact_matrix(training_user_scores, traits=traits, tasks=tasks)[0]
 
     # use the impact matrix to get the predicted score for each of the test users
-    score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, traits=traits, tasks=tasks)  # predicted user scores for each task
+    score_prediction_matrix = allocation.assignment_util.predict_test_user_performance(test_user_scores, impact_matrix=impact_matrix, yint_matrix=yint_matrix, weight_matrix=weight_matrix, traits=traits, tasks=tasks)  # predicted user scores for each task
     score_actual_matrix = {p : {task : user_scores[p][task] for task in tasks} for p in test_user_scores}  # actual user scores for each task
 
     # for each team member, get the predicted best score and the actual best score

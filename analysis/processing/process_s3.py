@@ -10,11 +10,10 @@ import math
 def distance(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
-def get_s3_data(path, specific_users=[]):
+def get_s3_data(path, specific_users=[], metric="distance progress"):
     #print("PROCESSING S3 DATA")
     s3_scores = {}
     for p in os.listdir(path):
-        # ignore replays temporarily
         if "replay" not in p or "S3" not in p:
             continue
 
@@ -140,17 +139,23 @@ def get_s3_data(path, specific_users=[]):
                     end_time = int(a[:10])
 
                 if stage == 3 and complete == True:
-                    duration = 600 #end_time - start_time  # only one user completed the stage, so can consider all users at 600
+                    duration = end_time - start_time  # only one user completed the stage, so can consider all users at 600
                     # the initial cache locations
                     initial_dist = 2 * sum([294.7032405658275, 329.2152862712491, 581.7380457581583, 255.74581870331477, 314.70295872494506])
-                    s3_scores[worker_id] = (initial_dist - sum(min_cache_dist)) / duration
+
+                    if metric == "distance progress":
+                        s3_scores[worker_id] = (initial_dist - sum(min_cache_dist))
+                    elif metric == "distance progress / duration":
+                        s3_scores[worker_id] = (initial_dist - sum(min_cache_dist)) / duration
+                    elif metric == "caches interacted":
+                        s3_scores[worker_id] = cache_collected + cache_returned
+                    else:
+                        s3_scores[worker_id] = -1
 
                     break
                 
                 former_a = a
 
-               
     normalization = max(s3_scores.values())  # normalization factor
     s3_scores = {p : s3_scores[p] / normalization for p in s3_scores}
-
     return s3_scores

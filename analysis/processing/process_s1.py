@@ -10,7 +10,7 @@ import math
 def distance(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
-def get_s1_data(path, specific_users=[]):
+def get_s1_data(path, specific_users=[], metric="distance progress"):
     #print("PROCESSING S1 DATA")
     s1_scores = {}
     s1_collected = 0
@@ -123,30 +123,33 @@ def get_s1_data(path, specific_users=[]):
 
                 if stage == 1 and complete == True:
                     duration = end_time - start_time
-                    #print("min dist", str(min_cache_dist), "=", sum(min_cache_dist))
-                    #print("cache states", cache_states)
+                    
                     # the initial cache locations
                     initial_dist = sum([294.7032405658275, 329.2152862712491, 581.7380457581583, 255.74581870331477, 314.70295872494506])
 
-                    # if this run is a replay and the current score value is not 1, override
-                    if "replay" in p and s1_scores[worker_id] == 1 / 600:
-                        #print(p, "already saw orig, = dist / 600")
-                        s1_scores[worker_id] = (initial_dist - sum(min_cache_dist)) / 600
+                    # set the user score
+                    if metric == "distance progress":
+                        # if this run is a replay and the current score value is not 1, override
+                        if "replay" in p and s1_scores[worker_id] == 1 / 600:
+                            s1_scores[worker_id] = (initial_dist - sum(min_cache_dist)) / 600
 
-                    # if this run is a replay and the value is still 1, set the numerator
-                    elif "replay" in p and s1_scores[worker_id] == 1:
-                        #print(p, "have not seen orig, = dist")
-                        s1_scores[worker_id] *= (initial_dist - sum(min_cache_dist))
-                    
-                    # if this run is NOT a replay and the duration is less than 600, override
-                    elif "replay" not in p and duration < 600:
-                        #print(p, "may/not have seen replay and low duration, = initial_dist / duration")
-                        s1_scores[worker_id] = initial_dist / duration
-                    
-                    # if this run is NOT A replay and the duration >= 600, divide by 600
-                    elif "replay" not in p and duration >= 600:
-                        #print(p, "may/may not have seen replay and high duration, = dist / 600")
-                        s1_scores[worker_id] /= 600
+                        # if this run is a replay and the value is still 1, set the numerator
+                        elif "replay" in p and s1_scores[worker_id] == 1:
+                            s1_scores[worker_id] *= (initial_dist - sum(min_cache_dist))
+                        
+                        # if this run is NOT a replay and the duration is less than 600, override
+                        elif "replay" not in p and duration < 600:
+                            s1_scores[worker_id] = initial_dist / duration
+                        
+                        # if this run is NOT A replay and the duration >= 600, divide by 600
+                        elif "replay" not in p and duration >= 600:
+                            s1_scores[worker_id] /= 600
+
+                    elif metric == "number of caches located":
+                        s1_scores[worker_id] = cache_collected
+
+                    else:
+                        s1_scores[worker_id] = -1
 
                     #print("done with", p)
                     break
@@ -160,6 +163,5 @@ def get_s1_data(path, specific_users=[]):
     
     s1_collected += 1 if cache_collected == 5 else 0
     s1_total += 1
-    #print("___", s1_)
 
     return s1_scores
