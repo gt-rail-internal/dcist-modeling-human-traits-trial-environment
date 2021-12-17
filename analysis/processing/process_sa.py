@@ -23,5 +23,4 @@ def get_sa_data(path, specific_users=[]):
                 # if completed the SAGAT, print the score
                 if "SAGAT" in a and "'complete'" in a:
                     sa_scores[p] = round(int(a[:-1].split(", ")[2].split(": ")[1]) / 85, 2)  # 85 is the highest score possible
-                    #print(sa_scores[p], p)
     return sa_scores

@@ -29,7 +29,7 @@ def calc_min_dist(robot_locations, cache_locations):
     return sum(trial_min_connection_dists)
 
 
-def get_s2_data(path, specific_users=[]):
+def get_s2_data(path, specific_users=[], metric="distance progress"):
     #print("PROCESSING S2 DATA")
     s2_scores = {}
     s2_total = 0
@@ -177,23 +177,35 @@ def get_s2_data(path, specific_users=[]):
                     if reset_time > 0:
                         response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
                         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
-                    #s2_scores[p] = (end_time - start_time)
-                    #s2_scores[p] = (end_time - start_time) / max_caches_connected if max_caches_connected > 0 else 700 #int(100000 * max_caches_connected / sum(distance_traveled)) if sum(distance_traveled) > 10 else 0
-                    s2_scores[worker_id] = min_connection_distance
                     break
 
                 former_a = a
             
-            # plot and wait
-            #plt.plot(plot_time, plot_score)
-
+        # collect some metric variables
         duration = end_time - start_time
         if duration < 600:
             min_connection_distance = 0
         if duration == 0:
             continue
-        score = (max_score - min_connection_distance) / duration
-        s2_scores[worker_id] = score
+
+        #determine score
+        if metric == "distance progress":  # closest the participant got to completing the stage
+            s2_scores[worker_id] = (max_score - min_connection_distance) / duration
+        elif metric == "min connection distance":
+            s2_scores[worker_id] = min_connection_distance
+        elif metric == "time to complete":  # time to complete, -1 if did not complete
+            s2_scores[worker_id] = (end_time - start_time)
+            if s2_scores[worker_id] >= 600:
+                s2_scores[worker_id] = -1
+        elif metric == "time to complete / max caches connected":  # time to complete / max caches connected
+            s2_scores[worker_id] = (end_time - start_time) / max_caches_connected if max_caches_connected > 0 else 700  # 700 because it's higher than 600 (max possible organic completion)
+        elif metric == "max caches connected":  # max caches connected
+            s2_scores[worker_id] = max_caches_connected
+        else:
+            s2_scores[worker_id] = -1
+        
+        s2_total += 1
+        s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0
         
         s2_total += 1
         s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0

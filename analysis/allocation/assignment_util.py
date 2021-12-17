@@ -16,10 +16,9 @@ def process_logs(path="logs", specific_users=[]):
     ot_data = processing.process_ot.get_ot_data(path, specific_users=[])
     sa_data = processing.process_sa.get_sa_data(path, specific_users=[])
     ni_data = processing.process_ni.get_ni_data(path, specific_users=[])
-    s1_data = processing.process_s1.get_s1_data(path, specific_users=[])
-    s2_data = processing.process_s2.get_s2_data(path, specific_users=[])
-    s3_data = processing.process_s3.get_s3_data(path, specific_users=[])
-
+    s1_data = processing.process_s1.get_s1_data(path, specific_users=[], metric="distance progress")
+    s2_data = processing.process_s2.get_s2_data(path, specific_users=[], metric="time to complete / max caches connected")
+    s3_data = processing.process_s3.get_s3_data(path, specific_users=[], metric="distance progress")
 
     # combine into a dictionary format
     user_scores = {}
@@ -38,6 +37,16 @@ def process_logs(path="logs", specific_users=[]):
     
     return user_scores
 
+
+# force a task/trait relationship to have a perfect ranking
+def oracle_task(user_scores, task, trait):
+    for p in user_scores:
+        if trait == "ni":
+            user_scores[p][trait] = user_scores[p][task]
+        else:
+            user_scores[p][trait] = user_scores[p][task]
+
+    return user_scores
 
 import random
 from scipy.linalg import cholesky
@@ -192,7 +201,7 @@ def remove_outliers(scores):
 
 # function for generating the impact matrix from user scores
 import scipy.stats
-def generate_impact_matrix(user_scores, traits, tasks):
+def generate_impact_matrix(user_scores, traits, tasks, correlation="spearman"):
     impact_matrix = {}
     yint_matrix = {}  # while not necessary, including the y intercept matrix so we can play with absolute predicted scores (not just relative scores)
     weight_matrix = {}
@@ -216,11 +225,15 @@ def generate_impact_matrix(user_scores, traits, tasks):
                 weight_matrix[trait] = {}
             impact_matrix[trait][task] = m
             yint_matrix[trait][task] = y
-            weight_matrix[trait][task] = scipy.stats.spearmanr([x[0] for x in pairing], [x[1] for x in pairing])[0]
+            if correlation == "spearman":
+                weight_matrix[trait][task] = abs(scipy.stats.spearmanr([x[0] for x in pairing], [x[1] for x in pairing])[0]) ** 2
+            if correlation == "pearson":
+                weight_matrix[trait][task] = abs(scipy.stats.pearsonr([x[0] for x in pairing], [x[1] for x in pairing])[0]) ** 2
         
         # normalize the weight matrix
         for task in tasks:
             weight_matrix[trait][task] /= sum([abs(x) for x in weight_matrix[trait].values()])
+            #weight_matrix[trait][task] = 0.333
     
     return impact_matrix, yint_matrix, weight_matrix
 
@@ -231,9 +244,11 @@ def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matri
     for p in test_user_scores:
         for task in tasks:
             if yint_matrix == {}:
+                #print("NOTE: No y-int matrix provided to assignment_util.predict_test_user_performance()")
                 score_predictions[p][task] = sum([weight_matrix[trait][task] * impact_matrix[trait][task] * test_user_scores[p][trait] for trait in traits])  # sum of weight * slope * trait
             else:
                 score_predictions[p][task] = sum([weight_matrix[trait][task] * (impact_matrix[trait][task] * test_user_scores[p][trait] + yint_matrix[trait][task]) for trait in traits])
+        
         # if some stages are ignored, fill their values with 0
         if "s1" not in tasks:
             score_predictions[p]["s1"] = 0
@@ -241,6 +256,7 @@ def predict_test_user_performance(test_user_scores, impact_matrix={}, yint_matri
             score_predictions[p]["s2"] = 0
         if "s3" not in tasks:
             score_predictions[p]["s3"] = 0
+    
     return score_predictions
 
 
@@ -267,10 +283,11 @@ def hungarian(S, maximize=True):
 def filter_complete_users(user_scores, traits=[], tasks=[]):
     # ignores users with a -1 trait (incomplete data), -1 task (incomplete data), or a 0 task (did not complete any base objectives)
     filtered_scores = {p : user_scores[p] for p in user_scores if -1 not in [user_scores[p][trait] for trait in traits] and -1 not in [user_scores[p][task] for task in tasks] and 0 not in [user_scores[p][task] for task in tasks]}
+    print("USER COUNT: Original", len(user_scores.keys()), "Filtered", len(filtered_scores.keys()))
     return filtered_scores
 
 
-# processes a set of user scores into the trait-based team assignments for all 3-user teams, onehot
+# processes a set of user scores into the trait-based team assignments for all 3-user teams, and do onehot allocation
 import allocation.onehot_allocation
 import random
 def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_size=3):
@@ -290,10 +307,11 @@ def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_s
     counter = 0
     print("Processing", num_teams, "teams")
     for team in team_indexes:
-        if counter % 10 == 0:
-            print(round(counter / num_teams, 2))
+        if counter % 100 == 0:
+            print("% complete", round(100 * counter / num_teams, 2))
         # extract the test/train user IDs from the team indexes
         test_ids = [complete_user_scores_ids[i] for i in team]  # convert the team indexes to user IDs
         score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
-    
+        counter += 1
+
     return score_data
