@@ -6,6 +6,7 @@ import plotting.plot_scatter
 import plotting.plot_histogram
 import plotting.plot_lines
 import plotting.plot_ranking
+import plotting.plot_whiskers
 from matplotlib import pyplot as plt
 
 import sys, os.path, pickle
@@ -46,5 +47,8 @@ fig_histogram = plotting.plot_histogram.plot_histogram(score_data, R=-1)
 
 # plot the 3c3 ranking
 fig_ranking3c3 = plotting.plot_ranking.plot_ranking_3c3(score_data=score_data, R=-1)
+
+# plot the 3c3 whiskers
+fig_whiskers3c3 = plotting.plot_whiskers.plot_whiskers_3c3(score_data=score_data, R=-1)
 
 plt.show()
