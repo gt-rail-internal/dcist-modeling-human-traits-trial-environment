@@ -4,7 +4,7 @@ import itertools
 import numpy
 
 # plots the histogram of team assignment scores
-def plot_histogram(iteration_scores, R=-1, split=True):
+def plot_histogram(iteration_scores, R=-1, split=False):
     # format data into histogram distributions
     data = [[x[i] for x in iteration_scores] for i in range(len(iteration_scores[0])-1)]  # -1 to not consider the last (all possibilities)
     all_assignments = list(itertools.chain.from_iterable([x[-1] for x in iteration_scores]))
@@ -42,7 +42,7 @@ def plot_histogram(iteration_scores, R=-1, split=True):
 
     plot = axes[0].hist(data[4], bins=bins, range=axis_range, alpha=alpha, color="red", label="Known Worst")  # histogram for worst scores
     plot = axes[1].hist(data[0], bins=bins, range=axis_range, alpha=alpha, color="green", label="Known Best")  # histogram for best scores
-    plot = axes[2].hist(bins[:-1], bins, weights=counts / 6, range=axis_range, alpha=alpha, color="orange", label="All Possibilities")
+    plot = axes[2].hist(bins[:-1], bins, weights=counts, range=axis_range, alpha=alpha, color="orange", label="All Possibilities")
     plot = axes[3].hist(data[3], bins=bins, range=axis_range, alpha=alpha, color="blue", label="Trait-Based")  # histogram for predicted actual
 
     for ax in range(len(axes)):
@@ -68,6 +68,6 @@ def plot_histogram(iteration_scores, R=-1, split=True):
             axis.set_xlabel("Team Assignment Score")  # set x label
             axis.set_xlim([0, 3])  # set locations of x ticks
             axis.set_ylabel("Number of Teams")  # set y label
-            axis.text(2.8, .5, str(round(tb_wins / (tb_wins + all_wins), 4)))
+            #axis.text(2.8, .5, str(round(tb_wins / (tb_wins + all_wins), 4)))
         
     return fig

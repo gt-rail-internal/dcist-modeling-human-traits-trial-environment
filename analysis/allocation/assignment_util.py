@@ -18,7 +18,7 @@ def process_logs(path="logs", specific_users=[]):
     ni_data = processing.process_ni.get_ni_data(path, specific_users=[])
     s1_data = processing.process_s1.get_s1_data(path, specific_users=[], metric="distance progress")
     s2_data = processing.process_s2.get_s2_data(path, specific_users=[], metric="time to complete / max caches connected")
-    s3_data = processing.process_s3.get_s3_data(path, specific_users=[], metric="distance progress")
+    s3_data = processing.process_s3.get_s3_data(path, specific_users=[], metric="distance progress / duration")
 
     # combine into a dictionary format
     user_scores = {}
@@ -226,9 +226,9 @@ def generate_impact_matrix(user_scores, traits, tasks, correlation="spearman"):
             impact_matrix[trait][task] = m
             yint_matrix[trait][task] = y
             if correlation == "spearman":
-                weight_matrix[trait][task] = abs(scipy.stats.spearmanr([x[0] for x in pairing], [x[1] for x in pairing])[0]) ** 2
+                weight_matrix[trait][task] = abs(scipy.stats.spearmanr([x[0] for x in pairing], [x[1] for x in pairing])[0])
             if correlation == "pearson":
-                weight_matrix[trait][task] = abs(scipy.stats.pearsonr([x[0] for x in pairing], [x[1] for x in pairing])[0]) ** 2
+                weight_matrix[trait][task] = abs(scipy.stats.pearsonr([x[0] for x in pairing], [x[1] for x in pairing])[0])
         
         # normalize the weight matrix
         for task in tasks:
