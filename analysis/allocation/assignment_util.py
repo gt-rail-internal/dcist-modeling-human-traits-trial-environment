@@ -1,5 +1,7 @@
 from statistics import mean
 import numpy as np
+import copy
+import pickle
 
 # process the data logs into a user score matrix
 #    input: log file path
@@ -290,7 +292,7 @@ def filter_complete_users(user_scores, traits=[], tasks=[]):
 # processes a set of user scores into the trait-based team assignments for all 3-user teams, and do onehot allocation
 import allocation.onehot_allocation
 import random
-def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_size=3):
+def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_size=3, sample_size=None):
     # define the trait and tasks
     prediction_tasks = tasks
 
@@ -299,19 +301,68 @@ def process_users(user_scores, complete_user_scores, traits=[], tasks=[], team_s
     num_test = len(tasks)  # the number of items to test on
 
     complete_user_scores_ids = list(complete_user_scores.keys())  # pull the IDs of the users who completed all stages
-    team_indexes = pullSubsets(len(complete_user_scores_ids), team_size)  # pull each possible team, in the form of indexes instead of IDs
 
-    # train and evaluate on each fold
+    # if the sample size is less than or equal to the team size, effectively no point in specifying it
+    if sample_size is not None and sample_size <= team_size:
+        sample_size = None
+
     score_data = []  # holds the data for each team combination
-    num_teams = len(team_indexes)
     counter = 0
-    print("Processing", num_teams, "teams")
-    for team in team_indexes:
-        if counter % 100 == 0:
-            print("% complete", round(100 * counter / num_teams, 2))
-        # extract the test/train user IDs from the team indexes
-        test_ids = [complete_user_scores_ids[i] for i in team]  # convert the team indexes to user IDs
-        score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
-        counter += 1
+    used_ids = {}
+
+    # if the sample size is None, using 3c3, iterate through all 3 sets
+    if sample_size is None:
+        team_indexes = pullSubsets(len(complete_user_scores_ids), team_size)  # pull each possible team, in the form of indexes instead of IDs
+
+        # train and evaluate on each fold
+        num_teams = len(team_indexes)
+
+        print("Processing", num_teams, "teams")
+        for team in team_indexes:
+            if counter % 100 == 0:
+                print("% complete", round(100 * counter / num_teams, 2))
+            # extract the test/train user IDs from the team indexes
+            test_ids = [complete_user_scores_ids[i] for i in team]  # convert the team indexes to user IDs
+
+            for idd in test_ids:
+                if idd not in used_ids:
+                    used_ids[idd] = 0
+                used_ids[idd] += 1
+            
+            #print("TEAM IDS", test_ids)
+            score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks))  # record the score data
+            counter += 1
+        
+        #print("ID Count", used_ids)
+        pickle.dump(score_data, open("./score_data_3c3.pkl", "wb"))
+
+    # if the sample size is not None, using 3c3, iterate through all 3 sets
+    if sample_size is not None:
+        print("Sample Size", sample_size)
+        sample_indexes = pullSubsets(len(complete_user_scores_ids), sample_size)  # pull each possible 6-user set
+
+        # train and evaluate on each fold
+        num_samples = len(sample_indexes)
+        print("Processing", num_samples, "samples")
+        for sample in sample_indexes:
+            if counter % 1000 == 0:
+                print("% complete", round(100 * counter / (num_samples), 2))
+                pickle.dump(score_data, open("./score_data_" + str(sample_size) + "c" + str(team_size) + ".pkl", "wb"))
+            # extract the test/train user IDs from the team indexes
+            test_ids = [complete_user_scores_ids[i] for i in sample]  # convert the team indexes to user IDs
+
+            for idd in test_ids:
+                if idd not in used_ids:
+                    used_ids[idd] = 0
+                used_ids[idd] += 1
+
+            #print("TEAM IDS", test_ids)
+
+            score_data.append(allocation.onehot_allocation.onehot_allocation(complete_user_scores, test_ids, traits, tasks, prediction_tasks, team_size=team_size))  # record the score data
+            counter += 1
+
+        print("ID Count", used_ids)
+        pickle.dump(score_data, open("./score_data_" + str(sample_size) + "c" + str(team_size) + ".pkl", "wb"))
+
 
     return score_data
