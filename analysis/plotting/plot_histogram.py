@@ -42,7 +42,6 @@ def plot_histogram(iteration_scores, R=-1, split=False):
     if not isinstance(axes, numpy.ndarray):
         axes = [axes, axes, axes, axes]
 
-<<<<<<< HEAD
     # normalize to make a probability density distribution
     # data_counts = [] * 5
     # for i in [0, 3, 4]:
@@ -93,12 +92,6 @@ def plot_histogram(iteration_scores, R=-1, split=False):
     plt.xticks(fontsize=axis_fontsize-5)
     plt.yticks(fontsize=axis_fontsize-5)
     plt.legend(fontsize=axis_fontsize-5)
-=======
-    plot = axes[0].hist(data[4], bins=bins, range=axis_range, alpha=alpha, color="red", label="Known Worst")  # histogram for worst scores
-    plot = axes[1].hist(data[0], bins=bins, range=axis_range, alpha=alpha, color="green", label="Known Best")  # histogram for best scores
-    plot = axes[2].hist(bins[:-1], bins, weights=counts, range=axis_range, alpha=alpha, color="orange", label="All Possibilities")
-    plot = axes[3].hist(data[3], bins=bins, range=axis_range, alpha=alpha, color="blue", label="Trait-Based")  # histogram for predicted actual
->>>>>>> abcfe433472f5ce4f41096870d8d4da7e6a6890d
 
     for ax in range(len(axes)):
         axis = axes[ax]
