@@ -50,7 +50,7 @@ if PLOTTING:
 # define the trait and tasks
 traits=["ot", "sa", "ni"]
 tasks=["s1", "s2", "s3"]
-prediction_tasks = ["s1", "s2"]
+prediction_tasks = ["s1", "s2", "s3"]
 
 import os, random
 

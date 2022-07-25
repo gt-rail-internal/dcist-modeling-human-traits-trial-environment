@@ -1,10 +1,13 @@
 # analyzes the data to determine the results
 
 from statistics import median, stdev
+from turtle import pd
 import allocation.assignment_util
 import allocation.onehot_allocation
 from matplotlib import pyplot as plt
+import seaborn
 import numpy as np
+import pandas as pd
 
 
 # calculate the pairwise ranking, plot distribution of performance difference between actual scores and trait based
@@ -45,17 +48,34 @@ def plot_ranking_3c3(score_data, R=-1):
     N = len(ranks_tb)
     print("3c3 Rank Distribution", r1, "(" + str(r1 / N) + ")", r2, "(" + str(r2 / N) + ")", r3, "(" + str(r3 / N) + ")", r4, "(" + str(r4 / N) + ")", r5, "(" + str(r5 / N) + ")", r6, "(" + str(r6 / N) + ")", "Mean:", sum(ranks_tb) / len(ranks_tb), "Median:", median(ranks_tb), "Outperform:", outperform, "(" + str(outperform / N) + ")", "[" + str((r1 + r2 + r3)/N) + "]")
     
+    # format into a data frame
+    data = pd.DataFrame({"Rank": range(0, 7),
+                        "Team Count": [0, r1, r2, r3, r4, r5, r6],
+                        })
+
     #plt.hist(ranks_random, bins=range(0, 121 + 1, 1), alpha=0.7, color="orange", label="Random Assignment")
     fig, ax = plt.subplots(1, 1)  # get the plot axis
     #fig.get_axes()[0].get_legend().set_visible(False)  # remove the legend
-    plt.hist(ranks_tb, bins=np.arange(-1, 8, 1)- 0.5, alpha=0.7, color="blue", edgecolor="black", label="Ability-Based Assignment")
-    plt.plot([0, 7], [len(ranks_tb) / 6, len(ranks_tb) / 6], color="goldenrod", linewidth=5, label="Expected Value with Random Assignment")
+    bar = seaborn.barplot(x="Rank", y="Team Count", data=data, palette="Blues", hue="Team Count", dodge=False)
+    bar.set_label("_nolegend_")
+
+    #plt.bar(bins=np.arange(-1, 8, 1)- 0.5, x=ranks_tb, alpha=0.7, color="blue", edgecolor="white", linewidth=3, label="Skill-Based Assignment")
+    plt.plot([0.4, 6.4], [len(ranks_tb) / 6, len(ranks_tb) / 6], alpha=0.6, color="goldenrod", linewidth=8, label="Expected Value with Random Assignment")
     #plt.title("Histogram of rankings of " + ("GENERATED USERS (R=" + str(R) if R != -1 else "") + " trait-based and random assignments, 3c3 [N=" + str(len(ranks_tb)) + "]")
-    axis_fontsize = 15
-    plt.ylabel("# of teams", fontsize=axis_fontsize)
-    plt.xlabel("Rank of ability-based assignment against all possible role assignments", fontsize=axis_fontsize)
-    plt.xlim([0.5,6.5])
-    plt.legend()
+    axis_fontsize = 25
+    plt.ylabel("Proportion of Teams", fontsize=axis_fontsize)
+    plt.xlabel("Rank of Individualized Role Assignment Compared to All Possible Role Assignments", fontsize=axis_fontsize)
+    axis = plt.gca()
+    axis.spines['right'].set_visible(False)
+    axis.spines['top'].set_visible(False)
+    plt.xticks(fontsize=axis_fontsize-5)
+    plt.yticks([182.7, 365.4, 548.1, 730.8, 913.5, 1096.2], labels=["0.05", "0.10", "0.15", "0.20", "0.25", "0.30"], fontsize=axis_fontsize-5)
+        
+    plt.xlim([0.5,6.5])    
+    
+    plt.legend(fontsize=axis_fontsize-5, frameon=False)
+
+
 
 
 

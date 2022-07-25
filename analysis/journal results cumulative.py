@@ -8,6 +8,7 @@ import plotting.plot_lines
 import plotting.plot_ranking
 import plotting.plot_whiskers
 from matplotlib import pyplot as plt
+import pickle
 
 import sys, os.path, pickle
 # check if the file exists
@@ -31,6 +32,7 @@ complete_user_scores = allocation.assignment_util.filter_complete_users(user_sco
 
 correlation = "spearman"
 impact_matrix, yint_matrix, weight_matrix = allocation.assignment_util.generate_impact_matrix(complete_user_scores, traits=["sa", "ni", "ot"], tasks=["s1", "s2", "s3"], correlation=correlation)
+# impact_matrix and yint_matrix are only used for debugging and do not affect below code
 
 # plot the scatter plot
 fig_scatter = plotting.plot_scatter.plot_scatter(user_scores, weight_matrix, correlation=correlation)  # correlation variable is only for text
@@ -40,10 +42,10 @@ plotting.plot_lines.plot_lines(user_scores)
 
 # generate the scores for each 3 users (one hot)
 print("generating user scores")
-score_data = allocation.assignment_util.process_users(user_scores=user_scores, complete_user_scores=user_scores, traits=["ot", "ni", "sa"], tasks=["s1", "s2", "s3"])
+score_data = allocation.assignment_util.process_users(user_scores=user_scores, complete_user_scores=user_scores, traits=["ot", "ni", "sa"], tasks=["s1", "s2", "s3"], team_size=3, sample_size=3)
 
 # plot the onehot histogram
-fig_histogram = plotting.plot_histogram.plot_histogram(score_data, R=-1)
+fig_histogram = plotting.plot_histogram.plot_histogram(score_data, R=-1, split=True)
 
 # plot the 3c3 ranking
 fig_ranking3c3 = plotting.plot_ranking.plot_ranking_3c3(score_data=score_data, R=-1)
