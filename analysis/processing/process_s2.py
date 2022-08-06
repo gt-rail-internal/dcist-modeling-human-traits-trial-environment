@@ -29,16 +29,22 @@ def calc_min_dist(robot_locations, cache_locations):
     return sum(trial_min_connection_dists)
 
 
-def get_s2_data(path):
-    print("PROCESSING S2 DATA")
+def get_s2_data(path, specific_users=[], metric="distance progress"):
+    #print("PROCESSING S2 DATA")
     s2_scores = {}
     s2_total = 0
     s2_complete = 0
     for p in os.listdir(path):
         p = p[:-4]
-        if ("replay" not in p or "S2" not in p ) or ("9633" not in p and "8813" not in p and "8466" not in p and "4122" not in p):
+        if "replay" not in p or "S2" not in p:
             continue
-        s2_scores[p] = -1
+
+        # check specific users
+        if specific_users != [] and sum([1 for x in specific_users if x in p]) == 0:
+            continue
+
+        worker_id = p.split("-")[0]
+        s2_scores[worker_id] = -1
         with open(path + "/" + p + ".txt", "r") as f:
             #print("S2 Looking at user" + " " + p)
 
@@ -171,33 +177,48 @@ def get_s2_data(path):
                     if reset_time > 0:
                         response += "\n" + "  Stage 2 reset duration" + str(end_time - reset_time)
                         response += "\n" + "  Number of robots interacted with: " + str(sum(robots_interacted))
-                    #s2_scores[p] = (end_time - start_time)
-                    #s2_scores[p] = (end_time - start_time) / max_caches_connected if max_caches_connected > 0 else 700 #int(100000 * max_caches_connected / sum(distance_traveled)) if sum(distance_traveled) > 10 else 0
-                    s2_scores[p] = min_connection_distance
                     break
 
                 former_a = a
             
-            # plot and wait
-            #plt.plot(plot_time, plot_score)
-
+        # collect some metric variables
         duration = end_time - start_time
         if duration < 600:
             min_connection_distance = 0
         if duration == 0:
             continue
-        score = (max_score - min_connection_distance) / duration
-        print(p)
-        print(score)
+
+        #determine score
+        if metric == "distance progress":  # closest the participant got to completing the stage
+            s2_scores[worker_id] = (max_score - min_connection_distance) / duration
+        elif metric == "min connection distance":
+            s2_scores[worker_id] = min_connection_distance
+        elif metric == "time to complete":  # time to complete, -1 if did not complete
+            s2_scores[worker_id] = (end_time - start_time)
+            if s2_scores[worker_id] >= 600:
+                s2_scores[worker_id] = -1
+        elif metric == "time to complete / max caches connected":  # time to complete / max caches connected
+            s2_scores[worker_id] = (end_time - start_time) / max_caches_connected if max_caches_connected > 0 else 700  # 700 because it's higher than 600 (max possible organic completion)
+        elif metric == "max caches connected":  # max caches connected
+            s2_scores[worker_id] = max_caches_connected
+        else:
+            s2_scores[worker_id] = -1
+        
+        s2_total += 1
+        s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0
+        
         s2_total += 1
         s2_complete += 1 if max_caches_connected < 5 and max_caches_connected > 0 else 0
 
+
+    normalization = max(s2_scores.values())  # normalization factor
+    s2_scores = {p : s2_scores[p] / normalization for p in s2_scores}
     
     #plt.ylabel("Min Connection Distance to all Caches")
     #plt.xlabel("Time (sec)")
     #plt.show()
 
-    print("S2 Summary", s2_complete, s2_total)
+    #print("S2 Summary", s2_complete, s2_total)
 
     return s2_scores
 
