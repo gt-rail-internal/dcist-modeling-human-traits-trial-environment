@@ -5,11 +5,14 @@
 # You may need to import some classes of the controller module. Ex:
 #  from controller import Robot, Motor, DistanceSensor
 from controller import Robot, Camera, InertialUnit, GPS, Compass, Gyro, Motor, Keyboard
+from controller import Supervisor
 import math
 import numpy as np
 import rospy 
 from std_msgs.msg import String
 import base64
+import cv2
+import datetime
 
 world_x = None
 world_y = None
@@ -17,9 +20,15 @@ ramp_down = False
 ramp_up = False
 position_x = None
 position_y = None
+initial_x = None
+initial_y = None
 
 initial_heading = False
 at_target = False
+
+supervisor = None
+robot = None 
+
 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
@@ -47,19 +56,26 @@ def dji_controller():
     global world_y
     global position_x
     global position_y
+    global initial_x
+    global initial_y
 
     global ramp_up
     global ramp_down
     
     global initial_heading
     global at_target
+    
+    global robot
 
     # create the Robot instance.
     robot = Robot()
-
+    robot.supervisor = True;
+        
     # start the ROS position subscriber
     rospy.init_node(robot.getName() + '_webots_controller', anonymous=True)
     rospy.Subscriber(robot.getName() + "/set_position", String, convertPercentToMeters)
+    rospy.Subscriber("/reset_world", String, resetWorld)
+    
     print("Created ROS subscriber", robot.getName() + "_position")
 
     # create the ROS position publisher
@@ -68,7 +84,7 @@ def dji_controller():
     at_waypoint = rospy.Publisher(robot.getName() + '/at_waypoint', String, queue_size=1)
 
     # get the time step of the current world.
-    timestep = int(robot.getBasicTimeStep())
+    timestep = int(robot.getBasicTimeStep()) * 2
     keyboard = Keyboard()
     keyboard.enable(timestep)
     camera = robot.getDevice("camera")
@@ -94,53 +110,25 @@ def dji_controller():
         motors[i].setVelocity(0.0)
 
     print("arming")
-    forward_velocity = 15
+    forward_velocity = 7
 
     # target
     target_x = 0
     target_y = 0
     i = 0
+    
+    # set the intial position
+    initial_x = gps.getValues()[0]
+    initial_y = gps.getValues()[2]
+    
+    # FRDEBUG
+    last_camera_send = datetime.datetime.now().timestamp()
    
-
     fixed_power = 0
     count = 0
     while robot.step(timestep) != -1:
-        # Read the sensors:
-        # Enter here functions to read sensor data, like:
-        #  val = ds.getValue()
-        # roll = imu.getRollPitchYaw()[0] + math.pi / 2.0
-        # pitch = imu.getRollPitchYaw()[1]
-        # yaw = imu.getRollPitchYaw()[2]
-        # altitude = gps.getValues()[1]
         px = gps.getValues()[0]
         py = gps.getValues()[2]
-        # print("px = %f, py = %f" %(px, py))
-        #roll_acceleration = gyro.getValues()[0]
-        #pitch_acceleration = gyro.getValues()[1]
-    
-        #print("x = %f, y = %f, z = %f" %(px ,py, altitude))
-        #print(yaw)
-        # keyboard input
-        key=keyboard.getKey()
-        while(key > 0):
-            if (key==Keyboard.UP):
-                target_yaw += 0.01
-                break
-            if (key==Keyboard.LEFT):
-                target_yaw -= 0.01
-                break
-            if (key==ord('W')):
-                target_x -= 0.01
-                break
-            if (key==ord('X')):
-                target_x += 0.01
-                break
-            if (key==ord('A')):
-                target_y += 0.01
-                break
-            if (key==ord('D')):
-                target_y -= 0.01
-                break
 
         max_fixed_power = 500
         approach_radius = 5.0
@@ -150,64 +138,86 @@ def dji_controller():
         
         dist_to_target = math.sqrt((world_y - py)**2 + (world_x - px)**2) if world_x else 0
 
-        
         # call the function -> world_x, world_y (don't name them that though)
         # format as a string str(world_x) + "," + str(world_y)
         # publish that string
-        if count % 50 == 0:
+        if count % 5 == 0: 
+            this_camera_send = datetime.datetime.now().timestamp()
+            
             image = camera.getImageArray()
-            buffer = str(image)
-            encoded = buffer.encode()
+            
+            image_np = np.array(image)
+            #print("Original Shape", image_np.shape)
+            image_np = np.rot90(image_np, k=1, axes=(1,0))
+            image_np[:, :, [2, 0]] = image_np[:, :, [0, 2]]
+            image_np = np.flip(image_np, axis=1)
+            #print("Resulting Shape", image_np.shape)
+            _, encoded = cv2.imencode('.jpg', image_np)
+
             b64 = base64.b64encode(encoded)
-            cam_img.publish(str(b64))   
+            cam_img.publish(robot.getName() + "," + str(b64))   
             robot_pos_x, robot_pos_y = mapToWorld(False, px, py)
             robot_current_position = robot.getName() + "," + str(robot_pos_x) + "," + str(robot_pos_y)
             rob_pos.publish(robot_current_position)
-            if dist_to_target < 5 and dist_to_target > 0:
+            
+            if dist_to_target < 8 and dist_to_target > 0:
                 waypoint_x, waypoint_y = mapToWorld(False, world_x, world_y)
                 at_waypoint.publish(robot.getName() + "," + str(waypoint_x) + "," + str(waypoint_y))
-
+            
+            if robot.getName() == "UGV1":
+                #print("SEND CYCLE", (this_camera_send - last_camera_send) * 1000)
+                #print("  PROCESS CYCLE", (datetime.datetime.now().timestamp() - this_camera_send) * 1000)
+                last_camera_send = this_camera_send
+            
         count += 1
 
         
         #print(robot.getName(), "PX", px, "PY", py, "World X", world_x, "World Y", world_y, "fixed power", fixed_power)
-        print("Compass Values: ", compass.getValues())
+        #print("Compass Values: ", compass.getValues())
         compass_x = compass.getValues()[0]
         compass_y = compass.getValues()[1]
         compass_deg = math.atan2(compass_y, compass_x) * 180 / 3.14159265
         if world_x is None and world_y is None:
+            #print(robot.getName(), "no world x or world y")
             continue
 
         target_angle = math.atan2(world_y - py, world_x - px) * 180 / 3.14159265
        
         heading, left_angle, right_angle = find_heading(compass_deg,target_angle)
-        print("left angle", left_angle,"right angle", right_angle, "compass deg", int(compass_deg), "target_angle", int(target_angle))
+        #print("left angle", left_angle,"right angle", right_angle, "compass deg", int(compass_deg), "target_angle", int(target_angle))
         
         degrees_left = abs(int(compass_deg) - int(target_angle))
         
-        if initial_heading:
+        if initial_heading and not at_target:
             # Go Left
             if heading == "left":
-                print("left")
+                if robot.getName() == "UGV1":
+                    #print("left")
+                    pass
                 for left_motor in left_motors:
                     left_motor.setVelocity(0)
                 for right_motor in right_motors:
                     right_motor.setVelocity(forward_velocity)
-                    print(">>>>", right_motor.getVelocity())
                 
             # Go Right
             elif heading == "right":
-                print("right")
+                if robot.getName() == "UGV1":
+                    #print("right")
+                    pass
+                #print("right")
                 for left_motor in left_motors:
                     left_motor.setVelocity(forward_velocity)
                 for right_motor in right_motors:
                     right_motor.setVelocity(0)
             
             if degrees_left < 3:
-                 initial_heading = False
+                if robot.getName() == "UGV1":
+                    #print("at heading")
+                    pass
+                initial_heading = False
         elif not at_target:
             # Go forward
-            print("forward")
+            #print("forward")
             angle_scaling = 5
             right_velocity_heading = right_angle / angle_scaling if heading == "right" else -left_angle / angle_scaling
             left_velocity_heading = -right_angle / angle_scaling if heading == "right" else left_angle / angle_scaling
@@ -216,12 +226,17 @@ def dji_controller():
                 left_motor.setVelocity(forward_velocity + right_velocity_heading)
             for right_motor in right_motors:
                 right_motor.setVelocity(forward_velocity + left_velocity_heading)
-            if dist_to_target < 3:
+            if dist_to_target < 5:
+                if robot.getName() == "UGV1":
+                    #print("at target")
+                    pass
                 at_target = True
         else:
             for motor in motors:
                 motor.setVelocity(0)
-               
+            if robot.getName() == "UGV1":
+                #print("stopped", compass_deg)               
+                pass
 
         # Enter here functions to send actuator commands, like:
         #  motor.setPosition(10.0)
@@ -275,8 +290,15 @@ def mapToWorld(forward, x, y):
 
 
     return world_x, world_y
-        
+    
 
+def resetWorld(data):
+    global robot
+    if str(data.data).lower() == "reset":
+        if robot.getName() == "UGV1":
+            print("resetting world")
+            robot.worldReload()
+    return
 
 def convertPercentToMeters(data):
     global world_x
@@ -292,6 +314,9 @@ def convertPercentToMeters(data):
         world_x = position_x
         world_y = position_y
         return
+    
+    if robot.getName() == "UGV1":
+        print("Convert percent to meters")
 
     data = str(data.data).split(",")
     data_x = 1 - float(data[0])

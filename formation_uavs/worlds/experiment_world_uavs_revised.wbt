@@ -13,8 +13,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.24647615654169241 0.844285293928723 0.47584855438692364 2.179568055116182
-  position 11.798209743375844 19.72045612664779 -3.896421435408098
+  orientation 0.03876649669079994 0.893749322444014 0.4468884730726315 3.155080087498163
+  position 3.2550627414014754 8.1557150658739 -7.559590651557493
   near 0.2
   follow "leader"
   followSmoothness 0.2
@@ -29,6 +29,83 @@ Floor {
   tileSize 6 6
   appearance SandyGround {
   }
+}
+dji_mavic_pro {
+  translation 0 0.1 0
+  rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
+  name "UAV1"
+  bodySlot [
+    Emitter {
+    }
+  ]
+  cameraSlot [
+    Camera {
+      translation 0 -0.03 1e-05
+      rotation 1 0 0 -1.57
+      width 200
+      height 140
+      near 0.2
+    }
+  ]
+}
+dji_mavic_pro {
+  translation 1 0.1 1
+  rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
+  name "UAV2"
+  controllerArgs [
+    ""
+  ]
+  bodySlot [
+    Receiver {
+    }
+  ]
+  cameraSlot [
+    Camera {
+      translation 0 -0.03 1e-05
+      rotation 1 0 0 -1.57
+      width 200
+      height 140
+      near 0.2
+    }
+  ]
+}
+dji_mavic_pro {
+  translation 1 0.1 -1
+  rotation 0 -0.7071067811865475 -0.7071067811865475 -3.14159
+  name "UAV3"
+  bodySlot [
+    Receiver {
+    }
+  ]
+  cameraSlot [
+    Camera {
+      translation 0 -0.03 1e-05
+      rotation 1 0 0 -1.57
+      width 200
+      height 140
+      near 0.2
+    }
+  ]
+}
+dji_mavic_pro {
+  translation 1.66 0.1 1.42746e-07
+  rotation 1 0 0 -1.5707953071795862
+  name "UAV4"
+  cameraSlot [
+    Camera {
+      translation 0 -0.03 1.10196e-07
+      rotation 1 0 0 -1.5708
+      name "cam"
+      width 2000
+      height 2000
+    }
+    Camera {
+      translation 0 -0.03 1e-05
+      rotation 1 0 0 -1.57
+      width 200
+      height 140
+    }
+  ]
 }
 Warehouse {
   translation -61.81 0 63.6
@@ -63,14 +140,14 @@ OilBarrel {
   name "oil barrel(6)"
 }
 WoodenBox {
-  translation -141.27 0.3 73.68
+  translation -120 0.3 88.9
 }
 WoodenBox {
-  translation -140.66 0.3 73.68
+  translation -120 0.3 89.6
   name "wooden box(1)"
 }
 WoodenBox {
-  translation -140.85 0.3 73.08
+  translation -119 0.3 89.6
   name "wooden box(2)"
 }
 OilBarrel {
@@ -110,78 +187,6 @@ Road {
 Windmill {
   translation -43.8656 0 19.8433
   rotation 0 1 0 -1.0472
-}
-Moose {
-  translation -0.119988 0.39 1.55001
-  rotation 0 1 0 -3.1415853071795863
-  name "UGV1"
-  controller "moose_rail_ros"
-  bodySlot [
-    Compass {
-    }
-    Camera {
-      translation -1.1 0 0.3
-      rotation -0.5773502691896257 0.5773502691896257 0.5773502691896257 -2.09
-      width 200
-      height 140
-    }
-    GPS {
-    }
-  ]
-}
-Moose {
-  translation -0.240001 0.39 -1.4
-  rotation 0 1 0 -3.1415853071795863
-  name "UGV2"
-  controller "moose_rail_ros"
-  bodySlot [
-    Compass {
-    }
-    Camera {
-      translation -1.1 0 0.3
-      rotation -0.5773502691896257 0.5773502691896257 0.5773502691896257 -2.09
-      width 200
-      height 140
-    }
-    GPS {
-    }
-  ]
-}
-Moose {
-  translation 3.91 0.39 1.55999
-  rotation 0 1 0 -3.1415853071795863
-  name "UGV3"
-  controller "moose_rail_ros"
-  bodySlot [
-    Compass {
-    }
-    Camera {
-      translation -1.1 0 0.3
-      rotation -0.5773502691896257 0.5773502691896257 0.5773502691896257 -2.09
-      width 200
-      height 140
-    }
-    GPS {
-    }
-  ]
-}
-Moose {
-  translation 3.98999 0.39 -1.32
-  rotation 0 1 0 -3.1415853071795863
-  name "UGV4"
-  controller "moose_rail_ros"
-  bodySlot [
-    Compass {
-    }
-    Camera {
-      translation -1.1 0 0.3
-      rotation -0.5773502691896257 0.5773502691896257 0.5773502691896257 -2.09
-      width 200
-      height 140
-    }
-    GPS {
-    }
-  ]
 }
 Windmill {
   translation -44.258 0 27.3356
@@ -651,51 +656,52 @@ Pine {
   rotation 0 1 0 -2.618
   name "pine tree(2)"
 }
+
 WoodenBox {
-  translation -124.26 0.3 -68.86
+  translation -154 0.3 -73.2
   name "wooden box(3)"
 }
 WoodenBox {
-  translation -123.68 0.3 -68.86
+  translation -153 0.3 -72.8
   name "wooden box(4)"
 }
 WoodenBox {
-  translation -132.41 0.3 0.47
+  translation -95.2 0.3 6.72
   name "wooden box(6)"
 }
 WoodenBox {
-  translation -133.04 0.3 0.83
+  translation -94.6 0.3 6.15
   name "wooden box(7)"
 }
 WoodenBox {
-  translation -132.99 0.3 0.21
+  translation -94.6 0.3 6.75
   name "wooden box(8)"
 }
 WoodenBox {
-  translation -47.97 0.3 101.94
+  translation -30.9 0.3 94.3
   name "wooden box(9)"
 }
 WoodenBox {
-  translation -47.38 0.3 101.94
+  translation -31.5 0.3 94.4
   name "wooden box(10)"
 }
 WoodenBox {
-  translation -47.56 0.3 101.34
+  translation -31.6 0.3 93.7
   name "wooden box(11)"
 }
 WoodenBox {
-  translation -123.89 0.3 -68.25
+  translation -153 0.3 -73.2
   name "wooden box(5)"
 }
 WoodenBox {
-  translation -18.03 0.3 -69.11
+  translation -45.9 0.3 -62.4
   name "wooden box(12)"
 }
 WoodenBox {
-  translation -17.39 0.3 -69.11
+  translation -46.4 0.3 -63
   name "wooden box(13)"
 }
 WoodenBox {
-  translation -17.73 0.3 -69.75
+  translation -46.6 0.3 -62.3
   name "wooden box(14)"
 }
